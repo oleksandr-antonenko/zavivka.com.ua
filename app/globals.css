@@ -1,33 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Ubuntu:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --main-accent-color: #D7A908;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+    font-family: "KyivTypeSansRegular";
+    src: url('/fonts/KyivTypeSansRegular.woff2') format('woff2'), url('/fonts/KyivTypeSansRegular.woff') format('woff');
+}
+@font-face {
+    font-family: "KyivTypeSansBold";
+    src: url('/fonts/KyivTypeSansBold.woff2') format('woff2'), url('/fonts/KyivTypeSansBold.woff') format('woff');
+}
+@font-face {
+    font-family: "KyivTypeSansRegularThinMidline";
+    src: url('/fonts/KyivTypeSansRegularThinMidline.woff2') format('woff2'), url('/fonts/KyivTypeSansRegularThinMidline.woff') format('woff');
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+header {
+    font-family: 'Inter', sans-serif;
+}
+.topHeader{
+    font-size: 12px;
+}
+.onlineBooking{
+    border: 1px solid var(--main-accent-color);
+    padding: 10px 20px;
+    border-radius: 6px;
+    gap: 10px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.mainBanner{
+    display: flex;
+    padding-left: 333px;
+    align-items: center;
+    background-image: url('/images/ai-banner.jpg');
+    background-size: cover;
+    width: 100%; /* Используйте 100% вместо max-width для полной ширины */
+    height: 800px;
+    position: relative; /* Это нужно, чтобы позиционировать абсолютно вложенные элементы относительно этого контейнера */
+
+}
+.mainBanner .content{
+    font-family: 'KyivTypeSansRegular', sans-serif;
+}
+.mainBanner .content h1{
+    font-family: 'KyivTypeSansBold', sans-serif;
+}
+.mainBanner .content a.button{
+    background-color: var(--main-accent-color);
+    color: #212121;
+    font-family: 'KyivTypeSansRegularThinMidline', sans-serif;
+    margin-right: 50px;
+}
+
+@keyframes expandCircle {
+    from {
+        width: 100%; /* Начальная ширина полоски */
+        height: 0; /* Начальная высота полоски */
+        border-radius: 0; /* Начальный радиус скругления */
+    }
+    to {
+        width: 150px; /* Конечная ширина кружка */
+        height: 150px; /* Конечная высота кружка */
+        border-radius: 50%; /* Конечный радиус скругления */
+    }
+}
+
+.withCircle{
+    position: relative;
+    z-index: 10;
+}
+.withCircle h2,.withCircle div{
+    z-index: 10;
+}
+
+.withCircle::before {
+    z-index: -1;
+    content: ""; /* Необходимо для отображения псевдоэлемента */
+    position: absolute;
+    top: 0; /* Расположение относительно верхнего края секции */
+    left: 0; /* Расположение относительно левого края секции */
+    width: 150px; /* Диаметр кружка */
+    height: 150px; /* Диаметр кружка */
+    background-color: var(--main-accent-color); /* Цвет фона кружка */
+    border-radius: 50%; /* Делает фон круглым */
+    transform: translate(-50%, -50%); /* Смещает кружок так, чтобы его центр находился в углу */
+}
+
+.sectionBlock{
+    font-family: 'Ubuntu', sans-serif;
+    margin: auto;
+    padding: 100px 0 ;
+    max-width: 1200px;
+}
+
+
+
+
+.features-container {
+    display: flex; /* Элементы расположены в ряд */
+    width: 1550px;
+    overflow-x: auto; /* Включаем горизонтальный скролл для контейнера */
+    gap: 100px;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    background: url("/images/curl-line-full.svg") repeat-x local;
+}
+
+.features-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.feature {
+    display: flex; /* Используем flex для внутреннего выравнивания */
+    flex-direction: column; /* Элементы внутри feature располагаются вертикально */
+    justify-content: space-between; /* Распределяем пространство между заголовком и текстом */
+    min-width: 285px; /* Минимальная ширина каждого feature */
+    padding: 10px 0;
+}
+
+.feature h4 {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 30px; /* Отступ заголовка от текста */
+}
+/*.feature h4::before{*/
+/*    content: ""; !* Необходимо для отображения псевдоэлемента *!*/
+/*    position: absolute;*/
+/*    top: 3px; !* Расположение относительно верхнего края секции *!*/
+/*    left: 0; !* Расположение относительно левого края секции *!*/
+/*    width: 20px; !* Диаметр кружка *!*/
+/*    height: 20px; !* Диаметр кружка *!*/
+/*    background-color: var(--main-accent-color); !* Цвет фона кружка *!*/
+/*    border-radius: 50%; !* Делает фон круглым *!*/
+/*    transform: translate(0,+25%); !* Смещает кружок так, чтобы его центр находился в углу *!*/
+/*}*/
+.feature-title{
+    padding-top: 10px;
+}
+
+.feature-circle{
+    display: block;
+    width: 20px; /* Диаметр кружка */
+    height: 20px; /* Диаметр кружка */
+    border-radius: 50%; /* Делает кружок круглым */
+    background-color: #EAEAEA; /* Начальный цвет кружков */
+    margin-right: 10px; /* Отступ, чтобы отделить кружок от текста заголовка */
+    vertical-align: middle; /* Выравнивание по центру относительно текста */
+    float: left;
+}
+
+.feature p {
+    padding: 0 10px;
+    flex-grow: 1; /* Текст растягивается, чтобы занять все доступное пространство */
+}
+
+.features{
+    width: 1550px;
+    height: 250px;
+    display: flex;
+    overflow-x: hidden; /* Изменено на hidden, управление скроллом через JS */
 }
