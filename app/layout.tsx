@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header/Header";
+import React from "react";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from "@/theme";
 
 const inter = Inter({ subsets: ["cyrillic"] });
 
@@ -17,9 +21,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-common-background text-white`}>
-        <Header/>
-        <main className="relative">{children}</main>
+      <body className={`${inter.className} bg-common-background`}>
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>
+            <Header />
+            <main className="relative overflow-x-hidden">{children}</main>
+          </ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

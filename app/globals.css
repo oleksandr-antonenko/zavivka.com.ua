@@ -6,6 +6,11 @@
 
 :root {
     --main-accent-color: #D7A908;
+    --secondary-accent-color: #FFEE95;
+    --inactive-color: #A4A4A4;
+    --white-color: #EAEAEA;
+    --text-color: #FBFBFB;
+    --text-color-dark: #212121;
 }
 
 @font-face {
@@ -21,6 +26,9 @@
     src: url('/fonts/KyivTypeSansRegularThinMidline.woff2') format('woff2'), url('/fonts/KyivTypeSansRegularThinMidline.woff') format('woff');
 }
 
+body{
+    color: var(--text-color, #FBFBFB)
+}
 header {
     font-family: 'Inter', sans-serif;
 }
@@ -36,17 +44,18 @@ header {
 
 .mainBanner{
     display: flex;
-    padding-left: 333px;
-    align-items: center;
-    background-image: url('/images/ai-banner.jpg');
+    flex-direction: column;
+    justify-content: end;
     background-size: cover;
-    width: 100%; /* Используйте 100% вместо max-width для полной ширины */
+    width: 100%;
     height: 800px;
-    position: relative; /* Это нужно, чтобы позиционировать абсолютно вложенные элементы относительно этого контейнера */
+    position: relative;
 
 }
 .mainBanner .content{
     font-family: 'KyivTypeSansRegular', sans-serif;
+    padding-left: 233px;
+    padding-bottom: 50px;
 }
 .mainBanner .content h1{
     font-family: 'KyivTypeSansBold', sans-serif;
@@ -71,63 +80,90 @@ header {
     }
 }
 
-.withCircle{
+section{
+    padding: 100px 0 ;
+
+}
+
+.with-circle{
     position: relative;
     z-index: 10;
 }
-.withCircle h2,.withCircle div{
+.with-circle h2,.with-circle div{
     z-index: 10;
 }
 
-.withCircle::before {
+.with-circle::before {
     z-index: -1;
-    content: ""; /* Необходимо для отображения псевдоэлемента */
+    content: "";
     position: absolute;
-    top: 0; /* Расположение относительно верхнего края секции */
-    left: 0; /* Расположение относительно левого края секции */
-    width: 150px; /* Диаметр кружка */
-    height: 150px; /* Диаметр кружка */
-    background-color: var(--main-accent-color); /* Цвет фона кружка */
-    border-radius: 50%; /* Делает фон круглым */
-    transform: translate(-50%, -50%); /* Смещает кружок так, чтобы его центр находился в углу */
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    background-color: var(--main-accent-color);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.sectionBlock{
+.section-block{
     font-family: 'Ubuntu', sans-serif;
     margin: auto;
-    padding: 100px 0 ;
     max-width: 1200px;
 }
+.section-header{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 54px;
+    margin-bottom: 20px;
+}
 
+.section-block h2{
+    font-family: Ubuntu, sans-serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+}
 
+.section-block h3{
+    font-family: Ubuntu, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
 
 
 .features-container {
-    display: flex; /* Элементы расположены в ряд */
+    display: flex;
     width: 1550px;
-    overflow-x: auto; /* Включаем горизонтальный скролл для контейнера */
+    overflow-x: auto;
     gap: 100px;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     background: url("/images/curl-line-full.svg") repeat-x local;
 }
 
 .features-container::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: none;
 }
 
 .feature {
-    display: flex; /* Используем flex для внутреннего выравнивания */
-    flex-direction: column; /* Элементы внутри feature располагаются вертикально */
-    justify-content: space-between; /* Распределяем пространство между заголовком и текстом */
-    min-width: 285px; /* Минимальная ширина каждого feature */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 285px;
     padding: 10px 0;
 }
 
 .feature h4 {
     position: relative;
     padding-left: 40px;
-    margin-bottom: 30px; /* Отступ заголовка от текста */
+    margin-bottom: 30px;
 }
 /*.feature h4::before{*/
 /*    content: ""; !* Необходимо для отображения псевдоэлемента *!*/
@@ -165,4 +201,228 @@ header {
     height: 250px;
     display: flex;
     overflow-x: hidden; /* Изменено на hidden, управление скроллом через JS */
+}
+
+.digits{
+    margin: 0 auto;
+    display: flex;
+    width: 1200px;
+    justify-content: space-between;
+    gap: 50px;
+}
+.digits .digits-element{
+    display: flex;
+    padding: 0 24px;
+    align-items: center;
+    gap: 11px;
+    border-radius: 20px;
+    border: 1px solid var(--white-color, #EAEAEA);
+}
+.digits .digits-element p {
+    color: var(--text-color, #FBFBFB);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%; /* 104px */
+}
+.digits .digits-element p.digit{
+    font-size: 64px;
+}
+.digits .digits-element p.description{
+    font-size: 28px;
+}
+
+.trust{
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 122px;
+}
+
+.trust .why{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+}
+
+.trust .why .text-block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 54px;
+    font-family: Ubuntu,sans-serif;
+}
+.trust .why .text-block h4 {
+    color: var(--text-color, #FBFBFB);
+    text-align: center;
+}
+.trust .why .consultation-button{
+    display: flex;
+    padding: 12px 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 40px;
+    background: var(--main-accent-color);
+    color: var(--text-color-dark, #212121);
+    font-family: "KyivTypeSansRegularThinMidline", sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    line-height: 130%; /* 31.2px */
+}
+.trust .trust-image{
+    width: 600px;
+    height: 400px;
+    flex-shrink: 0;
+    background: url("/images/hair-perm-happy-client.jpg") lightgray 50% / cover no-repeat;
+}
+
+.prices .prices-body{
+    display: flex;
+}
+
+.prices .prices-body ul.service-list{
+    display: flex;
+    width: 560px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 54px;
+}
+
+.prices ul.service-list li{
+    cursor: pointer; /* Изменяет курсор, указывая на возможность клика */
+    border-bottom: 0.5px solid var(--white-color, #EAEAEA);
+    width: 510px;
+    font-size: 24px;
+}
+
+.prices ul.service-list li.active {
+    border-bottom: 3px solid var(--main-accent-color);
+    width:560px;
+}
+
+.prices .service-details{
+    flex-grow: 1;
+    border-radius: 20px;
+    border: 3px solid var(--main-accent-color, #D7A908);
+    width: 606px;
+
+}
+
+.prices .service-price-description{
+    display: none;
+    height: 520px;
+    padding: 30px 28px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    flex-shrink: 0;
+}
+
+.prices .service-price-description.active {
+    display: flex;
+}
+
+.prices .service-price-description .description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.prices .service-price-description .description .description-text{
+    min-width: 240px;
+}
+
+.prices .service-price-description .category-prices{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.prices .service-price-description .category-prices li{
+    display: flex;
+    width: 155px;
+    height: 104px;
+    padding: 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 6px;
+    border: 1px solid var(--white-color, #EAEAEA);
+}
+
+.prices .service-price-description .category-prices li h6 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.prices .service-price-description .category-prices li p {
+    color: var(--main-accent-color, #D7A908);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%; /* 21.6px */
+}
+.MuiAccordionSummary-content{
+    color: var(--text-color, #FBFBFB);
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    padding: 10px 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+    border-bottom: 1px solid var(--inactive-color, #A4A4A4);
+
+}
+.MuiAccordionSummary-content.Mui-expanded{
+    border-bottom: 1px solid var(--main-accent-color);
+}
+.MuiAccordion-root{
+    position: inherit;
+}
+.circle-grey{
+    width: 877px;
+    height: 877px;
+    border-radius: 877px;
+    background: #4E4E4E;
+    position: absolute;
+    z-index: -1;
+}
+.circle-right{
+    transform: translateX(75%);
+}
+
+.circle-left{
+    transform: translateX(-100%);
+}
+
+.circle-up-left{
+    transform: translate(-75%,-50%);
+}
+.circle-up-right{
+    transform: translate(75%,-50%);
+}
+
+.circle-grey.circle-middle{
+    width: 750px;
+    height: 750px;
+}
+
+.circle-grey.circle-small{
+    width: 600px;
+    height: 600px;
 }

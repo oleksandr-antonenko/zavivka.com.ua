@@ -1,0 +1,39 @@
+/* ServiceCard.module.css */
+.serviceCard {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.serviceImage, .serviceVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.serviceVideo {
+    display: none;
+}
+
+.serviceCard:hover .serviceVideo {
+    display: block;
+}
+
+.serviceCard:hover .serviceImage {
+    display: none;
+}
+
+.serviceTitle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    color: var(--text-color);
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+}
