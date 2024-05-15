@@ -3,7 +3,6 @@ import styles from "@/components/contacts/Contacts.module.css";
 import {
   GoogleMap,
   InfoWindow,
-  LoadScript,
   Marker,
   useJsApiLoader,
 } from "@react-google-maps/api";
