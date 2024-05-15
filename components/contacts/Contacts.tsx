@@ -23,7 +23,9 @@ const center = {
   lat: 50.4440321,
   lng: 30.5197785,
 };
-const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY as string;
+const GOOGLE_MAPS_API_KEY = process.env
+  .NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string;
+console.log(GOOGLE_MAPS_API_KEY);
 export default function Contacts() {
   console.log("key:", GOOGLE_MAPS_API_KEY);
   const { isLoaded } = useJsApiLoader({
