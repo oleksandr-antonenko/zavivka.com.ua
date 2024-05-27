@@ -1,32 +1,28 @@
 "use client";
-import * as React from "react";
+import React, { useState } from "react";
+import type { SyntheticEvent } from "react";
 import Accordion from "@mui/material/Accordion";
-import AccordionActions from "@mui/material/AccordionActions";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Button from "@mui/material/Button";
-import styles from "@/components/faq/FAQ.module.css";
 
-export default function FAQ() {
-  const [expanded, setExpanded] = React.useState<string | false>("panel1");
+const FAQ = () => {
+  const [expanded, setExpanded] = useState<string | boolean>(false);
 
   const handleChange =
-    (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
+    (panel: string) => (event: SyntheticEvent, newExpanded: boolean) => {
       setExpanded(newExpanded ? panel : false);
     };
   return (
-    <section>
-      <div className={styles.faq + " section-block"}>
+    <section className="containerBox pl-5 md:pl-[100px] xl:pl-[260px] 2xl:pl-5 pr-5 md:pr-[80px] xl:pr-[240px] 2xl:pr-[100px] relative">
         <div className="with-circle">
-          <div className="section-header">
-            <h2>Поширені запитання і відповіді</h2>
-          </div>
+            <h2 className="font-bold text-center sm:text-nowrap md:text-start text-[24px] md:text-[30px] xl:text-[40px] uppercase mb-[80px]">Поширені запитання і відповіді</h2>
         </div>
-        <div className="section-body">
+        <div>
           <Accordion
             expanded={expanded === "panel1"}
             onChange={handleChange("panel1")}
+            classes={"bg-transparent"}
           >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
@@ -74,10 +70,6 @@ export default function FAQ() {
               Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
               eget.
             </AccordionDetails>
-            <AccordionActions>
-              <Button>Cancel</Button>
-              <Button>Agree</Button>
-            </AccordionActions>
           </Accordion>
           <Accordion
             expanded={expanded === "panel4"}
@@ -95,13 +87,10 @@ export default function FAQ() {
               Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
               eget.
             </AccordionDetails>
-            <AccordionActions>
-              <Button>Cancel</Button>
-              <Button>Agree</Button>
-            </AccordionActions>
           </Accordion>
         </div>
-      </div>
     </section>
   );
 }
+
+export default FAQ;

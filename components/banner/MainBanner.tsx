@@ -1,11 +1,20 @@
-import Image from "next/image";
+import { ButtonLink } from "@/shared/buttons"
 
-export function MainBanner(){
+const MainBanner = () => {
     return(
-        <section className="w-full">
-            <div className="mainBanner absolute w-full">
+        <section className="w-full relative">
+            <div className="flex max-w-[1440px] 2xl:mx-auto flex-col justify-end w-full h-[800px]">
+                <div className="font-banner text-2xl text-white pl-[27px] md:pl-[100px] xl:pl-[260px] 2xl:pl-5 pb-[60px]">
+                        <h1 className="leading-[130%] text-[40px] md:text-7xl mb-10 font-bold text-center md:text-start">Завивка <br className="hidden md:block"/> волосся в Києві</h1>
+                            <p className="mb-[60px] text-center md:text-start">Спеціалізований салон краси. <br className="hidden md:block"/> Ми зберігаємо здоров`я волосся та <br className="hidden md:block"/> полегшуємо повсякденний догляд.</p>
+
+                        <div className="flex extraSm:flex-col extraSm:items-center sm:justify-center md:justify-start sm:flex-row gap-6 md:gap-[61px]">
+                            <ButtonLink link="/"> Жінки </ButtonLink>
+                            <ButtonLink link="/for-men"> Чоловіки </ButtonLink>
+                        </div>
+                </div>
                 <video
-                    className="absolute w-full h-full object-cover"
+                    className="absolute z-[-10] top-0 left-0 w-full h-full object-cover"
                     autoPlay
                     loop
                     muted
@@ -13,21 +22,9 @@ export function MainBanner(){
                 >
                     <source src="/videos/banner.mp4" type="video/mp4" />
                 </video>
-                {/*<Image src="/images/banner.jpg" alt="Background Image" className="object-cover object-center" fill />*/}
-                {/*<div className="absolute inset-0 bg-black opacity-50"></div>*/}
-                <div className="content">
-                    <div className="relative z-10">
-                        <h1 className="text-7xl leading-tight mb-4 font-bold">Завивка <br/>волосся в Києві</h1>
-                        <p className="text-2xl text-gray-300 mb-8">Спеціалізований салон краси.<br/>
-                            Ми зберігаємо здоров`я волосся та <br/>
-                            полегшуємо повсякденний догляд.</p>
-                        <a href="#" className="button py-2 px-6 rounded-full
-                      text-lg transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">Жінки</a>
-                        <a href="#" className="button py-2 px-6 rounded-full
-                      text-lg transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">Чоловіки</a>
-                    </div>
-                </div>
             </div>
         </section>
     )
 }
+
+export default MainBanner;

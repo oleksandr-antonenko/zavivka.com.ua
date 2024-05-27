@@ -1,12 +1,12 @@
-// components/header/Header.tsx
-
-import TopHeader from "@/components/header/top-header/top-header";
-import MainHeader from "@/components/header/main-header/main-header";
+import { TopHeader } from "./top-header";
+import { MainHeader } from "./main-header";
 
 export default function Header() {
   return (
-    <header className="px-100 relative">
-      <TopHeader />
+    <header>
+      <div className="hidden md:block">
+        <TopHeader />
+      </div>
       <MainHeader />
     </header>
   );

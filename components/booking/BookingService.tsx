@@ -1,23 +1,30 @@
 "use client";
+import type { FC } from 'react';
+import { ServiceCheckboxProps } from "./types";
 
-import styles from "@/components/booking/Booking.module.css";
-import { Service } from "@/components/booking/Booking";
-
-export function BookingService(service: Service) {
-  const toggleCheckbox = () => {
-    // Переключает состояние чекбокса
-    const checkbox = document.getElementById(service.name) as HTMLInputElement;
-    if (checkbox) {
-      checkbox.checked = !checkbox.checked;
-    }
-  };
+const BookingService: FC<ServiceCheckboxProps> = ({servicesCheckbox, register}) => {
+  
   return (
-    <div key={service.name} className={styles.checkbox}>
-      <input type="checkbox" id={service.name} name={service.name} />
-      <span className={styles.checkmark} onClick={toggleCheckbox}></span>
-      <label htmlFor={service.name} onClick={toggleCheckbox}>
-        {service.title}
-      </label>
+   <>
+   {servicesCheckbox.map((service, index) => {
+    const idAndName = service.name;
+
+    return (
+      <div key={idAndName} className="flex gap-4 items-center">
+        <input 
+          type="checkbox" 
+          id={idAndName} 
+          {...register(`${idAndName}`)}
+          className='appearance-none cursor-pointer peer shrink-0 relative rounded-[6px] w-[25px] h-[25px]'
+        />
+        <span className="absolute w-[25px] h-[25px] border border-orange rounded-[6px] pointer-events-none peer-hover:bg-yellow peer-checked:!bg-orange "></span>
+        <label htmlFor={idAndName} className='text-[16px] sm:text-nowrap'>
+          {service.title}
+        </label>
     </div>
+   )})}
+   </>
   );
 }
+
+export default BookingService;

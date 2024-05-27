@@ -1,47 +1,58 @@
-// components/services/ServiceCard.js
 "use client";
-import React, { useRef } from "react";
-import { Service } from "./Services";
-import styles from "./Services.module.css";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-export default function ServiceCard(service: Service) {
-  const videoRef = useRef<HTMLVideoElement>(null);
+import { ServiceListProps } from "./types";
+import type {FC} from 'react';
+import Link from "next/link";
 
-  const handleMouseEnter = () => {
-    videoRef.current && videoRef.current.play();
-  };
 
-  const handleMouseLeave = () => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
+const ServiceCard: FC<ServiceListProps> = ({services}) => {
+  const [currentVideo, setCurrentVideo] = useState<number>(0);
+  const playScroll = () => {
+    if(currentVideo === services.length - 1){
+      return setCurrentVideo(0)
     }
-  };
+    return setCurrentVideo(currentVideo + 1)
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {playScroll()}, 7000);
+    return () => clearInterval(interval);
+  })
+
   return (
-    <div
-      className={styles.serviceCard}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+   <>
+   {services.map((service, i) => (            
+    <Link 
+      href={service.url}
+      className="relative"
+      key={service.name}
     >
-      <Image
-        src={"/images/services/" + service.image}
-        alt={service.name}
-        className={styles.serviceImage}
-        width="300"
-        height="300"
-      />
-      <video
-        ref={videoRef}
-        width="300"
-        height="300"
-        className={styles.serviceVideo}
-        loop
-        muted
-      >
-        <source src={"/videos/services/" + service.video} type="video/mp4" />
-        Ваш браузер не поддерживает видео тег.
-      </video>
-      <div className={styles.serviceTitle}>{service.name}</div>
-    </div>
+      <div className="group" >
+        <Image
+          src={`/images/services/${service.image}`}
+          alt={service.name}
+          className={`w-full h-[166px] md:h-[284px] rounded-[20px] group-hover:hidden ${i === currentVideo ? "hidden md:block" : "block"}`}
+          sizes="100vw"
+          width={0}
+          height={0}
+        />
+        <video
+          className={`w-full h-[166px] md:h-[284px] object-cover rounded-[20px] group-hover:block ${i === currentVideo ? "block md:hidden" : "hidden"}`}
+          loop
+          muted
+          autoPlay
+          playsInline
+        >
+          <source src={`/videos/services/${service.video}`} type="video/mp4" />
+          Ваш браузер не поддерживает видео тег.
+        </video>
+      </div>
+      <div className="absolute font-medium sm:font-bold extraSm:text-[14px] sm:text-[16px] left-2 md:left-[30px] bottom-[15px] uppercase">{service.name}</div>
+    </Link>
+   ))}
+   </> 
   );
 }
+
+export default ServiceCard;

@@ -1,20 +1,7 @@
-.sectionBody{
-    display: flex;
-    width: 1200px;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
-}
-
 .reviewItem{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    align-self: stretch;
     perspective: 1000px;
     cursor: pointer;
-    width: 285px;
+    max-width: 285px;
 }
 
 .reviewItem.flipped .reviewBody {
@@ -28,45 +15,47 @@
 .reviewItem .reviewBody{
     width: 285px;
     height: 285px;
-    border-radius: 20px;
-    transition: transform 0.6s;
+    transition: transform .6s;
     transform-style: preserve-3d;
+    margin-bottom: 21px;
 }
 
 .reviewItem .reviewBody .photo,
 .reviewItem .reviewBody .reviewText {
     backface-visibility: hidden;
     position: absolute;
-    top: 0;
-    left: 0;
 }
-.reviewItem .reviewBody .reviewText p{
+.reviewItem .reviewBody .reviewText{
+    width: 285px;
+    height: 285px;
     text-align: left;
+    border: 1px solid #D7A908;
+    border-radius: 20px;
+    padding: 23px 23px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-color: white #343434;
+    scrollbar-width: none;
+    display: block;
+    font-size: 12px;
+    transform: rotateY(180deg);
 
 }
 .reviewItem .reviewBody .photo {
+    width: 285px;
+    height: 285px;
     transform: rotateY(0deg);
-    border-radius: 10px; /* Закругление углов */
-    overflow: hidden; /* Обрезка изображения по рамке */
+    border-radius: 20px;
+    overflow: hidden;
 }
 
-.reviewItem .reviewBody .reviewText {
-    transform: rotateY(180deg);
-    color: var(--text-color, #FBFBFB);
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.reviewItem .reviewBottom{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    font-size: 16px;
+    gap: 14px;
+    padding-left: 10px;
 }
 
 .hidden {
     display: none;
-}
-
-.reviewItem .reviewBottom{
-
 }

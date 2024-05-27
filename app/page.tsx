@@ -1,13 +1,14 @@
-import { MainBanner } from "@/components/banner/MainBanner";
-import { Services } from "@/components/services/Services";
-import { Features } from "@/components/feature/Features";
-import Digits from "@/components/header/digits/digits";
-import Trust from "@/components/trust/Trust";
-import { Prices } from "@/components/prices/Prices";
-import { Reviews } from "@/components/reviews/Reviews";
-import { Booking } from "@/components/booking/Booking";
-import FAQ from "@/components/faq/FAQ";
-import Contacts from "@/components/contacts/Contacts";
+import { Features } from "@/components/feature";
+import { MainBanner } from "@/components/banner";
+import { Trust } from "@/components/trust";
+import { Digits } from "@/components/digits";
+import { Reviews } from "@/components/reviews";
+import { Services } from "@/components/services";
+import { FAQ } from "@/components/faq";
+import { Contacts } from "@/components/contacts";
+import { Booking } from "@/components/booking";
+import { Prices } from "@/components/prices";
+
 
 export default function Home() {
   return (
@@ -19,8 +20,8 @@ export default function Home() {
       <Trust />
       <Prices />
       <Reviews />
-      <FAQ />
       <Booking />
+      <FAQ />
       <Contacts />
     </>
   );

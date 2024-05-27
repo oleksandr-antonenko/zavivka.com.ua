@@ -1,54 +1,25 @@
-import ServiceCard from "@/components/services/ServiceCard";
+import ServiceCard from "./ServiceCard";
+import { services } from "./constants";
 
-export interface Service {
-  name: string;
-  url: string;
-  image: string;
-  video: string;
-}
-const services: Service[] = [
-  {
-    name: "Завивка волосся",
-    image: "zavivka.jpg",
-    video: "zavivka.mp4",
-    url: "zavivka",
-  },
-  {
-    name: "Стрижка кудрів",
-    image: "haircut.jpg",
-    video: "haircut.mp4",
-    url: "haircut",
-  },
-  // Добавьте другие услуги аналогично
-];
-export function Services() {
+const Services = () => {
   return (
-    <section>
-      <div className="section-block relative">
+    <section className="containerBox pl-5 md:pl-[100px] xl:pl-[260px] 2xl:pl-5 pr-5 md:pr-[80px] xl:pr-[240px] 2xl:pr-[100px]">
+      <div className="relative">
         <div className="circle-grey top-0 right-0 circle-right"></div>
         <div className="with-circle">
-          <div className="section-header">
-            <h2>
+            <h2 className="font-bold text-center md:text-start text-[24px] md:text-[30px] xl:text-[40px] uppercase mb-[30px] md:mb-[54px]">
               Все для кучерявих і тих,
               <br />
               хто хоче ними стати
             </h2>
-            <h3>Пропонуємо лише ті послуги, в яких ми найкращі</h3>
-            <div className="flex"></div>
-          </div>
-          <div className="section-body">
-            {services.map((service) => (
-              <ServiceCard
-                url={service.url}
-                name={service.name}
-                image={service.image}
-                video={service.video}
-                key={service.name}
-              />
-            ))}
+            <p className="text-center md:text-start mb-[60px] md:mb-20">Пропонуємо лише ті послуги, в яких ми найкращі</p>
+          <div className="grid grid-cols-2 gap-5">
+              <ServiceCard services={services}/>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
+export default Services;

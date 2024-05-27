@@ -1,13 +1,13 @@
 "use client";
-import styles from "@/components/contacts/Contacts.module.css";
 import {
   GoogleMap,
   InfoWindow,
   Marker,
   useJsApiLoader,
 } from "@react-google-maps/api";
-import React, { useCallback } from "react";
+import React, {useState} from "react";
 import DirectionsIcon from "@mui/icons-material/Directions";
+import { SocialIcons } from "@/shared/social";
 
 interface LatLng {
   lat: number;
@@ -25,15 +25,16 @@ const center = {
 const GOOGLE_MAPS_API_KEY = process.env
   .NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string;
 console.log(GOOGLE_MAPS_API_KEY);
-export default function Contacts() {
+
+const Contacts = () => {
   console.log("key:", GOOGLE_MAPS_API_KEY);
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: GOOGLE_MAPS_API_KEY,
   });
-  const [map, setMap] = React.useState<google.maps.Map | null>(null);
-  const [infoOpen, setInfoOpen] = React.useState(false);
-  const [selectedPlace, setSelectedPlace] = React.useState<LatLng | undefined>(
+  const [map, setMap] = useState<google.maps.Map | null>(null);
+  const [infoOpen, setInfoOpen] = useState(false);
+  const [selectedPlace, setSelectedPlace] = useState<LatLng | undefined>(
     undefined,
   );
   const onLoad = React.useCallback(function callback(map: google.maps.Map) {
@@ -56,10 +57,10 @@ export default function Contacts() {
   };
 
   return isLoaded ? (
-    <section>
-      <div className={styles.contactsSection + " relative"}>
+    <section className="containerBox pl-5 md:pl-0 pr-5 md:pr-[80px] xl:pr-[240px] 2xl:pr-[100px] relative">
+      <div className="flex flex-col-reverse md:flex-row gap-[60px] xl:gap-[100px] items-start relative">
         <div className="circle-grey circle-right circle-small right-0 top-0 circle-up-right"></div>
-        <div className={styles.googleMap}>
+        <div className="basis-1/2 h-[348px] md:h-[750px] w-full">
           <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}
@@ -88,28 +89,24 @@ export default function Contacts() {
             </Marker>
           </GoogleMap>
         </div>
-        <div className={styles.contactsDetails}>
-          <div className={styles.mainInfo}>
-            <h2>Студія завивок</h2>
-            <div className={styles.phonesAndAddress}>
-              <p>+38 067 441 35 65</p>
-              <p>м. Київ, Хрещатик 44а</p>
-            </div>
-          </div>
-          <div className={styles.directions}>
-            <h4>Якщо ви пішки</h4>
-            <p>
+        <div className="pt-7 pb-10 basis-1/2">
+            <h2 className="font-bold text-[24px] md:text-[30px] xl:text-[40px] uppercase mb-[30px] md:mb-[54px]">Студія завивок</h2>
+              <p className="text-[16px] md:text-[24px] mb-9">+38 067 441 35 65</p>
+              <p className="mb-[66px] md:mb-20">м. Київ, Хрещатик 44а</p>
+            <h3 className="uppercase font-bold text-[24px] mb-9">Як доїхати:</h3>
+            <h4 className="text-[16px] mb-6 font-bold">Якщо ви пішки</h4>
+            <p className="text-[16px] mb-9">
               Найближча станція метро – «Театральна». Йти приблизно 3 хвилини.
               Вхід до арки будинку 44 (відразу за магазином «Samsung»)
             </p>
-            <h4>Якщо ви на авто</h4>
-            <p>
+            <h4 className="text-[16px] mb-6 font-bold">Якщо ви на авто</h4>
+            <p className="text-[16px] mb-[66px]">
               Рухаємось від перехрестя вулиць Хрещатик та Б.Хмельницького у бік
               Бессарабської площі. Поворот у наш двір другий за рахунком.
               Найпомітніший орієнтир - магазин Samsung. Місця для паркування
               обмежені, тому просимо під час запису вказати, що Ви на машині.
             </p>
-          </div>
+            <SocialIcons/>
         </div>
       </div>
     </section>
@@ -117,3 +114,5 @@ export default function Contacts() {
     <></>
   );
 }
+
+export default Contacts;
