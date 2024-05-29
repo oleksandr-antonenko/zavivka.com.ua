@@ -15,7 +15,7 @@ const Reviews = () => {
   }
 
   useEffect(() => {
-    const interval = setInterval(() => {carouselScroll()}, 5000);
+    const interval = setInterval(() => {carouselScroll()}, 3000);
     return () => clearInterval(interval);
   })
 
@@ -30,6 +30,7 @@ const Reviews = () => {
           <Review 
             reviews={reviews}
             current={current}
+            onclick={setCurrent}
           />
         </div>
       </div>

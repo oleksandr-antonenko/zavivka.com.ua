@@ -8,10 +8,17 @@ const Features = () => {
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const carouselInfiniteScroll = () => {
-    if(currentIndex === features.length - 1){
+    const featuresBox = document.querySelector('#featuresBox')!;
+    const {top, bottom} = featuresBox.getBoundingClientRect();
+    const screenHeight = window.innerHeight;
+    const isVisible = top < screenHeight && bottom > 0;
+    const isTopAboveMiddle = top < screenHeight / 2;
+    const isBottomBelowMiddle = bottom > screenHeight / 2;
+
+   if(isVisible && isTopAboveMiddle && isBottomBelowMiddle){ if(currentIndex === features.length - 1){
       return setCurrentIndex(0)
     }
-    return setCurrentIndex(currentIndex + 1)
+    return setCurrentIndex(currentIndex + 1)}
   }
 
   useEffect(() => {
@@ -20,7 +27,7 @@ const Features = () => {
   })
 
   return (
-    <section className="containerBox pl-5 md:pl-[100px] xl:pl-[260px] 2xl:pl-5">
+    <section id='featuresBox' className="containerBox pl-5 md:pl-[100px] xl:pl-[260px] 2xl:pl-5">
           <div className="with-circle">
             <h2 className="font-bold text-center md:text-start text-[24px] md:text-[30px] xl:text-[40px] uppercase mb-[30px] md:mb-[54px]">
               5 причин

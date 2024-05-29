@@ -86,7 +86,7 @@ header {
     gap: 100px;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    background: url("/images/curl-line.svg") no-repeat;
+    background: url("/images/curl-line-full.svg") repeat-x top local;
 }
 
 .features-container::-webkit-scrollbar {

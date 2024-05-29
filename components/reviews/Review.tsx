@@ -7,7 +7,7 @@ import { ReviewProps } from "./type";
 import { SpriteSVGSocial } from "@/shared/svg";
 
 
-const Review: FC<ReviewProps> = ({reviews, current}) => {
+const Review: FC<ReviewProps> = ({reviews, current, onclick}) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const toggleFlip = () => setIsFlipped(!isFlipped);
@@ -19,7 +19,7 @@ const Review: FC<ReviewProps> = ({reviews, current}) => {
         className={`${styles.reviewItem} ${isFlipped ? styles.flipped : ""} hidden md:block`}
         onClick={toggleFlip}
         key={review.id}
-        style={{transform: `translate(-${current * 100}%)`}}
+        style={{transform: `translate(-${reviews.length > 3 ? current * 70 : 0}%)`}}
       >
         <div className={styles.reviewBody}>
           <div className={`${styles.photo} ${isFlipped ? styles.hidden : ""} `}>
@@ -50,7 +50,7 @@ const Review: FC<ReviewProps> = ({reviews, current}) => {
     <div
         className="block md:hidden h-[528px] border border-orange py-6 px-6 rounded-[20px] min-w-[260px] sm:min-w-[284px] extraSm:overflow-x-auto sm:overflow-x-hidden overflow-y-auto "
         key={review.id}
-        style={{transform: `translate(-${current * 100}%)`}}
+        style={{transform: `translate(-${current * 110}%)`}}
       >
             <div className="mb-4 h-[200px] w-[200px] sm:h-[250px] sm:w-[250px]">
               <Image
@@ -80,7 +80,8 @@ const Review: FC<ReviewProps> = ({reviews, current}) => {
             return(
             <div 
               key={s.id}
-              className={`rounded-full w-2 h-2 border ${i === current ? "bg-white border-white" : "bg-transparent border-orange"}`}
+              onClick={() =>onclick(i)}
+              className={`cursor-pointer rounded-full w-2 h-2 border ${i === current ? "bg-white border-white" : "bg-transparent border-orange"}`}
               ></div>
           )})}
        </div>

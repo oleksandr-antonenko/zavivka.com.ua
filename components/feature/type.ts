@@ -1,6 +1,6 @@
 type Feature = {
-    title: string;
-    text: string;
+    title?: string;
+    text?: string;
 }
 
 export interface FeatureProps {
