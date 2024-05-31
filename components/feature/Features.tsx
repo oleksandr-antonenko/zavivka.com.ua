@@ -22,7 +22,7 @@ const Features = () => {
   }
 
   useEffect(() => {
-    const interval = setInterval(() => {carouselInfiniteScroll()}, 3000);
+    const interval = setInterval(() => {carouselInfiniteScroll()}, 1000);
     return () => clearInterval(interval);
   })
 
