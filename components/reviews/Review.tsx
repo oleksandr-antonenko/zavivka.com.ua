@@ -81,7 +81,7 @@ const Review: FC<ReviewProps> = ({reviews, current, onclick}) => {
             <div 
               key={s.id}
               onClick={() =>onclick(i)}
-              className={`cursor-pointer rounded-full w-2 h-2 border ${i === current ? "bg-white border-white" : "bg-transparent border-orange"}`}
+              className={`cursor-pointer rounded-full w-[15px] h-[15px] border ${i === current ? "bg-white border-white" : "bg-transparent border-orange"}`}
               ></div>
           )})}
        </div>
