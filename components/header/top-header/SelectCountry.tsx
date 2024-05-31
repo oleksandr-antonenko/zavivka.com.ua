@@ -33,7 +33,7 @@ const SelectCountry: FC<SelectProps> = ({countries, name, onChangeProps}) => {
       defaultValue={countries[0]}
       name={name}
       instanceId={useId()}
-      captureMenuScroll={false}
+      // captureMenuScroll={false}
       onChange={(newValue: SingleValue<unknown>) =>{ 
         const option = newValue as SelectT;
         onChangeProps(option.value)}}

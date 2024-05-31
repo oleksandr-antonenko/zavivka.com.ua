@@ -1,1 +1,1 @@
-export {default as Digits} from './digits';
+export {default as Digits} from './Digits';

@@ -87,6 +87,7 @@ header, footer {
     -ms-overflow-style: none;
     scrollbar-width: none;
     background: url("/images/curl-line-full.svg") repeat-x top local;
+    transition: all 4s ease-in;
 }
 
 .features-container::-webkit-scrollbar {

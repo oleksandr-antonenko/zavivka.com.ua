@@ -50,9 +50,9 @@ const Review: FC<ReviewProps> = ({reviews, current, onclick}) => {
     <div
         className="block md:hidden h-[528px] border border-orange py-6 px-6 rounded-[20px] min-w-[260px] sm:min-w-[284px] extraSm:overflow-x-auto sm:overflow-x-hidden overflow-y-auto "
         key={review.id}
-        style={{transform: `translate(-${current * 110}%)`}}
+        style={{transform: `translate(-${current * 100}%)`}}
       >
-            <div className="mb-4 h-[200px] w-[200px] sm:h-[250px] sm:w-[250px]">
+            <div className="mb-4 h-[190px] w-[190px] sm:h-[250px] sm:w-[250px]">
               <Image
                 src={`/images/clients/${review.image}`}
                 alt={review.clientName}
