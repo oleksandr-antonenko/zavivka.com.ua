@@ -5,7 +5,7 @@ import { SocialIconsProps } from './type';
 
 const SocialIcons: FC<SocialIconsProps> = ({colorFill="#FBFBFB", colorStroke="#FBFBFB"}) => {
   return (
-    <div className="flex items-center gap-4 h-[18px]">
+    <div className="flex flex-wrap sm:flex-nowrap items-center gap-4 h-[18px]">
         <a href="https://www.instagram.com/zavivka.com.ua/" target='_blank'>
             <SpriteSVGSocial 
                 name="instagram" 
