@@ -6,7 +6,7 @@ import { country, latvia, ukraine } from './constants';
 import SelectCountry from './SelectCountry';
 import { SocialIcons } from '@/shared/social';
 
-export default function TopHeader() {
+export default function TopHeader({show}: {show?: string}) {
     
     const [choice, setChoice] = useState("ukraine");
     const [language, setLanguage] = useState<string[]>(ukraine);
@@ -15,14 +15,14 @@ export default function TopHeader() {
     }, [choice]);
 
     return (
-        <div className="text-xs mx-[100px] py-2 border-b-white border-b justify-between flex items-center max-w-[1440px] 2xl:mx-auto">
-                <SocialIcons/>
-                <ul className="flex gap-10">
-                    <li><Link href='/education'>Навчання</Link></li>
-                    <li><Link href='/shop'>Інтернет-магазин</Link></li>
-                    <li><Link href='/contacts'>Контакти</Link></li>
+        <div className={`text-xs mx-[100px] py-2 border-b-white border-b justify-between flex items-center max-w-[1440px] 2xl:mx-auto ${show === "nav-desktop" ? "flex-row" : "topHeaderMob"}`}>
+                <div className="topHeaderMob-icons"><SocialIcons/></div>
+                <ul className={`flex gap-10 ${show === "nav-desktop" ? "flex-row" : "topHeaderLinksBox"}`}>
+                    <li className={`${show === "nav-desktop" ? "" : "topHeader-links"}`}><Link href='/education'>Навчання</Link></li>
+                    <li className={`${show === "nav-desktop" ? "" : "topHeader-links"}`}><Link href='/shop'>Інтернет-магазин</Link></li>
+                    <li className={`${show === "nav-desktop" ? "" : "topHeader-links"}`}><Link href='/contacts'>Контакти</Link></li>
                 </ul>
-                <div className="flex items-center justify-center">
+                <div className={`flex items-center ${show === "nav-desktop" ? "justify-center" : "topHeader-links"}`}>
                     <SelectCountry 
                         countries={country}
                         name="country"

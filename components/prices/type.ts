@@ -5,3 +5,4 @@ export interface PriceProps {
     onClick?: (e: number) => void;
     currentChoice?: number;
 }
+

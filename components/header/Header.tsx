@@ -1,13 +1,13 @@
-import { TopHeader } from "./top-header";
 import { MainHeader } from "./main-header";
+import { TopHeader } from "./top-header";
 
 export default function Header() {
   return (
     <header>
-      <div className="hidden md:block">
-        <TopHeader />
-      </div>
-      <MainHeader />
+        <div className="topHeader">
+          <TopHeader/>
+        </div>
+        <MainHeader/>
     </header>
   );
 }

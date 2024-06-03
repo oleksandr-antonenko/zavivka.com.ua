@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from "next/link";
 
-const Logo = ({color="#FBFBFB"}: {color?: string}) => {
+const Logo = ({color="#FBFBFB", width="200", height="65"}: {color?: string, width?: string, height?: string}) => {
   return (
     <Link href='/'>
         <svg
-        width="200"
-        height="65"
+        width={width}
+        height={height}
         viewBox="0 0 200 65"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
