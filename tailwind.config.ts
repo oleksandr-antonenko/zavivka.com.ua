@@ -18,7 +18,7 @@ const config: Config = {
       extraSm: '200px',
       sm: '375px',
       md: '768px',
-      xl: '1280px',
+      xl: '1380px',
       '2xl': '1536px',
     },
     extend: {

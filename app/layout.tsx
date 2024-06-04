@@ -7,6 +7,7 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "@/theme";
 import { StoreProvider } from "@/store/StoreProvider";
+import { Footer } from "@/components/footer";
 
 const inter = Inter({ 
   subsets: ["cyrillic"],
@@ -44,7 +45,8 @@ export default function RootLayout({
           <AppRouterCacheProvider>
             <ThemeProvider theme={theme}>
               <Header />
-              <main className="relative overflow-x-hidden">{children}</main>
+                <main className="relative overflow-x-hidden">{children}</main>
+              <Footer/>
             </ThemeProvider>
           </AppRouterCacheProvider>
         </body>
