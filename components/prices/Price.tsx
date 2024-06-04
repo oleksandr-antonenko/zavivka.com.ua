@@ -10,9 +10,9 @@ const Price: FC<PriceProps> = ({servicePrices, currentChoice}) => {
               <div
                 id={service.id}
                 key={service.id}
-                className={`rounded-[20px] border-[3px] py-11 px-10 border-orange ${currentChoice === index ? "block" : "hidden"}`}
+                className={`rounded-[20px] md:border-[3px] py-11 px-4 xl:px-10 md:border-orange max-w-[590px] ${currentChoice === index ? "block" : "hidden"}`}
               >
-                <div className="flex gap-[50px] items-center mb-[60px]">
+                <div className="flex flex-col xl:flex-row gap-[50px] items-center mb-[60px]">
                   <div className='max-w-[239px] hidden md:block'>
                       <Image
                         src={service.imageForPrice}
@@ -23,12 +23,12 @@ const Price: FC<PriceProps> = ({servicePrices, currentChoice}) => {
                         height={0}
                       />
                   </div>
-                  <div>
-                    <p className="font-bold text-[16px] mb-[30px] hidden md:block">{service.serviceTitle}</p>
-                    <div className='text-[16px]'>{service.descriptionForPrice}</div>
+                  <div className='text-[16px]'>
+                    <p className="font-bold mb-[30px]">{service.serviceTitle}</p>
+                    <div className='listFromBackPrice'>{service.descriptionForPrice}</div>
                   </div>
                 </div>
-                <ul className="flex items-center gap-[30px] text-[16px] font-bold md:flex-wrap xl:flex-nowrap">
+                <ul className="flex md:gap-5 xl:gap-[30px] text-[16px] font-bold md:flex-wrap xl:flex-nowrap">
                   <li className='p-[15px] rounded-md border border-grey-light flex flex-col items-center justify-center gap-[10px] w-[155px]'>
                     <p>Експерт</p>
                     <p className='text-orange'>{service.priceExpert} грн</p>
