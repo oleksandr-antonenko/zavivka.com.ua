@@ -16,7 +16,7 @@ const FAQ = () => {
   return (
     <section className="containerBox pl-5 md:pl-[100px] xl:pl-[260px] 2xl:pl-5 pr-5 md:pr-[80px] xl:pr-[240px] 2xl:pr-[100px] relative">
         <div className="with-circle">
-            <h2 className="font-bold text-center sm:text-nowrap md:text-start text-[24px] md:text-[30px] xl:text-[40px] uppercase mb-[80px]">Поширені запитання і відповіді</h2>
+            <h2 className="font-bold text-center md:text-nowrap md:text-start text-[24px] md:text-[30px] xl:text-[40px] uppercase mb-[80px]">Поширені запитання і відповіді</h2>
         </div>
         <div>
           <Accordion

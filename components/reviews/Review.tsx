@@ -29,7 +29,7 @@ const Review: FC<ReviewProps> = ({ reviews, current, onclick }) => {
               <Image
                 src={`/images/clients/${review.image}`}
                 alt={review.clientName}
-                sizes="100hw"
+                sizes="100vw"
                 width={0}
                 height={0}
                 className="w-full"

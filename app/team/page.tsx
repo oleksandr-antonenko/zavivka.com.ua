@@ -1,7 +1,13 @@
-import Image from "next/image";
+import { Contacts } from "@/components/contacts";
+import { FAQ } from "@/components/faq";
+import { TeamInfo } from "@/components/team";
 
 export default function Team() {
     return (
-        <main>Team</main>
+        <>
+        <TeamInfo/>
+        <FAQ/>
+        <Contacts/>
+        </>
     );
 }

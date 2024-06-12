@@ -17,16 +17,30 @@ export type FeedbackState = {
     error: null | string;
 }
 
-export type Service = {
+type ImageSex = {
+    forMen: string[];
+    forWomen: string[];
+}
+type Images = {
+    images: ImageSex[];
+    imageTitle: string;
+}
+
+export interface MemberService {
     id: string;
     serviceTitle: string;
     descriptionForPrice: ReactElement;
+    price?: number;
+}
+
+export interface Service extends MemberService {
     imageForPrice: string;
     priceExpert: number;
     priceArtDir: number;
     priceTop: number;
     video?: string;
-    images: string[]; 
+    images: Images[];
+    imagesCurl?: Images[];
 }
 
 export type ServiceState = {
@@ -34,3 +48,20 @@ export type ServiceState = {
     loading: boolean;
     error: null | string;
 }
+
+export type MemberOfTeam = {
+    name: string;
+    category: string;
+    experience: string;
+    listOfService: MemberService[];
+    imagesOfWorksForMen: string[];
+    imagesOfWorksForWomen: string[];
+    photo: string;
+}
+export type TeamState = {
+    listOfTeam: MemberOfTeam[];
+    member: MemberOfTeam | null;
+    loading: boolean;
+    error: null | string;
+}
+
