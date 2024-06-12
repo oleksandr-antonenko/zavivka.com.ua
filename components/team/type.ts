@@ -1,9 +1,15 @@
-export interface MemberProps {
-    name: string;
-    category: string;
-    photo: string;
+import { MemberOfTeam } from "@/store/type";
+
+export type MemberProps = {
+    teamMembers: MemberOfTeam[];
+    forMen?: boolean;
+    setFullInfo: (i:boolean) => void;
+    fullInfo: boolean;
 }
-export type MemberProp = {
-    teamMembers: MemberProps[];
+
+export type MemberFullProps = {
+    forMen?: boolean; 
+    member: MemberOfTeam | null; 
+    close: (i:boolean) => void;
 }
 

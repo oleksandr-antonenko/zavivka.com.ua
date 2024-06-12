@@ -1128,7 +1128,6 @@ const initialState: TeamState = {
           photo: "/images/teamMember.jpg",
         },
     ],
-    member: null,
     loading: false,
     error: null,
 }
@@ -1137,17 +1136,9 @@ const TeamSlice = createSlice({
     name: "Team",
     initialState,
     reducers: {
-      openFullInfo(state, action: PayloadAction<string>){
-        const memberFullInfo = state.listOfTeam.find(member => member.photo === action.payload);
-        if(memberFullInfo){
-            state.member = memberFullInfo;
-        }
-    }
     },
     extraReducers: builder =>{},
 
 })
-
-export const {openFullInfo} = TeamSlice.actions;
 
 export default TeamSlice.reducer;

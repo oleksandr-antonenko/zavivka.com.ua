@@ -60,7 +60,6 @@ export type MemberOfTeam = {
 }
 export type TeamState = {
     listOfTeam: MemberOfTeam[];
-    member: MemberOfTeam | null;
     loading: boolean;
     error: null | string;
 }

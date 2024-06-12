@@ -1,2 +1,2 @@
 export {default as TeamInfo} from './TeamInfo';
-export {default as MemberFullInfo} from './MemberFullInfo';
+export type {MemberProps} from './type.ts';

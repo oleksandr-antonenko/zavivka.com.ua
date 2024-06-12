@@ -1,4 +1,4 @@
-import { Service } from "@/store/type";
+import {Service } from "@/store/type";
 
 export interface PriceProps {
     servicePrices: Service[];
