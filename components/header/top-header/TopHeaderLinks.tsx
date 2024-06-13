@@ -15,7 +15,7 @@ const TopHeaderLinks: FC<TopHeaderLinksProps> = ({show, navlinksTop}) => {
             >
                 <Link 
                   href={link.linkNav}
-                  className={`inline-block hover:font-bold mb-3 ${pathname === link.linkNav ? 'border-b font-bold border-orange' : ''}`} 
+                  className={`inline-block hover:font-bold ${pathname === link.linkNav ? 'border-b font-bold border-orange' : ''}`} 
                 >{link.titleNav}</Link></li>
        ))}
     </ul>

@@ -174,11 +174,12 @@ header, footer {
     }
     .topHeader-links{
         border-bottom: solid 0.5px #A4A4A4;
-        padding-top: 17px;
-        padding-bottom: 17px;
         margin-right: 100px;
         border-radius: 6px;
         font-size: 16px;
+        padding-top: 17px;
+        padding-bottom: 17px;
+        padding-left: 20px;
     }
     .nav-mobile{
         top: 103px;

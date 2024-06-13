@@ -11,10 +11,10 @@ const Navbar: FC<NavProp> = ({show, navlinks}) => {
                     {navlinks.map(link => (
                         <li 
                           key={link.linkNav} 
-                          className={`${show === "nav-desktop" ? "" : "border-b-[0.5px] border-grey rounded-md py-[17px] mr-4 md:mr-[100px]"}`}
+                          className={`${show === "nav-desktop" ? "" : "border-b-[0.5px] border-grey rounded-md py-[17px] px-5 mr-4 md:mr-[100px]"}`}
                         >
                             <Link 
-                              className={`inline-block hover:font-bold mb-3 ${pathname === link.linkNav ? 'border-b font-bold border-orange' : ''}`} 
+                              className={`inline-block hover:font-bold ${pathname === link.linkNav ? 'border-b font-bold border-orange' : ''}`} 
                               href={link.linkNav}
                             >{link.titleNav}</Link></li>
                     ))}
