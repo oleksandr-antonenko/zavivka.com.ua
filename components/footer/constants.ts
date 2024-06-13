@@ -5,7 +5,7 @@ export const linksFooterZav = [
     {title: "Крупна завивка волосся"},
     {title: "Афро завивка волосся"},
     {title: "Завивка довгого волосся"},
-    {title: "Завивка довгого волосся"},
+    {title: "Завивка короткого волосся"},
     {title: "Спіральна завивка", link: "/spiral"},
     {title: "Японська завивка", link: "/yaponskaya-zavivka-volos"},
     {title: "Дрібна завивка волосся"},

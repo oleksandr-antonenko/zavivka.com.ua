@@ -1,3 +1,5 @@
+import { NavProps } from "../main-header";
+
 export interface ButtonLangProps {
     languages: string[];
     onClick?: () => void;
@@ -12,4 +14,9 @@ export interface SelectProps {
     name?: string;
     onChangeProps: (e: string) => void;
     choice: string;
+}
+
+export interface TopHeaderLinksProps {
+    show: string;
+    navlinksTop: NavProps[];
 }

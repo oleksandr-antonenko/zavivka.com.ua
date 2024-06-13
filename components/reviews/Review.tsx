@@ -19,14 +19,14 @@ const Review: FC<ReviewProps> = ({ reviews, current, onclick }) => {
         >
           <div className="flex flex-col md:flex-row gap-6">
               <div>
-                <div className="h-[190px] w-[190px] sm:h-[250px] sm:w-[250px] md:min-w-[285px] pr-5">
+                <div className="h-[190px] w-[190px] sm:h-[250px] sm:w-[250px] md:h-[285px] md:min-w-[285px] pr-5">
                   <Image
                     src={`/images/clients/${review.image}`}
                     alt={review.clientName}
                     sizes="100vw"
                     width={0}
                     height={0}
-                    className="w-full rounded-[20px]"
+                    className="w-full rounded-[20px] h-full"
                   />
                 </div>
                 <div className="flex gap-[14px] text-[16px] pl-[10px] mt-4">

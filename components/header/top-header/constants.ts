@@ -5,3 +5,9 @@ export const country = [
 ];
 export const latvia = ['укр', 'eng', 'lv', 'рус'];
 
+export const topLinks = [
+    {linkNav: "/education" , titleNav: "Навчання"},
+    {linkNav: "/shop" , titleNav: "Інтернет-магазин"},
+    {linkNav: "/contacts", titleNav: "Контакти"},
+];
+

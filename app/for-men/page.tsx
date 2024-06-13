@@ -8,14 +8,16 @@ import { FAQ } from "@/components/faq";
 import { Contacts } from "@/components/contacts";
 import { Booking } from "@/components/booking";
 import { Prices } from "@/components/prices";
+import { Zavivka } from "@/components/zavivka";
 
 
-export default function Home() {
+export default function HomeMen() {
   return (
     <>
       <MainBanner />
       <Services />
       <Features />
+      <Zavivka/>
       <Digits />
       <Trust />
       <Prices />
