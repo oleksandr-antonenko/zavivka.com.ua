@@ -4,5 +4,6 @@ export interface PriceProps {
     servicePrices: Service[];
     onClick?: (e: number) => void;
     currentChoice?: number;
+    forMen?: boolean;
 }
 

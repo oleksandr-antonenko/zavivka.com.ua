@@ -1,11 +1,11 @@
 "use client";
 import { Button } from "@/shared/buttons";
 import { useForm } from 'react-hook-form';
-import { servicesForCheckbox } from "./constants";
-import { DataForSubmit} from "./types";
+import { servicesForCheckboxWomen } from "./constants";
+import { DataForSubmit, ServiceCheckbox} from "./types";
 import BookingService from "./BookingService";
 
-const Booking = () => {
+const Booking = ({forMen=false, servicesForCheckbox=servicesForCheckboxWomen}: {forMen?: boolean, servicesForCheckbox?:ServiceCheckbox[]}) => {
   const {
         register,
         handleSubmit,
@@ -22,7 +22,7 @@ const Booking = () => {
 
   return (
     <section className="containerBox">
-      <div className={`py-[30px] md:py-[122px] bg-cover bg-center bg-backgroundForm flex items-center justify-center`}>
+      <div className={`py-[30px] md:py-[122px] bg-cover bg-center ${!forMen ? "bg-backgroundForm" : "bg-backgroundFormMen"} flex items-center justify-center`}>
         <div className="flex flex-col items-center justify-center py-10 px-[14px] md:py-[50px] md:px-[73px] border border-orange rounded-[20px] max-w-[700px] bg-[#0000001a] backdrop-blur-xl">
           <h2 className="font-semibold font-mali sm:text-nowrap text-center text-[24px] md:text-[30px] xl:text-[40px] uppercase mb-[30px] md:mb-[36px]">Запишіться на послугу</h2>
           <p className="text-center mb-10 md:mb-[60px] text-[16px] md:text-[24px] max-w-[302px] md:max-w-[531px]">Ми підберемо для Вас оптимальний час і допоможемо вибрати майстра.</p>
@@ -48,7 +48,7 @@ const Booking = () => {
                       <BookingService servicesCheckbox={servicesForCheckbox} register={register}/>
                   </div>
                   <Button type="submit">Записатися зараз</Button>
-                  <p className="text-center mt-5 md:mt-4 text-[16px] max-w-[296px]">Натискаючи кнопку даєте згоду на обробку персональних данних </p>
+                  <p className="text-center mt-5 md:mt-4 text-[16px] max-w-[296px]">Натискаючи кнопку даєте згоду на <span className="line-block border-b border-b-grey-light">обробку персональних данних</span> </p>
                 </div>
               </form>
         </div>

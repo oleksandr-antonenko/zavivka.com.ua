@@ -2,8 +2,11 @@
 import { Button } from "@/shared/buttons"
 import Image from "next/image";
 import Girl from "./img/hair-perm-happy-client.jpg";
+import Boy from "./img/menlong.jpg"
 
-export default function Trust() {
+export default function Trust({forMen=false}: {forMen?:boolean}) {
+  const image = !forMen ? Girl : Boy;
+  
   return (
     <section className="containerBox pl-5 md:pl-[100px] xl:pl-[260px] min-h-[600px] 2xl:pl-5">
       <div className="flex items-center md:gap-[50px] xl:gap-[122px] relative">
@@ -18,7 +21,7 @@ export default function Trust() {
           <Button className="bg-white md:bg-orange">Запис на консультацію</Button>
         </div>
         <div className="absolute top-0 left-[-20px] -z-10 md:z-0 md:static">
-          <Image src={Girl} alt="Woman with curly hair" sizes="100vw" width={0} height={0} className="rounded-l-[20px] min-h-[500px]"/>
+          <Image src={image} alt="Woman with curly hair" sizes="100vw" width={0} height={0} className="rounded-l-[20px] min-h-[500px]"/>
         </div>
       </div>
     </section>

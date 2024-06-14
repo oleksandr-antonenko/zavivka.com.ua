@@ -5,8 +5,11 @@ import { Service } from "@/store/type";
 import Price from "./Price";
 import ServiceForPrice from "./ServiceForPrice";
 
-const Prices = () => {
-  const servicePrices: Service[] = useAppSelector(state => state.service.listService);
+const Prices = ({forMen=false}: {forMen?: boolean}) => {
+  const servicePricesInfo: Service[] = useAppSelector(state => state.service.listService);
+  const menSer = [servicePricesInfo.find(i => i.id === "01")!, servicePricesInfo.find(i => i.id === "03")!, servicePricesInfo.find(i => i.id === "04")!, servicePricesInfo.find(i => i.id === "06")!, servicePricesInfo.find(i => i.id === "07")! ]
+  const servicePrices = !forMen ? servicePricesInfo : menSer;
+  console.log(menSer)
   const [currentChoice, setCurrentChoice] = useState<number>(0);
 
   return (
@@ -30,6 +33,7 @@ const Prices = () => {
             <Price 
               servicePrices={servicePrices}
               currentChoice={currentChoice}
+              forMen={forMen}
             />
           </div>
         </div>

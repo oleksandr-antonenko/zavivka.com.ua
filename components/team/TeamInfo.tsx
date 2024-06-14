@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Member from './Member';
 import { useAppSelector } from "@/store/hook";
 
-const TeamInfo = ({forMen=false}: {forMen: boolean}) => {
+const TeamInfo = ({forMen=false}: {forMen?: boolean}) => {
     const teamMembers = useAppSelector(state => state.team.listOfTeam);
     const [fullInfo, setFullInfo] = useState<boolean>(false);
   return (
