@@ -1,9 +1,11 @@
 "use client";
+import Image from 'next/image';
 import { SelectProps, SelectT } from './types';
 import React, {useId} from 'react';
 import type {FC} from 'react';
 import Select, {components, DropdownIndicatorProps} from 'react-select';
 import type { SingleValue } from 'react-select';
+import arrow from './img/arrow-white.png';
 
 const SelectCountry: FC<SelectProps> = ({countries, name, onChangeProps}) => {
   
@@ -11,7 +13,7 @@ const SelectCountry: FC<SelectProps> = ({countries, name, onChangeProps}) => {
     
     return (
     <components.DropdownIndicator {...props}>
-        <img src="icons/arrow-white.png" alt="arrow" className='ml-2 cursor-pointer'/>
+        <Image src={arrow} alt="arrow" width={0} height={0} className='ml-2 cursor-pointer w-2 h-2'/>
     </components.DropdownIndicator>
   )};
   return (

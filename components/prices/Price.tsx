@@ -3,7 +3,7 @@ import type {FC} from 'react';
 import { PriceProps } from './type';
 import Image from "next/image";
 
-const Price: FC<PriceProps> = ({servicePrices, currentChoice, forMen}) => {
+const Price: FC<PriceProps> = ({servicePrices, currentChoice, forMen, haircut}) => {
   
   return (
     <>
@@ -34,15 +34,15 @@ const Price: FC<PriceProps> = ({servicePrices, currentChoice, forMen}) => {
                 <ul className="flex md:gap-5 xl:gap-[30px] text-[16px] font-bold md:flex-wrap xl:flex-nowrap">
                   <li className='p-[15px] rounded-md border border-grey-light flex flex-col items-center justify-center gap-[10px] w-[155px]'>
                     <p>Експерт</p>
-                    <p className='text-orange'>{service.priceExpert} грн</p>
+                    <p className='text-orange'>{!haircut ? service.priceExpert : haircut && service.priceExpertCut ? service.priceExpertCut : service.priceExpert} грн</p>
                   </li>
                   <li className='p-[15px] rounded-md border border-grey-light flex flex-col items-center justify-center gap-[10px] w-[155px]'>
                     <p>Арт-директор</p>
-                    <p className='text-orange'>{service.priceArtDir} грн</p>
+                    <p className='text-orange'>{!haircut ? service.priceArtDir : haircut && service.priceArtDirCut ? service.priceArtDirCut : service.priceArtDir} грн</p>
                   </li>
                   <li className='p-[15px] rounded-md border border-grey-light flex flex-col items-center justify-center gap-[10px] w-[155px]'>
                     <p>Топ Майстер</p>
-                    <p className='text-orange'>{service.priceTop} грн</p>
+                    <p className='text-orange'>{!haircut ? service.priceTop : haircut && service.priceTopCut ? service.priceTopCut : service.priceTop} грн</p>
                   </li>
                 </ul>
               </div>

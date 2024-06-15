@@ -1,11 +1,12 @@
 "use client";
 import { Button } from "@/shared/buttons";
 import { useForm } from 'react-hook-form';
+import type { FC } from "react";
 import { servicesForCheckboxWomen } from "./constants";
-import { DataForSubmit, ServiceCheckbox} from "./types";
+import { BookingProps, DataForSubmit} from "./types";
 import BookingService from "./BookingService";
 
-const Booking = ({forMen=false, servicesForCheckbox=servicesForCheckboxWomen}: {forMen?: boolean, servicesForCheckbox?:ServiceCheckbox[]}) => {
+const Booking: FC<BookingProps> = ({forMen=false, servicesForCheckbox=servicesForCheckboxWomen}) => {
   const {
         register,
         handleSubmit,

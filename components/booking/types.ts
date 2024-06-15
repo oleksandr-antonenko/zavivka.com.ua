@@ -13,3 +13,8 @@ export interface ServiceCheckboxProps {
 export interface DataForSubmit{
   [key: string]: string;
 }
+
+export interface BookingProps {
+  forMen?: boolean;
+  servicesForCheckbox?:ServiceCheckbox[];
+}
