@@ -34,10 +34,14 @@ export interface MemberService {
 }
 
 export interface Service extends MemberService {
-    imageForPrice: string;
+    imageForPriceMen: string;
+    imageForPriceWomen: string;
     priceExpert: number;
     priceArtDir: number;
     priceTop: number;
+    priceExpertCut?: number;
+    priceArtDirCut?: number;
+    priceTopCut?: number;
     video?: string;
     images: Images[];
     imagesCurl?: Images[];

@@ -1,9 +1,9 @@
-type Feature = {
+export type FeatureT = {
     title?: string;
     text?: string;
 }
 
 export interface FeatureProps {
-    features: Feature[];
+    features: FeatureT[];
     currentIndex: number;
 }

@@ -3,10 +3,13 @@ import type {FC} from 'react';
 import { PriceProps } from './type';
 import Image from "next/image";
 
-const Price: FC<PriceProps> = ({servicePrices, currentChoice}) => {
+const Price: FC<PriceProps> = ({servicePrices, currentChoice, forMen}) => {
+  
   return (
     <>
-      {servicePrices.map((service, index) => (
+      {servicePrices.map((service, index) => {
+        const imagePrice = !forMen ? service.imageForPriceWomen : service.imageForPriceMen;
+        return(
               <div
                 id={service.id}
                 key={service.id}
@@ -15,7 +18,7 @@ const Price: FC<PriceProps> = ({servicePrices, currentChoice}) => {
                 <div className="flex flex-col xl:flex-row gap-[50px] items-center mb-[60px]">
                   <div className='max-w-[239px] hidden md:block'>
                       <Image
-                        src={service.imageForPrice}
+                        src={imagePrice}
                         alt={service.serviceTitle}
                         className='w-full rounded-[20px]'
                         sizes='vw'
@@ -43,7 +46,7 @@ const Price: FC<PriceProps> = ({servicePrices, currentChoice}) => {
                   </li>
                 </ul>
               </div>
-            ))}
+            )})}
     </>
   )
 }

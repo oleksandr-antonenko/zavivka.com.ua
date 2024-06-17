@@ -37,6 +37,7 @@ const config: Config = {
      },
      backgroundImage: {
       backgroundForm: "url('/images/fun.jpg')",
+      backgroundFormMen: "url('/images/menlong.jpg')",
      }
     },
   },
