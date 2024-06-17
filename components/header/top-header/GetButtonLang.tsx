@@ -8,7 +8,7 @@ function GetButtonLang({languages, onClick}: ButtonLangProps) {
             <button
                 onClick={onClick}
                 key={language}
-                className='px-[10px] uppercase'
+                className='px-[10px] uppercase hover:font-bold'
             >
                 {language}
             </button>
