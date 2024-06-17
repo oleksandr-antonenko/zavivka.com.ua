@@ -1,61 +1,22 @@
-.reviewItem{
-    perspective: 1000px;
-    cursor: pointer;
-    max-width: 285px;
+.reviewBox{
+    transition: transform 1s ease-in;
 }
 
-.reviewItem.flipped .reviewBody {
-    transform: rotateY(180deg);
+.reviewText::-webkit-scrollbar{
+    width: 5px;
 }
 
-.reviewItem:hover .reviewBody {
-    transform: rotateY(180deg);
+.reviewText::-webkit-scrollbar-track{
+    background-color: #A4A2A2;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    background-clip: padding-box;
+    box-shadow: inset 0 0 5px grey;
 }
 
-.reviewItem .reviewBody{
-    width: 285px;
-    height: 285px;
-    transition: transform .6s;
-    transform-style: preserve-3d;
-    margin-bottom: 21px;
+.reviewText::-webkit-scrollbar-thumb{
+    background: #A4A2A2;
+    border-radius: 5px;
 }
 
-.reviewItem .reviewBody .photo,
-.reviewItem .reviewBody .reviewText {
-    backface-visibility: hidden;
-    position: absolute;
-}
-.reviewItem .reviewBody .reviewText{
-    width: 285px;
-    height: 285px;
-    text-align: left;
-    border: 1px solid #D7A908;
-    border-radius: 20px;
-    padding: 23px 23px;
-    overflow-y: auto;
-    -ms-overflow-style: none;
-    scrollbar-color: white #343434;
-    scrollbar-width: none;
-    display: block;
-    font-size: 12px;
-    transform: rotateY(180deg);
 
-}
-.reviewItem .reviewBody .photo {
-    width: 285px;
-    height: 285px;
-    transform: rotateY(0deg);
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.reviewItem .reviewBottom{
-    display: flex;
-    font-size: 16px;
-    gap: 14px;
-    padding-left: 10px;
-}
-
-.hidden {
-    display: none;
-}
