@@ -27,7 +27,7 @@ export function Feature({features, currentIndex}: FeatureProps){
         )}
         {features.map((feature, i) =>{
             return (
-            <div className="features-item max-w-[280px] sm:min-w-[285px] text-[16px] block sm:hidden md:hidden " key={`${feature.title}${i}`} style={{transform: `translate(-${currentIndex * 128}%)`}}>
+            <div className="features-item max-w-[280px] sm:min-w-[285px] text-[16px] block sm:hidden md:hidden " key={`${feature.title}${i}`} style={{transform: `translate(-${currentIndex * 118}%)`}}>
                 <div className="relative flex items-center pt-[12px]">
                     {feature.title && <div className={`absolute items-center justify-center top-[14px] w-5 h-5 rounded-full ${i === currentIndex ? "bg-orange" : "bg-grey-light"} ${currentIndex > 4 && i === 4 ? "bg-orange" : "bg-grey-light"}`}></div>}
                     <h4 className="font-bold pl-[40px] mb-[30px]">{feature.title}</h4>

@@ -2,10 +2,11 @@
 
 import { Feature } from "@/components/feature/Feature";
 import { useEffect, useState } from "react";
+import type {FC} from "react";
 import { featuresWomen } from "./constants";
-import { FeatureT } from "./type";
+import { FeaturesProps } from "./type";
 
-const Features = ({features=featuresWomen, forMen=false}: {features?: FeatureT[],forMen?: boolean}) => {
+const Features: FC<FeaturesProps> = ({features=featuresWomen, forMen=false, haircut=false}) => {
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const carouselInfiniteScroll = () => {
@@ -29,8 +30,8 @@ const Features = ({features=featuresWomen, forMen=false}: {features?: FeatureT[]
 
   return (
     <section id='featuresBox' className="containerBox pl-5 md:pl-[100px] xl:pl-[260px] 2xl:pl-5">
-          <div className="with-circle">
-            {!forMen ? 
+          {!haircut && <div className="with-circle">
+             {!forMen ? 
             <h2 className="font-bold text-center md:text-start text-[24px] md:text-[30px] xl:text-[40px] uppercase mb-[30px] md:mb-[54px]">
               5 причин
               <br />
@@ -38,7 +39,7 @@ const Features = ({features=featuresWomen, forMen=false}: {features?: FeatureT[]
             </h2> : 
             <h2 className="font-bold text-center md:text-start text-[24px] md:text-[30px] xl:text-[40px] uppercase mb-[30px] md:mb-[54px]">5 причин чому чоловіча завивка — <br/> це зручно, красиво та завжди актуально</h2>}
             {!forMen && <p className="text-center md:text-start mb-[94px] md:mb-20">Не варто порівнювати нас з іншими салонами, і ось чому:</p>}
-          </div>
+          </div>}
           <div className="features-container">
             <Feature 
               features={features}
