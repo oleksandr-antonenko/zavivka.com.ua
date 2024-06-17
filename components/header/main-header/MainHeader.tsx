@@ -29,7 +29,7 @@ const MainHeader= () => {
           <TopHeader show={show}/>
         </div>
       </div>
-      <a href="https://beautyprosoftware.com/b/877643" target='_blank'><Button className="bg-transparent rounded-md uppercase text-white text-[12px] md:text-[16px] border border-orange py-2 md:py-[10px] md:px-5 w-[119px] md:w-[171px] sm:text-nowrap"> запис онлайн </Button></a>
+      <a href="https://beautyprosoftware.com/b/877643" target='_blank'><Button className="bg-transparent rounded-md uppercase text-white text-[12px] md:text-[16px] border border-orange py-2 md:py-[10px] !px-3 md:!px-5 w-[119px] md:w-[171px] sm:text-nowrap"> запис онлайн </Button></a>
       <Image src={MobileIcon} alt="mobile-button" width={48} height={31} className="mobile-icon" onClick={handleShow}/>
     </div>
   );
