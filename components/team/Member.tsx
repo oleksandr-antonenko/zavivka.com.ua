@@ -8,14 +8,16 @@ import { MemberOfTeam } from '@/store/type';
 import MemberFullInfo from './MemberFullInfo';
 
 const Member: FC<MemberProps> = ({teamMembers, forMen=false, fullInfo, setFullInfo}) => {
-    
+    const [currentChoice, setCurrentChoice] = useState<number | null>(null);
     const [member, setMember] = useState<MemberOfTeam | null>(null);
     const openFullInfo = (photo: string) => {
       const memb = teamMembers.find(member => member.photo === photo);
       if(memb) setMember(memb);
       setFullInfo(true);
     }
-    
+    const openPrice = () => {
+      setTimeout(() => {setCurrentChoice(0)}, 300);
+    }
   return (
     <>
      <div className='grid grid-cols-2 md:grid-cols-3 gap-5 cursor-pointer'>
@@ -24,6 +26,7 @@ const Member: FC<MemberProps> = ({teamMembers, forMen=false, fullInfo, setFullIn
             key={`${teamMember.name}${index}`}
             onClick={() => {
               openFullInfo(teamMember.photo);
+              openPrice();
           }}
             className='max-w-[386px] border rounded-lg border-grey-light hover:border-orange p-5 extraSm:text-[12px] sm:text-[16px]'
           >
@@ -39,6 +42,8 @@ const Member: FC<MemberProps> = ({teamMembers, forMen=false, fullInfo, setFullIn
       member={member} 
       forMen={forMen}
       close={setFullInfo}
+      currentChoice={currentChoice}
+      setCurrentChoice={setCurrentChoice}
     />}
     </>
   )

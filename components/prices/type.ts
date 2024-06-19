@@ -1,10 +1,8 @@
-import {Service } from "@/store/type";
+import {Service, ServiceCut, ServiceCutMen, ServiceMen } from "@/store/type";
 
 export interface PriceProps {
-    servicePrices: Service[];
+    servicePrices: Service[] | ServiceMen[] | ServiceCut[] | ServiceCutMen[];
     onClick?: (e: number) => void;
     currentChoice?: number;
-    forMen?: boolean;
-    haircut?: boolean;
 }
 
