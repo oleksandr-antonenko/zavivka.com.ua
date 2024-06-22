@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import type {FC, MouseEvent} from 'react';
 import Image from 'next/image';
 import closeIcone from '@/shared/img/close.png';
-import man from './img/menlong.jpg';
+import man from './img/man.jpg';
 import woman from './img/banner.jpg';
 import { PopUpProps } from './type';
 import { Input } from '@/shared/input';
