@@ -18,3 +18,8 @@ export interface BookingProps {
   forMen?: boolean;
   servicesForCheckbox?:ServiceCheckbox[];
 }
+
+export interface AfterBookingProps {
+  visible: boolean;
+  close: () => void;
+}

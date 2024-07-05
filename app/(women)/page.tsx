@@ -9,6 +9,7 @@ import { Contacts } from "@/components/contacts";
 import { Booking } from "@/components/booking";
 import { Prices } from "@/components/prices";
 import { Zavivka } from "@/components/zavivka";
+import { IntervalPopUp } from "@/components/pop-up";
 
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
       <Booking />
       <FAQ />
       <Contacts />
+      <IntervalPopUp/>
     </>
   );
 }
