@@ -8,6 +8,7 @@ import { BookingProps, DataForSubmit} from "./types";
 import BookingService from "./BookingService";
 import { Input } from "@/shared/input";
 import AfterBooking from "./AfterBooking";
+import { InputPhone } from "@/shared/inputPhone";
 
 const Booking: FC<BookingProps> = ({forMen=false, servicesForCheckbox=servicesForCheckboxWomen}) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
@@ -17,6 +18,7 @@ const Booking: FC<BookingProps> = ({forMen=false, servicesForCheckbox=servicesFo
   const {
         register,
         handleSubmit,
+        control,
         formState: { errors, isValid },
         reset,
       } = useForm<DataForSubmit>({
@@ -37,26 +39,25 @@ const Booking: FC<BookingProps> = ({forMen=false, servicesForCheckbox=servicesFo
           <p className="text-center mb-10 md:mb-[60px] text-[16px] md:text-[24px] max-w-[302px] md:max-w-[531px]">Ми підберемо для Вас оптимальний час і допоможемо вибрати майстра.</p>
           <form onSubmit={handleSubmit(onSubmit)} autoComplete="true" id="bookingForm">
              <div className="w-full flex flex-col md:flex-row gap-6 mb-10 md:mb-[60px]">
-                <Input
-                  type="text"
-                  id="name"
-                  placeholder="Ім'я"
-                  name="name"
-                  register={register}
-                  errors={errors}
-                  errorText="Треба вказати ім'я"
-                />
-                <Input
-                  type="tel"
-                  id="phone"
-                  placeholder="+380674413565"
-                  name="phone"
-                  register={register}
-                  errors={errors}
-                  errorText="Номер вказан не вірно"
-                  lengthMin={6}
-                  lengthMax={13}
-                />
+                <div className="!basis-1/2">
+                  <Input
+                    type="text"
+                    id="name"
+                    placeholder="Ім'я"
+                    name="name"
+                    register={register}
+                    errors={errors}
+                    errorText="Треба вказати ім'я"
+                  />
+                </div>
+                <div className="basis-1/2">
+                  <InputPhone
+                    control={control}
+                    name="phoneBooking"
+                    errors={errors}
+                    errorText="Номер вказан не вірно"
+                  />
+                </div>
               
              </div>
                 <div className="flex flex-col items-center">

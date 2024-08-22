@@ -225,6 +225,25 @@ header, footer {
     background-color: transparent;
 }
 
+.PhoneInputCountrySelect{
+    background-color: #343434 !important;
+    margin-top: 10px !important;
+}
+
+.PhoneInputInput{
+    background-color: transparent !important;
+    border: none !important;
+}
+.PhoneInputInput::placeholder{
+    font-size: 12px !important;
+    color: #FBFBFB !important;
+}
+
+.PhoneInputInput:focus-visible{
+    border: none !important;
+    outline: none !important;
+}
+
 .circle-right{
     transform: translateX(75%);
 }

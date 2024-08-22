@@ -9,6 +9,4 @@ export interface InputProps {
     register: UseFormRegister<DataForSubmit>;
     errors: FieldErrors;
     errorText?: string;
-    lengthMin?: number;
-    lengthMax?: number;
 }

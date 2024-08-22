@@ -10,6 +10,7 @@ import { PopUpProps } from './type';
 import { Input } from '@/shared/input';
 import { useForm } from "react-hook-form";
 import { DataForSubmit } from '../booking';
+import { InputPhone } from '@/shared/inputPhone';
 
 const PopUpBanner: FC<PopUpProps> = ({visible, close, forMen=false}) => {
     const handleClose = (e: MouseEvent<HTMLDivElement>) => {
@@ -25,6 +26,7 @@ const PopUpBanner: FC<PopUpProps> = ({visible, close, forMen=false}) => {
 
       const {
         register,
+        control,
         handleSubmit,
         formState: { errors, isValid },
         reset,
@@ -63,16 +65,11 @@ const PopUpBanner: FC<PopUpProps> = ({visible, close, forMen=false}) => {
                                     errors={errors}
                                     errorText="Треба вказати ім'я"
                                 />
-                                <Input
-                                    type="tel"
-                                    id="phonePopUp"
-                                    placeholder="+380674413565"
+                                <InputPhone
+                                    control={control}
                                     name="phonePopUp"
-                                    register={register}
                                     errors={errors}
                                     errorText="Номер вказан не вірно"
-                                    lengthMin={6}
-                                    lengthMax={13}
                                 />
                             </div>
                             <Button type="submit" className=''>Запис на консультацію</Button>

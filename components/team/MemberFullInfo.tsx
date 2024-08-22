@@ -58,7 +58,7 @@ const MemberFullInfo: FC<MemberFullProps> = ({forMen=false, member, close}) => {
             />
           </div>
         </div>
-        <OrderBlock/>
+        <OrderBlock forMen={forMen}/>
       </>}
     </section>
   )
