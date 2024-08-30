@@ -12,4 +12,10 @@ export interface PhotoSliderProps {
     forMen?: boolean;
     current: number;
     onclick: (i: number) => void;
+    openSlider?: (i: boolean) => void;
+}
+
+export interface ModalSliderProps extends PhotoSliderProps {
+    visible: boolean;
+    close: () => void;
 }
