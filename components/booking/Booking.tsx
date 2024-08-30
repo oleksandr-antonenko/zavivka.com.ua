@@ -1,12 +1,19 @@
 "use client";
 import { Button } from "@/shared/buttons";
-import { useForm } from 'react-hook-form';
-import type { FC } from "react";
+import { useForm } from "react-hook-form";
+import {useState} from "react";
+import type {FC} from "react";
 import { servicesForCheckboxWomen } from "./constants";
 import { BookingProps, DataForSubmit} from "./types";
 import BookingService from "./BookingService";
+import { Input } from "@/shared/input";
+import AfterBooking from "./AfterBooking";
 
 const Booking: FC<BookingProps> = ({forMen=false, servicesForCheckbox=servicesForCheckboxWomen}) => {
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const handleClose = () => {
+    setOpenModal(false);
+  }
   const {
         register,
         handleSubmit,
@@ -17,7 +24,8 @@ const Booking: FC<BookingProps> = ({forMen=false, servicesForCheckbox=servicesFo
       });
 
       const onSubmit = (data: DataForSubmit) => {
-        alert(JSON.stringify(data));
+        console.log(JSON.stringify(data));
+        setOpenModal(true);
         reset()
       }
 
@@ -29,20 +37,27 @@ const Booking: FC<BookingProps> = ({forMen=false, servicesForCheckbox=servicesFo
           <p className="text-center mb-10 md:mb-[60px] text-[16px] md:text-[24px] max-w-[302px] md:max-w-[531px]">Ми підберемо для Вас оптимальний час і допоможемо вибрати майстра.</p>
           <form onSubmit={handleSubmit(onSubmit)} autoComplete="true" id="bookingForm">
              <div className="w-full flex flex-col md:flex-row gap-6 mb-10 md:mb-[60px]">
-                <input
+                <Input
                   type="text"
                   id="name"
                   placeholder="Ім'я"
-                  {...register('name', { required: true })}
-                  className="rounded py-3 px-[30px] border border-grey-light bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange text-[16px] text-white w-full placeholder:text-white placeholder:text-[12px] placeholder:font-banner"
+                  name="name"
+                  register={register}
+                  errors={errors}
+                  errorText="Треба вказати ім'я"
                 />
-                <input
+                <Input
                   type="tel"
                   id="phone"
-                  {...register('phone', { required: true })}
                   placeholder="+380674413565"
-                  className="rounded py-3 px-[30px] border border-grey-light bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange text-[16px] text-white w-full placeholder:text-white placeholder:text-[12px] placeholder:font-banner"
+                  name="phone"
+                  register={register}
+                  errors={errors}
+                  errorText="Номер вказан не вірно"
+                  lengthMin={6}
+                  lengthMax={13}
                 />
+              
              </div>
                 <div className="flex flex-col items-center">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 md:gap-x-[50px] mb-[73px] md:mb-[60px]">
@@ -53,6 +68,10 @@ const Booking: FC<BookingProps> = ({forMen=false, servicesForCheckbox=servicesFo
                 </div>
               </form>
         </div>
+       {openModal && <AfterBooking 
+          visible={openModal} 
+          close={handleClose}
+        />}
       </div>
     </section>
   );
