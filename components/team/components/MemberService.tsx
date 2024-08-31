@@ -15,11 +15,11 @@ const MemberService: FC<MemberServiceProps> = ({servicePrices, onClick, currentC
                         {service.serviceTitle}
                         <span className='w-1/2 text-end'>{service.price} грн</span>
                       </p>
-                      <div className={`mb-[30px] ${currentChoice === index ? "block ease-in" : "hidden"}`}>
-                        <div className='listFromBackPrice'>{service.descriptionForPrice}</div>
+                      <div className={`mb-[30px] ${currentChoice === index ? "block" : "hidden"}`}>
+                        <div className='listFromBackPrice animate-slidein opacity-0'>{service.descriptionForPrice}</div>
                       </div>
                     </li>
-              ))}
+              ))} 
       </ul>
   )
 }
