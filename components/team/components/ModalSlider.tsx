@@ -38,7 +38,7 @@ const ModalSlider: FC<ModalSliderProps> = ({visible, close, photosMen, photosWom
               >
                     <div className='flex my-6 pb-[39px] rounded 2xl:w-[900px] 2xl:h-[900px] xl:w-[800px] xl:h-[800px] md:w-[630px] md:h-[630px] sm:w-[300px] sm:h-[300px] w-[240px] h-[240px] relative'>
                       <button onClick={() => close()} className='absolute z-30 md:top-[50px] top-[30px] right-5'><Image src={closeIcone} alt="close" width={0} height={0} className='w-[15px] h-[15px]'/></button>
-                      <div className='flex overflow-hidden 2xl:w-[900px] 2xl:h-[900px] xl:w-[800px] xl:h-[800px] md:w-[630px] md:h-[630px] sm:w-[300px] sm:h-[300px] w-[240px] h-[240px] relative'>
+                      <div className='flex overflow-hidden 2xl:w-[900px] 2xl:h-[900px] xl:w-[800px] xl:h-[800px] md:w-[630px] md:h-[630px] sm:w-[300px] sm:h-[300px] w-[240px] h-[240px] relative animate-slidein opacity-0'>
                         {photos.map(photo => (
                             <div
                                 key={photo}
@@ -57,14 +57,14 @@ const ModalSlider: FC<ModalSliderProps> = ({visible, close, photosMen, photosWom
                             </div>
                         ))}                    
                         <div className={`cursor-pointer absolute top-0 h-full w-full justify-between items-center flex`}>
-                          <button onClick={() => previousSlide()}>
+                          <button onClick={() => previousSlide()} className='hover:bg-white hover:rounded-[4px]'>
                               <Image 
                                   src={left} 
                                   alt="left" 
                                   width={30} 
                                   height={30}/>
                             </button>
-                            <button onClick={() => nextSlide()}>
+                            <button onClick={() => nextSlide()} className='hover:bg-white hover:rounded-[4px]'>
                               <Image 
                                   src={right}
                                   alt="right" 

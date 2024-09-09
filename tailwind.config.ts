@@ -52,7 +52,7 @@ const config: Config = {
       },
     },
     animation: {
-      slidein: "slidein 1s ease 200ms forwards",
+      slidein: "slidein 2s ease 200ms forwards",
     },
     },
   },
