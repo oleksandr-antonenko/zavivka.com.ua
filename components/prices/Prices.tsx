@@ -1,17 +1,16 @@
 "use client";
 import { useState } from "react";
 import { useAppSelector } from "@/store/hook";
-import { Service } from "@/store/type";
+import { Service, ServiceCut, ServiceCutMen, ServiceMen } from "@/store/type";
 import Price from "./Price";
 import ServiceForPrice from "./ServiceForPrice";
 
 const Prices = ({forMen=false, haircut=false}: {forMen?: boolean, haircut?: boolean}) => {
   const servicePricesInfo: Service[] = useAppSelector(state => state.service.listService);
-  const menSer = [servicePricesInfo.find(i => i.id === "01")!, servicePricesInfo.find(i => i.id === "03")!, servicePricesInfo.find(i => i.id === "04")!, servicePricesInfo.find(i => i.id === "07")!, servicePricesInfo.find(i => i.id === "08")!];
-  const menHaircutSer = [servicePricesInfo.find(i => i.id === "03")!, servicePricesInfo.find(i => i.id === "04")!, servicePricesInfo.find(i => i.id === "07")!, servicePricesInfo.find(i => i.id === "08")!];
-  const haircutSer = [servicePricesInfo.find(i => i.id === "03")!, servicePricesInfo.find(i => i.id === "04")!, servicePricesInfo.find(i => i.id === "05")!, servicePricesInfo.find(i => i.id === "06")!, servicePricesInfo.find(i => i.id === "07")!, servicePricesInfo.find(i => i.id === "08")!];
-  const servicePrices = !forMen && !haircut ? servicePricesInfo : (!haircut && forMen) || (haircut && forMen)  ? menHaircutSer : haircutSer;
-  console.log(menSer)
+  const menSer: ServiceMen[] = useAppSelector(state => state.service.listServiceMen);
+  const menHaircutSer: ServiceCutMen[] = useAppSelector(state => state.service.listServiceCutMen);
+  const haircutSer: ServiceCut[] = useAppSelector(state => state.service.listServiceCut);
+  const servicePrices = !forMen && !haircut ? servicePricesInfo : (!haircut && forMen) ? menSer : (haircut && forMen)  ? menHaircutSer : haircutSer;
   const [currentChoice, setCurrentChoice] = useState<number>(0);
 
   return (
@@ -30,14 +29,11 @@ const Prices = ({forMen=false, haircut=false}: {forMen?: boolean, haircut?: bool
               servicePrices={servicePrices}
               onClick={setCurrentChoice}
               currentChoice={currentChoice}
-              haircut={haircut}
             />
           <div className="hidden md:block">
             <Price 
               servicePrices={servicePrices}
               currentChoice={currentChoice}
-              forMen={forMen}
-              haircut={haircut}
             />
           </div>
         </div>

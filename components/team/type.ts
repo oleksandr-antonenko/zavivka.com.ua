@@ -11,5 +11,7 @@ export type MemberFullProps = {
     forMen?: boolean; 
     member: MemberOfTeam | null; 
     close: (i:boolean) => void;
+    currentChoice: number | null;
+    setCurrentChoice: (i: number | null) => void;
 }
 

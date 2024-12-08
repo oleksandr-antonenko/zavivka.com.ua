@@ -17,12 +17,8 @@ export type FeedbackState = {
     error: null | string;
 }
 
-type ImageSex = {
-    forMen: string[];
-    forWomen: string[];
-}
 type Images = {
-    images: ImageSex[];
+    images: string[];
     imageTitle: string;
 }
 
@@ -34,14 +30,40 @@ export interface MemberService {
 }
 
 export interface Service extends MemberService {
-    imageForPriceMen: string;
-    imageForPriceWomen: string;
+    imageForPrice: string;
     priceExpert: number;
     priceArtDir: number;
     priceTop: number;
-    priceExpertCut?: number;
-    priceArtDirCut?: number;
-    priceTopCut?: number;
+    video?: string;
+    images: Images[];
+    imagesCurl?: Images[];
+}
+
+export interface ServiceMen extends MemberService {
+    imageForPrice: string;
+    priceExpert: number;
+    priceArtDir: number;
+    priceTop: number;
+    video?: string;
+    images: Images[];
+    imagesCurl?: Images[];
+}
+
+export interface ServiceCut extends MemberService {
+    imageForPrice: string;
+    priceExpert: number;
+    priceArtDir: number;
+    priceTop: number;
+    video?: string;
+    images: Images[];
+    imagesCurl?: Images[];
+}
+
+export interface ServiceCutMen extends MemberService {
+    imageForPrice: string;
+    priceExpert: number;
+    priceArtDir: number;
+    priceTop: number;
     video?: string;
     images: Images[];
     imagesCurl?: Images[];
@@ -49,6 +71,9 @@ export interface Service extends MemberService {
 
 export type ServiceState = {
     listService: Service[];
+    listServiceMen: ServiceMen[];
+    listServiceCut: ServiceCut[];
+    listServiceCutMen: ServiceCutMen[];
     loading: boolean;
     error: null | string;
 }

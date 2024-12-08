@@ -7,10 +7,12 @@ import PhotoSlider from './components/PhotoSlider';
 import OrderBlock from './components/OrderBlock';
 import type {FC} from 'react';
 import { MemberFullProps } from './type';
+import ModalSlider from './components/ModalSlider';
 
-const MemberFullInfo: FC<MemberFullProps> = ({forMen=false, member, close}) => {
-  const [currentChoice, setCurrentChoice] = useState<number | null>(null);
+const MemberFullInfo: FC<MemberFullProps> = ({forMen=false, member, close, currentChoice, setCurrentChoice}) => {
   const [currentPhoto, setCurrentPhoto] = useState<number>(0);
+  const [openModalSlider, setOpenModalSlider] = useState<boolean>(false);
+
 
   const carouselScroll = () => {
     if(currentPhoto === (member?.imagesOfWorksForWomen.length! - 1) || currentPhoto === (member?.imagesOfWorksForMen.length! - 1)){
@@ -20,13 +22,16 @@ const MemberFullInfo: FC<MemberFullProps> = ({forMen=false, member, close}) => {
   }
 
   useEffect(() => {
-    const interval = setInterval(() => {carouselScroll()}, 2000);
-    return () => clearInterval(interval);
+    if(!openModalSlider){const interval = setInterval(() => {carouselScroll()}, 2000);
+    return () => clearInterval(interval);}
   })
 
   return (
     <section className='relative'>
-      <span className='block mb-5 cursor-pointer text-grey font-thin' onClick={() => close(false)}>Назад</span>
+      <span className='block mb-5 cursor-pointer text-grey font-thin' onClick={() => {
+        close(false);
+        setCurrentChoice(null)
+        }}>Назад</span>
       <div className='rounded-full -right-[300px] sm:-right-[200px] -top-[2px] w-[500px] h-[500px] md:w-[580px] md:h-[580px] xl:w-[600px] xl:h-[600px] absolute -z-10 bg-grey-middle'></div>
       {member && <>
         <div className="flex flex-col md:flex-row mb-[200px] items-start gap-[100px]">
@@ -48,15 +53,26 @@ const MemberFullInfo: FC<MemberFullProps> = ({forMen=false, member, close}) => {
           <div className='rounded-full left-0 -top-[60px] md:w-[95px] w-[60px] h-[60px] md:h-[95px] absolute -z-5 bg-yellow'></div>
           <div className='rounded-full -left-[300px] md:-left-[350px] xl:-left-[400px] -top-[40px] w-[500px] h-[500px] md:w-[580px] md:h-[580px] xl:w-[600px] xl:h-[600px] absolute -z-10 bg-grey-middle'></div>
           <h2 className="font-bold text-center uppercase mb-[30px] md:mb-[60px]">Роботи майстра</h2>
-          <div className="flex gap-5 overflow-hidden">
+          {!openModalSlider && <div className="flex gap-5 overflow-hidden">
             <PhotoSlider
               photosMen={member.imagesOfWorksForMen}
               photosWomen={member.imagesOfWorksForWomen}
               current={currentPhoto}
               onclick={setCurrentPhoto}
               forMen={forMen}
+              openSlider={setOpenModalSlider}
             />
-          </div>
+          </div>}
+          {openModalSlider && 
+            <ModalSlider 
+              visible
+              photosMen={member.imagesOfWorksForMen}
+              photosWomen={member.imagesOfWorksForWomen}
+              close={() => setOpenModalSlider(false)}
+              current={currentPhoto}
+              onclick={setCurrentPhoto}
+              forMen={forMen}
+            />}
         </div>
         <OrderBlock/>
       </>}

@@ -38,7 +38,22 @@ const config: Config = {
      backgroundImage: {
       backgroundForm: "url('/images/fun.jpg')",
       backgroundFormMen: "url('/images/menlong.jpg')",
-     }
+     },
+     keyframes: {
+      slidein: {
+        from: {
+          opacity: "0",
+          transform: "translateY(-10px)",
+        },
+        to: {
+          opacity: "1",
+          transform: "translateY(0)",
+        },
+      },
+    },
+    animation: {
+      slidein: "slidein 2s ease 200ms forwards",
+    },
     },
   },
   plugins: [],
