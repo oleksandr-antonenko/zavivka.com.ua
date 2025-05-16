@@ -1,4 +1,4 @@
-import { ButtonLink } from "@/shared/buttons";
+import TypingHeader from "../ui/typing-header";
 
 const MainBanner = ({
   forMen = false,
@@ -7,37 +7,25 @@ const MainBanner = ({
   forMen?: boolean;
   haircut?: boolean;
 }) => {
+  const title = haircut
+    ? 'Стрижка природних\nкучерів в Києві'
+    : `${forMen ? 'Чоловіча ' : ''}${forMen ? 'завивка' : 'Завивка'}\nволосся в Києві`;
   return (
     <section className="w-full relative">
-      <div className="flex max-w-[1440px] 2xl:mx-auto flex-col justify-end w-full h-[800px]">
-        <div className="font-banner text-2xl text-white pl-[27px] md:pl-[100px] xl:pl-[260px] 2xl:pl-5 pb-[60px]">
-          {!haircut && (
-            <h1 className="leading-[130%] text-[40px] md:text-7xl mb-10 font-bold text-center md:text-start">
-              {forMen && <span>Чоловіча</span>}{" "}
-              <span className={`${forMen ? "lowercase" : ""}`}>Завивка</span>{" "}
-              <br className="hidden md:block" /> волосся в Києві
-            </h1>
-          )}
-          {haircut && (
-            <h1 className="leading-[130%] text-[40px] md:text-7xl mb-10 font-bold text-center md:text-start">
-              Стрижка природних <br /> кучерів в Києві
-            </h1>
-          )}
-          {!forMen && (
-            <p className="mb-[60px] text-center md:text-start">
-              Спеціалізований салон краси. <br className="hidden md:block" /> Ми
-              зберігаємо здоров`я волосся та <br className="hidden md:block" />{" "}
-              полегшуємо повсякденний догляд.
-            </p>
-          )}
-
-          {!forMen && (
-            <div className="flex extraSm:flex-col extraSm:items-center sm:justify-center md:justify-start sm:flex-row gap-6 md:gap-[61px]">
-              <ButtonLink link="/"> Жінки </ButtonLink>
-              <ButtonLink link="/for-men"> Чоловіки </ButtonLink>
-            </div>
-          )}
+      <div className="flex max-w-[1440px] 2xl:mx-auto flex-col px-2 py-[60px] md:py-[195px] w-full h-[800px]">
+        <div className="text-2xl text-white">
+          <TypingHeader text={title} />
         </div>
+        {!forMen && (
+          <p className="mb-[23px] md:mb-[100px] w-full max-w-[360px] mx-auto md:mx-0 mt-auto md:mt-0 text-center text-[20px] md:text-start">
+            Спеціалізований салон краси. Ми зберігаємо здоров`я волосся та
+            полегшуємо повсякденний догляд.
+          </p>
+        )}
+
+        <button className="rounded-[40px] h-[56px] flex justify-center items-center text-[#212121] text-[20px] w-full max-w-[361px] mx-auto md:mx-0 transition duration-300 bg-[#D7A908] hover:bg-[#f8cf38]">
+          Запис на консультацію
+        </button>
         <video
           className="absolute z-[-10] top-0 left-0 w-full h-full object-cover"
           autoPlay

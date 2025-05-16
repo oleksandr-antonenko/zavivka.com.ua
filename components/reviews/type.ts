@@ -1,7 +1,5 @@
-import { Feedback } from "@/store/type";
+import { Feedback } from '@/store/type';
 
 export interface ReviewProps {
-    reviews: Feedback[];
-    current: number;
-    onclick: (e:number) => void;
-};
+  reviews: Feedback[];
+}

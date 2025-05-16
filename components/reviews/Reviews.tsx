@@ -1,41 +1,26 @@
-"use client";
-import Review from "@/components/reviews/Review";
-import { useAppSelector } from "@/store/hook";
-import { useEffect, useState } from "react";
-
+'use client';
+import Review from '@/components/reviews/Review';
+import { useAppSelector } from '@/store/hook';
+import DecoratedTitle from '../ui/decorated-title/decorated-title';
 
 const Reviews = () => {
-  const reviews = useAppSelector(state => state.feedbacks.listFeedback);
-  const [current, setCurrent] = useState<number>(0);
-  const carouselScroll = () => {
-    if(current === reviews.length - 1){
-      return setCurrent(0)
-    }
-    return setCurrent(current + 1)
-  }
-
-  useEffect(() => {
-    const interval = setInterval(() => {carouselScroll()}, 3000);
-    return () => clearInterval(interval);
-  })
+  const reviews = useAppSelector((state) => state.feedbacks.listFeedback);
 
   return (
-    <section className="containerBox pl-5 md:pl-[100px] xl:pl-[260px] 2xl:pl-5 relative pr-5 md:pr-[80px] xl:pr-[240px] 2xl:pr-[100px]">
+    <section className="relative pb-[60px] xl:pb-[150px] w-full max-w-[1200px] mx-auto px-2">
       <div className="relative">
-        <div className="circle-grey circle-middle circle-up-right right-0 top-0"></div>
-        <div className="circle-grey circle-small circle-left left-0 top-0"></div>
-        <h2 className="font-bold text-center sm:text-nowrap md:text-start text-[24px] md:text-[30px] xl:text-[40px] uppercase mb-[54px]">Відгуки наших клієнтів</h2>
-        <p className="mb-20 text-center sm:text-nowrap md:text-start">Чесне слово, писали не самі</p>
-        <div className="flex gap-5 overflow-hidden">
-          <Review 
-            reviews={reviews}
-            current={current}
-            onclick={setCurrent}
-          />
-        </div>
+        <div className="circle-grey circle-middle circle-up-right right-0 top-0 blur-xl"></div>
+        <div className="circle-grey circle-small circle-left left-0 top-0 blur-xl"></div>
+        <DecoratedTitle className="max-w-[250px] mx-auto md:mx-0 md:max-w-[700px] mb-[20px]">
+          Відгуки <br /> наших клієнтів
+        </DecoratedTitle>
+        <p className="mb-[40px] md:mb-[60px] text-center text-[16px] sm:text-nowrap md:text-start">
+          Чесне слово, писали не самі
+        </p>
+        <Review reviews={reviews} />
       </div>
     </section>
   );
-}
+};
 
 export default Reviews;

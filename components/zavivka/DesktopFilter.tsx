@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { SetStateAction } from "react";
+import { SetStateAction } from 'react';
 
 interface Props {
   setOption: (value: SetStateAction<string>) => void;
@@ -16,19 +16,19 @@ export const DesktopFilter = ({
   options,
 }: Props) => {
   const selectorStyles =
-    "py-1 cursor-pointer font-normal text-[16px] leading-[135%] tracking-[0%]";
-  const activeStyles = "font-bold border-b-2 border-yellow-border";
+    'py-[8px] cursor-pointer font-normal text-[16px] leading-[135%] tracking-[0%]';
+  const activeStyles = 'font-bold border-b-2 border-yellow-border';
 
   return (
     <div className="hidden md:block space-y-6">
       <div>
-        <h2 className="font-bold text-[24px] leading-[100%] tracking-[0%] mb-1 text-nowrap">
+        <h2 className="font-bold text-[24px] leading-[100%] tracking-[0%] mb-[16px] text-nowrap">
           {title}
         </h2>
         {options.map((option) => (
           <div
             key={option}
-            className={`${selectorStyles} ${selectedValue === option ? activeStyles : ""}`}
+            className={`${selectorStyles} ${selectedValue === option ? activeStyles : ''} flex flex-col`}
             onClick={() => setOption(option)}
           >
             {option}

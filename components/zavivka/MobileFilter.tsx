@@ -1,5 +1,6 @@
-import { SetStateAction } from "react";
-import SelectCountry from "@/components/header/top-header/SelectCountry";
+'use client';
+import { SetStateAction } from 'react';
+import SelectCountry from '@/components/header/top-header/SelectCountry';
 
 interface Props {
   setOption: (value: SetStateAction<string>) => void;
@@ -19,7 +20,7 @@ export const MobileFilter = ({
     label: option,
   }));
   return (
-    <div className="w-1/3 text-[16px]">
+    <div className="relative z-[100] w-full text-[16px]">
       <SelectCountry
         countries={selectOptions}
         name={title}

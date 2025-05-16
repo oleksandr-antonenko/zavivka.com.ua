@@ -1,60 +1,136 @@
-"use client";
-import Image from "next/image";
-import type { FC } from "react";
-import { ReviewProps } from "./type";
-import { SpriteSVGSocial } from "@/shared/svg";
-import classes from './Reviews.module.css';
+'use client';
 
-const Review: FC<ReviewProps> = ({ reviews, current, onclick }) => {
+import Image from 'next/image';
+import type { FC } from 'react';
+import { ReviewProps } from './type';
+import { SpriteSVGSocial } from '@/shared/svg';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
 
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+const Review: FC<ReviewProps> = ({ reviews }) => {
   return (
-    <>
-      {reviews.map((review) => (
-        <div
-          className={`${classes.reviewBox} py-6 px-6 max-w-[200px] sm:min-w-[284px] border border-orange rounded-[20px] md:p-[30px] h-[508px] md:h-[380px] md:min-w-[600px] md:max-w-[849px]`}
-          key={review.id}
-          style={{
-            transform: `translate(-${current * 100}%)`,
-          }}
-        >
-          <div className="flex flex-col md:flex-row gap-6">
-              <div>
-                <div className="h-[190px] w-[190px] sm:h-[250px] sm:w-[250px] md:h-[285px] md:min-w-[285px] pr-5">
+    <div className="relative w-full">
+      <Swiper
+        modules={[Pagination]}
+        pagination={{
+          el: '.custom-swiper-pagination',
+          clickable: true,
+        }}
+        spaceBetween={20}
+        slidesPerView={1.2}
+        centeredSlides={true}
+        loop={true}
+        breakpoints={{
+          375: {
+            slidesPerView: 1.3,
+            centeredSlides: true,
+          },
+          430: {
+            slidesPerView: 1.5,
+            centeredSlides: true,
+          },
+          640: {
+            slidesPerView: 2,
+            centeredSlides: false,
+          },
+          768: {
+            slidesPerView: 3,
+            centeredSlides: false,
+          },
+          1024: {
+            slidesPerView: 4,
+            centeredSlides: false,
+          },
+        }}
+        className="w-full"
+      >
+        {reviews.map((review) => (
+          <SwiperSlide key={review.id}>
+            <div
+              className={`
+          group relative 
+          border border-orange 
+          rounded-[20px] 
+          overflow-hidden 
+          transition-all duration-300 
+          mx-auto 
+          w-full
+          max-w-[250px] 
+          sm:min-w-[284px] 
+          md:max-w-none 
+          md:min-w-0 
+          p-[20px] 
+          h-full
+          cursor-pointer
+        `}
+            >
+              <div className="relative">
+                {/* Фото (не исчезает на мобилке) */}
+                <div
+                  className={`
+                    w-full 
+                    h-[230px] 
+                    sm:h-[250px] 
+                    md:h-[250px] 
+                    transition-opacity duration-300 
+                    ${
+                      // Прячем картинку только при ховере и на десктопе
+                      'md:group-hover:opacity-0'
+                    }
+                  `}
+                >
                   <Image
                     src={`/images/clients/${review.image}`}
                     alt={review.clientName}
                     sizes="100vw"
                     width={0}
                     height={0}
-                    className="w-full rounded-[20px] h-full"
+                    className="w-full h-full object-cover rounded-[20px]"
                   />
                 </div>
-                <div className="flex gap-[14px] text-[16px] pl-[10px] mt-4">
-                  {review.socialLink && review.social && (
-                    <a href={review.socialLink} target="_blank">
-                      <SpriteSVGSocial name={review.social} />
-                    </a>
-                  )}
-                  <p>{review.clientName}</p>
-                </div>
-              </div>
-              <p className={`${classes.reviewText} max-h-[150px] md:max-h-[320px] md:py-5 pr-[10px] font-mali text-[12px] text-start overflow-y-auto`}>{review.reviewText}</p>
-          </div>
-        </div>
-      ))}
 
-      <div className="flex items-center justify-center gap-3 w-full absolute -bottom-10">
-        {reviews.map((s, i) => {
-          return (
-            <div
-              key={s.id}
-              onClick={() => onclick(i)}
-              className={`cursor-pointer rounded-full w-[15px] h-[15px] border ${i === current ? "bg-white border-white" : "bg-transparent border-orange"}`}
-            ></div>
-          );
-        })}
-      </div>
-    </>
+                {/* Комментарий (hover десктоп) */}
+                <p
+                  className={`
+                    absolute inset-0 
+                    opacity-0 
+                    md:group-hover:opacity-100 
+                    transition-opacity duration-300 
+                    bg-transparent
+                    p-4 
+                    font-mali text-[12px] 
+                    overflow-y-auto 
+                    hidden md:flex items-center justify-center text-start rounded-[20px]
+                  `}
+                >
+                  {review.reviewText}
+                </p>
+              </div>
+
+              {/* Информация о пользователе */}
+              <div className="flex gap-3 items-center mt-3 pl-[10px]">
+                {review.socialLink && review.social && (
+                  <a href={review.socialLink} target="_blank">
+                    <SpriteSVGSocial name={review.social} />
+                  </a>
+                )}
+                <p className="text-[14px]">{review.clientName}</p>
+              </div>
+
+              <div className="font-mali text-[12px] mt-2 md:hidden px-2 text-start h-[100px] overflow-y-auto">
+                {review.reviewText}
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      {/* Пагинация */}
+      <div className="custom-swiper-pagination mt-4 sm:mt-6 flex justify-center gap-2" />
+    </div>
   );
 };
 
