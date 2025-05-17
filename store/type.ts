@@ -54,7 +54,9 @@ export type ServiceState = {
 };
 
 export type MemberOfTeam = {
+  id: string;
   name: string;
+  slug: string;
   category: string;
   experience: string;
   listOfService: MemberService[];

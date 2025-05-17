@@ -1,6 +1,11 @@
 'use client';
 import { SetStateAction } from 'react';
-import SelectCountry from '@/components/header/top-header/SelectCountry';
+import dynamic from 'next/dynamic';
+
+const SelectCountry = dynamic(
+  () => import('../header/top-header/SelectCountry'),
+  { ssr: false },
+);
 
 interface Props {
   setOption: (value: SetStateAction<string>) => void;

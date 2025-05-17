@@ -280,6 +280,25 @@ footer {
     /* Оранжевая обводка остаётся */
 }
 
+.custom-swiper-pagination-for-dynamic-team-page .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    border-radius: 9999px;
+    border: 1px solid #D7A908;
+    /* Цвет "orange" */
+    background-color: transparent;
+    opacity: 1;
+    /* Отключаем дефолтную прозрачность */
+    transition: background-color 0.3s;
+    cursor: pointer
+}
+
+.custom-swiper-pagination-for-dynamic-team-page .swiper-pagination-bullet-active {
+    background-color: white;
+    border-color: #D7A908;
+    /* Оранжевая обводка остаётся */
+}
+
 .perspective {
     perspective: 1000px;
 }

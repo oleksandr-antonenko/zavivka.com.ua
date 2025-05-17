@@ -3,8 +3,6 @@ import { Inter, Ubuntu, Mali } from 'next/font/google';
 import './globals.css';
 import React from 'react';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import { ThemeProvider } from '@mui/material/styles';
-import { theme } from '@/theme';
 import { StoreProvider } from '@/store/StoreProvider';
 import { Footer } from '@/components/footer';
 
@@ -44,10 +42,8 @@ export default function RootLayout({
           className={`${inter.variable} ${ubuntu.variable} ${mali.variable}`}
         >
           <AppRouterCacheProvider>
-            {/* <ThemeProvider theme={theme}> */}
             <main className="relative overflow-x-hidden">{children}</main>
             <Footer />
-            {/* </ThemeProvider> */}
           </AppRouterCacheProvider>
         </body>
       </html>

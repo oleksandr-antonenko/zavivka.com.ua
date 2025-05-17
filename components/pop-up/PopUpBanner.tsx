@@ -62,7 +62,7 @@ const PopUpBanner: React.FC<PopUpProps> = ({
         <motion.div
           id="containerBookingModal"
           onClick={handleClose}
-          className="fixed inset-0 bg-common-background bg-opacity-50 overflow-y-auto z-[10000] backdrop-blur-sm flex justify-center items-center"
+          className="fixed inset-0 px-2 bg-common-background bg-opacity-50 overflow-y-auto z-[10000] backdrop-blur-sm flex justify-center items-center"
           variants={backdropVariants}
           initial="hidden"
           animate="visible"
@@ -98,7 +98,11 @@ const PopUpBanner: React.FC<PopUpProps> = ({
               отримайте безкоштовну консультацію
             </h2>
             <p className="text-[16px]">Залиште свої контактні дані</p>
-            <form onSubmit={handleSubmit(onSubmit)} autoComplete="true">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              autoComplete="true"
+              className="w-full flex flex-col items-center"
+            >
               <div className="mb-[50px] flex flex-col items-center gap-6">
                 <Input
                   type="text"
@@ -121,7 +125,10 @@ const PopUpBanner: React.FC<PopUpProps> = ({
                   lengthMax={13}
                 />
               </div>
-              <button type="submit" className="btn">
+              <button
+                type="submit"
+                className="w-full max-w-[250px] px-2 rounded-[40px] h-[50px] flex justify-center items-center text-[#212121] text-[20px] mx-auto md:mx-0 transition duration-300 bg-[#D7A908] hover:bg-[#f8cf38]"
+              >
                 Запис на консультацію
               </button>
             </form>
