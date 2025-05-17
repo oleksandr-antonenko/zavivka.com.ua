@@ -85,25 +85,52 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       backgroundImage: {
-        backgroundForm: "url('/images/fun.jpg')",
+        backgroundForm: "url('/fom-banner.webp')",
         backgroundFormMen: "url('/images/menlong.jpg')",
       },
-
-      // 🔽 Добавленные анимации
       keyframes: {
         slideDown: {
-          '0%': { transform: 'scaleY(0)', opacity: '0' },
-          '100%': { transform: 'scaleY(1)', opacity: '1' },
+          '0%': {
+            transform: 'scaleY(0)',
+            opacity: '0',
+          },
+          '100%': {
+            transform: 'scaleY(1)',
+            opacity: '1',
+          },
         },
         slideUp: {
-          // Анимация закрытия
-          '0%': { transform: 'scaleY(1)', opacity: '1' },
-          '100%': { transform: 'scaleY(0)', opacity: '0' },
+          '0%': {
+            transform: 'scaleY(1)',
+            opacity: '1',
+          },
+          '100%': {
+            transform: 'scaleY(0)',
+            opacity: '0',
+          },
+        },
+        'accordion-down': {
+          from: {
+            height: '0',
+          },
+          to: {
+            height: 'var(--radix-accordion-content-height)',
+          },
+        },
+        'accordion-up': {
+          from: {
+            height: 'var(--radix-accordion-content-height)',
+          },
+          to: {
+            height: '0',
+          },
         },
       },
       animation: {
         slideDown: 'slideDown 0.3s ease-out forwards',
-        slideUp: 'slideUp 0.3s ease-out forwards', // Добавлена анимация для закрытия
+        slideUp: 'slideUp 0.3s ease-out forwards',
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
       },
       transformOrigin: {
         top: 'top',

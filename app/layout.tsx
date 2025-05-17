@@ -44,10 +44,10 @@ export default function RootLayout({
           className={`${inter.variable} ${ubuntu.variable} ${mali.variable}`}
         >
           <AppRouterCacheProvider>
-            <ThemeProvider theme={theme}>
-              <main className="relative overflow-x-hidden">{children}</main>
-              <Footer />
-            </ThemeProvider>
+            {/* <ThemeProvider theme={theme}> */}
+            <main className="relative overflow-x-hidden">{children}</main>
+            <Footer />
+            {/* </ThemeProvider> */}
           </AppRouterCacheProvider>
         </body>
       </html>

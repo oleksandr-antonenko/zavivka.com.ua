@@ -17,7 +17,7 @@ const BookingService: FC<ServiceCheckboxProps> = ({servicesCheckbox, register}) 
           {...register(`${idAndName}`)}
           className='appearance-none cursor-pointer peer shrink-0 relative rounded-[6px] w-[25px] h-[25px]'
         />
-        <span className="absolute w-[25px] h-[25px] border border-orange rounded-[6px] pointer-events-none peer-hover:bg-yellow peer-checked:bg-orange "></span>
+        <span className="absolute w-[25px] h-[25px] border border-orange rounded-[6px] pointer-events-none transition duration-300 peer-hover:bg-yellow peer-checked:bg-orange "></span>
         <label htmlFor={idAndName} className='text-[16px] sm:text-nowrap'>
           {service.title}
         </label>

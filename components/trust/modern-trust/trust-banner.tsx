@@ -11,9 +11,11 @@ const TrustBanner = () => {
         <p className="max-w-[380px] mb-[80px]">
           Ми відговоримо вас від завивки, якщо Вам не варто її робити
         </p>
-        <Button className="bg-[#D7A908] hover:bg-[#f8cf38] transition duration-300 rounded-[40px] w-full max-w-[400px] h-[64px] text-[#212121] text-[24px]">
-          Запис на консультацію
-        </Button>
+        <a href="https://beautyprosoftware.com/b/877643" target="_blank">
+          <Button className="bg-[#D7A908] hover:bg-[#f8cf38] transition duration-300 rounded-[40px] w-full max-w-[400px] h-[64px] text-[#212121] text-[24px]">
+            Запис на консультацію
+          </Button>
+        </a>
       </div>
       <Image
         src="/trust-banner.webp"

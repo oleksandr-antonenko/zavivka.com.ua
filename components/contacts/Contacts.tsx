@@ -1,21 +1,21 @@
-"use client";
+'use client';
 import {
   GoogleMap,
   InfoWindow,
   Marker,
   useJsApiLoader,
-} from "@react-google-maps/api";
-import React, {useState} from "react";
-import DirectionsIcon from "@mui/icons-material/Directions";
-import { SocialIcons } from "@/shared/social";
+} from '@react-google-maps/api';
+import React, { useState } from 'react';
+import DirectionsIcon from '@mui/icons-material/Directions';
+import { SocialIcons } from '@/shared/social';
 
 interface LatLng {
   lat: number;
   lng: number;
 }
 const containerStyle = {
-  width: "100%",
-  height: "750px",
+  width: '100%',
+  height: '750px',
 };
 
 const center = {
@@ -24,12 +24,10 @@ const center = {
 };
 const GOOGLE_MAPS_API_KEY = process.env
   .NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string;
-console.log(GOOGLE_MAPS_API_KEY);
 
 const Contacts = () => {
-  console.log("key:", GOOGLE_MAPS_API_KEY);
   const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
+    id: 'google-map-script',
     googleMapsApiKey: GOOGLE_MAPS_API_KEY,
   });
   const [map, setMap] = useState<google.maps.Map | null>(null);
@@ -57,10 +55,10 @@ const Contacts = () => {
   };
 
   return isLoaded ? (
-    <section className="containerBox pl-5 md:pl-0 pr-5 md:pr-[80px] xl:pr-[240px] 2xl:pr-[100px] relative">
+    <section className="relative pb-[34px]">
       <div className="flex flex-col-reverse md:flex-row gap-[60px] xl:gap-[100px] items-start relative">
-        <div className="circle-grey circle-right circle-small right-0 top-0 circle-up-right"></div>
-        <div className="basis-1/2 h-[348px] md:h-[750px] w-full">
+        <div className="circle-grey circle-right circle-small right-0 top-0 circle-up-right blur-xl"></div>
+        <div className="flex-1 h-full w-full max-w-[850px]">
           <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}
@@ -89,30 +87,45 @@ const Contacts = () => {
             </Marker>
           </GoogleMap>
         </div>
-        <div className="pt-7 pb-10 basis-1/2">
-            <h2 className="font-bold text-[24px] md:text-[30px] xl:text-[40px] uppercase mb-[30px] md:mb-[54px]">Студія завивок</h2>
-              <p className="text-[16px] md:text-[24px] mb-9">+38 067 441 35 65</p>
-              <p className="mb-[66px] md:mb-20">м. Київ, Хрещатик 44а</p>
-            <h3 className="uppercase font-bold text-[24px] mb-9">Як доїхати:</h3>
-            <h4 className="text-[16px] mb-6 font-bold">Якщо ви пішки</h4>
-            <p className="text-[16px] mb-9">
-              Найближча станція метро – «Театральна». Йти приблизно 3 хвилини.
-              Вхід до арки будинку 44 (відразу за магазином «Samsung»)
-            </p>
-            <h4 className="text-[16px] mb-6 font-bold">Якщо ви на авто</h4>
-            <p className="text-[16px] mb-[66px]">
-              Рухаємось від перехрестя вулиць Хрещатик та Б.Хмельницького у бік
-              Бессарабської площі. Поворот у наш двір другий за рахунком.
-              Найпомітніший орієнтир - магазин Samsung. Місця для паркування
-              обмежені, тому просимо під час запису вказати, що Ви на машині.
-            </p>
-            <SocialIcons/>
+        <div className="w-full max-w-[590px] px-2 md:px-0 md:pr-2">
+          <h2 className="font-bold text-[24px] md:text-[40px] uppercase mb-[30px] md:mb-[44px]">
+            Студія завивок
+          </h2>
+          <a
+            href="tel:+380674413565"
+            className="text-[16px] text-[#fbfbfb] md:text-[24px] block"
+          >
+            +38 067 441 35 65
+          </a>
+          <a
+            href="tel:+380670316654"
+            className="text-[16px] text-[#fbfbfb] md:text-[24px] mb-8 block"
+          >
+            +38 067 031 66 54
+          </a>
+          <p className="mb-[66px] md:mb-[60px]">м. Київ, Хрещатик 44а</p>
+          <h3 className="uppercase font-bold text-[24px] mb-[30px]">
+            Як доїхати:
+          </h3>
+          <h4 className="text-[16px] mb-6 font-bold">Якщо ви пішки</h4>
+          <p className="text-[16px] mb-[30px] w-full max-w-[390px] text-[#fbfbfb]">
+            Найближча станція метро – «Театральна». Йти приблизно 3 хвилини.
+            Вхід до арки будинку 44 (відразу за магазином «Samsung»)
+          </p>
+          <h4 className="text-[16px] mb-6 font-bold">Якщо ви на авто</h4>
+          <p className="text-[16px] mb-[66px] w-full max-w-[390px] text-[#fbfbfb]">
+            Рухаємось від перехрестя вулиць Хрещатик та Б.Хмельницького у бік
+            Бессарабської площі. Поворот у наш двір другий за рахунком.
+            Найпомітніший орієнтир - магазин Samsung. Місця для паркування
+            обмежені, тому просимо під час запису вказати, що Ви на машині.
+          </p>
+          <SocialIcons />
         </div>
       </div>
     </section>
   ) : (
     <></>
   );
-}
+};
 
 export default Contacts;

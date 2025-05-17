@@ -1,4 +1,4 @@
-import TypingHeader from "../ui/typing-header";
+import TypingHeader from '../ui/typing-header';
 
 const MainBanner = ({
   forMen = false,
@@ -22,10 +22,11 @@ const MainBanner = ({
             полегшуємо повсякденний догляд.
           </p>
         )}
-
-        <button className="rounded-[40px] h-[56px] flex justify-center items-center text-[#212121] text-[20px] w-full max-w-[361px] mx-auto md:mx-0 transition duration-300 bg-[#D7A908] hover:bg-[#f8cf38]">
-          Запис на консультацію
-        </button>
+        <a href="https://beautyprosoftware.com/b/877643" target="_blank">
+          <button className="rounded-[40px] h-[56px] flex justify-center items-center text-[#212121] text-[20px] w-full max-w-[361px] mx-auto md:mx-0 transition duration-300 bg-[#D7A908] hover:bg-[#f8cf38]">
+            Запис на консультацію
+          </button>
+        </a>
         <video
           className="absolute z-[-10] top-0 left-0 w-full h-full object-cover"
           autoPlay
