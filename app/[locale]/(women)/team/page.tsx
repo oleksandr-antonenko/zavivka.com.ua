@@ -13,8 +13,12 @@ export default function Team() {
   return (
     <>
       <TeamInfo />
-      <ConsultationContainer />
-      <FAQ />
+      <section className="sm:pb-[60px] xl:pb-[150px]">
+        <ConsultationContainer />
+      </section>
+      <section className="pb-[60px] md:pb-[150px]">
+        <FAQ />
+      </section>
       <Contacts />
     </>
   );

@@ -22,16 +22,32 @@ export default function Home() {
   return (
     <>
       <MainBanner />
-      <ModernServices />
-      <SkilsContainer />
-      <Zavivka />
-      <ProfessionalFamilyContainer />
-      <ConsultationContainer />
+      <section className="py-[60px] xl:py-[150px] ">
+        <ModernServices />
+      </section>
+      <section className="pb-[60px] xl:pb-[150px] ">
+        <SkilsContainer />
+      </section>
+      <section className="pb-[60px] xl:pb-[150px]">
+        <Zavivka />
+      </section>
+      <section className="pb-[60px] xl:pb-[150px]">
+        <ProfessionalFamilyContainer />
+      </section>
+      <section className="sm:pb-[60px] xl:pb-[150px]">
+        <ConsultationContainer />
+      </section>
       <ModernTrustContainer />
-      <Prices />
-      <Reviews />
+      <section className="pb-[60px] xl:pb-[150px]">
+        <Prices />
+      </section>
+      <section className="pb-[60px] xl:pb-[150px]">
+        <Reviews />
+      </section>
       <Booking />
-      <FAQ />
+      <section className="p-[60px] md:py-[150px]">
+        <FAQ />
+      </section>
       <Contacts />
       <IntervalPopUp />
     </>

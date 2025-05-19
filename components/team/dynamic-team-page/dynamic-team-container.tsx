@@ -1,16 +1,6 @@
 'use client';
-import { FAQ } from '@/components/faq';
-import { Contacts } from '@/components/contacts';
-import OrderBlock from '../components/OrderBlock';
 import { useAppSelector } from '@/store/hook';
 import MemberFullInfo from '../MemberFullInfo';
-import dynamic from 'next/dynamic';
-const ConsultationContainer = dynamic(
-  () => import('@/components/consultation/consultation-container'),
-  {
-    ssr: false,
-  },
-);
 
 const DynamicTeamContainer = ({ slug }: { slug: string }) => {
   const teamMembers = useAppSelector((state) => state.team.listOfTeam);
@@ -18,13 +8,9 @@ const DynamicTeamContainer = ({ slug }: { slug: string }) => {
 
   return (
     <>
-      <section className="relative pt-[60px] xl:pt-[150px] w-full max-w-[1400px] mx-auto px-2">
+      <section className="relative w-full max-w-[1200px] mx-auto px-2">
         <MemberFullInfo member={team} />
-        <OrderBlock />
-        <ConsultationContainer />
-        <FAQ />
       </section>
-      <Contacts />
     </>
   );
 };

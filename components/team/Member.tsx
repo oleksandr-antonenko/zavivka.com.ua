@@ -14,7 +14,7 @@ const Member: FC<MemberProps> = ({ teamMembers }) => {
           initial="rest"
           whileHover="hover"
           animate="rest"
-          className="max-w-[386px] h-[386px] md:h-[470px] flex flex-col rounded-[15px] overflow-hidden"
+          className="w-full max-w-[386px] h-[500px] md:h-full flex flex-col rounded-[15px] overflow-hidden"
           variants={{
             rest: { borderColor: 'transparent', padding: '0px' },
             hover: { borderColor: '#FFD700', padding: '20px' }, // жёлтый бордер
@@ -45,7 +45,7 @@ const Member: FC<MemberProps> = ({ teamMembers }) => {
             </motion.div>
 
             <div className="">
-              <p className="mb-4 text-[16px] md:text-[24px] max-w-[170px] mx-auto md:mx-0 text-center md:text-left">
+              <p className="mb-4 text-[16px] md:text-[24px] max-w-[120px] mx-auto md:mx-0 text-center md:text-left">
                 {teamMember.name}
               </p>
               <p className="text-orange text-[14px] md:text-[16px] text-center md:text-left">
@@ -67,7 +67,7 @@ const Member: FC<MemberProps> = ({ teamMembers }) => {
                 hover: {
                   opacity: 1,
                   y: 0,
-                  height: 140, // максимально возможная высота
+                  height: 150, // максимально возможная высота
                   padding: 16, // p-4 = 16px
                   marginTop: 0,
                   transition: {
@@ -79,8 +79,8 @@ const Member: FC<MemberProps> = ({ teamMembers }) => {
               }}
               className="rounded-[10px]"
             >
-              <p className="text-[16px] mb-1 text-[#eaeaea]">Специализация</p>
-              <ul className="list-disc max-h-[90px] overflow-y-auto pl-4">
+              <p className="text-[16px] mb-1 text-[#eaeaea]">Спеціалізація</p>
+              <ul className="list-disc pl-4">
                 {teamMember.specialization.map((spec, index) => (
                   <li
                     className="text-[12px] md:text-[16px] text-[#eaeaea]"

@@ -46,7 +46,7 @@ const Prices = ({
   const [currentChoice, setCurrentChoice] = useState<number>(0);
 
   return (
-    <section className="relative pb-[60px] xl:pb-[150px] w-full max-w-[1200px] mx-auto px-2">
+    <section className="relative w-full max-w-[1200px] mx-auto px-2">
       <div className="with-circle">
         <div
           className={`relative mb-[20px] max-w-[150px] md:max-w-[250px] mx-auto md:mx-0`}

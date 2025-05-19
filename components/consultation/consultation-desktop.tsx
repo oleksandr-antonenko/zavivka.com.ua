@@ -10,9 +10,9 @@ const ConsultationDesktop = () => {
   const currentIndex = activeIndex;
 
   return (
-    <div className="flex w-full h-[500px]">
+    <div className="flex gap-[90px] w-full h-[500px]">
       {/* Левая колонка — список */}
-      <div className="w-1/2 flex flex-col justify-center gap-6 p-8">
+      <div className="w-1/2 flex flex-col justify-center gap-6">
         {titles.map((item, index) => {
           const isActive = index === activeIndex;
 
@@ -25,7 +25,7 @@ const ConsultationDesktop = () => {
               }`}
             >
               <span
-                className={`w-3 h-3 rounded-full transition-colors duration-200 ${
+                className={`w-3 h-3 min-w-[12px] min-h-[12px] shrink-0 rounded-full transition-colors duration-200 ${
                   isActive ? 'bg-[#d7a908]' : 'bg-gray-300'
                 }`}
               ></span>
@@ -48,7 +48,7 @@ const ConsultationDesktop = () => {
           >
             {/* Рамка */}
             <div
-              className="w-[90%] h-[90%] rounded-[20px] border-[1px] border-[#d7a908] p-[30px]"
+              className="w-[100%] h-[100%] rounded-[20px] border-[1px] border-[#d7a908] p-[30px]"
               style={{ perspective: '1000px' }}
             >
               {/* Изображение с flip-анимацией */}

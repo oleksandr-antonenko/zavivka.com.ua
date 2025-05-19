@@ -1,27 +1,37 @@
-import React from 'react';
-import type {FC} from 'react';
-import { MemberServiceProps } from './type';
+'use client';
 
-const MemberService: FC<MemberServiceProps> = ({servicePrices, onClick, currentChoice}) => {
+import React from 'react';
+import type { FC } from 'react';
+import { MemberServiceProps } from './type';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+
+const MemberService: FC<MemberServiceProps> = ({ servicePrices }) => {
   return (
-      <ul className='text-[16px] max-w-[800px]'>
-        {servicePrices.map((service, index) => (
-                    <li
-                      key={`service-name-${index}`}
-                      data-target={`service-${index}`}
-                      onClick={() => onClick && onClick(index)}
-                    >
-                      <p className={`flex justify-between items-center font-bold cursor-pointer text-wrap sm:text-nowrap pr-3 max-w-[700px] ${index === currentChoice ? "mb-[16px] border-b-[3px] border-orange" : "mb-[39px] border-b-[0.5px] border-grey-light"}`}>
-                        {service.serviceTitle}
-                        <span className='w-1/2 text-end'>{service.price} грн</span>
-                      </p>
-                      <div className={`mb-[30px] ${currentChoice === index ? "block" : "hidden"}`}>
-                        <div className='listFromBackPrice'>{service.descriptionForPrice}</div>
-                      </div>
-                    </li>
-              ))}
-      </ul>
-  )
-}
+    <Accordion type="single" collapsible className="w-full max-w-[800px]">
+      {servicePrices.map((service, index) => (
+        <AccordionItem
+          value={`item-${index}`}
+          key={index}
+          className="border-b border-grey-light pt-[20px]"
+        >
+          <AccordionTrigger className="flex justify-between items-center font-bold text-[16px] pr-3 py-4 hover:text-orange transition-colors">
+            <div className="">{service.serviceTitle}</div>
+            <div className="ml-auto mr-4">{service.price} грн</div>
+          </AccordionTrigger>
+          <AccordionContent className="pb-4">
+            <div className="text-[14px] text-grey-dark leading-[1.5]">
+              {service.descriptionForPrice}
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+      ))}
+    </Accordion>
+  );
+};
 
 export default MemberService;

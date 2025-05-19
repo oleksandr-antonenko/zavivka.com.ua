@@ -4,7 +4,7 @@ import DecoratedTitle from '../ui/decorated-title/decorated-title';
 
 const ModernServices = () => {
   return (
-    <section className="py-[60px] px-2 xl:py-[150px] mx-auto w-full max-w-[1200px]">
+    <section className="px-2 mx-auto w-full max-w-[1200px]">
       <div className="relative">
         <div className="circle-grey top-0 right-0 circle-right blur-[50px]"></div>
         <div>

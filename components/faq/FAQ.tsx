@@ -58,7 +58,7 @@ const faqItems = [
 
 const FAQ = () => {
   return (
-    <section className="max-w-[1200px] mx-auto px-2 p-[60px] md:py-[150px] relative">
+    <section className="max-w-[1200px] mx-auto px-2 relative">
       <div className="with-circle">
         <div className="relative mb-[20px] max-w-[150px] md:max-w-[250px] mx-auto md:mx-0">
           <Image

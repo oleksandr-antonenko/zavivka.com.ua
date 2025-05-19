@@ -29,7 +29,7 @@ const childVariants = {
 const ProfessionalFamilyContainer = () => {
   return (
     <motion.section
-      className="relative pb-[60px] xl:pb-[150px] w-full max-w-[1200px] mx-auto px-2"
+      className="relative w-full max-w-[1200px] mx-auto px-2"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"

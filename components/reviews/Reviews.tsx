@@ -7,7 +7,7 @@ const Reviews = () => {
   const reviews = useAppSelector((state) => state.feedbacks.listFeedback);
 
   return (
-    <section className="relative pb-[60px] xl:pb-[150px] w-full max-w-[1200px] mx-auto px-2">
+    <section className="relative w-full max-w-[1200px] mx-auto px-2">
       <div className="relative">
         <div className="circle-grey circle-middle circle-up-right right-0 top-0 blur-xl"></div>
         <div className="circle-grey circle-small circle-left left-0 top-0 blur-xl"></div>

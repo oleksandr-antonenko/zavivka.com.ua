@@ -7,7 +7,7 @@ import { useMediaQuery } from '@react-hook/media-query';
 const ConsultationContainer = () => {
   const isMobile = useMediaQuery('only screen and (max-width: 768px)');
   return (
-    <section className="relative sm:pb-[30px] xl:pb-[150px] w-full max-w-[1200px] mx-auto px-2">
+    <section className="relative w-full max-w-[1200px] mx-auto px-2">
       <DecoratedTitle className="max-w-[250px] md:max-w-[700px] mx-auto md:mx-0 mb-[30px] md:mb-[20px]">
         вам необхідна консультація <br /> з майстром, якщо
       </DecoratedTitle>
