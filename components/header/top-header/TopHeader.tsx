@@ -1,8 +1,7 @@
 'use client';
 import GetButtonLang from './GetButtonLang';
 import { useEffect, useState } from 'react';
-import { country, latvia, topLinks, ukraine } from './constants';
-import SelectCountry from './SelectCountry';
+import { latvia, topLinks, ukraine } from './constants';
 import { SocialIcons } from '@/shared/social';
 import TopHeaderLinks from './TopHeaderLinks';
 import { NavProps } from '../main-header';
@@ -31,14 +30,8 @@ export default function TopHeader({
       <div
         className={`flex items-center ${show === 'nav-desktop' ? 'justify-center' : 'topHeader-links'}`}
       >
-        {/* <SelectCountry
-          countries={country}
-          name="country"
-          onChangeProps={setChoice}
-          choice={choice}
-        /> */}
         <div className={`flex divide-x divide-grey`}>
-          <GetButtonLang languages={language} />
+          <GetButtonLang />
         </div>
       </div>
     </div>

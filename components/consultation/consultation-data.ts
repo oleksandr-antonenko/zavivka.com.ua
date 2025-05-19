@@ -5,18 +5,18 @@ export const titles = [
   },
   {
     title: 'Волосся було освітлене, меліроване або ж зафарбували блонд',
-    image: '/consultation-2.webp',
-  },
-  {
-    title: 'Часто фарбуєте волосся по довжині фарбою з мас-маркету',
     image: '/consultation-3.webp',
   },
   {
-    title: 'Користуєтеся хною',
+    title: 'Часто фарбуєте волосся по довжині фарбою з мас-маркету',
     image: '/consultation-4.webp',
   },
   {
-    title: 'Волосся сухе та ламке',
+    title: 'Користуєтеся хною',
     image: '/consultation-5.webp',
+  },
+  {
+    title: 'Волосся сухе та ламке',
+    image: '/consultation-2.webp',
   },
 ];

@@ -13,6 +13,13 @@ const initialState: TeamState = {
       slug: 'valentina-antonenko',
       category: 'Топ майстер',
       experience: '20 років',
+      specialization: [
+        'Завивка волосся',
+        'Стрижка',
+        'Покраска волосся',
+        'Укладка',
+        'Відновлення волосся',
+      ],
       listOfService: [
         {
           id: '01',
@@ -138,6 +145,13 @@ const initialState: TeamState = {
       slug: 'irina-kovalenko',
       category: 'Топ майстер',
       experience: '20 років',
+      specialization: [
+        'Завивка волосся',
+        'Стрижка',
+        'Покраска волосся',
+        'Укладка',
+        'Відновлення волосся',
+      ],
       listOfService: [
         {
           id: '01',
@@ -255,7 +269,7 @@ const initialState: TeamState = {
         '/images/smallmiddle.png',
         '/images/clients/kateryna.jpg',
       ],
-      photo: '/images/teamMember.jpg',
+      photo: '/mock-master.webp',
     },
     {
       id: '3',
@@ -263,6 +277,13 @@ const initialState: TeamState = {
       slug: 'maria-petrenko',
       category: 'Топ майстер',
       experience: '20 років',
+      specialization: [
+        'Завивка волосся',
+        'Стрижка',
+        'Покраска волосся',
+        'Укладка',
+        'Відновлення волосся',
+      ],
       listOfService: [
         {
           id: '01',
@@ -380,7 +401,7 @@ const initialState: TeamState = {
         '/images/smallmiddle.png',
         '/images/clients/kateryna.jpg',
       ],
-      photo: '/images/teamMember.jpg',
+      photo: '/mock-master.webp',
     },
     {
       id: '4',
@@ -388,6 +409,13 @@ const initialState: TeamState = {
       slug: 'yulia-pavlenko',
       category: 'Топ майстер',
       experience: '20 років',
+      specialization: [
+        'Завивка волосся',
+        'Стрижка',
+        'Покраска волосся',
+        'Укладка',
+        'Відновлення волосся',
+      ],
       listOfService: [
         {
           id: '01',
@@ -505,7 +533,7 @@ const initialState: TeamState = {
         '/images/smallmiddle.png',
         '/images/clients/kateryna.jpg',
       ],
-      photo: '/images/teamMember.jpg',
+      photo: '/mock-master.webp',
     },
     {
       id: '5',
@@ -513,6 +541,13 @@ const initialState: TeamState = {
       slug: 'olena-melnik',
       category: 'Топ майстер',
       experience: '20 років',
+      specialization: [
+        'Завивка волосся',
+        'Стрижка',
+        'Покраска волосся',
+        'Укладка',
+        'Відновлення волосся',
+      ],
       listOfService: [
         {
           id: '01',
@@ -630,7 +665,7 @@ const initialState: TeamState = {
         '/images/smallmiddle.png',
         '/images/clients/kateryna.jpg',
       ],
-      photo: '/images/teamMember.jpg',
+      photo: '/mock-master.webp',
     },
     {
       id: '6',
@@ -638,6 +673,13 @@ const initialState: TeamState = {
       slug: 'natalia-shevchenko',
       category: 'Топ майстер',
       experience: '20 років',
+      specialization: [
+        'Завивка волосся',
+        'Стрижка',
+        'Покраска волосся',
+        'Укладка',
+        'Відновлення волосся',
+      ],
       listOfService: [
         {
           id: '01',
@@ -755,7 +797,7 @@ const initialState: TeamState = {
         '/images/smallmiddle.png',
         '/images/clients/kateryna.jpg',
       ],
-      photo: '/images/teamMember.jpg',
+      photo: '/mock-master.webp',
     },
     {
       id: '7',
@@ -763,6 +805,13 @@ const initialState: TeamState = {
       slug: 'tetiana-bondarenko',
       category: 'Топ майстер',
       experience: '20 років',
+      specialization: [
+        'Завивка волосся',
+        'Стрижка',
+        'Покраска волосся',
+        'Укладка',
+        'Відновлення волосся',
+      ],
       listOfService: [
         {
           id: '01',
@@ -880,7 +929,7 @@ const initialState: TeamState = {
         '/images/smallmiddle.png',
         '/images/clients/kateryna.jpg',
       ],
-      photo: '/images/teamMember.jpg',
+      photo: '/mock-master.webp',
     },
     {
       id: '8',
@@ -888,6 +937,13 @@ const initialState: TeamState = {
       slug: 'victoria-danyliuk',
       category: 'Топ майстер',
       experience: '20 років',
+      specialization: [
+        'Завивка волосся',
+        'Стрижка',
+        'Покраска волосся',
+        'Укладка',
+        'Відновлення волосся',
+      ],
       listOfService: [
         {
           id: '01',
@@ -1005,7 +1061,7 @@ const initialState: TeamState = {
         '/images/smallmiddle.png',
         '/images/clients/kateryna.jpg',
       ],
-      photo: '/images/teamMember.jpg',
+      photo: '/mock-master.webp',
     },
     {
       id: '9',
@@ -1013,6 +1069,13 @@ const initialState: TeamState = {
       slug: 'sofia-kovalchuk',
       category: 'Топ майстер',
       experience: '20 років',
+      specialization: [
+        'Завивка волосся',
+        'Стрижка',
+        'Покраска волосся',
+        'Укладка',
+        'Відновлення волосся',
+      ],
       listOfService: [
         {
           id: '01',
@@ -1130,7 +1193,7 @@ const initialState: TeamState = {
         '/images/smallmiddle.png',
         '/images/clients/kateryna.jpg',
       ],
-      photo: '/images/teamMember.jpg',
+      photo: '/mock-master.webp',
     },
     {
       id: '10',
@@ -1138,6 +1201,13 @@ const initialState: TeamState = {
       slug: 'anna-lytvynenko',
       category: 'Топ майстер',
       experience: '20 років',
+      specialization: [
+        'Завивка волосся',
+        'Стрижка',
+        'Покраска волосся',
+        'Укладка',
+        'Відновлення волосся',
+      ],
       listOfService: [
         {
           id: '01',
@@ -1255,7 +1325,7 @@ const initialState: TeamState = {
         '/images/smallmiddle.png',
         '/images/clients/kateryna.jpg',
       ],
-      photo: '/images/teamMember.jpg',
+      photo: '/mock-master.webp',
     },
   ],
   loading: false,
