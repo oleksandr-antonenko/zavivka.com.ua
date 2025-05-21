@@ -9,7 +9,7 @@ const initialState: ServiceState = {
   listService: [
     {
       id: '01',
-      serviceTitle: 'Біозавивка волосся',
+      serviceTitle: 'Завивка волосся',
       images: [
         {
           imageTitle: 'Короткі',
@@ -104,14 +104,14 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: '/images/services/zavivka.jpg',
       imageForPriceMen: '/images/menmiddle.jpg',
-      priceExpert: 4250,
-      priceArtDir: 4500,
-      priceTop: 5000,
+      priceExpert: 4650,
+      priceArtDir: 5150,
+      priceTop: 5600,
       video: 'videos/services/zavivka.mp4',
     },
     {
       id: '02',
-      serviceTitle: 'Карвінг',
+      serviceTitle: 'Корекція завивки',
       images: [],
       descriptionForPrice: (
         <>
@@ -127,14 +127,14 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: '/images/services/zavivka.jpg',
       imageForPriceMen: '/images/menmiddle.jpg',
-      priceExpert: 3950,
-      priceArtDir: 4500,
-      priceTop: 5000,
+      priceExpert: 4650,
+      priceArtDir: 5150,
+      priceTop: 5600,
       video: 'videos/services/zavivka.mp4',
     },
     {
       id: '03',
-      serviceTitle: 'Стрижка кучерявого волосся',
+      serviceTitle: 'Стрижка кучерів',
       images: [],
       descriptionForPrice: (
         <>
@@ -157,30 +157,7 @@ const initialState: ServiceState = {
     },
     {
       id: '04',
-      serviceTitle: 'Лікуваня волосся',
-      images: [],
-      descriptionForPrice: (
-        <>
-          <p>Все включено:</p>
-          <ul>
-            <li>консультація,</li>
-            <li>стрижка,</li>
-            <li>укладання,</li>
-            <li>рекомендації щодо догляду,</li>
-            <li>підбір засобів догляду</li>
-          </ul>
-        </>
-      ),
-      imageForPriceWomen: '/images/services/zavivka.jpg',
-      imageForPriceMen: '/images/menmiddle.jpg',
-      priceExpert: 1600,
-      priceArtDir: 4500,
-      priceTop: 5000,
-      video: 'videos/services/zavivka.mp4',
-    },
-    {
-      id: '05',
-      serviceTitle: 'Фарбуання коренів',
+      serviceTitle: 'Лікування волосся Hahonico',
       images: [],
       descriptionForPrice: (
         <>
@@ -197,36 +174,13 @@ const initialState: ServiceState = {
       imageForPriceWomen: '/images/services/zavivka.jpg',
       imageForPriceMen: '/images/menmiddle.jpg',
       priceExpert: 1700,
-      priceArtDir: 4500,
-      priceTop: 5000,
+      priceArtDir: 1850,
+      priceTop: 1950,
       video: 'videos/services/zavivka.mp4',
     },
     {
-      id: '06',
-      serviceTitle: 'Фарбуання по довжині',
-      images: [],
-      descriptionForPrice: (
-        <>
-          <p>Все включено:</p>
-          <ul>
-            <li>консультація,</li>
-            <li>стрижка,</li>
-            <li>укладання,</li>
-            <li>рекомендації щодо догляду,</li>
-            <li>підбір засобів догляду</li>
-          </ul>
-        </>
-      ),
-      imageForPriceWomen: '/images/services/zavivka.jpg',
-      imageForPriceMen: '/images/menmiddle.jpg',
-      priceExpert: 2200,
-      priceArtDir: 4500,
-      priceTop: 5000,
-      video: 'videos/services/zavivka.mp4',
-    },
-    {
-      id: '07',
-      serviceTitle: 'Укладка на дифузор',
+      id: '05',
+      serviceTitle: 'Укладка кучерів на дифузор',
       images: [],
       descriptionForPrice: (
         <>
@@ -243,13 +197,13 @@ const initialState: ServiceState = {
       imageForPriceWomen: '/images/services/zavivka.jpg',
       imageForPriceMen: '/images/menmiddle.jpg',
       priceExpert: 600,
-      priceArtDir: 4500,
-      priceTop: 5000,
+      priceArtDir: 700,
+      priceTop: 800,
       video: 'videos/services/zavivka.mp4',
     },
     {
-      id: '08',
-      serviceTitle: 'Подарунковий сертифікат',
+      id: '06',
+      serviceTitle: 'Чоловіча завивки',
       images: [],
       descriptionForPrice: (
         <>
@@ -265,9 +219,81 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: '/images/services/zavivka.jpg',
       imageForPriceMen: '/images/menmiddle.jpg',
-      priceExpert: 4250,
-      priceArtDir: 4500,
-      priceTop: 5000,
+      priceExpert: 4650,
+      priceArtDir: 5150,
+      priceTop: 5600,
+      video: 'videos/services/zavivka.mp4',
+    },
+    {
+      id: '07',
+      serviceTitle: 'Фарбування коренів',
+      images: [],
+      descriptionForPrice: (
+        <>
+          <p>Все включено:</p>
+          <ul>
+            <li>консультація,</li>
+            <li>стрижка,</li>
+            <li>укладання,</li>
+            <li>рекомендації щодо догляду,</li>
+            <li>підбір засобів догляду</li>
+          </ul>
+        </>
+      ),
+      imageForPriceWomen: '/images/services/zavivka.jpg',
+      imageForPriceMen: '/images/menmiddle.jpg',
+      priceExpert: 2000,
+      priceArtDir: 2800,
+      priceTop: 2800,
+      video: 'videos/services/zavivka.mp4',
+    },
+    {
+      id: '08',
+      serviceTitle: 'Фарбування по довжині',
+      images: [],
+      descriptionForPrice: (
+        <>
+          <p>Все включено:</p>
+          <ul>
+            <li>консультація,</li>
+            <li>стрижка,</li>
+            <li>укладання,</li>
+            <li>рекомендації щодо догляду,</li>
+            <li>підбір засобів догляду</li>
+          </ul>
+        </>
+      ),
+      imageForPriceWomen: '/images/services/zavivka.jpg',
+      imageForPriceMen: '/images/menmiddle.jpg',
+      priceExpert: 2500,
+      priceArtDir: 3400,
+      priceTop: 3400,
+      priceExpertCut: 1300,
+      priceArtDirCut: 2000,
+      priceTopCut: 2500,
+      video: 'videos/services/zavivka.mp4',
+    },
+    {
+      id: '09',
+      serviceTitle: 'Тест пасма',
+      images: [],
+      descriptionForPrice: (
+        <>
+          <p>Все включено:</p>
+          <ul>
+            <li>консультація,</li>
+            <li>стрижка,</li>
+            <li>укладання,</li>
+            <li>рекомендації щодо догляду,</li>
+            <li>підбір засобів догляду</li>
+          </ul>
+        </>
+      ),
+      imageForPriceWomen: '/images/services/zavivka.jpg',
+      imageForPriceMen: '/images/menmiddle.jpg',
+      priceExpert: 600,
+      priceArtDir: 800,
+      priceTop: 1000,
       priceExpertCut: 1300,
       priceArtDirCut: 2000,
       priceTopCut: 2500,

@@ -92,7 +92,7 @@ export const HairFilter = () => {
             <DesktopFilter
               options={coloredOptions}
               setOption={setIsColored as Dispatch<SetStateAction<string>>}
-              title="Колір волосся"
+              title={'Тип'}
               selectedValue={isColored}
             />
           </div>
