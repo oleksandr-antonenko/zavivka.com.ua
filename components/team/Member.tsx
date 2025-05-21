@@ -23,7 +23,7 @@ const Member: FC<MemberProps> = ({ teamMembers }) => {
           style={{ borderWidth: '2px', borderStyle: 'solid' }}
         >
           <Link
-            className="flex flex-col h-full"
+            className="flex flex-col h-full p-2"
             href={`/team/${teamMember.slug.toLowerCase()}`}
           >
             <motion.div

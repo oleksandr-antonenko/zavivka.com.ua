@@ -21,7 +21,7 @@ const MemberService: FC<MemberServiceProps> = ({ servicePrices }) => {
         >
           <AccordionTrigger className="flex justify-between items-center font-bold text-[16px] pr-3 py-4 hover:text-orange transition-colors">
             <div className="">{service.serviceTitle}</div>
-            <div className="ml-auto mr-4">{service.price} грн</div>
+            <div className="ml-auto mr-4">від {service.price} грн</div>
           </AccordionTrigger>
           <AccordionContent className="pb-4">
             <div className="text-[14px] text-grey-dark leading-[1.5]">
