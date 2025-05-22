@@ -14,7 +14,7 @@ const Member: FC<MemberProps> = ({ teamMembers }) => {
           initial="rest"
           whileHover="hover"
           animate="rest"
-          className="w-full max-w-[386px] h-[500px] md:h-full flex flex-col rounded-[15px] overflow-hidden"
+          className="w-full max-w-[386px] md:h-full flex flex-col rounded-[15px] overflow-hidden"
           variants={{
             rest: { borderColor: 'transparent', padding: '0px' },
             hover: { borderColor: '#FFD700', padding: '20px' }, // жёлтый бордер
@@ -45,7 +45,7 @@ const Member: FC<MemberProps> = ({ teamMembers }) => {
             </motion.div>
 
             <div className="">
-              <p className="mb-4 text-[16px] md:text-[24px] max-w-[120px] mx-auto md:mx-0 text-center md:text-left">
+              <p className="mb-4 text-[16px] md:text-[24px] max-w-[80px] md:max-w-[120px] mx-auto md:mx-0 text-center md:text-left">
                 {teamMember.name}
               </p>
               <p className="text-orange text-[14px] md:text-[16px] text-center md:text-left">

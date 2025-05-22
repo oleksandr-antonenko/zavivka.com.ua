@@ -6,7 +6,7 @@ import { NavProp } from './type';
 import { motion } from 'framer-motion';
 import type { FC } from 'react';
 
-const Navbar: FC<NavProp> = ({ show, navlinks }) => {
+const Navbar: FC<NavProp> = ({ show, navlinks, closeMobileMenu }) => {
   const pathname = usePathname();
 
   // Анимации для разных направлений
@@ -57,6 +57,7 @@ const Navbar: FC<NavProp> = ({ show, navlinks }) => {
                   : ''
               }`}
               href={link.linkNav}
+              onClick={show !== 'nav-desktop' ? closeMobileMenu : undefined}
             >
               {link.titleNav}
             </Link>

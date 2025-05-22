@@ -45,7 +45,7 @@ export default function Home() {
         <Reviews />
       </section>
       <Booking />
-      <section className="p-[60px] md:py-[150px]">
+      <section className="py-[60px] md:py-[150px]">
         <FAQ />
       </section>
       <Contacts />

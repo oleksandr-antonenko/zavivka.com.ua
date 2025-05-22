@@ -46,10 +46,7 @@ const ProfessionalFamilyContainer = () => {
         </DecoratedTitle>
       </motion.div>
 
-      <motion.div
-        className="relative w-full max-w-full h-[596px]"
-        variants={childVariants}
-      >
+      <div className="relative w-full max-w-full h-[596px]">
         <Image
           src="/family-banner.jpg"
           alt="professional family"
@@ -57,7 +54,7 @@ const ProfessionalFamilyContainer = () => {
           priority
           className="object-cover object-[85%_center] md:object-center  rounded-2xl"
         />
-      </motion.div>
+      </div>
     </motion.section>
   );
 };

@@ -9,7 +9,7 @@ import { TopHeader } from '../top-header';
 import Navbar from './Navbar';
 import { NavProps } from './type';
 import { womenNav } from './constants';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const MainHeader = ({
   navlinks = womenNav,
@@ -18,7 +18,7 @@ const MainHeader = ({
   navlinks?: NavProps[];
   navlinksTop?: NavProps[];
 }) => {
-  const [show, setShow] = useState('nav-desktop');
+  const [show, setShow] = useState<'nav-desktop' | 'nav-mobile'>('nav-desktop');
   const handleShow = () => {
     setShow(show === 'nav-desktop' ? 'nav-mobile' : 'nav-desktop');
   };
@@ -31,24 +31,39 @@ const MainHeader = ({
       <div className="hidden headerLogoMob">
         <Logo width="118" height="40" />
       </div>
-      <div className={show}>
-        <Navbar show={show} navlinks={navlinks} />
-        <div className="hidden topHeaderMob">
-          <TopHeader show={show} navlinksTop={navlinksTop} />
-        </div>
-      </div>
+
+      {/* Анимируем только контейнер меню, сохраняя классы */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={show}
+          className={show}
+          initial={{ x: show === 'nav-mobile' ? '100%' : 0, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: show === 'nav-mobile' ? '100%' : 0, opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <Navbar
+            show={show}
+            navlinks={navlinks}
+            closeMobileMenu={() => setShow('nav-desktop')}
+          />
+          <div className="hidden topHeaderMob">
+            <TopHeader show={show} navlinksTop={navlinksTop} />
+          </div>
+        </motion.div>
+      </AnimatePresence>
 
       {/* 🔔 Анимированная кнопка */}
       <motion.a
         href="https://beautyprosoftware.com/b/877643"
         target="_blank"
         animate={{
-          x: [0, -3, 3, -3, 3, 0], // Эффект вибрации влево-вправо
+          x: [0, -3, 3, -3, 3, 0],
         }}
         transition={{
           duration: 0.6,
           repeat: Infinity,
-          repeatDelay: 4, // Повтор каждые 4 сек.
+          repeatDelay: 4,
         }}
       >
         <Button className="px-[8px] py-1 h-[21px] flex justify-center items-center bg-transparent rounded-md text-white text-[16px] border border-orange sm:text-nowrap">
@@ -56,6 +71,7 @@ const MainHeader = ({
         </Button>
       </motion.a>
 
+      {/* Кнопка открытия/закрытия меню */}
       <Image
         src={MobileIcon}
         alt="mobile-button"

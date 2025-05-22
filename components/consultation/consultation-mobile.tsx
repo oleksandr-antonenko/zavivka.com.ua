@@ -4,10 +4,18 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { titles } from './consultation-data';
+import { useSwipeable } from 'react-swipeable';
 
 const ConsultationMobile = () => {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0); // 1 = next, -1 = prev
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () => next(),
+    onSwipedRight: () => prev(),
+    preventScrollOnSwipe: true,
+    trackTouch: true,
+  });
 
   const prev = () => {
     setDirection(-1);
@@ -52,7 +60,7 @@ const ConsultationMobile = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center gap-4">
+    <div className="w-full flex flex-col items-center">
       {/* Контейнер слайдера */}
       <div className="relative w-full h-[300px] flex justify-center items-center overflow-hidden">
         {/* Предыдущее изображение */}
@@ -70,25 +78,27 @@ const ConsultationMobile = () => {
 
         {/* Центральное изображение с кастомной анимацией */}
         <div className="relative w-full max-w-[250px] h-[250px] md:w-[200px] md:h-[250px] z-20 perspective-[1000px]">
-          <AnimatePresence custom={direction} mode="wait">
-            <motion.div
-              key={titles[index].image}
-              custom={direction}
-              variants={variants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              className="absolute inset-0 shadow-xl rounded-xl overflow-hidden"
-              style={{ transformStyle: 'preserve-3d' }}
-            >
-              <Image
-                src={titles[index].image}
-                alt={titles[index].title}
-                fill
-                className="object-cover rounded-xl transition-all duration-500 ease-out"
-              />
-            </motion.div>
-          </AnimatePresence>
+          <div {...handlers} className="w-full h-full">
+            <AnimatePresence custom={direction} mode="wait">
+              <motion.div
+                key={titles[index].image}
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                className="absolute inset-0 shadow-xl rounded-xl overflow-hidden"
+                style={{ transformStyle: 'preserve-3d' }}
+              >
+                <Image
+                  src={titles[index].image}
+                  alt={titles[index].title}
+                  fill
+                  className="object-cover rounded-xl transition-all duration-500 ease-out"
+                />
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* Следующее изображение */}
@@ -106,10 +116,23 @@ const ConsultationMobile = () => {
       </div>
 
       {/* Заголовок */}
-      <div className="text-center px-4">
+      <div className="text-center px-4 h-[50px]">
         <h3 className="text-lg font-semibold text-white">
           {titles[index].title}
         </h3>
+      </div>
+      {/* Пагинация */}
+      <div className="custom-swiper-pagination-for-consultation flex justify-center gap-2 mt-4">
+        {titles.map((_, i) => (
+          <button
+            key={i}
+            className={`swiper-pagination-bullet-for-consultation  ${i === index ? 'swiper-pagination-bullet-active-for-consultation' : ''}`}
+            onClick={() => {
+              setDirection(i > index ? 1 : -1);
+              setIndex(i);
+            }}
+          />
+        ))}
       </div>
     </div>
   );
