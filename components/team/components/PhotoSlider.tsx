@@ -75,7 +75,7 @@ const PhotoSlider = ({
           className="flex flex-col items-center cursor-pointer group"
           onClick={prev}
         >
-          <div className="w-[100px] h-[180px] md:w-[250px] md:h-[250px] opacity-40 scale-75 z-10 relative">
+          <div className="w-[100px] h-[180px] md:w-[250px] md:h-[250px] opacity-40 scale-75 z-10 relative -mr-4 md:mr-0">
             <Image
               src={photos[(index - 1 + photos.length) % photos.length]}
               alt="previous"
@@ -93,7 +93,7 @@ const PhotoSlider = ({
 
         {/* Центральное фото */}
         <div
-          className="relative w-[250px] h-[250px] md:w-[407px] md:h-[407px] z-20 perspective-[1000px] mx-4"
+          className="relative w-[250px] h-[250px] md:w-[407px] md:h-[407px] z-20 perspective-[1000px]"
           {...handlers}
         >
           <AnimatePresence custom={direction} mode="wait">
@@ -104,7 +104,7 @@ const PhotoSlider = ({
               initial="enter"
               animate="center"
               exit="exit"
-              className="absolute inset-0 shadow-xl rounded-xl"
+              className="absolute inset-0 shadow-xl w-full h-full rounded-xl"
               style={{ transformStyle: 'preserve-3d' }}
             >
               <Image
@@ -122,7 +122,7 @@ const PhotoSlider = ({
           className="flex flex-col items-center cursor-pointer group"
           onClick={next}
         >
-          <div className="w-[100px] h-[180px] md:w-[250px] md:h-[250px] opacity-40 scale-75 z-10 relative">
+          <div className="w-[100px] h-[180px] md:w-[250px] md:h-[250px] opacity-40 scale-75 z-10 relative -ml-4 md:ml-0">
             <Image
               src={photos[(index + 1) % photos.length]}
               alt="next"
