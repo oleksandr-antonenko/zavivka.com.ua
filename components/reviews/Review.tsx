@@ -1,19 +1,46 @@
 'use client';
 
-import Image from 'next/image';
 import type { FC } from 'react';
 import { ReviewProps } from './type';
-import { SpriteSVGSocial } from '@/shared/svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
-
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Card } from './Card';
+import { motion } from 'framer-motion';
+
+// Контейнер для stagger-анимации
+const container = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2, // Задержка между карточками
+    },
+  },
+};
+
+// Анимация для каждой карточки
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut',
+    },
+  },
+};
 
 const Review: FC<ReviewProps> = ({ reviews }) => {
   return (
-    <div className="relative w-full">
+    <motion.div
+      variants={container}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      className="relative w-full"
+    >
       <Swiper
         modules={[Pagination]}
         pagination={{
@@ -25,39 +52,26 @@ const Review: FC<ReviewProps> = ({ reviews }) => {
         centeredSlides={true}
         loop={true}
         breakpoints={{
-          375: {
-            slidesPerView: 1.3,
-            centeredSlides: true,
-          },
-          430: {
-            slidesPerView: 1.5,
-            centeredSlides: true,
-          },
-          640: {
-            slidesPerView: 2,
-            centeredSlides: false,
-          },
-          768: {
-            slidesPerView: 3,
-            centeredSlides: false,
-          },
-          1024: {
-            slidesPerView: 4,
-            centeredSlides: false,
-          },
+          375: { slidesPerView: 1.3, centeredSlides: true },
+          430: { slidesPerView: 1.5, centeredSlides: true },
+          640: { slidesPerView: 2, centeredSlides: false },
+          768: { slidesPerView: 3, centeredSlides: false },
+          1024: { slidesPerView: 4, centeredSlides: false },
         }}
         className="w-full"
       >
-        {reviews.map((review) => (
+        {reviews.map((review, index) => (
           <SwiperSlide key={review.id}>
-            <Card {...review} />
+            <motion.div variants={fadeInUp} custom={index} className="h-full">
+              <Card {...review} />
+            </motion.div>
           </SwiperSlide>
         ))}
       </Swiper>
 
       {/* Пагинация */}
       <div className="custom-swiper-pagination mt-4 sm:mt-6 flex justify-center gap-2" />
-    </div>
+    </motion.div>
   );
 };
 
