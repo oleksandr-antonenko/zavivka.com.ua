@@ -8,6 +8,7 @@ import { PreviousPhoto } from '@/components/zavivka/PreviousPhoto';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import Link from 'next/link';
+import { MousePointerClick } from 'lucide-react';
 
 type CarouselProps = {
   filteredPhotos: Photo[];
@@ -15,20 +16,28 @@ type CarouselProps = {
 
 const Carousel = ({ filteredPhotos }: CarouselProps) => {
   // Фильтруем только фото с валидным src
-  const validPhotos = filteredPhotos.filter((photo) => Boolean(photo?.src));
+  const validPhotos = filteredPhotos.filter(
+    (photo) => Boolean(photo?.src) && photo?.slug && photo?.master && photo?.id,
+  );
+
   const totalPhotos = validPhotos.length;
-  const validInfoMasters = filteredPhotos
-    .filter((info) => info.slug && info.master) // фильтрация по наличию slug и master
-    .map((info) => ({
-      slug: info.slug,
-      master: info.master,
-    }));
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  // Используем id вместо индекса
+  const [currentPhotoId, setCurrentPhotoId] = useState(
+    validPhotos[0]?.id || '',
+  );
 
-  // Сбрасываем currentIndex при изменении filteredPhotos
+  // Находим текущий индекс по id
+  const currentIndex = validPhotos.findIndex(
+    (photo) => photo.id === currentPhotoId,
+  );
+  const currentPhoto = validPhotos[currentIndex];
+
+  // Сбрасываем currentPhotoId при изменении filteredPhotos
   useEffect(() => {
-    setCurrentIndex(0);
+    if (validPhotos.length > 0) {
+      setCurrentPhotoId(validPhotos[0].id);
+    }
   }, [filteredPhotos]);
 
   // Если фото нет вообще
@@ -57,27 +66,48 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
     if (totalPhotos <= 1) return;
     const newIndex = currentIndex === 0 ? totalPhotos - 1 : currentIndex - 1;
     if (!validPhotos[newIndex]?.src) return;
-    setCurrentIndex(newIndex);
+    setCurrentPhotoId(validPhotos[newIndex].id);
   };
 
   const goToNext = () => {
     if (totalPhotos <= 1) return;
     const newIndex = currentIndex === totalPhotos - 1 ? 0 : currentIndex + 1;
     if (!validPhotos[newIndex]?.src) return;
-    setCurrentIndex(newIndex);
-  };
-
-  const goToSlide = (index: number) => {
-    if (index >= 0 && index < totalPhotos) {
-      setCurrentIndex(index);
-    }
+    setCurrentPhotoId(validPhotos[newIndex].id);
   };
 
   const prevIndex = currentIndex === 0 ? totalPhotos - 1 : currentIndex - 1;
   const nextIndex = currentIndex === totalPhotos - 1 ? 0 : currentIndex + 1;
 
   return (
-    <PhotoProvider>
+    <PhotoProvider
+      onIndexChange={(index) => {
+        // Синхронизируем текущий id при изменении фото в модалке
+        if (validPhotos[index]) {
+          setCurrentPhotoId(validPhotos[index].id);
+        }
+      }}
+      overlayRender={({ index, onClose }) => {
+        const photo = validPhotos[index];
+        return photo ? (
+          <div className="absolute bottom-0 w-full bg-black/60 p-4 z-50 text-center">
+            <p className="text-sm text-white">
+              Майстер:{' '}
+              <Link
+                href={`/team/${photo.slug}`}
+                className="text-[#D7A908] underline hover:text-yellow transition uppercase"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onClose();
+                }}
+              >
+                {photo.master}
+              </Link>
+            </p>
+          </div>
+        ) : null;
+      }}
+    >
       <div className="w-full md:w-3/4 flex flex-col h-full">
         <div className="relative flex items-center justify-center h-[450px] md:h-[550px]">
           {/* Previous Photo */}
@@ -87,15 +117,17 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
               onClick={goToPrevious}
             >
               <div className="relative w-full h-full rounded-lg overflow-hidden opacity-70 hover:opacity-90 transition-opacity">
-                <Image
-                  src={validPhotos[prevIndex]?.src}
-                  alt={`Preview ${prevIndex}`}
-                  fill
-                  quality={60}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  style={{ objectFit: 'cover' }}
-                  className="rounded-[24px]"
-                />
+                {validPhotos[prevIndex]?.src && (
+                  <Image
+                    src={validPhotos[prevIndex].src}
+                    alt={`Preview ${validPhotos[prevIndex]?.master || ''}`}
+                    fill
+                    quality={60}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    style={{ objectFit: 'cover' }}
+                    className="rounded-[24px]"
+                  />
+                )}
               </div>
               <div className="hidden md:flex items-center mt-3">
                 <PreviousPhoto />
@@ -107,41 +139,73 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
           )}
 
           {/* Main Photo */}
-          <div className="w-full max-w-[306px] h-full md:max-w-full md:w-[450px] px-2 md:px-4 cursor-pointer">
+          <div className="w-full max-w-[346px] h-full md:max-w-full md:w-[450px] px-2 md:px-4 cursor-pointer">
             <div className="relative w-full h-full rounded-lg overflow-hidden z-10 group">
-              {validPhotos[currentIndex]?.src && (
+              {currentPhoto?.src && (
                 <>
-                  {/* Это часть, которая открывает модалку */}
-                  <PhotoView src={validPhotos[currentIndex].src}>
-                    <div className="absolute inset-0 cursor-pointer z-10" />
-                  </PhotoView>
+                  <PhotoProvider
+                    overlayRender={({ index, onClose }) => {
+                      const photo = validPhotos[index];
+                      return photo ? (
+                        <div className="absolute bottom-0 w-full bg-black/60 p-4 z-50 text-center">
+                          <p className="text-sm text-white">
+                            Майстер:{' '}
+                            <Link
+                              href={`/team/${photo.slug}`}
+                              className="text-[#D7A908] underline hover:text-yellow transition uppercase"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                onClose();
+                              }}
+                            >
+                              {photo.master}
+                            </Link>
+                          </p>
+                        </div>
+                      ) : null;
+                    }}
+                  >
+                    {validPhotos.map(
+                      (photo, index) =>
+                        photo?.src && (
+                          <PhotoView key={photo.id} src={photo.src}>
+                            {index === currentIndex ? (
+                              <Image
+                                src={photo.src}
+                                alt={`Фото від ${photo.master || ''}`}
+                                fill
+                                quality={60}
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                style={{ objectFit: 'cover' }}
+                                className="rounded-[14px] h-full"
+                              />
+                            ) : (
+                              <div style={{ display: 'none' }} />
+                            )}
+                          </PhotoView>
+                        ),
+                    )}
+                  </PhotoProvider>
 
-                  <Image
-                    src={validPhotos[currentIndex].src}
-                    alt={`Photo ${currentIndex + 1}`}
-                    fill
-                    quality={60}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    style={{ objectFit: 'cover' }}
-                    className="rounded-[14px] h-full pointer-events-none"
-                    priority
-                  />
+                  <div className="absolute bottom-0 w-full bg-black/60 p-2 group-hover:translate-y-0 transition-transform duration-300 ease-in-out z-20 translate-y-0 md:translate-y-full">
+                    <p className="text-sm text-white text-center">
+                      Майстер:{' '}
+                      <Link
+                        href={`/team/${currentPhoto.slug}`}
+                        className="text-[#D7A908] underline hover:text-yellow transition uppercase"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {currentPhoto.master}
+                      </Link>
+                    </p>
+                  </div>
 
-                  {/* Ховер блок с мастером */}
-                  {validInfoMasters[currentIndex] && (
-                    <div className="absolute bottom-0 w-full bg-black/60 p-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out z-20">
-                      <p className="text-sm text-white text-center">
-                        Майстер:{' '}
-                        <Link
-                          href={`/team/${validInfoMasters[currentIndex].slug}`}
-                          className="text-[#D7A908] underline hover:text-yellow transition uppercase"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          {validInfoMasters[currentIndex].master}
-                        </Link>
-                      </p>
+                  <div className="absolute top-2 right-2 flex items-center gap-1 z-30 pointer-events-none">
+                    <div className="flex items-center gap-2 px-2 py-1 text-[10px] mt-1 text-white bg-black/60 rounded animate-pulse">
+                      Клiк
+                      <MousePointerClick className="w-5 h-5 text-white animate-pulse" />
                     </div>
-                  )}
+                  </div>
                 </>
               )}
             </div>
@@ -154,15 +218,17 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
               onClick={goToNext}
             >
               <div className="relative w-full h-full rounded-lg overflow-hidden opacity-70 hover:opacity-90 transition-opacity">
-                <Image
-                  src={validPhotos[nextIndex]?.src}
-                  alt={`Preview ${nextIndex}`}
-                  fill
-                  quality={60}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  style={{ objectFit: 'cover' }}
-                  className="rounded-[24px]"
-                />
+                {validPhotos[nextIndex]?.src && (
+                  <Image
+                    src={validPhotos[nextIndex].src}
+                    alt={`Preview ${validPhotos[nextIndex]?.master || ''}`}
+                    fill
+                    quality={60}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    style={{ objectFit: 'cover' }}
+                    className="rounded-[24px]"
+                  />
+                )}
               </div>
 
               <div className="hidden md:flex items-center justify-end mt-3">
@@ -170,26 +236,6 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
                   Наступне фото
                 </span>
                 <NextPhoto />
-              </div>
-            </div>
-          )}
-
-          {/* Mobile Pagination Dots */}
-          {totalPhotos > 1 && (
-            <div className="absolute bottom-[-30px] left-0 right-0 flex justify-center md:hidden">
-              <div className="flex space-x-2">
-                {validPhotos.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`w-2 h-2 rounded-full transition-colors ${
-                      currentIndex === index
-                        ? 'bg-white-light'
-                        : 'bg-gray-400/50 border-[1px] border-yellow-border'
-                    }`}
-                    aria-label={`Go to slide ${index + 1}`}
-                  />
-                ))}
               </div>
             </div>
           )}

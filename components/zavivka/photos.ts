@@ -7,11 +7,13 @@ export type Photo = {
   master: string;
   colored: boolean;
   slug: string;
+  id: string;
 };
 
 export const photos: Photo[] = [
   // Валентина Антоненко начало
   {
+    id: '1',
     src: '/images/valentina/valentina-1.webp',
     hairLength: 'За лопатки',
     curlSize: 'Середній',
@@ -20,6 +22,7 @@ export const photos: Photo[] = [
     slug: 'valentina-antonenko',
   },
   {
+    id: '2',
     src: '/images/valentina/valentina-2.webp',
     hairLength: 'По пояс',
     curlSize: 'Великий',
@@ -28,6 +31,7 @@ export const photos: Photo[] = [
     slug: 'valentina-antonenko',
   },
   {
+    id: '3',
     src: '/images/valentina/valentina-3.webp',
     hairLength: 'За лопатки',
     curlSize: 'Великий',
@@ -36,6 +40,7 @@ export const photos: Photo[] = [
     slug: 'valentina-antonenko',
   },
   {
+    id: '4',
     src: '/images/valentina/valentina-4.webp',
     hairLength: 'По лопатки',
     curlSize: 'Середній',
@@ -44,6 +49,7 @@ export const photos: Photo[] = [
     slug: 'valentina-antonenko',
   },
   {
+    id: '5',
     src: '/images/valentina/valentina-5.jpg',
     hairLength: 'Короткі',
     curlSize: 'Інтенсивний',
@@ -52,6 +58,7 @@ export const photos: Photo[] = [
     slug: 'valentina-antonenko',
   },
   {
+    id: '6',
     src: '/images/valentina/valentina-6.webp',
     hairLength: 'За лопатки',
     curlSize: 'Пляжна Хвиля',
@@ -60,6 +67,7 @@ export const photos: Photo[] = [
     slug: 'valentina-antonenko',
   },
   {
+    id: '7',
     src: '/images/valentina/valentina-7.webp',
     hairLength: 'По плечі',
     curlSize: 'Середній',
@@ -68,6 +76,7 @@ export const photos: Photo[] = [
     slug: 'valentina-antonenko',
   },
   {
+    id: '8',
     src: '/images/valentina/valentina-8.webp',
     hairLength: 'За лопатки',
     curlSize: 'Пляжна Хвиля',
@@ -76,6 +85,7 @@ export const photos: Photo[] = [
     slug: 'valentina-antonenko',
   },
   {
+    id: '9',
     src: '/images/valentina/valentina-9.webp',
     hairLength: 'По пояс',
     curlSize: 'Великий',
@@ -84,6 +94,7 @@ export const photos: Photo[] = [
     slug: 'valentina-antonenko',
   },
   {
+    id: '10',
     src: '/images/valentina/valentina-10.webp',
     hairLength: 'За лопатки',
     curlSize: 'Пляжна Хвиля',
@@ -92,6 +103,7 @@ export const photos: Photo[] = [
     slug: 'valentina-antonenko',
   },
   {
+    id: '11',
     src: '/images/valentina/valentina-11.webp',
     hairLength: 'За лопатки',
     curlSize: 'Інтенсивний',
@@ -100,6 +112,7 @@ export const photos: Photo[] = [
     slug: 'valentina-antonenko',
   },
   {
+    id: '12',
     src: '/images/valentina/valentina-12.webp',
     hairLength: 'За лопатки',
     curlSize: 'Інтенсивний',
@@ -108,6 +121,7 @@ export const photos: Photo[] = [
     slug: 'valentina-antonenko',
   },
   {
+    id: '13',
     src: '/images/valentina/valentina-13.webp',
     hairLength: 'По плечі',
     curlSize: 'Середній',
@@ -116,6 +130,7 @@ export const photos: Photo[] = [
     slug: 'valentina-antonenko',
   },
   {
+    id: '14',
     src: '/images/valentina/valentina-14.webp',
     hairLength: 'За лопатки',
     curlSize: 'Великий',
@@ -124,6 +139,7 @@ export const photos: Photo[] = [
     slug: 'valentina-antonenko',
   },
   {
+    id: '15',
     src: '/images/valentina/valentina-15.webp',
     hairLength: 'За лопатки',
     curlSize: 'Інтенсивний',
@@ -135,6 +151,7 @@ export const photos: Photo[] = [
 
   // Артем начало
   {
+    id: '16',
     src: '/images/artem/artem-1.webp',
     hairLength: 'По лопатки',
     curlSize: 'Середній',
@@ -143,6 +160,7 @@ export const photos: Photo[] = [
     slug: 'sabo-artem',
   },
   {
+    id: '17',
     src: '/images/artem/artem-2.webp',
     hairLength: 'Короткі',
     curlSize: 'Великий',
@@ -151,6 +169,7 @@ export const photos: Photo[] = [
     slug: 'sabo-artem',
   },
   {
+    id: '18',
     src: '/images/artem/artem-3.webp',
     hairLength: 'По плечі',
     curlSize: 'Середній',
@@ -159,6 +178,7 @@ export const photos: Photo[] = [
     slug: 'sabo-artem',
   },
   {
+    id: '19',
     src: '/images/artem/artem-4.webp',
     hairLength: 'По плечі',
     curlSize: 'Середній',
@@ -167,6 +187,7 @@ export const photos: Photo[] = [
     slug: 'sabo-artem',
   },
   {
+    id: '20',
     src: '/images/artem/artem-5.webp',
     hairLength: 'По плечі',
     curlSize: 'Середній',
@@ -175,6 +196,7 @@ export const photos: Photo[] = [
     slug: 'sabo-artem',
   },
   {
+    id: '21',
     src: '/images/artem/artem-6.webp',
     hairLength: 'По лопатки',
     curlSize: 'Середній',
@@ -183,6 +205,7 @@ export const photos: Photo[] = [
     slug: 'sabo-artem',
   },
   {
+    id: '22',
     src: '/images/artem/artem-7.webp',
     hairLength: 'Короткі',
     curlSize: 'Великий',
@@ -191,6 +214,7 @@ export const photos: Photo[] = [
     slug: 'sabo-artem',
   },
   {
+    id: '23',
     src: '/images/artem/artem-8.webp',
     hairLength: 'По плечі',
     curlSize: 'Великий',
@@ -199,6 +223,7 @@ export const photos: Photo[] = [
     slug: 'sabo-artem',
   },
   {
+    id: '24',
     src: '/images/artem/artem-2.webp',
     hairLength: 'По плечі',
     curlSize: 'Інтенсивний',

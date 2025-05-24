@@ -50,7 +50,7 @@ export const HairFilter = () => {
   const coloredOptions = ['Фарбоване', 'Натуральне', 'Всі'];
 
   return (
-    <div className="flex flex-col md:flex-row md:justify-between md:items-center text-white">
+    <div className="flex flex-col md:flex-row md:justify-between md:items-center text-white px-2">
       {/* Filters */}
       <div className="w-full md:w-1/5">
         {/* Mobile select inputs */}
