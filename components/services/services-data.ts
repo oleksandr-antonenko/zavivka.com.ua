@@ -1,21 +1,21 @@
 export const services = [
   {
     id: 1,
-    name: 'ФАРБУВАННЯ ВОЛОССЯ',
+    name: 'КАРВІНГ',
     image: '/modern-service-1.webp',
     video: 'zavivka.mp4',
     url: '/coloration',
   },
   {
     id: 2,
-    name: 'ЗАВИВКА ВОЛОССЯ',
+    name: 'ЧОЛОВІЧА ЗАВИВКА',
     image: '/modern-service-5.webp',
     video: 'zavivka.mp4',
     url: '/zavivka',
   },
   {
     id: 3,
-    name: 'чоловіча стрижка',
+    name: 'КОРЕКЦІЯ ЗАВИВКИ',
     image: '/modern-service-3.webp',
     video: 'zavivka.mp4',
     url: '/male-haircut',
@@ -29,7 +29,7 @@ export const services = [
   },
   {
     id: 5,
-    name: 'ЛІКУВАННЯ ВОЛОССЯ',
+    name: 'ЛІКУВАННЯ КУЧЕРІВ',
     image: '/modern-service-2.webp',
     video: 'zavivka.mp4',
     url: '/therapy',

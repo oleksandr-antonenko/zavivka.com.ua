@@ -1,4 +1,4 @@
-import { Service } from "@/store/type";
+import { Service } from '@/store/type';
 
 export interface ZavivkaChoice {
   serviceImages: Service;
@@ -10,11 +10,17 @@ export interface ZavivkaChoice {
 }
 
 export type HairLength =
-  | "Короткі"
-  | "До плечей"
-  | "До лопаток"
-  | "За лопатки"
-  | "По пояс"
-  | "Всі";
-export type CurlSize = "Маленький" | "Середній" | "Крупний" | "Всі";
-export type Colored = "Так" | "Ні" | "Всі";
+  | 'Короткі'
+  | 'По плечі'
+  | 'По лопатки'
+  | 'За лопатки'
+  | 'По пояс'
+  | 'Всі';
+export type CurlSize =
+  | 'Інтенсивний'
+  | 'Середній'
+  | 'Великий'
+  | 'Пляжна Хвиля'
+  | 'Карвінг'
+  | 'Всі';
+export type Colored = 'Фарбоване' | 'Натуральне' | 'Всі';

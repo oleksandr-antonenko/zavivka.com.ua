@@ -21,10 +21,10 @@ export const HairFilter = () => {
     let colorCondition;
     if (isColored === 'Всі') {
       colorCondition = true; // Accept all colored statuses
-    } else if (isColored === 'Так') {
-      colorCondition = photo.colored;
+    } else if (isColored === 'Фарбоване') {
+      colorCondition = photo.colored === true;
     } else {
-      colorCondition = !photo.colored;
+      colorCondition = photo.colored === false;
     }
 
     // Return true only if all conditions are met
@@ -33,14 +33,21 @@ export const HairFilter = () => {
 
   const lengthOptions = [
     'Короткі',
-    'До плечей',
-    'До лопаток',
+    'По плечі',
+    'По лопатки',
     'За лопатки',
     'По пояс',
     'Всі',
   ];
-  const curlOptions = ['Маленький', 'Середній', 'Крупний', 'Всі'];
-  const coloredOptions = ['Так', 'Ні', 'Всі'];
+  const curlOptions = [
+    'Інтенсивний',
+    'Середній',
+    'Великий',
+    'Пляжна Хвиля',
+    'Карвінг',
+    'Всі',
+  ];
+  const coloredOptions = ['Фарбоване', 'Натуральне', 'Всі'];
 
   return (
     <div className="flex flex-col md:flex-row md:justify-between md:items-center text-white">
