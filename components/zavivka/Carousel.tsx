@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, useCallback } from 'react';
 import Image from 'next/image';
 import { Photo } from '@/components/zavivka/photos';
 import { NextPhoto } from '@/components/zavivka/NextPhoto';
@@ -20,10 +20,23 @@ type CarouselProps = {
 
 const Carousel = ({ filteredPhotos }: CarouselProps) => {
   const [direction, setDirection] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [lastSwipeTime, setLastSwipeTime] = useState(0);
+  const SWIPE_COOLDOWN = 300; // milliseconds
 
   const handlers = useSwipeable({
-    onSwipedLeft: () => goToNext(),
-    onSwipedRight: () => goToPrevious(),
+    onSwipedLeft: () => {
+      const now = Date.now();
+      if (now - lastSwipeTime < SWIPE_COOLDOWN || isAnimating) return;
+      setLastSwipeTime(now);
+      goToNext();
+    },
+    onSwipedRight: () => {
+      const now = Date.now();
+      if (now - lastSwipeTime < SWIPE_COOLDOWN || isAnimating) return;
+      setLastSwipeTime(now);
+      goToPrevious();
+    },
     preventScrollOnSwipe: true,
     trackTouch: true,
   });
@@ -39,25 +52,48 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
 
   const totalPhotos = validPhotos.length;
 
-  // Используем id вместо индекса
   const [currentPhotoId, setCurrentPhotoId] = useState(
     validPhotos[0]?.id || '',
   );
 
-  // Находим текущий индекс по id
   const currentIndex = validPhotos.findIndex(
     (photo) => photo.id === currentPhotoId,
   );
   const currentPhoto = validPhotos[currentIndex];
 
-  // Сбрасываем currentPhotoId при изменении filteredPhotos
   useEffect(() => {
     if (validPhotos.length > 0) {
       setCurrentPhotoId(validPhotos[0].id);
     }
   }, [filteredPhotos, validPhotos]);
 
-  // Если фото нет вообще
+  const goToPrevious = useCallback(() => {
+    if (totalPhotos <= 1 || isAnimating) return;
+    const newIndex = currentIndex === 0 ? totalPhotos - 1 : currentIndex - 1;
+    if (!validPhotos[newIndex]?.src) return;
+    setIsAnimating(true);
+    setDirection(-1);
+    setCurrentPhotoId(validPhotos[newIndex].id);
+  }, [currentIndex, totalPhotos, validPhotos, isAnimating]);
+
+  const goToNext = useCallback(() => {
+    if (totalPhotos <= 1 || isAnimating) return;
+    const newIndex = currentIndex === totalPhotos - 1 ? 0 : currentIndex + 1;
+    if (!validPhotos[newIndex]?.src) return;
+    setIsAnimating(true);
+    setDirection(1);
+    setCurrentPhotoId(validPhotos[newIndex].id);
+  }, [currentIndex, totalPhotos, validPhotos, isAnimating]);
+
+  useEffect(() => {
+    if (isAnimating) {
+      const timer = setTimeout(() => {
+        setIsAnimating(false);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [isAnimating]);
+
   if (filteredPhotos.length === 0) {
     return (
       <div className="w-full md:w-2/3 flex items-center justify-center">
@@ -68,7 +104,6 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
     );
   }
 
-  // Если фото есть, но все без src (недоступны для показа)
   if (filteredPhotos.length > 0 && totalPhotos === 0) {
     return (
       <div className="w-full md:w-2/3 flex items-center justify-center">
@@ -79,29 +114,12 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
     );
   }
 
-  const goToPrevious = () => {
-    if (totalPhotos <= 1) return;
-    const newIndex = currentIndex === 0 ? totalPhotos - 1 : currentIndex - 1;
-    if (!validPhotos[newIndex]?.src) return;
-    setDirection(-1);
-    setCurrentPhotoId(validPhotos[newIndex].id);
-  };
-
-  const goToNext = () => {
-    if (totalPhotos <= 1) return;
-    const newIndex = currentIndex === totalPhotos - 1 ? 0 : currentIndex + 1;
-    if (!validPhotos[newIndex]?.src) return;
-    setDirection(1);
-    setCurrentPhotoId(validPhotos[newIndex].id);
-  };
-
   const prevIndex = currentIndex === 0 ? totalPhotos - 1 : currentIndex - 1;
   const nextIndex = currentIndex === totalPhotos - 1 ? 0 : currentIndex + 1;
 
   return (
     <div className="w-full md:w-3/4 flex flex-col h-full">
       <div className="relative flex items-center justify-center h-[450px] md:h-[550px]">
-        {/* Previous Photo */}
         {validPhotos.length > 1 && (
           <div
             className="block absolute left-[-20px] md:left-[0px] md:w-[200px] w-2/5 md:h-[200px] h-[70%] cursor-pointer"
@@ -109,7 +127,7 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
           >
             <motion.div
               className="relative w-full h-full rounded-lg overflow-hidden opacity-70 hover:opacity-90 transition-opacity"
-              key={validPhotos[prevIndex].id}
+              key={validPhotos[prevIndex]?.id}
               variants={sideVariants}
               initial="enterLeft"
               animate="center"
@@ -126,7 +144,6 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
                   className="rounded-[24px]"
                 />
               )}
-              {/* Mobile Navigation Arrow - Left */}
               <div className="md:hidden absolute left-[20px] top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none">
                 <div className="flex items-center justify-center w-8 h-8 bg-black/60 rounded-full animate-pulse">
                   <ChevronLeft className="w-6 h-6 text-white animate-pulse" />
@@ -142,94 +159,91 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
           </div>
         )}
 
-        {/* Main Photo */}
         <div className="w-full max-w-[346px] h-full md:max-w-full md:w-[450px] px-2 md:px-4 cursor-pointer">
           <div
             {...handlers}
             className="relative w-full h-full rounded-lg overflow-hidden z-10 group"
           >
             {currentPhoto?.src && (
-              <>
-                <PhotoProvider
-                  overlayRender={({ index, onClose }) => {
-                    const photo = validPhotos[index];
-                    return photo ? (
-                      <div className="absolute bottom-0 w-full bg-black/60 p-4 z-50 text-center">
-                        <p className="text-sm text-white">
-                          Майстер:{' '}
-                          <Link
-                            href={`/team/${photo.slug}`}
-                            className="text-[#D7A908] underline hover:text-yellow transition uppercase"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              onClose();
-                            }}
-                          >
-                            {photo.master}
-                          </Link>
-                        </p>
-                      </div>
-                    ) : null;
-                  }}
-                >
-                  <AnimatePresence initial={false} custom={direction}>
-                    <motion.div
-                      key={currentPhotoId}
-                      custom={direction}
-                      variants={variants}
-                      initial="enter"
-                      animate="center"
-                      exit="exit"
-                      className="w-full h-full relative"
-                    >
-                      {validPhotos.map((photo, index) => (
-                        <PhotoView key={photo.id} src={photo.src}>
-                          {index === currentIndex ? (
-                            <Image
-                              src={photo.src}
-                              alt={`Фото від ${photo.master || ''}`}
-                              fill
-                              quality={60}
-                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                              blurDataURL={generateStaticBlurData()}
-                              placeholder="blur"
-                              style={{ objectFit: 'cover' }}
-                              className="rounded-[14px] h-full"
-                            />
-                          ) : (
-                            <div style={{ display: 'none' }} />
-                          )}
-                        </PhotoView>
-                      ))}
+              <PhotoProvider
+                overlayRender={({ index, onClose }) => {
+                  const photo = validPhotos[index];
+                  return photo ? (
+                    <div className="absolute bottom-0 w-full bg-black/60 p-4 z-50 text-center">
+                      <p className="text-sm text-white">
+                        Майстер:{' '}
+                        <Link
+                          href={`/team/${photo.slug}`}
+                          className="text-[#D7A908] underline hover:text-yellow transition uppercase"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onClose();
+                          }}
+                        >
+                          {photo.master}
+                        </Link>
+                      </p>
+                    </div>
+                  ) : null;
+                }}
+              >
+                <AnimatePresence initial={false} custom={direction} mode="wait">
+                  <motion.div
+                    key={currentPhotoId}
+                    custom={direction}
+                    variants={variants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    className="w-full h-full relative"
+                    onAnimationComplete={() => setIsAnimating(false)}
+                  >
+                    {validPhotos.map((photo, index) => (
+                      <PhotoView key={photo.id} src={photo.src}>
+                        {index === currentIndex ? (
+                          <Image
+                            src={photo.src}
+                            alt={`Фото від ${photo.master || ''}`}
+                            fill
+                            quality={60}
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            blurDataURL={generateStaticBlurData()}
+                            placeholder="blur"
+                            style={{ objectFit: 'cover' }}
+                            className="rounded-[14px] h-full"
+                          />
+                        ) : (
+                          <div style={{ display: 'none' }} />
+                        )}
+                      </PhotoView>
+                    ))}
 
-                      <div className="absolute bottom-0 w-full bg-black/60 p-2 group-hover:translate-y-0 transition-transform duration-300 ease-in-out z-20 translate-y-0 md:translate-y-full">
-                        <p className="text-sm text-white text-center">
-                          Майстер:{' '}
-                          <Link
-                            href={`/team/${currentPhoto.slug}`}
-                            className="text-[#D7A908] underline hover:text-yellow transition uppercase"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            {currentPhoto.master}
-                          </Link>
-                        </p>
-                      </div>
+                    <div className="absolute bottom-0 w-full bg-black/60 p-2 group-hover:translate-y-0 transition-transform duration-300 ease-in-out z-20 translate-y-0 md:translate-y-full">
+                      <p className="text-sm text-white text-center">
+                        Майстер:{' '}
+                        <Link
+                          href={`/team/${currentPhoto.slug}`}
+                          className="text-[#D7A908] underline hover:text-yellow transition uppercase"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {currentPhoto.master}
+                        </Link>
+                      </p>
+                    </div>
 
-                      <div className="absolute top-2 right-2 flex items-center gap-1 z-30 pointer-events-none">
-                        <div className="flex items-center gap-2 px-2 py-1 text-[10px] mt-1 text-white bg-black/60 rounded animate-pulse">
-                          Клiк
-                          <MousePointerClick className="w-5 h-5 text-white animate-pulse" />
-                        </div>
+                    <div className="absolute top-2 right-2 flex items-center gap-1 z-30 pointer-events-none">
+                      <div className="flex items-center gap-2 px-2 py-1 text-[10px] mt-1 text-white bg-black/60 rounded animate-pulse">
+                        Клiк
+                        <MousePointerClick className="w-5 h-5 text-white animate-pulse" />
                       </div>
-                    </motion.div>
-                  </AnimatePresence>
-                </PhotoProvider>
-              </>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </PhotoProvider>
             )}
           </div>
         </div>
 
-        {/* Next Photo */}
         {validPhotos.length > 1 && (
           <div
             className="block absolute right-[-20px] md:right-[0px] md:w-[200px] w-2/5 md:h-[200px] h-[70%] cursor-pointer"
@@ -237,7 +251,7 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
           >
             <motion.div
               className="relative w-full h-full rounded-lg overflow-hidden opacity-70 hover:opacity-90 transition-opacity"
-              key={validPhotos[nextIndex].id}
+              key={validPhotos[nextIndex]?.id}
               variants={sideVariants}
               initial="enterRight"
               animate="center"
@@ -254,7 +268,6 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
                   className="rounded-[24px]"
                 />
               )}
-              {/* Mobile Navigation Arrow - Right */}
               <div className="md:hidden absolute right-[-10px] top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none">
                 <div className="flex items-center justify-center w-8 h-8 bg-black/60 rounded-full animate-pulse">
                   <ChevronRight className="w-6 h-6 text-white animate-pulse" />

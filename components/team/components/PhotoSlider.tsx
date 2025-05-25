@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSwipeable } from 'react-swipeable';
 import type { PhotoSliderProps } from './type';
@@ -19,24 +19,50 @@ const PhotoSlider = ({
 }: PhotoSliderProps) => {
   const photos = forMen ? photosMen : photosWomen;
   const [index, setIndex] = useState(0);
-  const [direction, setDirection] = useState(0); // 1 - next, -1 - prev
+  const [direction, setDirection] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [lastSwipeTime, setLastSwipeTime] = useState(0);
+  const SWIPE_COOLDOWN = 300; // milliseconds
 
   const handlers = useSwipeable({
-    onSwipedLeft: () => next(),
-    onSwipedRight: () => prev(),
+    onSwipedLeft: () => {
+      const now = Date.now();
+      if (now - lastSwipeTime < SWIPE_COOLDOWN || isAnimating) return;
+      setLastSwipeTime(now);
+      next();
+    },
+    onSwipedRight: () => {
+      const now = Date.now();
+      if (now - lastSwipeTime < SWIPE_COOLDOWN || isAnimating) return;
+      setLastSwipeTime(now);
+      prev();
+    },
     preventScrollOnSwipe: true,
     trackTouch: true,
   });
 
-  const prev = () => {
+  const prev = useCallback(() => {
+    if (isAnimating) return;
+    setIsAnimating(true);
     setDirection(-1);
     setIndex((i) => (i === 0 ? photos.length - 1 : i - 1));
-  };
+  }, [photos.length, isAnimating]);
 
-  const next = () => {
+  const next = useCallback(() => {
+    if (isAnimating) return;
+    setIsAnimating(true);
     setDirection(1);
     setIndex((i) => (i === photos.length - 1 ? 0 : i + 1));
-  };
+  }, [photos.length, isAnimating]);
+
+  useEffect(() => {
+    if (isAnimating) {
+      const timer = setTimeout(() => {
+        setIsAnimating(false);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [isAnimating]);
 
   return (
     <PhotoProvider>
@@ -80,6 +106,7 @@ const PhotoSlider = ({
                 exit="exit"
                 className="absolute inset-0 shadow-xl w-full h-full rounded-xl cursor-pointer"
                 style={{ transformStyle: 'preserve-3d' }}
+                onAnimationComplete={() => setIsAnimating(false)}
               >
                 {photos.map((photo, i) => (
                   <PhotoView key={i} src={photo}>
@@ -134,6 +161,8 @@ const PhotoSlider = ({
               key={i}
               className={`swiper-pagination-bullet-for-consultation  ${i === index ? 'swiper-pagination-bullet-active-for-consultation' : ''}`}
               onClick={() => {
+                if (isAnimating) return;
+                setIsAnimating(true);
                 setDirection(i > index ? 1 : -1);
                 setIndex(i);
               }}
