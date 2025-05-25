@@ -142,6 +142,8 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
                   fill
                   quality={60}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  blurDataURL={generateStaticBlurData()}
+                  placeholder="blur"
                   style={{ objectFit: 'cover' }}
                   className="rounded-[24px]"
                 />
@@ -266,6 +268,8 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
                   fill
                   quality={60}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  blurDataURL={generateStaticBlurData()}
+                  placeholder="blur"
                   style={{ objectFit: 'cover' }}
                   className="rounded-[24px]"
                 />
