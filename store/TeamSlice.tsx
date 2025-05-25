@@ -1586,7 +1586,7 @@ const initialState: TeamState = {
         '/images/smallmiddle.png',
         '/images/clients/kateryna.jpg',
       ],
-      photo: '/mock-master.webp',
+      photo: '/images/kuzmenko.webp',
     },
   ],
   loading: false,
