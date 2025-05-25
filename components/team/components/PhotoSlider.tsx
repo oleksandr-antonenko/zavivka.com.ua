@@ -9,6 +9,8 @@ import { PreviousPhoto } from '@/components/zavivka/PreviousPhoto';
 import { NextPhoto } from '@/components/zavivka/NextPhoto';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import { generateStaticBlurData } from '@/lib/generateStaticBlurData';
+import { variants } from './animation/animation-works-slider';
 
 const PhotoSlider = ({
   photosMen,
@@ -34,38 +36,6 @@ const PhotoSlider = ({
   const next = () => {
     setDirection(1);
     setIndex((i) => (i === photos.length - 1 ? 0 : i + 1));
-  };
-
-  const variants = {
-    enter: (dir: number) => ({
-      opacity: 0,
-      x: dir > 0 ? 150 : -150,
-      rotateY: dir > 0 ? -15 : 15,
-      scale: 0.9,
-      filter: 'blur(6px)',
-    }),
-    center: {
-      opacity: 1,
-      x: 0,
-      rotateY: 0,
-      scale: 1,
-      filter: 'blur(0px)',
-      transition: {
-        duration: 0.6,
-        ease: [0.33, 1, 0.68, 1],
-      },
-    },
-    exit: (dir: number) => ({
-      opacity: 0,
-      x: dir < 0 ? 150 : -150,
-      rotateY: dir < 0 ? -15 : 15,
-      scale: 0.9,
-      filter: 'blur(6px)',
-      transition: {
-        duration: 0.4,
-        ease: [0.33, 1, 0.68, 1],
-      },
-    }),
   };
 
   return (
@@ -120,6 +90,8 @@ const PhotoSlider = ({
                         fill
                         quality={60}
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        blurDataURL={generateStaticBlurData()}
+                        placeholder="blur"
                         className="object-cover rounded-xl"
                       />
                     ) : (

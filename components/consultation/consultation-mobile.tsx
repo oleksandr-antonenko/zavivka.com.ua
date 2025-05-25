@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { titles } from './consultation-data';
 import { useSwipeable } from 'react-swipeable';
+import { generateStaticBlurData } from '@/lib/generateStaticBlurData';
+import { variants } from './animation/animation-slider';
 
 const ConsultationMobile = () => {
   const [index, setIndex] = useState(0);
@@ -25,38 +27,6 @@ const ConsultationMobile = () => {
   const next = () => {
     setDirection(1);
     setIndex((i) => (i === titles.length - 1 ? 0 : i + 1));
-  };
-
-  const variants = {
-    enter: (dir: number) => ({
-      opacity: 0,
-      x: dir > 0 ? 150 : -150,
-      rotateY: dir > 0 ? -15 : 15,
-      scale: 0.9,
-      filter: 'blur(6px)',
-    }),
-    center: {
-      opacity: 1,
-      x: 0,
-      rotateY: 0,
-      scale: 1,
-      filter: 'blur(0px)',
-      transition: {
-        duration: 0.6,
-        ease: [0.33, 1, 0.68, 1], // easeOutExpo
-      },
-    },
-    exit: (dir: number) => ({
-      opacity: 0,
-      x: dir < 0 ? 150 : -150,
-      rotateY: dir < 0 ? -15 : 15,
-      scale: 0.9,
-      filter: 'blur(6px)',
-      transition: {
-        duration: 0.4,
-        ease: [0.33, 1, 0.68, 1],
-      },
-    }),
   };
 
   return (
@@ -94,6 +64,10 @@ const ConsultationMobile = () => {
                   src={titles[index].image}
                   alt={titles[index].title}
                   fill
+                  quality={60}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  blurDataURL={generateStaticBlurData()}
+                  placeholder="blur"
                   className="object-cover rounded-xl transition-all duration-500 ease-out"
                 />
               </motion.div>

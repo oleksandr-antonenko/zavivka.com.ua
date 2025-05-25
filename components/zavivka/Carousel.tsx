@@ -11,6 +11,8 @@ import Link from 'next/link';
 import { MousePointerClick, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useSwipeable } from 'react-swipeable';
 import { motion, AnimatePresence } from 'framer-motion';
+import { generateStaticBlurData } from '@/lib/generateStaticBlurData';
+import { variants, sideVariants } from './animation/animation-carusel';
 
 type CarouselProps = {
   filteredPhotos: Photo[];
@@ -96,38 +98,6 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
   const prevIndex = currentIndex === 0 ? totalPhotos - 1 : currentIndex - 1;
   const nextIndex = currentIndex === totalPhotos - 1 ? 0 : currentIndex + 1;
 
-  const variants = {
-    enter: (dir: number) => ({
-      opacity: 0,
-      x: dir > 0 ? 150 : -150,
-      rotateY: dir > 0 ? -15 : 15,
-      scale: 0.9,
-      filter: 'blur(6px)',
-    }),
-    center: {
-      opacity: 1,
-      x: 0,
-      rotateY: 0,
-      scale: 1,
-      filter: 'blur(0px)',
-      transition: {
-        duration: 0.6,
-        ease: [0.33, 1, 0.68, 1],
-      },
-    },
-    exit: (dir: number) => ({
-      opacity: 0,
-      x: dir < 0 ? 150 : -150,
-      rotateY: dir < 0 ? -15 : 15,
-      scale: 0.9,
-      filter: 'blur(6px)',
-      transition: {
-        duration: 0.4,
-        ease: [0.33, 1, 0.68, 1],
-      },
-    }),
-  };
-
   return (
     <div className="w-full md:w-3/4 flex flex-col h-full">
       <div className="relative flex items-center justify-center h-[450px] md:h-[550px]">
@@ -137,7 +107,14 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
             className="block absolute left-[-20px] md:left-[0px] md:w-[200px] w-2/5 md:h-[200px] h-[70%] cursor-pointer"
             onClick={goToPrevious}
           >
-            <div className="relative w-full h-full rounded-lg overflow-hidden opacity-70 hover:opacity-90 transition-opacity">
+            <motion.div
+              className="relative w-full h-full rounded-lg overflow-hidden opacity-70 hover:opacity-90 transition-opacity"
+              key={validPhotos[prevIndex].id}
+              variants={sideVariants}
+              initial="enterLeft"
+              animate="center"
+              exit="exitLeft"
+            >
               {validPhotos[prevIndex]?.src && (
                 <Image
                   src={validPhotos[prevIndex].src}
@@ -155,7 +132,7 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
                   <ChevronLeft className="w-6 h-6 text-white animate-pulse" />
                 </div>
               </div>
-            </div>
+            </motion.div>
             <div className="hidden md:flex items-center mt-3">
               <PreviousPhoto />
               <span className="hidden lg:block ml-3 text-[12px] text-[#FBFBFB]">
@@ -214,6 +191,8 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
                               fill
                               quality={60}
                               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                              blurDataURL={generateStaticBlurData()}
+                              placeholder="blur"
                               style={{ objectFit: 'cover' }}
                               className="rounded-[14px] h-full"
                             />
@@ -256,7 +235,14 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
             className="block absolute right-[-20px] md:right-[0px] md:w-[200px] w-2/5 md:h-[200px] h-[70%] cursor-pointer"
             onClick={goToNext}
           >
-            <div className="relative w-full h-full rounded-lg overflow-hidden opacity-70 hover:opacity-90 transition-opacity">
+            <motion.div
+              className="relative w-full h-full rounded-lg overflow-hidden opacity-70 hover:opacity-90 transition-opacity"
+              key={validPhotos[nextIndex].id}
+              variants={sideVariants}
+              initial="enterRight"
+              animate="center"
+              exit="exitRight"
+            >
               {validPhotos[nextIndex]?.src && (
                 <Image
                   src={validPhotos[nextIndex].src}
@@ -274,7 +260,7 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
                   <ChevronRight className="w-6 h-6 text-white animate-pulse" />
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             <div className="hidden md:flex items-center justify-end mt-3">
               <span className="hidden lg:block mr-3 text-[12px] text-[#FBFBFB]">
