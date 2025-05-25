@@ -13,6 +13,7 @@ import { useSwipeable } from 'react-swipeable';
 import { motion, AnimatePresence } from 'framer-motion';
 import { generateStaticBlurData } from '@/lib/generateStaticBlurData';
 import { variants, sideVariants } from './animation/animation-carusel';
+import { useMediaQuery } from '@react-hook/media-query';
 
 type CarouselProps = {
   filteredPhotos: Photo[];
@@ -22,6 +23,7 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
   const [direction, setDirection] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [lastSwipeTime, setLastSwipeTime] = useState(0);
+  const isDesktop = useMediaQuery('(min-width: 768px)');
   const SWIPE_COOLDOWN = 300; // milliseconds
 
   const handlers = useSwipeable({
@@ -128,10 +130,10 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
             <motion.div
               className="relative w-full h-full rounded-lg overflow-hidden opacity-70 hover:opacity-90 transition-opacity"
               key={validPhotos[prevIndex]?.id}
-              variants={sideVariants}
-              initial="enterLeft"
-              animate="center"
-              exit="exitLeft"
+              variants={isDesktop ? sideVariants : undefined}
+              initial={isDesktop ? 'enterLeft' : undefined}
+              animate={isDesktop ? 'center' : undefined}
+              exit={isDesktop ? 'exitLeft' : undefined}
             >
               {validPhotos[prevIndex]?.src && (
                 <Image
@@ -191,10 +193,10 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
                   <motion.div
                     key={currentPhotoId}
                     custom={direction}
-                    variants={variants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
+                    variants={isDesktop ? variants : undefined}
+                    initial={isDesktop ? 'enter' : undefined}
+                    animate={isDesktop ? 'center' : undefined}
+                    exit={isDesktop ? 'exit' : undefined}
                     className="w-full h-full relative"
                     onAnimationComplete={() => setIsAnimating(false)}
                   >
@@ -252,10 +254,10 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
             <motion.div
               className="relative w-full h-full rounded-lg overflow-hidden opacity-70 hover:opacity-90 transition-opacity"
               key={validPhotos[nextIndex]?.id}
-              variants={sideVariants}
-              initial="enterRight"
-              animate="center"
-              exit="exitRight"
+              variants={isDesktop ? sideVariants : undefined}
+              initial={isDesktop ? 'enterRight' : undefined}
+              animate={isDesktop ? 'center' : undefined}
+              exit={isDesktop ? 'exitRight' : undefined}
             >
               {validPhotos[nextIndex]?.src && (
                 <Image

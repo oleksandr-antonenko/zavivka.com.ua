@@ -1,9 +1,12 @@
 import Image from 'next/image';
 import type { FC } from 'react';
 import MemberService from './components/MemberService';
-import PhotoSlider from './components/PhotoSlider';
 import { MemberFullProps } from './type';
 import OrderBlock from './components/OrderBlock';
+import dynamic from 'next/dynamic';
+const PhotoSlider = dynamic(() => import('./components/PhotoSlider'), {
+  ssr: false,
+});
 
 const MemberFullInfo: FC<MemberFullProps> = ({ forMen = false, member }) => {
   return (

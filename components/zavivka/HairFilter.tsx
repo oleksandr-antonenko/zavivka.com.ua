@@ -1,11 +1,13 @@
 'use client';
-
+import dynamic from 'next/dynamic';
 import { Dispatch, SetStateAction, useState } from 'react';
 import { photos } from '@/components/zavivka/photos';
 import { Colored, CurlSize, HairLength } from '@/components/zavivka/types';
 import { DesktopFilter } from '@/components/zavivka/DesktopFilter';
-import Carousel from '@/components/zavivka/Carousel';
 import { MobileFilter } from '@/components/zavivka/MobileFilter';
+const Carousel = dynamic(() => import('@/components/zavivka/Carousel'), {
+  ssr: false,
+});
 
 export const HairFilter = () => {
   const [selectedLength, setSelectedLength] = useState<HairLength>('Всі');

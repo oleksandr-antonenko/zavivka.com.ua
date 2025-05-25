@@ -11,6 +11,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import { generateStaticBlurData } from '@/lib/generateStaticBlurData';
 import { variants } from './animation/animation-works-slider';
+import { useMediaQuery } from '@react-hook/media-query';
 
 const PhotoSlider = ({
   photosMen,
@@ -23,6 +24,7 @@ const PhotoSlider = ({
   const [isAnimating, setIsAnimating] = useState(false);
   const [lastSwipeTime, setLastSwipeTime] = useState(0);
   const SWIPE_COOLDOWN = 300; // milliseconds
+  const isDesktop = useMediaQuery('(min-width: 768px)');
 
   const handlers = useSwipeable({
     onSwipedLeft: () => {
@@ -100,10 +102,10 @@ const PhotoSlider = ({
               <motion.div
                 key={photos[index]}
                 custom={direction}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
+                variants={isDesktop ? variants : undefined}
+                initial={isDesktop ? 'enter' : undefined}
+                animate={isDesktop ? 'center' : undefined}
+                exit={isDesktop ? 'exit' : undefined}
                 className="absolute inset-0 shadow-xl w-full h-full rounded-xl cursor-pointer"
                 style={{ transformStyle: 'preserve-3d' }}
                 onAnimationComplete={() => setIsAnimating(false)}
