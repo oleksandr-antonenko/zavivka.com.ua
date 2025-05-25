@@ -111,16 +111,22 @@ const PhotoSlider = ({
                 className="absolute inset-0 shadow-xl w-full h-full rounded-xl cursor-pointer"
                 style={{ transformStyle: 'preserve-3d' }}
               >
-                <PhotoView src={photos[index]}>
-                  <Image
-                    src={photos[index]}
-                    alt={`photo-${index}`}
-                    fill
-                    quality={60}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover rounded-xl"
-                  />
-                </PhotoView>
+                {photos.map((photo, i) => (
+                  <PhotoView key={i} src={photo}>
+                    {i === index ? (
+                      <Image
+                        src={photo}
+                        alt={`photo-${i}`}
+                        fill
+                        quality={60}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover rounded-xl"
+                      />
+                    ) : (
+                      <div style={{ display: 'none' }} />
+                    )}
+                  </PhotoView>
+                ))}
               </motion.div>
             </AnimatePresence>
           </div>

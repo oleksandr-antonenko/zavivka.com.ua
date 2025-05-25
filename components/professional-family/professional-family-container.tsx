@@ -36,7 +36,7 @@ const ProfessionalFamilyContainer = () => {
       viewport={{ once: true, amount: 0.3 }}
     >
       <motion.div
-        className="circle-grey bottom-[-30%] left-[-700px] blur-[50px]"
+        className="circle-grey bottom-[-30%] left-[-700px]"
         variants={childVariants}
       ></motion.div>
 

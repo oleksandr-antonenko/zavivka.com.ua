@@ -57,7 +57,7 @@ const Contacts = () => {
   return isLoaded ? (
     <section className="relative pb-[34px]">
       <div className="flex flex-col-reverse md:flex-row gap-[60px] xl:gap-[100px] items-start relative">
-        <div className="circle-grey circle-right circle-small right-0 top-0 circle-up-right blur-xl"></div>
+        <div className="circle-grey circle-right circle-small right-0 top-0 circle-up-right"></div>
         <div className="flex-1 h-full w-full max-w-[850px]">
           <GoogleMap
             mapContainerStyle={containerStyle}

@@ -8,7 +8,7 @@ import OrderBlock from './components/OrderBlock';
 const MemberFullInfo: FC<MemberFullProps> = ({ forMen = false, member }) => {
   return (
     <section className="relative">
-      <div className="rounded-full -right-[300px] sm:-right-[200px] -top-[2px] w-[500px] h-[500px] md:w-[580px] md:h-[580px] xl:w-[600px] xl:h-[600px] absolute -z-10 bg-grey-middle blur-xl" />
+      <div className="rounded-full -right-[300px] sm:-right-[200px] -top-[2px] w-[500px] h-[500px] md:w-[580px] md:h-[580px] xl:w-[600px] xl:h-[600px] absolute -z-10 bg-grey-middle" />
       {member && (
         <>
           <div
@@ -58,8 +58,8 @@ const MemberFullInfo: FC<MemberFullProps> = ({ forMen = false, member }) => {
             <OrderBlock />
           </section>
           <section className="relative pt-[60px] md:pt-[150px]">
-            <div className="rounded-full left-0 -top-[60px] md:w-[95px] w-[60px] h-[60px] md:h-[95px] absolute -z-5 bg-yellow blur-xl" />
-            <div className="rounded-full -left-[300px] md:-left-[350px] xl:-left-[400px] -top-[40px] w-[500px] h-[500px] md:w-[580px] md:h-[580px] xl:w-[600px] xl:h-[600px] absolute -z-10 bg-grey-middle blur-xl" />
+            <div className="rounded-full left-0 -top-[60px] md:w-[95px] w-[60px] h-[60px] md:h-[95px] absolute -z-5 bg-yellow" />
+            <div className="rounded-full -left-[300px] md:-left-[350px] xl:-left-[400px] -top-[40px] w-[500px] h-[500px] md:w-[580px] md:h-[580px] xl:w-[600px] xl:h-[600px] absolute -z-10 bg-grey-middle" />
             <div className="flex flex-col gap-5">
               <div className={`relative mb-[40px] mx-auto md:mx-0 w-full`}>
                 <Image

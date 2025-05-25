@@ -6,7 +6,7 @@ const ModernServices = () => {
   return (
     <section className="px-2 mx-auto w-full max-w-[1200px]">
       <div className="relative">
-        <div className="circle-grey top-0 right-0 circle-right blur-[50px]"></div>
+        <div className="circle-grey top-0 right-0 circle-right"></div>
         <div>
           <DecoratedTitle className="max-w-[361px] md:max-w-[590px] mx-auto md:mx-0 mb-[30px] md:mb-[54px]">
             Все для кучерявих і тих,

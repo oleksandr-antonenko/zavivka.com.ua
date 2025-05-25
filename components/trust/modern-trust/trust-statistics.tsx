@@ -33,7 +33,7 @@ const TrustStatistics = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
     >
-      <div className="circle-grey top-0 right-0 circle-right blur-[50px]"></div>
+      <div className="circle-grey top-0 right-0 circle-right"></div>
 
       <motion.div className="mb-[40px] md:hidden" variants={itemVariants}>
         <DecoratedTitle className="max-w-[280px] mx-auto mb-[24px] uppercase text-[20px] font-bold text-[#fbfbfb]">

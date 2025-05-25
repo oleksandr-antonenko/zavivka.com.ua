@@ -9,8 +9,8 @@ const Reviews = () => {
   return (
     <section className="relative w-full max-w-[1200px] mx-auto px-2">
       <div className="relative">
-        <div className="circle-grey circle-middle circle-up-right right-0 top-0 blur-xl"></div>
-        <div className="circle-grey circle-small circle-left left-0 top-0 blur-xl"></div>
+        <div className="circle-grey circle-middle circle-up-right right-0 top-0"></div>
+        <div className="circle-grey circle-small circle-left left-0 top-0"></div>
         <DecoratedTitle className="max-w-[250px] mx-auto md:mx-0 md:max-w-[700px] mb-[20px]">
           Відгуки <br /> наших клієнтів
         </DecoratedTitle>
