@@ -26,6 +26,9 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
   const isDesktop = useMediaQuery('(min-width: 768px)');
   const SWIPE_COOLDOWN = 300; // milliseconds
 
+  // Add state for modal view
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const handlers = useSwipeable({
     onSwipedLeft: () => {
       const now = Date.now();
@@ -62,6 +65,17 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
     (photo) => photo.id === currentPhotoId,
   );
   const currentPhoto = validPhotos[currentIndex];
+
+  // Calculate visible photos indices
+  const visibleIndices = useMemo(() => {
+    if (isModalOpen) {
+      return validPhotos.map((_, index) => index);
+    }
+    const indices = [currentIndex];
+    if (currentIndex > 0) indices.unshift(currentIndex - 1);
+    if (currentIndex < totalPhotos - 1) indices.push(currentIndex + 1);
+    return indices;
+  }, [isModalOpen, currentIndex, totalPhotos, validPhotos]);
 
   useEffect(() => {
     if (validPhotos.length > 0) {
@@ -142,10 +156,11 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
                   fill
                   quality={60}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  blurDataURL={generateStaticBlurData()}
-                  placeholder="blur"
+                  // blurDataURL={generateStaticBlurData()}
+                  // placeholder="blur"
                   style={{ objectFit: 'cover' }}
                   className="rounded-[24px]"
+                  loading="lazy"
                 />
               )}
               <div className="md:hidden absolute left-[20px] top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none">
@@ -170,6 +185,7 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
           >
             {currentPhoto?.src && (
               <PhotoProvider
+                onVisibleChange={(visible) => setIsModalOpen(visible)}
                 overlayRender={({ index, onClose }) => {
                   const photo = validPhotos[index];
                   return photo ? (
@@ -204,7 +220,7 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
                   >
                     {validPhotos.map((photo, index) => (
                       <PhotoView key={photo.id} src={photo.src}>
-                        {index === currentIndex ? (
+                        {visibleIndices.includes(index) ? (
                           <Image
                             src={photo.src}
                             alt={`Фото від ${photo.master || ''}`}
@@ -214,7 +230,8 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
                             blurDataURL={generateStaticBlurData()}
                             placeholder="blur"
                             style={{ objectFit: 'cover' }}
-                            className="rounded-[14px] h-full"
+                            className={`rounded-[14px] h-full ${index === currentIndex ? 'block' : 'hidden'}`}
+                            loading={index === currentIndex ? 'eager' : 'lazy'}
                           />
                         ) : (
                           <div style={{ display: 'none' }} />
@@ -268,10 +285,11 @@ const Carousel = ({ filteredPhotos }: CarouselProps) => {
                   fill
                   quality={60}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  blurDataURL={generateStaticBlurData()}
-                  placeholder="blur"
+                  // blurDataURL={generateStaticBlurData()}
+                  // placeholder="blur"
                   style={{ objectFit: 'cover' }}
                   className="rounded-[24px]"
+                  loading="lazy"
                 />
               )}
               <div className="md:hidden absolute right-[-10px] top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none">
