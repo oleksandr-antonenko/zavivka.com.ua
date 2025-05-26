@@ -1,17 +1,37 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSwipeable } from 'react-swipeable';
 import type { PhotoSliderProps } from './type';
 import { PreviousPhoto } from '@/components/zavivka/PreviousPhoto';
 import { NextPhoto } from '@/components/zavivka/NextPhoto';
-import { PhotoProvider, PhotoView } from 'react-photo-view';
-import 'react-photo-view/dist/react-photo-view.css';
+import Lightbox from 'yet-another-react-lightbox';
+import Counter from 'yet-another-react-lightbox/plugins/counter';
+import Zoom from 'yet-another-react-lightbox/plugins/zoom';
+import 'yet-another-react-lightbox/plugins/counter.css';
+import 'yet-another-react-lightbox/styles.css';
 import { generateStaticBlurData } from '@/lib/generateStaticBlurData';
 import { variants } from './animation/animation-works-slider';
 import { useMediaQuery } from '@react-hook/media-query';
+import { ZoomIn, ZoomOut } from 'lucide-react';
+
+interface ZoomRef {
+  zoom: number;
+  maxZoom: number;
+  offsetX: number;
+  offsetY: number;
+  disabled: boolean;
+  zoomIn: () => void;
+  zoomOut: () => void;
+  changeZoom: (
+    targetZoom: number,
+    rapid?: boolean,
+    dx?: number,
+    dy?: number,
+  ) => void;
+}
 
 const PhotoSlider = ({
   photosMen,
@@ -23,6 +43,8 @@ const PhotoSlider = ({
   const [direction, setDirection] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [lastSwipeTime, setLastSwipeTime] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const zoomRef = useRef<ZoomRef>(null);
   const SWIPE_COOLDOWN = 300; // milliseconds
   const isDesktop = useMediaQuery('(min-width: 768px)');
 
@@ -66,8 +88,20 @@ const PhotoSlider = ({
     }
   }, [isAnimating]);
 
+  useEffect(() => {
+    document.body.style.overflow = lightboxOpen ? 'hidden' : 'unset';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [lightboxOpen]);
+
+  const slides = photos.map((photo) => ({
+    src: photo,
+    alt: `photo-${photos.indexOf(photo)}`,
+  }));
+
   return (
-    <PhotoProvider>
+    <>
       <div className="w-full flex flex-col items-center">
         <div className="relative w-full max-w-[900px] flex justify-center items-center overflow-hidden">
           {/* Левая часть — Предыдущее фото + кнопка под ним */}
@@ -97,6 +131,7 @@ const PhotoSlider = ({
           <div
             className="relative w-[250px] h-[250px] md:w-[407px] md:h-[407px] z-20 perspective-[1000px]"
             {...handlers}
+            onClick={() => setLightboxOpen(true)}
           >
             <AnimatePresence custom={direction} mode="wait">
               <motion.div
@@ -110,24 +145,16 @@ const PhotoSlider = ({
                 style={{ transformStyle: 'preserve-3d' }}
                 onAnimationComplete={() => setIsAnimating(false)}
               >
-                {photos.map((photo, i) => (
-                  <PhotoView key={i} src={photo}>
-                    {i === index ? (
-                      <Image
-                        src={photo}
-                        alt={`photo-${i}`}
-                        fill
-                        quality={60}
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        blurDataURL={generateStaticBlurData()}
-                        placeholder="blur"
-                        className="object-cover rounded-xl"
-                      />
-                    ) : (
-                      <div style={{ display: 'none' }} />
-                    )}
-                  </PhotoView>
-                ))}
+                <Image
+                  src={photos[index]}
+                  alt={`photo-${index}`}
+                  fill
+                  quality={60}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  blurDataURL={generateStaticBlurData()}
+                  placeholder="blur"
+                  className="object-cover rounded-xl"
+                />
               </motion.div>
             </AnimatePresence>
           </div>
@@ -172,7 +199,42 @@ const PhotoSlider = ({
           ))}
         </div>
       </div>
-    </PhotoProvider>
+
+      <Lightbox
+        open={lightboxOpen}
+        close={() => setLightboxOpen(false)}
+        slides={slides}
+        index={index}
+        plugins={[Counter, Zoom]}
+        counter={{ container: { style: { top: 'unset', bottom: 0 } } }}
+        zoom={{
+          ref: zoomRef,
+          maxZoomPixelRatio: 3,
+          zoomInMultiplier: 2,
+          scrollToZoom: true,
+        }}
+        render={{
+          buttonZoom: ({ zoom, maxZoom }) => (
+            <div className="absolute left-[-100px] top-3 z-[10001] flex gap-2">
+              <button
+                onClick={() => zoomRef.current?.zoomIn()}
+                className="p-2 bg-black/60 rounded-full hover:bg-black/80 transition-colors"
+                disabled={zoom >= maxZoom}
+              >
+                <ZoomIn className="w-6 h-6 text-white" />
+              </button>
+              <button
+                onClick={() => zoomRef.current?.zoomOut()}
+                className="p-2 bg-black/60 rounded-full hover:bg-black/80 transition-colors"
+                disabled={zoom <= 1}
+              >
+                <ZoomOut className="w-6 h-6 text-white" />
+              </button>
+            </div>
+          ),
+        }}
+      />
+    </>
   );
 };
 

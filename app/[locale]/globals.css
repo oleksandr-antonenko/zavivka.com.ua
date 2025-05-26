@@ -11,6 +11,7 @@
     --text-color-dark: #212121;
 }
 
+
 @font-face {
     font-family: "KyivTypeSansRegular";
     src: url('/fonts/KyivTypeSansRegular.woff2') format('woff2'), url('/fonts/KyivTypeSansRegular.woff') format('woff');
