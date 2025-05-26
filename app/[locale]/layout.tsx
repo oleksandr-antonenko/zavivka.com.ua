@@ -10,6 +10,7 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing, Locale } from '@/i18n/routing';
 import { Header } from '@/components/header';
+import { IntervalPopUp } from '@/components/pop-up';
 
 const inter = Inter({
   subsets: ['cyrillic'],
@@ -57,6 +58,7 @@ export default async function RootLayout({
               <Header />
               <main className="relative overflow-x-hidden">{children}</main>
               <Footer />
+              <IntervalPopUp />
             </NextIntlClientProvider>
           </AppRouterCacheProvider>
         </StoreProvider>
