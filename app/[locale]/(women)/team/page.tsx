@@ -30,7 +30,7 @@ export async function generateMetadata() {
       url: baseUrl,
       images: [
         {
-          url: `https://zavivka.vercel.app/openGrapgTeam.webp`, // добавь своё изображение для OG этой страницы
+          url: `/openGrapgTeam.webp`, // добавь своё изображение для OG этой страницы
           width: 1200,
           height: 630,
           alt: 'Команда майстрів з завивки волосся у Києві',

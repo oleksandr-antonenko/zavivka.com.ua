@@ -38,7 +38,7 @@ export async function generateMetadata() {
       url: baseUrl,
       images: [
         {
-          url: `${baseUrl}openGraph.webp`, // замени на путь к своему изображению
+          url: `/openGraph.webp`, // замени на путь к своему изображению
           width: 1200,
           height: 630,
           alt: 'Завивка волосся у Києві – салон на Хрещатику',
