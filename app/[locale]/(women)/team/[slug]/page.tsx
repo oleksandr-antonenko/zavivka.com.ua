@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import { FAQ } from '@/components/faq';
 import DynamicTeamContainer from '@/components/team/dynamic-team-page/dynamic-team-container';
 import { Contacts } from '@/components/contacts';
+import { getLocale } from 'next-intl/server';
 const ConsultationContainer = dynamic(
   () => import('@/components/consultation/consultation-container'),
   {
@@ -16,6 +17,9 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
+  const locale = await getLocale();
+  const baseUrl = 'https://zavivka.vercel.app';
+  const canonical = `${baseUrl}/${locale}/team/${params.slug}`;
   const master = masters.find((m) => m.slug === params.slug);
 
   if (!master) {
@@ -27,7 +31,10 @@ export async function generateMetadata({
 
   return {
     title: `${master.name} – ${master.category}`,
-    description: `${master.name} — ${master.category} з досвідом ${master.experience}. Дізнайтесь більше про майстра.`,
+    description: `${master.name} — професійний ${master.category} з досвідом ${master.experience}. Працює з індивідуальним підходом до кожного клієнта, гарантуючи якість та комфорт. Дізнайтесь більше про майстра та його послуги.`,
+    alternates: {
+      canonical,
+    },
     openGraph: {
       title: `${master.name} – ${master.category}`,
       description: `${master.name} — ${master.category} з досвідом ${master.experience}.`,

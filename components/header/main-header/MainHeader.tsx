@@ -2,8 +2,7 @@
 
 import { Button } from '@/shared/buttons';
 import { Logo } from '@/shared/svg';
-import Image from 'next/image';
-import MobileIcon from './img/mobile-nav.png';
+import { Squash as Hamburger } from 'hamburger-react';
 import { useState } from 'react';
 import { TopHeader } from '../top-header';
 import Navbar from './Navbar';
@@ -19,8 +18,12 @@ const MainHeader = ({
   navlinksTop?: NavProps[];
 }) => {
   const [show, setShow] = useState<'nav-desktop' | 'nav-mobile'>('nav-desktop');
-  const handleShow = () => {
-    setShow(show === 'nav-desktop' ? 'nav-mobile' : 'nav-desktop');
+  const [isOpen, setOpen] = useState(false);
+
+  const toggleMenu = () => {
+    const newShow = show === 'nav-desktop' ? 'nav-mobile' : 'nav-desktop';
+    setShow(newShow);
+    setOpen(newShow === 'nav-mobile');
   };
 
   return (
@@ -32,7 +35,7 @@ const MainHeader = ({
         <Logo width="118" height="40" />
       </div>
 
-      {/* Анимируем только контейнер меню, сохраняя классы */}
+      {/* Анимируем только контейнер меню */}
       <AnimatePresence mode="wait">
         <motion.div
           key={show}
@@ -45,7 +48,10 @@ const MainHeader = ({
           <Navbar
             show={show}
             navlinks={navlinks}
-            closeMobileMenu={() => setShow('nav-desktop')}
+            closeMobileMenu={() => {
+              setShow('nav-desktop');
+              setOpen(false);
+            }}
           />
           <div className="hidden topHeaderMob">
             <TopHeader show={show} navlinksTop={navlinksTop} />
@@ -57,29 +63,26 @@ const MainHeader = ({
       <motion.a
         href="https://beautyprosoftware.com/b/877643"
         target="_blank"
-        animate={{
-          x: [0, -3, 3, -3, 3, 0],
-        }}
-        transition={{
-          duration: 0.6,
-          repeat: Infinity,
-          repeatDelay: 4,
-        }}
+        animate={{ x: [0, -3, 3, -3, 3, 0] }}
+        transition={{ duration: 0.6, repeat: Infinity, repeatDelay: 4 }}
       >
         <Button className="px-[8px] py-1 h-[21px] flex justify-center items-center bg-transparent rounded-md text-white text-[16px] border border-orange sm:text-nowrap">
           запис онлайн
         </Button>
       </motion.a>
 
-      {/* Кнопка открытия/закрытия меню */}
-      <Image
-        src={MobileIcon}
-        alt="mobile-button"
-        width={0}
-        height={0}
-        className="mobile-icon w-12 h-[31px] cursor-pointer"
-        onClick={handleShow}
-      />
+      {/* 🍔 Кастомный бургер */}
+      <div className="block xlOne:hidden">
+        <Hamburger
+          toggled={isOpen}
+          toggle={toggleMenu}
+          color="#D7A908"
+          size={24}
+          rounded
+          duration={0.4}
+          distance="sm"
+        />
+      </div>
     </div>
   );
 };

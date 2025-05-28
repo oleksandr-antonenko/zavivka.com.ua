@@ -1,5 +1,5 @@
 const SpiralPage = () => {
-  return <div>SpiralPage</div>;
+  return <h1>SpiralPage</h1>;
 };
 
 export default SpiralPage;

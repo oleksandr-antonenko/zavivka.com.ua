@@ -1,5 +1,5 @@
 const MaleHaircutPage = () => {
-  return <div>MaleHaircutPage</div>;
+  return <h1>MaleHaircutPage</h1>;
 };
 
 export default MaleHaircutPage;

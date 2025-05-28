@@ -1,5 +1,5 @@
 const ColorationPage = () => {
-  return <div>ColorationPage</div>;
+  return <h1>ColorationPage</h1>;
 };
 
 export default ColorationPage;

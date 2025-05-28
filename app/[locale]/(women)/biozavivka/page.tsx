@@ -1,5 +1,5 @@
 const BiozavivkaPage = () => {
-  return <div>BiozavivkaPage</div>;
+  return <h1>BiozavivkaPage</h1>;
 };
 
 export default BiozavivkaPage;

@@ -1,6 +1,6 @@
 
 export default function Zavivka() {
     return (
-        <main>Завивка</main>
+        <h1>Завивка</h1>
     );
 }

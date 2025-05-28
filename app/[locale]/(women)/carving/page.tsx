@@ -1,5 +1,5 @@
 const CarvingPage = () => {
-  return <div>CarvingPage</div>;
+  return <h1>CarvingPage</h1>;
 };
 
 export default CarvingPage;
