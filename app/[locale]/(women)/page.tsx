@@ -17,6 +17,38 @@ const ConsultationContainer = dynamic(
   },
 );
 
+export async function generateMetadata() {
+  const baseUrl = 'https://zavivka.vercel.app/'; //заменить на актувльный домен
+
+  return {
+    title: 'Професійна завивка волосся у Києві',
+    description:
+      'Жіноча та чоловіча завивка, карвінг, лікування кучерів, стрижка кучерявого волосся. Досвід, дбайливий підхід, консультація, укладання та підбір засобів догляду.',
+    alternates: {
+      canonical: baseUrl,
+      languages: {
+        uk: `${baseUrl}uk/`,
+        en: `${baseUrl}en/`,
+      },
+    },
+    openGraph: {
+      title: 'Завивка волосся у Києві – Жіноча та чоловіча завивка',
+      description:
+        'Салон на Хрещатику: завивка, карвінг, стрижка та лікування кучерявого волосся. Індивідуальний підхід, дбайливість і досвід.',
+      url: baseUrl,
+      images: [
+        {
+          url: `${baseUrl}openGraph.webp`, // замени на путь к своему изображению
+          width: 1200,
+          height: 630,
+          alt: 'Завивка волосся у Києві – салон на Хрещатику',
+        },
+      ],
+      type: 'website',
+    },
+  };
+}
+
 export default function Home() {
   return (
     <>

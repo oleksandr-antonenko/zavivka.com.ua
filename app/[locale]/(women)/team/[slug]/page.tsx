@@ -8,6 +8,33 @@ const ConsultationContainer = dynamic(
     ssr: false,
   },
 );
+import { Metadata } from 'next';
+import { masters } from '@/lib/masters';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const master = masters.find((m) => m.slug === params.slug);
+
+  if (!master) {
+    return {
+      title: 'Майстер не знайдений',
+      description: 'Інформація про цього майстра відсутня.',
+    };
+  }
+
+  return {
+    title: `${master.name} – ${master.category}`,
+    description: `${master.name} — ${master.category} з досвідом ${master.experience}. Дізнайтесь більше про майстра.`,
+    openGraph: {
+      title: `${master.name} – ${master.category}`,
+      description: `${master.name} — ${master.category} з досвідом ${master.experience}.`,
+      images: [master.photo],
+    },
+  };
+}
 
 const DynamicTeamPage = ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
