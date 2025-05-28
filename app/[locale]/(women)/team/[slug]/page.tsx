@@ -45,8 +45,10 @@ export async function generateMetadata({
 
 const DynamicTeamPage = ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
+  const master = masters.find((m) => m.slug === params.slug);
   return (
     <>
+      <h1 className="sr-only">{`Сторінка майстра ${master?.name || 'Інформація про цього майстра відсутня.'}`}</h1>
       <section className="pt-[60px] xl:pt-[150px]">
         <DynamicTeamContainer slug={slug} />
       </section>
