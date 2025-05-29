@@ -1042,4 +1042,85 @@ export const photos: Photo[] = [
     slug: 'anastasiya-malchik',
   },
   // Анастасия Мальчик конец
+
+  // Діана Лєканцева начало
+  {
+    id: '113',
+    src: '/images/diana-lekanceva/diana-lekanceva-1.webp',
+    hairLength: 'По лопатки',
+    curlSize: 'Середній',
+    master: 'Діана Лєканцева',
+    colored: false,
+    slug: 'diana-lekanceva',
+  },
+  {
+    id: '114',
+    src: '/images/diana-lekanceva/diana-lekanceva-2.webp',
+    hairLength: 'По лопатки',
+    curlSize: 'Інтенсивний',
+    master: 'Діана Лєканцева',
+    colored: false,
+    slug: 'diana-lekanceva',
+  },
+  {
+    id: '115',
+    src: '/images/diana-lekanceva/diana-lekanceva-3.webp',
+    hairLength: 'По лопатки',
+    curlSize: 'Середній',
+    master: 'Діана Лєканцева',
+    colored: false,
+    slug: 'diana-lekanceva',
+  },
+  {
+    id: '116',
+    src: '/images/diana-lekanceva/diana-lekanceva-4.webp',
+    hairLength: 'По лопатки',
+    curlSize: 'Середній',
+    master: 'Діана Лєканцева',
+    colored: false,
+    slug: 'diana-lekanceva',
+  },
+  {
+    id: '117',
+    src: '/images/diana-lekanceva/diana-lekanceva-5.webp',
+    hairLength: 'По лопатки',
+    curlSize: 'Середній',
+    master: 'Діана Лєканцева',
+    colored: false,
+    slug: 'diana-lekanceva',
+  },
+  {
+    id: '118',
+    src: '/images/diana-lekanceva/diana-lekanceva-6.webp',
+    hairLength: 'По плечі',
+    curlSize: 'Великий',
+    master: 'Діана Лєканцева',
+    colored: true,
+    slug: 'diana-lekanceva',
+  },
+  {
+    id: '119',
+    src: '/images/diana-lekanceva/diana-lekanceva-7.webp',
+    hairLength: 'По лопатки',
+    curlSize: 'Інтенсивний',
+    master: 'Діана Лєканцева',
+    colored: true,
+    slug: 'diana-lekanceva',
+  },
+  {
+    id: '120',
+    src: '/images/diana-lekanceva/diana-lekanceva-8.webp',
+    hairLength: 'По плечі',
+    curlSize: 'Середній',
+    master: 'Діана Лєканцева',
+    colored: false,
+    slug: 'diana-lekanceva',
+  },
+  // Діана Лєканцева конец
+
+  // Ярослава Гурбік начало
+  // Ярослава Гурбік конец
+
+  // Ольга Колле начало
+  // Ольга Колле конец
 ];
