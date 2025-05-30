@@ -184,7 +184,7 @@ const PhotoSlider = ({
         </div>
 
         {/* Пагинация */}
-        <div className="custom-swiper-pagination-for-consultation flex justify-center gap-2 mt-4 sm:mt-6">
+        <div className="flex justify-start gap-2 mt-4 sm:mt-6 overflow-x-auto custom-scrollbar pb-3 px-4 max-w-full whitespace-nowrap">
           {photos.map((_, i) => (
             <button
               key={i}

@@ -303,8 +303,8 @@ footer {
     /* Оранжевая обводка остаётся */
 }
 
-.custom-swiper-pagination-for-consultation .swiper-pagination-bullet-for-consultation {
-    width: 15px;
+.swiper-pagination-bullet-for-consultation {
+    min-width: 15px;
     height: 15px;
     border-radius: 9999px;
     border: 1px solid #D7A908;
@@ -314,10 +314,44 @@ footer {
     cursor: pointer;
 }
 
-.custom-swiper-pagination-for-consultation .swiper-pagination-bullet-active-for-consultation {
+.swiper-pagination-bullet-active-for-consultation {
     background-color: white;
     border-color: #D7A908;
 }
+
+.custom-scrollbar {
+    scrollbar-color: hsl(35, 90%, 55%) hsl(0, 0%, 20%);
+    /* Ползунок и фон */
+    scrollbar-width: thin;
+    /* Уменьшаем толщину */
+    -webkit-overflow-scrolling: touch;
+    /* Для плавного скролла на iOS */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    /* Толщина скроллбара */
+}
+
+/* Ползунок */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #D7A908;
+    /* Цвет ползунка */
+    border-radius: 10px;
+    /* Закругление */
+    border: 2px solid transparent;
+    /* Пространство вокруг */
+    background-clip: padding-box;
+    /* Оставляет прозрачную границу */
+}
+
+/* Фон скроллбара */
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: hsl(0, 0%, 20%);
+    /* Цвет фона */
+    border-radius: 10px;
+}
+
 
 .perspective {
     perspective: 1000px;
