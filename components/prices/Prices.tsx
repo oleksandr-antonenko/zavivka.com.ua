@@ -17,11 +17,9 @@ const Prices = ({
     (state) => state.service.listService,
   );
   const menSer = [
-    servicePricesInfo.find((i) => i.id === '01')!,
-    servicePricesInfo.find((i) => i.id === '03')!,
-    servicePricesInfo.find((i) => i.id === '04')!,
-    servicePricesInfo.find((i) => i.id === '07')!,
-    servicePricesInfo.find((i) => i.id === '08')!,
+    servicePricesInfo.find((i) => i.id === '10')!,
+    servicePricesInfo.find((i) => i.id === '11')!,
+    servicePricesInfo.find((i) => i.id === '12')!,
   ];
   const menHaircutSer = [
     servicePricesInfo.find((i) => i.id === '03')!,
@@ -37,12 +35,13 @@ const Prices = ({
     servicePricesInfo.find((i) => i.id === '07')!,
     servicePricesInfo.find((i) => i.id === '08')!,
   ];
-  const servicePrices =
-    !forMen && !haircut
-      ? servicePricesInfo
-      : (!haircut && forMen) || (haircut && forMen)
-        ? menHaircutSer
-        : haircutSer;
+  const servicePrices = forMen
+    ? menSer
+    : haircut
+      ? haircutSer
+      : servicePricesInfo.filter(
+          (service) => !['10', '11', '12'].includes(service.id),
+        );
   const [currentChoice, setCurrentChoice] = useState<number>(0);
 
   return (

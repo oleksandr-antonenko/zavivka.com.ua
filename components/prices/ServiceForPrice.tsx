@@ -1,4 +1,3 @@
-import React from 'react';
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
 import { PriceProps } from './type';

@@ -1,4 +1,3 @@
-import React from 'react';
 import type { FC } from 'react';
 import { PriceProps } from './type';
 import Image from 'next/image';
@@ -50,14 +49,13 @@ const Price: FC<PriceProps> = ({
             className="w-full flex rounded-[20px] md:border-[3px] p-[30px] md:border-orange"
           >
             <div className="flex flex-col gap-[30px] w-full">
-              <div className="hidden md:block">
+              <div className="hidden md:block md:w-[268px] md:h-[252px] md:relative">
                 <Image
                   src={imagePrice}
                   alt={service.serviceTitle}
-                  className="w-full rounded-[20px]"
+                  className="w-full rounded-[20px] object-cover"
                   sizes="vw"
-                  width={0}
-                  height={0}
+                  fill
                 />
               </div>
               <p className="text-[16px] font-bold">{service.serviceTitle}</p>

@@ -110,6 +110,75 @@ const initialState: ServiceState = {
       video: 'videos/services/zavivka.mp4',
     },
     {
+      id: '10',
+      serviceTitle: 'Завивка короткого волосся',
+      images: [],
+      descriptionForPrice: (
+        <>
+          <p>Все включено:</p>
+          <ul>
+            <li>консультація,</li>
+            <li>стрижка,</li>
+            <li>укладання,</li>
+            <li>рекомендації щодо догляду,</li>
+            <li>підбір засобів догляду</li>
+          </ul>
+        </>
+      ),
+      imageForPriceWomen: '/images/services/zavivka.jpg',
+      imageForPriceMen: '/images/menmiddle.jpg',
+      priceExpert: 4650,
+      priceArtDir: 5150,
+      priceTop: 5600,
+      video: 'videos/services/zavivka.mp4',
+    },
+    {
+      id: '11',
+      serviceTitle: 'Завивка волосся по плечі',
+      images: [],
+      descriptionForPrice: (
+        <>
+          <p>Все включено:</p>
+          <ul>
+            <li>консультація,</li>
+            <li>стрижка,</li>
+            <li>укладання,</li>
+            <li>рекомендації щодо догляду,</li>
+            <li>підбір засобів догляду</li>
+          </ul>
+        </>
+      ),
+      imageForPriceWomen: '/images/services/zavivka.jpg',
+      imageForPriceMen: '/images/menmiddle.jpg',
+      priceExpert: 4950,
+      priceArtDir: 5450,
+      priceTop: 5900,
+      video: 'videos/services/zavivka.mp4',
+    },
+    {
+      id: '12',
+      serviceTitle: 'Стрижка кучерів',
+      images: [],
+      descriptionForPrice: (
+        <>
+          <p>Все включено:</p>
+          <ul>
+            <li>консультація,</li>
+            <li>стрижка,</li>
+            <li>укладання,</li>
+            <li>рекомендації щодо догляду,</li>
+            <li>підбір засобів догляду</li>
+          </ul>
+        </>
+      ),
+      imageForPriceWomen: '/images/services/zavivka.jpg',
+      imageForPriceMen: '/images/menmiddle.jpg',
+      priceExpert: 1300,
+      priceArtDir: 2000,
+      priceTop: 2500,
+      video: 'videos/services/zavivka.mp4',
+    },
+    {
       id: '02',
       serviceTitle: 'Корекція завивки',
       images: [],

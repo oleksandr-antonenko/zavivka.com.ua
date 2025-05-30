@@ -11,7 +11,7 @@ export const services = [
     name: 'ЧОЛОВІЧА ЗАВИВКА',
     image: '/modern-service-5.webp',
     video: 'zavivka.mp4',
-    url: '/zavivka',
+    url: '/cholovicha-zavivka',
   },
   {
     id: 3,

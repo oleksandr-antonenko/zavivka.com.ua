@@ -53,10 +53,10 @@ export default function Home() {
   return (
     <>
       <MainBanner />
-      <section className="py-[60px] xl:py-[150px] ">
+      <section className="py-[60px] xl:py-[150px]">
         <ModernServices />
       </section>
-      <section className="pb-[60px] xl:pb-[150px] ">
+      <section className="pb-[60px] xl:pb-[150px]">
         <SkilsContainer />
       </section>
       <section className="pb-[60px] xl:pb-[150px]">

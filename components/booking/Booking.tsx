@@ -34,7 +34,7 @@ const Booking: FC<BookingProps> = ({
 
   return (
     <section
-      className={`bg-cover bg-no-repeat py-[30px] px-2 flex items-center justify-center ${!forMen ? 'bg-backgroundForm' : 'bg-backgroundFormMen'}`}
+      className={`bg-cover bg-no-repeat py-[30px] px-2 flex items-center justify-center bg-backgroundForm`}
     >
       <div className="flex flex-col items-center justify-center py-[24px] md:py-10 px-[39px] md:px-[70px] border border-orange rounded-[20px] w-full max-w-[750px] bg-[#0000001a] backdrop-blur-xl">
         <h2 className="font-semibold font-mali sm:text-nowrap text-center text-[24px] md:text-[30px] xl:text-[40px] uppercase mb-[30px] md:mb-[36px]">
