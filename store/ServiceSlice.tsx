@@ -126,7 +126,7 @@ const initialState: ServiceState = {
         </>
       ),
       imageForPriceWomen: '/images/services/zavivka.jpg',
-      imageForPriceMen: '/images/menmiddle.jpg',
+      imageForPriceMen: '/images/men-zavivka-korotkoe.jpeg',
       priceExpert: 4650,
       priceArtDir: 5150,
       priceTop: 5600,
@@ -149,7 +149,7 @@ const initialState: ServiceState = {
         </>
       ),
       imageForPriceWomen: '/images/services/zavivka.jpg',
-      imageForPriceMen: '/images/menmiddle.jpg',
+      imageForPriceMen: '/images/men-zavivka-plechi.webp',
       priceExpert: 4950,
       priceArtDir: 5450,
       priceTop: 5900,
@@ -172,7 +172,7 @@ const initialState: ServiceState = {
         </>
       ),
       imageForPriceWomen: '/images/services/zavivka.jpg',
-      imageForPriceMen: '/images/menmiddle.jpg',
+      imageForPriceMen: '/images/other-men.webp',
       priceExpert: 1300,
       priceArtDir: 2000,
       priceTop: 2500,
@@ -366,6 +366,190 @@ const initialState: ServiceState = {
       priceExpertCut: 1300,
       priceArtDirCut: 2000,
       priceTopCut: 2500,
+      video: 'videos/services/zavivka.mp4',
+    },
+    {
+      id: '13',
+      serviceTitle: 'Корекція короткого волосся',
+      images: [],
+      descriptionForPrice: (
+        <>
+          <p>Все включено:</p>
+          <ul>
+            <li>консультація,</li>
+            <li>стрижка,</li>
+            <li>укладання,</li>
+            <li>рекомендації щодо догляду,</li>
+            <li>підбір засобів догляду</li>
+          </ul>
+        </>
+      ),
+      imageForPriceWomen: '/images/services/zavivka.jpg',
+      imageForPriceMen: '/images/menmiddle.jpg',
+      priceExpert: 4650,
+      priceArtDir: 5150,
+      priceTop: 5600,
+      video: 'videos/services/zavivka.mp4',
+    },
+    {
+      id: '14',
+      serviceTitle: 'Корекція середньої довжини',
+      images: [],
+      descriptionForPrice: (
+        <>
+          <p>Все включено:</p>
+          <ul>
+            <li>консультація,</li>
+            <li>стрижка,</li>
+            <li>укладання,</li>
+            <li>рекомендації щодо догляду,</li>
+            <li>підбір засобів догляду</li>
+          </ul>
+        </>
+      ),
+      imageForPriceWomen: '/images/services/zavivka.jpg',
+      imageForPriceMen: '/images/menmiddle.jpg',
+      priceExpert: 5250,
+      priceArtDir: 5950,
+      priceTop: 6400,
+      video: 'videos/services/zavivka.mp4',
+    },
+    {
+      id: '15',
+      serviceTitle: 'Корекція довгого волосся',
+      images: [],
+      descriptionForPrice: (
+        <>
+          <p>Все включено:</p>
+          <ul>
+            <li>консультація,</li>
+            <li>стрижка,</li>
+            <li>укладання,</li>
+            <li>рекомендації щодо догляду,</li>
+            <li>підбір засобів догляду</li>
+          </ul>
+        </>
+      ),
+      imageForPriceWomen: '/images/services/zavivka.jpg',
+      imageForPriceMen: '/images/menmiddle.jpg',
+      priceExpert: 5800,
+      priceArtDir: 6550,
+      priceTop: 7000,
+      video: 'videos/services/zavivka.mp4',
+    },
+    {
+      id: '16',
+      serviceTitle: 'Стрижка кучерів',
+      images: [],
+      descriptionForPrice: (
+        <>
+          <p>Все включено:</p>
+          <ul>
+            <li>консультація,</li>
+            <li>стрижка,</li>
+            <li>укладання,</li>
+            <li>рекомендації щодо догляду,</li>
+            <li>підбір засобів догляду</li>
+          </ul>
+        </>
+      ),
+      imageForPriceWomen: '/images/services/zavivka.jpg',
+      imageForPriceMen: '/images/menmiddle.jpg',
+      priceExpert: 1300,
+      priceArtDir: 2000,
+      priceTop: 2500,
+      video: 'videos/services/zavivka.mp4',
+    },
+    {
+      id: '17',
+      serviceTitle: 'Лікування короткого волосся',
+      images: [],
+      descriptionForPrice: (
+        <>
+          <p>Все включено:</p>
+          <ul>
+            <li>консультація,</li>
+            <li>стрижка,</li>
+            <li>укладання,</li>
+            <li>рекомендації щодо догляду,</li>
+            <li>підбір засобів догляду</li>
+          </ul>
+        </>
+      ),
+      imageForPriceWomen: '/images/services/zavivka.jpg',
+      imageForPriceMen: '/images/menmiddle.jpg',
+      priceExpert: 1700,
+      priceArtDir: 1850,
+      priceTop: 1950,
+      video: 'videos/services/zavivka.mp4',
+    },
+    {
+      id: '18',
+      serviceTitle: 'Лікування волосся по плечі',
+      images: [],
+      descriptionForPrice: (
+        <>
+          <p>Все включено:</p>
+          <ul>
+            <li>консультація,</li>
+            <li>стрижка,</li>
+            <li>укладання,</li>
+            <li>рекомендації щодо догляду,</li>
+            <li>підбір засобів догляду</li>
+          </ul>
+        </>
+      ),
+      imageForPriceWomen: '/images/services/zavivka.jpg',
+      imageForPriceMen: '/images/menmiddle.jpg',
+      priceExpert: 1900,
+      priceArtDir: 2000,
+      priceTop: 2100,
+      video: 'videos/services/zavivka.mp4',
+    },
+    {
+      id: '19',
+      serviceTitle: 'Лікування волосся по лопатки',
+      images: [],
+      descriptionForPrice: (
+        <>
+          <p>Все включено:</p>
+          <ul>
+            <li>консультація,</li>
+            <li>стрижка,</li>
+            <li>укладання,</li>
+            <li>рекомендації щодо догляду,</li>
+            <li>підбір засобів догляду</li>
+          </ul>
+        </>
+      ),
+      imageForPriceWomen: '/images/services/zavivka.jpg',
+      imageForPriceMen: '/images/menmiddle.jpg',
+      priceExpert: 2100,
+      priceArtDir: 2200,
+      priceTop: 2300,
+      video: 'videos/services/zavivka.mp4',
+    },
+    {
+      id: '20',
+      serviceTitle: 'Лікування волосся за лопатки',
+      images: [],
+      descriptionForPrice: (
+        <>
+          <p>Все включено:</p>
+          <ul>
+            <li>консультація,</li>
+            <li>стрижка,</li>
+            <li>укладання,</li>
+            <li>рекомендації щодо догляду,</li>
+            <li>підбір засобів догляду</li>
+          </ul>
+        </>
+      ),
+      imageForPriceWomen: '/images/services/zavivka.jpg',
+      imageForPriceMen: '/images/menmiddle.jpg',
+      priceExpert: 2300,
+      priceArtDir: 2400,
+      priceTop: 2500,
       video: 'videos/services/zavivka.mp4',
     },
   ],

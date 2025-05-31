@@ -3,7 +3,10 @@ import { Button } from '@/shared/buttons';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import type { FC } from 'react';
-import { servicesForCheckboxWomen } from './constants';
+import {
+  servicesForCheckboxWomen,
+  servicesForCheckboxWomenWithCorrection,
+} from './constants';
 import { BookingProps, DataForSubmit } from './types';
 import BookingService from './BookingService';
 import { Input } from '@/shared/input';
@@ -11,12 +14,16 @@ import AfterBooking from './AfterBooking';
 
 const Booking: FC<BookingProps> = ({
   forMen = false,
-  servicesForCheckbox = servicesForCheckboxWomen,
+  isCorrection = false,
+  servicesForCheckbox = isCorrection
+    ? servicesForCheckboxWomenWithCorrection
+    : servicesForCheckboxWomen,
 }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const handleClose = () => {
     setOpenModal(false);
   };
+
   const {
     register,
     handleSubmit,

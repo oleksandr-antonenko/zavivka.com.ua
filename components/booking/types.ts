@@ -1,22 +1,23 @@
-import { UseFormRegister } from "react-hook-form";
+import { UseFormRegister } from 'react-hook-form';
 
 export type ServiceCheckbox = {
-    name: string;
-    title: string;
-  };
+  name: string;
+  title: string;
+};
 
 export interface ServiceCheckboxProps {
   servicesCheckbox: ServiceCheckbox[];
-  register: UseFormRegister<DataForSubmit>
+  register: UseFormRegister<DataForSubmit>;
 }
 
-export interface DataForSubmit{
+export interface DataForSubmit {
   [key: string]: string;
 }
 
 export interface BookingProps {
   forMen?: boolean;
-  servicesForCheckbox?:ServiceCheckbox[];
+  isCorrection?: boolean;
+  servicesForCheckbox?: ServiceCheckbox[];
 }
 
 export interface AfterBookingProps {

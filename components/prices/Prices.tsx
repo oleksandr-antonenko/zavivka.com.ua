@@ -9,9 +9,13 @@ import Image from 'next/image';
 const Prices = ({
   forMen = false,
   haircut = false,
+  isCorrection = false,
+  isTherapy = false,
 }: {
   forMen?: boolean;
   haircut?: boolean;
+  isCorrection?: boolean;
+  isTherapy?: boolean;
 }) => {
   const servicePricesInfo: Service[] = useAppSelector(
     (state) => state.service.listService,
@@ -35,13 +39,42 @@ const Prices = ({
     servicePricesInfo.find((i) => i.id === '07')!,
     servicePricesInfo.find((i) => i.id === '08')!,
   ];
+  const correctionSer = [
+    servicePricesInfo.find((i) => i.id === '13')!,
+    servicePricesInfo.find((i) => i.id === '14')!,
+    servicePricesInfo.find((i) => i.id === '15')!,
+    servicePricesInfo.find((i) => i.id === '16')!,
+  ];
+  const therapySer = [
+    servicePricesInfo.find((i) => i.id === '17')!,
+    servicePricesInfo.find((i) => i.id === '18')!,
+    servicePricesInfo.find((i) => i.id === '19')!,
+    servicePricesInfo.find((i) => i.id === '20')!,
+  ];
   const servicePrices = forMen
     ? menSer
     : haircut
       ? haircutSer
-      : servicePricesInfo.filter(
-          (service) => !['10', '11', '12'].includes(service.id),
-        );
+      : isCorrection
+        ? correctionSer
+        : isTherapy
+          ? therapySer
+          : servicePricesInfo.filter(
+              (service) =>
+                ![
+                  '10',
+                  '11',
+                  '12',
+                  '13',
+                  '14',
+                  '15',
+                  '16',
+                  '17',
+                  '18',
+                  '19',
+                  '20',
+                ].includes(service.id),
+            );
   const [currentChoice, setCurrentChoice] = useState<number>(0);
 
   return (

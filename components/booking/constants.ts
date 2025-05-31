@@ -1,12 +1,23 @@
 import { ServiceCheckbox } from './types';
 
-export const servicesForCheckboxWomen: ServiceCheckbox[] = [
+const baseServices: ServiceCheckbox[] = [
   { name: 'zavivka', title: 'Біозавивка волосся' },
   { name: 'treatment', title: 'Японське лікування волосся' },
-  { name: 'beachWave', title: 'Біозавивка “Пляжна хвиля”' },
+  { name: 'beachWave', title: 'Біозавивка "Пляжна хвиля"' },
   { name: 'curlyCut', title: 'Стрижка кучерявого волосся' },
   { name: 'carving', title: 'Карвінг волосся' },
   { name: 'color', title: 'Фарбування' },
+];
+
+const correctionService: ServiceCheckbox = {
+  name: 'korektsiya',
+  title: 'Корекція завивки',
+};
+
+export const servicesForCheckboxWomen = baseServices;
+export const servicesForCheckboxWomenWithCorrection = [
+  ...baseServices,
+  correctionService,
 ];
 
 export const servicesForCheckboxMen: ServiceCheckbox[] = [

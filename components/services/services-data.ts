@@ -18,7 +18,7 @@ export const services = [
     name: 'КОРЕКЦІЯ ЗАВИВКИ',
     image: '/modern-service-3.webp',
     video: 'zavivka.mp4',
-    url: '/male-haircut',
+    url: '/korektsiya-zavivki',
   },
   {
     id: 4,
@@ -32,6 +32,6 @@ export const services = [
     name: 'ЛІКУВАННЯ КУЧЕРІВ',
     image: '/modern-service-2.webp',
     video: 'zavivka.mp4',
-    url: '/therapy',
+    url: '/likuvannya-kucheriv',
   },
 ];
