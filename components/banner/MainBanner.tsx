@@ -32,6 +32,8 @@ const MainBanner = ({
           autoPlay
           loop
           muted
+          disablePictureInPicture
+          controls={false}
           poster="/images/banner.jpg"
         >
           <source src="/videos/banner.mp4" type="video/mp4" />

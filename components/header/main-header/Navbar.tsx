@@ -5,9 +5,11 @@ import { usePathname } from 'next/navigation';
 import { NavProp } from './type';
 import { motion } from 'framer-motion';
 import type { FC } from 'react';
+import { useLocale } from 'next-intl';
 
 const Navbar: FC<NavProp> = ({ show, navlinks, closeMobileMenu }) => {
   const pathname = usePathname();
+  const locale = useLocale();
 
   // Анимации для разных направлений
   const getVariants = (index: number) => {
@@ -52,8 +54,8 @@ const Navbar: FC<NavProp> = ({ show, navlinks, closeMobileMenu }) => {
           >
             <Link
               className={`inline-block hover:text-orange ${
-                pathname === link.linkNav
-                  ? 'border-b font-bold border-orange'
+                pathname === `/${locale}${link.linkNav}`
+                  ? 'border-b border-orange text-orange'
                   : ''
               }`}
               href={link.linkNav}

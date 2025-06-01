@@ -1,7 +1,7 @@
 export const menNav = [
   { linkNav: '/for-men/zavivka', titleNav: 'Завивка' },
   { linkNav: '/for-men/haircut', titleNav: 'Стрижка кучерів' },
-  { linkNav: '/for-men/team', titleNav: 'Майстри' },
+  { linkNav: '/team', titleNav: 'Майстри' },
 ];
 
 export const womenNav = [

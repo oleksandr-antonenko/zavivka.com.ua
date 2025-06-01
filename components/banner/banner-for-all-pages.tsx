@@ -38,6 +38,8 @@ const BannerForAllPages = ({
           autoPlay
           loop
           muted
+          disablePictureInPicture
+          controls={false}
           poster={posterSrc}
         >
           <source src={videoSrc} type="video/mp4" />
