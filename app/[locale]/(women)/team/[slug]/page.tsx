@@ -38,7 +38,15 @@ export async function generateMetadata({
     openGraph: {
       title: `${master.name} – ${master.category}`,
       description: `${master.name} — ${master.category} з досвідом ${master.experience}.`,
-      images: [master.photo],
+      images: [
+        {
+          url: master.photo,
+          width: 1200,
+          height: 630,
+          alt: `${master.name} – ${master.category}`,
+        },
+      ],
+      type: 'profile',
     },
   };
 }
