@@ -12,7 +12,7 @@ const initialState: TeamState = {
       name: 'Валентина Антоненко',
       slug: 'valentina-antonenko',
       category: 'Директор',
-      experience: '20 років',
+      experience: '45 років',
       specialization: [
         'Завивка волосся',
         'Стрижка кучерів',
@@ -55,7 +55,7 @@ const initialState: TeamState = {
         },
         {
           id: '03',
-          serviceTitle: 'Біозавивка “Пляжна хвиля”',
+          serviceTitle: 'Біозавивка "Пляжна хвиля"',
           descriptionForPrice: (
             <>
               <p>Все включено:</p>
@@ -152,7 +152,7 @@ const initialState: TeamState = {
       name: 'Сабо Артем',
       slug: 'sabo-artem',
       category: 'Топ майстер',
-      experience: '20 років',
+      experience: '9 років',
       specialization: [
         'Завивка волосся',
         'Стрижка кучерів',
@@ -196,7 +196,7 @@ const initialState: TeamState = {
         },
         {
           id: '03',
-          serviceTitle: 'Біозавивка “Пляжна хвиля”',
+          serviceTitle: 'Біозавивка "Пляжна хвиля"',
           descriptionForPrice: (
             <>
               <p>Все включено:</p>
@@ -287,7 +287,8 @@ const initialState: TeamState = {
       name: 'Валерія Мельниченко',
       slug: 'valeria-melnichenko',
       category: 'Експерт',
-      experience: '20 років',
+      experience: '4 років',
+      isMen: true,
       specialization: [
         'Завивка волосся',
         'Стрижка кучерів',
@@ -315,7 +316,7 @@ const initialState: TeamState = {
         },
         {
           id: '02',
-          serviceTitle: 'Біозавивка “Пляжна хвиля”',
+          serviceTitle: 'Біозавивка "Пляжна хвиля"',
           descriptionForPrice: (
             <>
               <p>Все включено:</p>
@@ -440,7 +441,7 @@ const initialState: TeamState = {
       name: 'Юлія Броварчук',
       slug: 'yulia-brovarkchuk',
       category: 'Топ майстер',
-      experience: '20 років',
+      experience: '9 років',
       specialization: [
         'Завивка волосся',
         'Стрижка кучерів',
@@ -468,7 +469,7 @@ const initialState: TeamState = {
         },
         {
           id: '02',
-          serviceTitle: 'Біозавивка “Пляжна хвиля”',
+          serviceTitle: 'Біозавивка "Пляжна хвиля"',
           descriptionForPrice: (
             <>
               <p>Все включено:</p>
@@ -583,7 +584,8 @@ const initialState: TeamState = {
       name: 'Ольга Колле',
       slug: 'olga-kolle',
       category: 'Топ майстер',
-      experience: '20 років',
+      experience: '8 років',
+      isMen: true,
       specialization: [
         'Завивка волосся',
         'Стрижка кучерів',
@@ -611,7 +613,7 @@ const initialState: TeamState = {
         },
         {
           id: '02',
-          serviceTitle: 'Біозавивка “Пляжна хвиля”',
+          serviceTitle: 'Біозавивка "Пляжна хвиля"',
           descriptionForPrice: (
             <>
               <p>Все включено:</p>
@@ -749,7 +751,8 @@ const initialState: TeamState = {
       name: 'Анастасія Мальчик',
       slug: 'anastasiya-malchik',
       category: 'Експерт',
-      experience: '20 років',
+      experience: '1.5 років',
+      isMen: true,
       specialization: [
         'Завивка волосся',
         'Стрижка кучерів',
@@ -777,7 +780,7 @@ const initialState: TeamState = {
         },
         {
           id: '02',
-          serviceTitle: 'Біозавивка “Пляжна хвиля”',
+          serviceTitle: 'Біозавивка "Пляжна хвиля"',
           descriptionForPrice: (
             <>
               <p>Все включено:</p>
@@ -906,7 +909,7 @@ const initialState: TeamState = {
       name: 'Вікторія Омельченко',
       slug: 'viktoriya-omelchenko',
       category: 'Арт-директор',
-      experience: '20 років',
+      experience: '6 років',
       specialization: [
         'Завивка волосся',
         'Стрижка кучерів',
@@ -933,7 +936,7 @@ const initialState: TeamState = {
         },
         {
           id: '02',
-          serviceTitle: 'Біозавивка “Пляжна хвиля”',
+          serviceTitle: 'Біозавивка "Пляжна хвиля"',
           descriptionForPrice: (
             <>
               <p>Все включено:</p>
@@ -1048,7 +1051,8 @@ const initialState: TeamState = {
       name: 'Вікторія Салій',
       slug: 'viktoriya-salyi',
       category: 'Арт-директор',
-      experience: '20 років',
+      experience: '6 років',
+      isMen: true,
       specialization: [
         'Завивка волосся',
         'Стрижка кучерів',
@@ -1076,7 +1080,7 @@ const initialState: TeamState = {
         },
         {
           id: '02',
-          serviceTitle: 'Біозавивка “Пляжна хвиля”',
+          serviceTitle: 'Біозавивка "Пляжна хвиля"',
           descriptionForPrice: (
             <>
               <p>Все включено:</p>
@@ -1214,7 +1218,8 @@ const initialState: TeamState = {
       name: 'Діана Лєканцева',
       slug: 'diana-lekanceva',
       category: 'Експерт',
-      experience: '20 років',
+      experience: '1 років',
+      isMen: true,
       specialization: [
         'Завивка волосся',
         'Стрижка кучерів',
@@ -1243,7 +1248,7 @@ const initialState: TeamState = {
         },
         {
           id: '02',
-          serviceTitle: 'Біозавивка “Пляжна хвиля”',
+          serviceTitle: 'Біозавивка "Пляжна хвиля"',
           descriptionForPrice: (
             <>
               <p>Все включено:</p>
@@ -1368,6 +1373,7 @@ const initialState: TeamState = {
       slug: 'yaroslava-gurbik',
       category: 'Арт-директор',
       experience: '20 років',
+      isMen: true,
       specialization: [
         'Завивка волосся',
         'Стрижка кучерів',
@@ -1395,7 +1401,7 @@ const initialState: TeamState = {
         },
         {
           id: '02',
-          serviceTitle: 'Біозавивка “Пляжна хвиля”',
+          serviceTitle: 'Біозавивка "Пляжна хвиля"',
           descriptionForPrice: (
             <>
               <p>Все включено:</p>
@@ -1539,7 +1545,8 @@ const initialState: TeamState = {
       name: 'Анастасія Кузьменко',
       slug: 'anastasia-kuzmenko',
       category: 'Арт-директор',
-      experience: '20 років',
+      experience: '12 років',
+      isMen: true,
       specialization: [
         'Завивка волосся',
         'Стрижка кучерів',
@@ -1566,7 +1573,7 @@ const initialState: TeamState = {
         },
         {
           id: '02',
-          serviceTitle: 'Біозавивка “Пляжна хвиля”',
+          serviceTitle: 'Біозавивка "Пляжна хвиля"',
           descriptionForPrice: (
             <>
               <p>Все включено:</p>

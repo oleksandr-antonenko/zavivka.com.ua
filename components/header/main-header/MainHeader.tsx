@@ -27,7 +27,7 @@ const MainHeader = ({
   };
 
   return (
-    <div className="flex text-[16px] justify-between items-center py-[18px] md:py-5 extraSm:mx-0 sm:mx-4 md:mx-[100px] max-w-[1440px] 2xl:mx-auto">
+    <div className="flex xlOne:flex-col xlOne:gap-4 2xl:flex-row 2xl:gap-4 text-[16px] justify-between items-center px-2 py-[18px] md:py-5 extraSm:mx-0 sm:mx-4 max-w-[1720px] 2xl:mx-auto">
       <div className="headerLogo">
         <Logo />
       </div>

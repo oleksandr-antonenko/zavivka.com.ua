@@ -59,6 +59,7 @@ export type MemberOfTeam = {
   slug: string;
   category: string;
   experience: string;
+  isMen?: boolean;
   specialization: string[];
   listOfService: MemberService[];
   imagesOfWorksForMen: string[];

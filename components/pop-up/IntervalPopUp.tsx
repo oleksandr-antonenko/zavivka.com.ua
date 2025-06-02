@@ -11,7 +11,7 @@ const IntervalPopUp = ({ forMen = false }: { forMen?: boolean }) => {
     const timer = setTimeout(() => {
       setShow(true);
       setTimeout(() => setVisible(true), 50); // даем время на монтирование
-    }, 10000);
+    }, 40000);
 
     return () => clearTimeout(timer);
   }, []);
