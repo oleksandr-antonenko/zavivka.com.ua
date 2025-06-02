@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { MousePointerClick } from 'lucide-react';
 import { Photo } from './photos';
-import { useState } from 'react';
 
 type CarouselSlideProps = {
   photo: Photo;
@@ -15,38 +14,32 @@ type CarouselSlideProps = {
 
 const slideVariants = {
   enter: (direction: number) => ({
-    x: direction > 0 ? 1000 : -1000,
-    opacity: 0,
+    x: direction > 0 ? 300 : -300,
     scale: 0.8,
   }),
   center: {
     zIndex: 1,
     x: 0,
-    opacity: 1,
     scale: 1,
   },
   exit: (direction: number) => ({
     zIndex: 0,
-    x: direction < 0 ? 1000 : -1000,
-    opacity: 0,
+    x: direction < 0 ? 300 : -300,
     scale: 0.8,
   }),
 };
 
 const centerSlideVariants = {
   enter: () => ({
-    opacity: 0,
-    scale: 0.8,
+    scale: 0.95,
   }),
   center: {
     zIndex: 1,
-    opacity: 1,
     scale: 1,
   },
   exit: () => ({
     zIndex: 0,
-    opacity: 0,
-    scale: 0.8,
+    scale: 0.95,
   }),
 };
 
@@ -55,15 +48,12 @@ export const CarouselSlide = ({
   isCurrent,
   direction,
 }: CarouselSlideProps) => {
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
   if (!photo?.src) return null;
 
   return (
     <motion.div
       key={photo.id}
-      className={`relative w-full h-full rounded-lg overflow-hidden ${
-        isCurrent ? 'opacity-100' : 'opacity-70 hover:opacity-90'
-      } transition-opacity`}
+      className={`relative w-full h-full rounded-lg overflow-hidden`}
       variants={isCurrent ? centerSlideVariants : slideVariants}
       initial="enter"
       animate="center"
@@ -71,13 +61,7 @@ export const CarouselSlide = ({
       custom={direction}
       transition={{
         x: { type: 'spring', stiffness: 300, damping: 30 },
-        opacity: { duration: 0.3 },
-        scale: { type: 'spring', stiffness: 300, damping: 30 },
-      }}
-      style={{
-        position: isCurrent ? 'relative' : 'absolute',
-        width: '100%',
-        height: '100%',
+        scale: { type: 'spring', stiffness: 400, damping: 40 },
       }}
     >
       <Image
@@ -87,20 +71,18 @@ export const CarouselSlide = ({
         quality={60}
         sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 33vw"
         style={{
+          willChange: 'transform, opacity',
           objectFit: 'cover',
           opacity: 0,
-          transition: 'opacity 0.5s ease-in-out',
+          transition: 'opacity 0.8s ease-in-out',
         }}
         className="rounded-[24px]"
-        priority={isCurrent}
-        loading={isCurrent ? 'eager' : 'lazy'}
         onLoad={(e) => {
           e.currentTarget.style.opacity = '1';
-          setIsImageLoaded(true);
         }}
       />
       {/* Плавное появление контента после загрузки */}
-      {isCurrent && isImageLoaded && (
+      {isCurrent && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
