@@ -13,7 +13,6 @@ import 'yet-another-react-lightbox/plugins/counter.css';
 import 'yet-another-react-lightbox/styles.css';
 import { generateStaticBlurData } from '@/lib/generateStaticBlurData';
 import { variants } from '@/components/team/components/animation/animation-works-slider';
-import { useMediaQuery } from '@react-hook/media-query';
 import { ZoomIn, ZoomOut } from 'lucide-react';
 
 interface ZoomRef {
@@ -44,7 +43,6 @@ const PhotoSliderForAllPages = ({ photos }: CurlPhotoSliderProps) => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const zoomRef = useRef<ZoomRef>(null);
   const SWIPE_COOLDOWN = 300; // milliseconds
-  const isDesktop = useMediaQuery('(min-width: 768px)');
 
   const handlers = useSwipeable({
     onSwipedLeft: () => {
@@ -135,10 +133,10 @@ const PhotoSliderForAllPages = ({ photos }: CurlPhotoSliderProps) => {
               <motion.div
                 key={photos[index]}
                 custom={direction}
-                variants={isDesktop ? variants : undefined}
-                initial={isDesktop ? 'enter' : undefined}
-                animate={isDesktop ? 'center' : undefined}
-                exit={isDesktop ? 'exit' : undefined}
+                variants={variants}
+                initial={'enter'}
+                animate={'center'}
+                exit={'exit'}
                 className="absolute inset-0 shadow-xl w-full h-full rounded-xl cursor-pointer"
                 style={{ transformStyle: 'preserve-3d' }}
                 onAnimationComplete={() => setIsAnimating(false)}

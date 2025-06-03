@@ -6,6 +6,7 @@ import type { FC } from 'react';
 import {
   servicesForCheckboxWomen,
   servicesForCheckboxWomenWithCorrection,
+  servicesForCheckboxCurlCutting,
 } from './constants';
 import { BookingProps, DataForSubmit } from './types';
 import BookingService from './BookingService';
@@ -15,9 +16,12 @@ import AfterBooking from './AfterBooking';
 const Booking: FC<BookingProps> = ({
   forMen = false,
   isCorrection = false,
-  servicesForCheckbox = isCorrection
-    ? servicesForCheckboxWomenWithCorrection
-    : servicesForCheckboxWomen,
+  isСurlСutting = false,
+  servicesForCheckbox = isСurlСutting
+    ? servicesForCheckboxCurlCutting
+    : isCorrection
+      ? servicesForCheckboxWomenWithCorrection
+      : servicesForCheckboxWomen,
 }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const handleClose = () => {

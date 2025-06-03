@@ -34,3 +34,8 @@ export const servicesForCheckboxHaircut: ServiceCheckbox[] = [
   { name: 'treatment', title: 'Лікування волосся' },
   { name: 'diffuser', title: 'Укладка на дифузор' },
 ];
+
+export const servicesForCheckboxCurlCutting: ServiceCheckbox[] = [
+  { name: 'treatment', title: 'Японське лікування волосся' },
+  { name: 'curlyCut', title: 'Стрижка кучерявого волосся' },
+];

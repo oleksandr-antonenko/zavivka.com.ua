@@ -22,14 +22,7 @@ export const MenHairFilter = () => {
 
   const lengthOptions = ['Короткі', 'По плечі', 'Всі'];
 
-  const curlOptions = [
-    'Інтенсивний',
-    'Середній',
-    'Великий',
-    'Пляжна Хвиля',
-    'Карвінг',
-    'Всі',
-  ];
+  const curlOptions = ['Інтенсивний', 'Середній', 'Великий', 'Всі'];
 
   return (
     <div className="relative w-full max-w-[1200px] mx-auto px-2">

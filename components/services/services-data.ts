@@ -4,7 +4,7 @@ export const services = [
     name: 'КАРВІНГ',
     image: '/modern-service-1.webp',
     video: 'zavivka.mp4',
-    url: '/coloration',
+    url: '/carving',
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ export const services = [
     name: 'СТРИЖКА КУЧЕРЯВОГО ВОЛОССЯ',
     image: '/modern-service-4.webp',
     video: 'zavivka.mp4',
-    url: '/haircut',
+    url: '/strizhka-kucheriv',
   },
   {
     id: 5,

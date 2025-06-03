@@ -1372,7 +1372,7 @@ const initialState: TeamState = {
       name: 'Ярослава Гурбік',
       slug: 'yaroslava-gurbik',
       category: 'Арт-директор',
-      experience: '20 років',
+      experience: '4 років',
       isMen: true,
       specialization: [
         'Завивка волосся',

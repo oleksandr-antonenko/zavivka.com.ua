@@ -7,7 +7,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { motion } from 'framer-motion';
-import { reasonsContainerItems } from './reasons-data';
+import { strizhkaData } from './strizhka-kucheriv-data';
 
 const listVariants = {
   open: {
@@ -24,13 +24,13 @@ const itemVariants = {
   open: { opacity: 1, y: 0 },
 };
 
-const ReasonsAccordion = () => {
+const StrizhkaAccordion = () => {
   return (
     <section className="max-w-[1200px] mx-auto px-2 relative">
       <div className="with-circle"></div>
 
       <Accordion type="single" collapsible className="w-full">
-        {reasonsContainerItems.map((item, index) => (
+        {strizhkaData.map((item, index) => (
           <AccordionItem key={index} value={`item-${index}`} className="">
             <AccordionTrigger className="text-[22px] text-[#fbfbfb]">
               {item.question}
@@ -60,4 +60,4 @@ const ReasonsAccordion = () => {
   );
 };
 
-export default ReasonsAccordion;
+export default StrizhkaAccordion;

@@ -3,6 +3,47 @@ import { Contacts } from '@/components/contacts';
 import { FAQ } from '@/components/faq';
 import DynamicTeamForMenContainer from '@/components/FOR-MEN/dynamicPageTeamForMen/dynamic-team-for-men-container';
 import { masters } from '@/lib/masters';
+import { Metadata } from 'next';
+import { getLocale } from 'next-intl/server';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const locale = await getLocale();
+  const baseUrl = 'https://zavivka.vercel.app';
+  const canonical = `${baseUrl}/${locale}/team-men/${params.slug}`;
+  const master = masters.find((m) => m.slug === params.slug);
+
+  if (!master) {
+    return {
+      title: 'Майстер не знайдений',
+      description: 'Інформація про цього майстра відсутня.',
+    };
+  }
+
+  return {
+    title: `${master.name} – ${master.category}`,
+    description: `${master.name} — професійний ${master.category} з досвідом ${master.experience}. Працює з індивідуальним підходом до кожного клієнта, гарантуючи якість та комфорт. Дізнайтесь більше про майстра та його послуги.`,
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title: `${master.name} – ${master.category}`,
+      description: `${master.name} — ${master.category} з досвідом ${master.experience}.`,
+      images: [
+        {
+          url: master.photo,
+          width: 1200,
+          height: 630,
+          alt: `${master.name} – ${master.category}`,
+        },
+      ],
+      type: 'profile',
+    },
+  };
+}
 
 const DynamicTeamForMenPage = ({ params }: { params: { slug: string } }) => {
   const { slug } = params;

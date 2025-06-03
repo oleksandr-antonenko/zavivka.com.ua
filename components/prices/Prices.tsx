@@ -11,11 +11,17 @@ const Prices = ({
   haircut = false,
   isCorrection = false,
   isTherapy = false,
+  isCarving = false,
+  isPlyazhna = false,
+  isСurlСutting = false,
 }: {
   forMen?: boolean;
   haircut?: boolean;
   isCorrection?: boolean;
   isTherapy?: boolean;
+  isCarving?: boolean;
+  isPlyazhna?: boolean;
+  isСurlСutting?: boolean;
 }) => {
   const servicePricesInfo: Service[] = useAppSelector(
     (state) => state.service.listService,
@@ -24,12 +30,6 @@ const Prices = ({
     servicePricesInfo.find((i) => i.id === '10')!,
     servicePricesInfo.find((i) => i.id === '11')!,
     servicePricesInfo.find((i) => i.id === '12')!,
-  ];
-  const menHaircutSer = [
-    servicePricesInfo.find((i) => i.id === '03')!,
-    servicePricesInfo.find((i) => i.id === '04')!,
-    servicePricesInfo.find((i) => i.id === '07')!,
-    servicePricesInfo.find((i) => i.id === '08')!,
   ];
   const haircutSer = [
     servicePricesInfo.find((i) => i.id === '03')!,
@@ -51,6 +51,26 @@ const Prices = ({
     servicePricesInfo.find((i) => i.id === '19')!,
     servicePricesInfo.find((i) => i.id === '20')!,
   ];
+  const carvingSer = [
+    servicePricesInfo.find((i) => i.id === '21')!,
+    servicePricesInfo.find((i) => i.id === '22')!,
+    servicePricesInfo.find((i) => i.id === '23')!,
+    servicePricesInfo.find((i) => i.id === '24')!,
+    servicePricesInfo.find((i) => i.id === '25')!,
+  ];
+
+  const plyazhnaSer = [
+    servicePricesInfo.find((i) => i.id === '26')!,
+    servicePricesInfo.find((i) => i.id === '27')!,
+    servicePricesInfo.find((i) => i.id === '28')!,
+    servicePricesInfo.find((i) => i.id === '29')!,
+    servicePricesInfo.find((i) => i.id === '30')!,
+  ];
+  const СurlСuttingSer = [
+    servicePricesInfo.find((i) => i.id === '03')!,
+    servicePricesInfo.find((i) => i.id === '04')!,
+  ];
+
   const servicePrices = forMen
     ? menSer
     : haircut
@@ -59,22 +79,40 @@ const Prices = ({
         ? correctionSer
         : isTherapy
           ? therapySer
-          : servicePricesInfo.filter(
-              (service) =>
-                ![
-                  '10',
-                  '11',
-                  '12',
-                  '13',
-                  '14',
-                  '15',
-                  '16',
-                  '17',
-                  '18',
-                  '19',
-                  '20',
-                ].includes(service.id),
-            );
+          : isCarving
+            ? carvingSer
+            : isPlyazhna
+              ? plyazhnaSer
+              : isСurlСutting
+                ? СurlСuttingSer
+                : servicePricesInfo.filter(
+                    (service) =>
+                      ![
+                        '10',
+                        '11',
+                        '12',
+                        '13',
+                        '14',
+                        '15',
+                        '16',
+                        '17',
+                        '18',
+                        '19',
+                        '20',
+                        '21',
+                        '22',
+                        '23',
+                        '24',
+                        '25',
+                        '26',
+                        '27',
+                        '28',
+                        '29',
+                        '30',
+                        '31',
+                        '32',
+                      ].includes(service.id),
+                  );
   const [currentChoice, setCurrentChoice] = useState<number>(0);
 
   return (

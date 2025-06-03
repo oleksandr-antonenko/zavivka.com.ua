@@ -11,12 +11,16 @@ export interface ServiceCheckboxProps {
 }
 
 export interface DataForSubmit {
-  [key: string]: string;
+  name: string;
+  phone: string;
+  agreeToPrivacy: boolean;
+  [key: string]: boolean | string;
 }
 
 export interface BookingProps {
   forMen?: boolean;
   isCorrection?: boolean;
+  isСurlСutting?: boolean;
   servicesForCheckbox?: ServiceCheckbox[];
 }
 

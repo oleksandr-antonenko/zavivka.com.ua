@@ -29,7 +29,7 @@ export async function generateMetadata() {
       url: canonical,
       images: [
         {
-          url: `${baseUrl}/openGraphTeam.webp`, // добавь своё изображение для OG этой страницы
+          url: `${baseUrl}/masterOpenGraph.webp`, // добавь своё изображение для OG этой страницы
           width: 800,
           height: 600,
           alt: 'Команда майстрів з завивки волосся у Києві',
