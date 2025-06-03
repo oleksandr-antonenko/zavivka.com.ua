@@ -22,7 +22,7 @@ export async function generateMetadata() {
       url: canonical,
       images: [
         {
-          url: `${baseUrl}/teamMenOpenGraph.webp`,
+          url: `${baseUrl}/masterOpenGraph.webp`,
           width: 1200,
           height: 630,
           alt: 'Майстри чоловічої завивки волосся у Києві',
