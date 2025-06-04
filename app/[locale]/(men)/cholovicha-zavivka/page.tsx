@@ -18,9 +18,9 @@ export async function generateMetadata() {
   const canonical = `${baseUrl}/${locale}/cholovicha-zavivka`;
 
   return {
-    title: 'Чоловіча завивка у Києві – натуральні локони для чоловіків',
+    title: 'Завивка для чоловіків – Київ, салон на Хрещатику',
     description:
-      'Професійна чоловіча завивка у Києві. Природні локони, дбайливий підхід, індивідуальна консультація.',
+      'Професійна чоловіча завивка у Києві. Природні локони, дбайливий підхід, індивідуальна консультація.Ідеально для стильного образу. Індивідуальний підбір техніки, консультація та догляд.',
     alternates: {
       canonical,
     },
@@ -45,6 +45,7 @@ export async function generateMetadata() {
 const ZavivkaPage = () => {
   return (
     <div>
+      <h1 className="sr-only">Сторінка Чоловічої завивки в Києві</h1>
       <BannerForAllPages
         title="Чоловіча завивка волосся в Києві"
         buttonText="Запис на консультацію"

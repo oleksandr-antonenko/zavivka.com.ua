@@ -18,8 +18,7 @@ export async function generateMetadata() {
   const canonical = `${baseUrl}/${locale}/likuvannya-kucheriv`;
 
   return {
-    title:
-      'Лікування кучерявого волосся у Києві – догляд та відновлення локонів',
+    title: 'Лікування кучерів – Київ, індивідуальний підхід',
     description:
       'Професійне лікування кучерів у Києві: зволоження, живлення, захист від ламкості. Ідеальне рішення після фарбування, спеки чи стайлінгу.',
     alternates: {
@@ -46,6 +45,7 @@ export async function generateMetadata() {
 const TherapyPage = () => {
   return (
     <div>
+      <h1 className="sr-only">Сторінка Лікування кучерів у Києві</h1>
       <BannerForAllPages
         title="Лікування кучерів в Києві"
         description="Процедура відновлення, яка пухнасті і некеровані локони знову зробить м'яким, пружними та слухняними.Результат побачите одразу, ефект до 3-х місяців."

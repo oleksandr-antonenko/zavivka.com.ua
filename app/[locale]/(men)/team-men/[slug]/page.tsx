@@ -51,6 +51,9 @@ const DynamicTeamForMenPage = ({ params }: { params: { slug: string } }) => {
   return (
     <>
       <h1 className="sr-only">{`Сторінка майстра ${master?.name || 'Інформація про цього майстра відсутня.'}`}</h1>
+      <p className="sr-only">
+        {`${master?.name || 'Інформація про цього майстра відсутня.'} — професійний ${master?.category} з досвідом роботи ${master?.experience}. Майстер працює з індивідуальним підходом, забезпечуючи якість і комфорт для кожного клієнта.`}
+      </p>
       <section className="pt-[60px] xl:pt-[150px]">
         <DynamicTeamForMenContainer slug={slug} />
       </section>

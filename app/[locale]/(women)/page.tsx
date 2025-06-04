@@ -57,6 +57,7 @@ export async function generateMetadata() {
 export default function Home() {
   return (
     <>
+      <h1 className="sr-only">Головна Сторінка</h1>
       <BannerForAllPages
         title="Завивка волосся в Києві"
         description="Спеціалізований салон краси. Ми зберігаємо здоров`я волосся та полегшуємо повсякденний догляд."

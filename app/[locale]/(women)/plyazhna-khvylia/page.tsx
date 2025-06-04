@@ -46,6 +46,7 @@ export async function generateMetadata() {
 const PlyazhnaKhvyliaPage = () => {
   return (
     <>
+      <h1 className="sr-only">Сторінка Пляжна хвиля у Києві</h1>
       <BannerForAllPages
         title="Пляжна хвиля в Києві"
         description="Пляжна хвиля|Пляжні локони|Beach Waves — найпопулярніша та універсальна завивка, яка личить усім та і гарно виглядатиме на будь-якій довжині волосся."

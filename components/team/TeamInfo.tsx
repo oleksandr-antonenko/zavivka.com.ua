@@ -10,9 +10,9 @@ const TeamInfo = ({ forMen = false }: { forMen?: boolean }) => {
   return (
     <section className="max-w-[1440px] px-2 mx-auto pt-[50px] md:pt-[100px]">
       {!fullInfo && (
-        <h1 className="font-bold text-center text-[24px] md:text-[30px] xl:text-[40px] uppercase mb-[30px] md:mb-[80px]">
+        <h2 className="font-bold text-center text-[24px] md:text-[30px] xl:text-[40px] uppercase mb-[30px] md:mb-[80px]">
           наші майстри
-        </h1>
+        </h2>
       )}
       <Member
         teamMembers={teamMembers}

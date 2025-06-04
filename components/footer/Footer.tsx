@@ -30,9 +30,14 @@ const Footer = () => {
             </div>
             <div>
               <h3 className="font-bold mb-3">Контакти</h3>
-              <a href="tel:+380674413565" className="hover:font-bold">
-                +38 067 441 35 65
-              </a>
+              <div className="flex flex-col gap-2">
+                <a href="tel:+380674413565" className="hover:font-bold">
+                  +38 067 441 35 65
+                </a>
+                <a href="tel:+380670316654" className="hover:font-bold">
+                  +38 067 031 66 54
+                </a>
+              </div>
               <div className="mt-3 xl:mt-0 block xl:hidden">
                 <SocialIcons colorFill="black" colorStroke="black" />
               </div>

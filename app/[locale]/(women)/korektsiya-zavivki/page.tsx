@@ -18,7 +18,7 @@ export async function generateMetadata() {
   const canonical = `${baseUrl}/${locale}/korektsiya-zavivki`;
 
   return {
-    title: 'Корекція біозавивки у Києві – поновіть обʼєм природно',
+    title: 'Корекція біозавивки – натуральні локони без шкоди',
     description:
       'Професійна корекція завивки у Києві. Плавний перехід, живлення завитків по довжині, індивідуальний підхід. Поновіть обʼєм без шкоди волоссю.',
     alternates: {
@@ -45,6 +45,7 @@ export async function generateMetadata() {
 const CurlCorrectionPage = () => {
   return (
     <>
+      <h1 className="sr-only">Сторінка Коррекциї завивки у Києві</h1>
       <BannerForAllPages
         title="Корекція завивки в Києві"
         buttonText="Онлайн запис"

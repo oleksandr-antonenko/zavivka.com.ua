@@ -10,6 +10,10 @@ const Logo = ({
   width?: string;
   height?: string;
 }) => {
+  // Генерируем уникальный ID для каждого экземпляра компонента
+  const uniqueId = React.useId();
+  const clipPathId = `clip0_${uniqueId}`;
+
   return (
     <Link href="/">
       <svg
@@ -79,7 +83,7 @@ const Logo = ({
           />
         </g>
         <defs>
-          <clipPath id="clip0_8_1371">
+          <clipPath id={clipPathId}>
             <rect
               width="140"
               height="40"

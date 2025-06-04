@@ -9,7 +9,7 @@ export async function generateMetadata() {
   const canonical = `${baseUrl}/${locale}/team-men`;
 
   return {
-    title: 'Майстри чоловічої завивки волосся | Завивка для чоловіків у Києві',
+    title: 'Майстри чоловічої завивки волосся у Києві',
     description:
       'Дізнайтесь більше про наших майстрів, які спеціалізуються на чоловічій завивці волосся. Професіонали з досвідом, індивідуальний підхід та стильний результат.',
     alternates: {
@@ -36,6 +36,7 @@ export async function generateMetadata() {
 const TeamMenPage = () => {
   return (
     <>
+      <h1 className="sr-only">Майстри чоловічої завивки волосся у Києві</h1>
       <TeamForMenInfo />
       <section className="sm:pb-[60px] xl:pb-[150px]">
         <ConsultationContainer />

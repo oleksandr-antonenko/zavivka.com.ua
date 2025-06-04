@@ -18,7 +18,7 @@ export async function generateMetadata() {
   const canonical = `${baseUrl}/${locale}/strizhka-kucheriv`;
 
   return {
-    title: 'Стрижка кучерявого волосся у Києві – майстри по кучерях',
+    title: 'Стрижка кучерявого волосся у Києві',
     description:
       'Професійна стрижка кучерявого волосся в центрі Києва. Індивідуальний підхід до кожного типу завитків, ідеальна форма та легка укладка без щоденних зусиль.',
     alternates: {
@@ -45,6 +45,7 @@ export async function generateMetadata() {
 const StrizhkaKucherivPage = () => {
   return (
     <>
+      <h1 className="sr-only">Професійна стрижка кучерявого волосся у Києві</h1>
       <BannerForAllPages
         title="Стрижка кучерявого волосся в Києві"
         description="Створимо ідеальну форму стрижки під ваш тип завитків та форму обличчя, яка забезпечить легку укладку та бездоганний вигляд кучерів протягом декількох місяців"

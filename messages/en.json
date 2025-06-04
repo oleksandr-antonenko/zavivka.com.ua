@@ -2,5 +2,10 @@
   "Navigation": {
     "home": "Home",
     "account": "Account"
+  },
+  "NotFound": {
+    "title": "Page Not Found",
+    "description": "Sorry, but the page you are looking for could not be found.",
+    "backHome": "Back to Home"
   }
 }

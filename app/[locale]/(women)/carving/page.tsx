@@ -19,7 +19,7 @@ export async function generateMetadata() {
   const canonical = `${baseUrl}/${locale}/carving`;
 
   return {
-    title: 'Карвінг волосся у Києві – довготривала укладка з обʼємом',
+    title: 'Карвінг у Києві – довготривала укладка з обʼємом',
     description:
       'Карвінг – ідеальний варіант для створення природних локонів без щоденної укладки. Довготривалий ефект, легкість у догляді та збереження здоровʼя волосся.',
     alternates: {
@@ -46,9 +46,12 @@ export async function generateMetadata() {
 const CarvingPage = () => {
   return (
     <>
+      <h1 className="sr-only">
+        Карвінг волосся у Києві – професійна довготривала укладка
+      </h1>
       <BannerForAllPages
         title="Карвінг волосся в Києві"
-        description="Карвінг точно стане вашою улюбленою укладкою, якщо ви обожнюєте об’ємні, хаотичні локони"
+        description="Карвінг точно стане вашою улюбленою укладкою, якщо ви обожнюєте об'ємні, хаотичні локони"
         buttonText="Запис на консультацію"
         buttonLink="https://beautyprosoftware.com/b/877643"
         videoSrc="/videos/banner.mp4"

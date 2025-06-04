@@ -102,9 +102,9 @@ const Booking: FC<BookingProps> = ({
                   className="text-[12px] text-[#fbfbfb] font-[300] text-center"
                 >
                   Згоден (а) на{' '}
-                  <a href="/privacy-policy" className="underline">
-                    обробку персональних данних
-                  </a>
+                  {/* <a href="/privacy-policy" className="underline"> */}
+                  обробку персональних данних
+                  {/* </a> */}
                 </label>
               </div>
               {errors.agreeToPrivacy && (

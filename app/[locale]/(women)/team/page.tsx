@@ -16,7 +16,7 @@ export async function generateMetadata() {
   const canonical = `${baseUrl}/${locale}/team`;
 
   return {
-    title: 'Наші майстри завивки волосся | Завивка Київ',
+    title: 'Наші майстри завивки волосся',
     description:
       'Познайомтесь з командою експертів: професійні майстри жіночої та чоловічої завивки, карвінгу, лікування та догляду за кучерявим волоссям у Києві.',
     alternates: {
@@ -43,6 +43,7 @@ export async function generateMetadata() {
 export default function Team() {
   return (
     <>
+      <h1 className="sr-only">Наші майстри завивки волосся у Києві</h1>
       <TeamInfo />
       <section className="sm:pb-[60px] xl:pb-[150px]">
         <ConsultationContainer />

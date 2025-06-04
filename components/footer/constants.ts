@@ -1,29 +1,22 @@
 export const linksFooterZav = [
-  { title: 'Завивка в Киеве', link: '/zavivka' },
-  { title: 'Біозавивка', link: '/biozavivka' },
+  { title: 'Завивка в Киеве', link: '/' },
+  { title: 'Чолівича завивка', link: '/cholovicha-zavivka' },
   { title: 'Карвінг волосся', link: '/carving' },
-  { title: 'Крупна завивка волосся' },
-  { title: 'Афро завивка волосся' },
-  { title: 'Завивка довгого волосся' },
-  { title: 'Завивка короткого волосся' },
-  { title: 'Спіральна завивка', link: '/spiral' },
-  { title: 'Японська завивка', link: '/yaponskaya-zavivka-volos' },
-  { title: 'Дрібна завивка волосся' },
+  { title: 'Пляжна хвиля', link: '/plyazhna-khvylia' },
 ];
 
 export const linksFooterServ = [
-  { title: 'Стрижка кучерявого волосся', link: '/haircut' },
-  { title: 'Фарбуання волосся', link: '/coloration' },
-  { title: 'Лікуваня волосся', link: '/therapy' },
-  { title: 'Галерея', link: '/gallery' },
-  { title: 'Інтернет-магазин', link: '/shop' },
+  { title: 'Стрижка кучерявого волосся', link: '/strizhka-kucheriv' },
+  { title: 'Корекція завивки', link: '/korektsiya-zavivki' },
+  { title: 'Лікуваня волосся', link: '/likuvannya-kucheriv' },
+  { title: 'Інтернет-магазин' /*link: '/shop'*/ },
 ];
 
 export const linksFooterEdu = [
-  { title: 'Індивідуальний курс', link: '/individual' },
-  { title: 'Онлайн-курси', link: '/onlain' },
-  { title: 'Семінари', link: '/seminari' },
-  { title: 'Академія Створення Локонів', link: '/academy' },
-  { title: 'Відеозаписи семінарів навчання', link: '/zapisi-seminarov' },
-  { title: 'Блог', link: '/blog' },
+  { title: 'Індивідуальний курс' /* link: '/haircut'*/ },
+  { title: 'Онлайн-курси' /* link: '/haircut'*/ },
+  { title: 'Семінари' /* link: '/haircut'*/ },
+  { title: 'Академія Створення Локонів' /* link: '/haircut'*/ },
+  { title: 'Відеозаписи семінарів навчання' /* link: '/haircut'*/ },
+  { title: 'Блог' /* link: '/haircut'*/ },
 ];
