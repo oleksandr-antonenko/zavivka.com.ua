@@ -48,6 +48,10 @@ const PhotoSlider = ({
   const SWIPE_COOLDOWN = 300; // milliseconds
   const isDesktop = useMediaQuery('(min-width: 768px)');
 
+  useEffect(() => {
+    setIndex(0);
+  }, [forMen]);
+
   const handlers = useSwipeable({
     onSwipedLeft: () => {
       const now = Date.now();

@@ -1,6 +1,6 @@
 'use client';
 import { Dispatch, SetStateAction, useState } from 'react';
-import { photos } from '@/components/zavivka/photos';
+import { photosForMen } from './photo-men-data';
 import { CurlSize, HairLength } from '@/components/zavivka/types';
 import { DesktopFilter } from '@/components/zavivka/DesktopFilter';
 import { MobileFilter } from '@/components/zavivka/MobileFilter';
@@ -10,7 +10,7 @@ export const MenHairFilter = () => {
   const [selectedLength, setSelectedLength] = useState<HairLength>('Всі');
   const [selectedCurl, setSelectedCurl] = useState<CurlSize>('Всі');
 
-  const filteredPhotos = photos.filter((photo) => {
+  const filteredPhotos = photosForMen.filter((photo) => {
     const lengthCondition =
       selectedLength === 'Всі' || photo.hairLength === selectedLength;
 

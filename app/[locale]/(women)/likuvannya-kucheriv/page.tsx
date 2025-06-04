@@ -1,10 +1,16 @@
-import BannerForAllPages from '@/components/banner/banner-for-all-pages';
 import { Booking } from '@/components/booking';
 import { Contacts } from '@/components/contacts';
 import { Prices } from '@/components/prices';
 import SignalListContainer from '@/components/THERAPY/therapy-signa-list/signal-list-container';
 import TherapySliderWrapper from '@/components/THERAPY/therapy-slider/therapy-slider-container';
 import { getLocale } from 'next-intl/server';
+import dynamic from 'next/dynamic';
+const BannerForAllPages = dynamic(
+  () => import('@/components/banner/banner-for-all-pages'),
+  {
+    ssr: false,
+  },
+);
 
 export async function generateMetadata() {
   const locale = await getLocale();
@@ -41,12 +47,13 @@ const TherapyPage = () => {
   return (
     <div>
       <BannerForAllPages
-        title="Лікування кучерів"
-        description="Процедура відновлення, яка пухнасті і некеровані локони знову зробить м’яким, пружними та слухняними.Результат побачите одразу, ефект до 3-х місяців."
+        title="Лікування кучерів в Києві"
+        description="Процедура відновлення, яка пухнасті і некеровані локони знову зробить м'яким, пружними та слухняними.Результат побачите одразу, ефект до 3-х місяців."
         buttonText="Онлайн запис"
         buttonLink="https://beautyprosoftware.com/b/877643"
         videoSrc="/videos/banner.mp4"
         posterSrc="/images/banner.jpg"
+        isTherapy={true}
       />
       <section className="py-[60px] xl:py-[150px]">
         <SignalListContainer />

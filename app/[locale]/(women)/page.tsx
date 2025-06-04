@@ -1,4 +1,3 @@
-import { MainBanner } from '@/components/banner';
 import { Reviews } from '@/components/reviews';
 import { FAQ } from '@/components/faq';
 import { Contacts } from '@/components/contacts';
@@ -10,6 +9,12 @@ import SkilsContainer from '@/components/skills/skils-container';
 import ProfessionalFamilyContainer from '@/components/professional-family/professional-family-container';
 import ModernTrustContainer from '@/components/trust/modern-trust/modern-trust-container';
 import dynamic from 'next/dynamic';
+const BannerForAllPages = dynamic(
+  () => import('@/components/banner/banner-for-all-pages'),
+  {
+    ssr: false,
+  },
+);
 const ConsultationContainer = dynamic(
   () => import('@/components/consultation/consultation-container'),
   {
@@ -52,7 +57,14 @@ export async function generateMetadata() {
 export default function Home() {
   return (
     <>
-      <MainBanner />
+      <BannerForAllPages
+        title="Завивка волосся в Києві"
+        description="Спеціалізований салон краси. Ми зберігаємо здоров`я волосся та полегшуємо повсякденний догляд."
+        buttonText="Запис на консультацію"
+        buttonLink="https://beautyprosoftware.com/b/877643"
+        videoSrc="/videos/banner.mp4"
+        posterSrc="/images/banner.jpg"
+      />
       <section className="py-[60px] xl:py-[150px]">
         <ModernServices />
       </section>

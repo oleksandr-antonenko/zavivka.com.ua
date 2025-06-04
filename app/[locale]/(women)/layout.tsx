@@ -1,5 +1,4 @@
 import { Header } from '@/components/header';
-import { IntervalPopUp } from '@/components/pop-up';
 
 export default function WomenLayout({
   children,
@@ -10,7 +9,6 @@ export default function WomenLayout({
     <>
       <Header />
       {children}
-      <IntervalPopUp />
     </>
   );
 }

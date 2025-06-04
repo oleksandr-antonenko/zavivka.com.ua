@@ -1,7 +1,10 @@
 import { Button } from '@/shared/buttons';
-import React from 'react';
+import { useState } from 'react';
+import PopUpBanner from '@/components/pop-up/PopUpBanner';
 
 const OrderBlock = () => {
+  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
+
   return (
     <div className="relative z-10 flex flex-col md:flex-row gap-5">
       <a
@@ -13,9 +16,18 @@ const OrderBlock = () => {
           Запис онлайн
         </Button>
       </a>
-      <Button className="text-black bg-white w-full max-w-full md:max-w-[400px]">
+      <Button
+        className="text-black bg-white w-full max-w-full md:max-w-[400px]"
+        onClick={() => setIsPopUpOpen(true)}
+      >
         Запис на консультацію
       </Button>
+
+      <PopUpBanner
+        visible={isPopUpOpen}
+        close={() => setIsPopUpOpen(false)}
+        forMen={false}
+      />
     </div>
   );
 };

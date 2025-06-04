@@ -1,5 +1,6 @@
 import { createSlice, UnknownAction, PayloadAction } from '@reduxjs/toolkit';
 import { TeamState } from './type';
+import { getMasterExperience } from '@/lib/experience';
 
 const setError = (action: UnknownAction) => {
   return action.type.endsWith('rejected');
@@ -12,7 +13,7 @@ const initialState: TeamState = {
       name: 'Валентина Антоненко',
       slug: 'valentina-antonenko',
       category: 'Директор',
-      experience: '45 років',
+      experience: getMasterExperience('Валентина Антоненко'),
       specialization: [
         'Завивка волосся',
         'Стрижка кучерів',
@@ -152,7 +153,7 @@ const initialState: TeamState = {
       name: 'Сабо Артем',
       slug: 'sabo-artem',
       category: 'Топ майстер',
-      experience: '9 років',
+      experience: getMasterExperience('Сабо Артем'),
       specialization: [
         'Завивка волосся',
         'Стрижка кучерів',
@@ -287,7 +288,7 @@ const initialState: TeamState = {
       name: 'Валерія Мельниченко',
       slug: 'valeria-melnichenko',
       category: 'Експерт',
-      experience: '4 років',
+      experience: getMasterExperience('Валерія Мельниченко'),
       isMen: true,
       specialization: [
         'Завивка волосся',
@@ -418,10 +419,11 @@ const initialState: TeamState = {
         },
       ],
       imagesOfWorksForMen: [
-        '/images/men.png',
-        '/images/menmiddle.jpg',
-        '/images/menforsholders.jpg',
-        '/images/menlong.jpg',
+        '/images/foto-men/cholovicha-valeria-1.webp',
+        '/images/foto-men/cholovicha-valeria-2.webp',
+        '/images/foto-men/cholovicha-valeria-3.webp',
+        '/images/foto-men/cholovicha-valeria-4.webp',
+        '/images/foto-men/cholovicha-valeria-5.webp',
       ],
       imagesOfWorksForWomen: [
         '/images/valeria-melnichenko/valeria-melnichenko-1.webp',
@@ -441,7 +443,7 @@ const initialState: TeamState = {
       name: 'Юлія Броварчук',
       slug: 'yulia-brovarkchuk',
       category: 'Топ майстер',
-      experience: '9 років',
+      experience: getMasterExperience('Юлія Броварчук'),
       specialization: [
         'Завивка волосся',
         'Стрижка кучерів',
@@ -584,7 +586,7 @@ const initialState: TeamState = {
       name: 'Ольга Колле',
       slug: 'olga-kolle',
       category: 'Топ майстер',
-      experience: '8 років',
+      experience: getMasterExperience('Ольга Колле'),
       isMen: true,
       specialization: [
         'Завивка волосся',
@@ -715,10 +717,12 @@ const initialState: TeamState = {
         },
       ],
       imagesOfWorksForMen: [
-        '/images/men.png',
-        '/images/menmiddle.jpg',
-        '/images/menforsholders.jpg',
-        '/images/menlong.jpg',
+        '/images/foto-men/cholovicha-olga-k-1.webp',
+        '/images/foto-men/cholovicha-olga-k-2.webp',
+        '/images/foto-men/cholovicha-olga-k-3.webp',
+        '/images/foto-men/cholovicha-olga-k-4.webp',
+        '/images/foto-men/cholovicha-olga-k-5.webp',
+        '/images/foto-men/cholovicha-olga-k-6.webp',
       ],
       imagesOfWorksForWomen: [
         '/images/olga-kolle/olga-kolle-1.webp',
@@ -751,7 +755,7 @@ const initialState: TeamState = {
       name: 'Анастасія Мальчик',
       slug: 'anastasiya-malchik',
       category: 'Експерт',
-      experience: '1.5 років',
+      experience: getMasterExperience('Анастасія Мальчик'),
       isMen: true,
       specialization: [
         'Завивка волосся',
@@ -881,12 +885,7 @@ const initialState: TeamState = {
           price: 4650,
         },
       ],
-      imagesOfWorksForMen: [
-        '/images/men.png',
-        '/images/menmiddle.jpg',
-        '/images/menforsholders.jpg',
-        '/images/menlong.jpg',
-      ],
+      imagesOfWorksForMen: ['/images/foto-men/cholovicha-nastya-m-1.webp'],
       imagesOfWorksForWomen: [
         '/images/anastasiya-malchik/anastasiya-malchik-1.webp',
         '/images/anastasiya-malchik/anastasiya-malchik-2.webp',
@@ -909,7 +908,7 @@ const initialState: TeamState = {
       name: 'Вікторія Омельченко',
       slug: 'viktoriya-omelchenko',
       category: 'Арт-директор',
-      experience: '6 років',
+      experience: getMasterExperience('Вікторія Омельченко'),
       specialization: [
         'Завивка волосся',
         'Стрижка кучерів',
@@ -1051,7 +1050,7 @@ const initialState: TeamState = {
       name: 'Вікторія Салій',
       slug: 'viktoriya-salyi',
       category: 'Арт-директор',
-      experience: '6 років',
+      experience: getMasterExperience('Вікторія Салій'),
       isMen: true,
       specialization: [
         'Завивка волосся',
@@ -1182,10 +1181,10 @@ const initialState: TeamState = {
         },
       ],
       imagesOfWorksForMen: [
-        '/images/men.png',
-        '/images/menmiddle.jpg',
-        '/images/menforsholders.jpg',
-        '/images/menlong.jpg',
+        '/images/foto-men/cholovicha-vika-s-1.webp',
+        '/images/foto-men/cholovicha-vika-s-2.webp',
+        '/images/foto-men/cholovicha-vika-s-3.webp',
+        '/images/foto-men/cholovicha-vika-s-4.webp',
       ],
       imagesOfWorksForWomen: [
         '/images/viktoriya-salyi/viktoriya-salyi-1.webp',
@@ -1218,7 +1217,7 @@ const initialState: TeamState = {
       name: 'Діана Лєканцева',
       slug: 'diana-lekanceva',
       category: 'Експерт',
-      experience: '1 років',
+      experience: getMasterExperience('Діана Лєканцева'),
       isMen: true,
       specialization: [
         'Завивка волосся',
@@ -1349,12 +1348,7 @@ const initialState: TeamState = {
           price: 4650,
         },
       ],
-      imagesOfWorksForMen: [
-        '/images/men.png',
-        '/images/menmiddle.jpg',
-        '/images/menforsholders.jpg',
-        '/images/menlong.jpg',
-      ],
+      imagesOfWorksForMen: ['/images/foto-men/cholovicha-diana-1.webp'],
       imagesOfWorksForWomen: [
         '/images/diana-lekanceva/diana-lekanceva-1.webp',
         '/images/diana-lekanceva/diana-lekanceva-2.webp',
@@ -1372,7 +1366,7 @@ const initialState: TeamState = {
       name: 'Ярослава Гурбік',
       slug: 'yaroslava-gurbik',
       category: 'Арт-директор',
-      experience: '4 років',
+      experience: getMasterExperience('Ярослава Гурбік'),
       isMen: true,
       specialization: [
         'Завивка волосся',
@@ -1503,10 +1497,9 @@ const initialState: TeamState = {
         },
       ],
       imagesOfWorksForMen: [
-        '/images/men.png',
-        '/images/menmiddle.jpg',
-        '/images/menforsholders.jpg',
-        '/images/menlong.jpg',
+        '/images/foto-men/cholovicha-yaroslava-1.webp',
+        '/images/foto-men/cholovicha-yaroslava-2.webp',
+        '/images/foto-men/cholovicha-yaroslava-3.webp',
       ],
       imagesOfWorksForWomen: [
         '/images/yaroslava-gurbik/yaroslava-gurbik-1.webp',
@@ -1545,7 +1538,7 @@ const initialState: TeamState = {
       name: 'Анастасія Кузьменко',
       slug: 'anastasia-kuzmenko',
       category: 'Арт-директор',
-      experience: '12 років',
+      experience: getMasterExperience('Анастасія Кузьменко'),
       isMen: true,
       specialization: [
         'Завивка волосся',
@@ -1675,10 +1668,9 @@ const initialState: TeamState = {
         },
       ],
       imagesOfWorksForMen: [
-        '/images/men.png',
-        '/images/menmiddle.jpg',
-        '/images/menforsholders.jpg',
-        '/images/menlong.jpg',
+        '/images/foto-men/cholovicha-nastya-k-1.webp',
+        '/images/foto-men/cholovicha-nastya-k-2.webp',
+        '/images/foto-men/cholovicha-nastya-k-3.webp',
       ],
       imagesOfWorksForWomen: [
         '/images/a-kuzmenko/kuzmenko-1.webp',

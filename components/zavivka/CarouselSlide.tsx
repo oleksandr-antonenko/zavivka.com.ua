@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { MousePointerClick } from 'lucide-react';
 import { Photo } from './photos';
+import { generateStaticBlurData } from '@/lib/generateStaticBlurData';
 
 type CarouselSlideProps = {
   photo: Photo;
@@ -69,6 +70,8 @@ export const CarouselSlide = ({
         alt={`Preview ${photo.master || ''}`}
         fill
         quality={60}
+        blurDataURL={generateStaticBlurData()}
+        placeholder="blur"
         sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 33vw"
         style={{
           willChange: 'transform, opacity',

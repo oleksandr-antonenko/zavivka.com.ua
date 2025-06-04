@@ -1,10 +1,16 @@
-import { MainBanner } from '@/components/banner';
 import { Contacts } from '@/components/contacts';
 import { Booking, servicesForCheckboxMen } from '@/components/booking';
 import { Prices } from '@/components/prices';
 import ReasonsContainer from '@/components/FOR-MEN/reasons/reasons-container';
 import { MenHairFilter } from '@/components/FOR-MEN/filter/MenHairFilter';
 import { getLocale } from 'next-intl/server';
+import dynamic from 'next/dynamic';
+const BannerForAllPages = dynamic(
+  () => import('@/components/banner/banner-for-all-pages'),
+  {
+    ssr: false,
+  },
+);
 
 export async function generateMetadata() {
   const locale = await getLocale();
@@ -39,7 +45,13 @@ export async function generateMetadata() {
 const ZavivkaPage = () => {
   return (
     <div>
-      <MainBanner forMen />
+      <BannerForAllPages
+        title="Чоловіча завивка волосся в Києві"
+        buttonText="Запис на консультацію"
+        buttonLink="https://beautyprosoftware.com/b/877643"
+        videoSrc="/videos/banner.mp4"
+        posterSrc="/images/banner.jpg"
+      />
       <section className="py-[60px] xl:py-[150px]">
         <ReasonsContainer />
       </section>

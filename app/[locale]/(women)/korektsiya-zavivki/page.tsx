@@ -1,10 +1,16 @@
-import BannerForAllPages from '@/components/banner/banner-for-all-pages';
 import { Booking } from '@/components/booking';
 import { Contacts } from '@/components/contacts';
 import CurlFaq from '@/components/CURL-CORRECTION/curl-faq/curl-faq';
 import CurlSliderWrapper from '@/components/CURL-CORRECTION/curl-slider/curl-slider-wrapper';
 import { Prices } from '@/components/prices';
 import { getLocale } from 'next-intl/server';
+import dynamic from 'next/dynamic';
+const BannerForAllPages = dynamic(
+  () => import('@/components/banner/banner-for-all-pages'),
+  {
+    ssr: false,
+  },
+);
 
 export async function generateMetadata() {
   const locale = await getLocale();
@@ -40,11 +46,12 @@ const CurlCorrectionPage = () => {
   return (
     <>
       <BannerForAllPages
-        title="Корекція завивки"
+        title="Корекція завивки в Києві"
         buttonText="Онлайн запис"
         buttonLink="https://beautyprosoftware.com/b/877643"
         videoSrc="/videos/banner.mp4"
         posterSrc="/images/banner.jpg"
+        isCorrection={true}
       />
       <section className="py-[60px] xl:py-[150px]">
         <CurlFaq />

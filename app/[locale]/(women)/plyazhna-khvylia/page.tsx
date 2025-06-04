@@ -1,4 +1,3 @@
-import BannerForAllPages from '@/components/banner/banner-for-all-pages';
 import { Booking } from '@/components/booking';
 import { Contacts } from '@/components/contacts';
 import PlyazhnaKhvyliaSliderSliderContainer from '@/components/PLYAZHNA-KHVYLIA/plyazhna-khvylia-slider/plyazhna-khvilya-slider-container';
@@ -6,6 +5,13 @@ import PlyazhnaKhvyliaListContainer from '@/components/PLYAZHNA-KHVYLIA/plyazhna
 import { Prices } from '@/components/prices';
 import ModernTrustContainer from '@/components/trust/modern-trust/modern-trust-container';
 import { getLocale } from 'next-intl/server';
+import dynamic from 'next/dynamic';
+const BannerForAllPages = dynamic(
+  () => import('@/components/banner/banner-for-all-pages'),
+  {
+    ssr: false,
+  },
+);
 
 export async function generateMetadata() {
   const locale = await getLocale();

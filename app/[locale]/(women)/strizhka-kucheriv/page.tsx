@@ -1,10 +1,16 @@
-import BannerForAllPages from '@/components/banner/banner-for-all-pages';
 import { Booking } from '@/components/booking';
 import { Contacts } from '@/components/contacts';
 import { Prices } from '@/components/prices';
 import StrizhkaSliderContiner from '@/components/STRIZHKA-KUCHERIV/strizhka-kucheriv-slider/strizhka-slider-continer';
 import StrizhkaKucherivContainer from '@/components/STRIZHKA-KUCHERIV/strizhka-kucheriv-wrapper/strizhka-kucheriv-container';
 import { getLocale } from 'next-intl/server';
+import dynamic from 'next/dynamic';
+const BannerForAllPages = dynamic(
+  () => import('@/components/banner/banner-for-all-pages'),
+  {
+    ssr: false,
+  },
+);
 
 export async function generateMetadata() {
   const locale = await getLocale();

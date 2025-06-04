@@ -9,7 +9,7 @@ const DynamicTeamForMenContainer = ({ slug }: { slug: string }) => {
   return (
     <>
       <section className="relative w-full max-w-[1200px] mx-auto px-2">
-        <MemberFullInfo member={team} />
+        <MemberFullInfo member={team} forMen={true} />
       </section>
     </>
   );
