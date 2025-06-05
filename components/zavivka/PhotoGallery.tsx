@@ -1,7 +1,7 @@
 'use client';
 
-import { useMemo, useEffect, useRef } from 'react';
-import Link from 'next/link';
+import { useMemo, useRef } from 'react';
+import { Link } from '@/i18n/routing';
 import Lightbox, { Slide } from 'yet-another-react-lightbox';
 import Counter from 'yet-another-react-lightbox/plugins/counter';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
@@ -9,6 +9,7 @@ import 'yet-another-react-lightbox/plugins/counter.css';
 import 'yet-another-react-lightbox/styles.css';
 import { Photo } from '@/components/zavivka/photos';
 import { ZoomIn, ZoomOut } from 'lucide-react';
+import { useScrollLock } from '@/lib/hooks/useScrollLock';
 
 interface ZoomRef {
   zoom: number;
@@ -44,13 +45,7 @@ const PhotoGallery = ({
   onClose,
 }: PhotoGalleryProps) => {
   const zoomRef = useRef<ZoomRef>(null);
-
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : 'unset';
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen]);
+  useScrollLock(isOpen);
 
   const slides = useMemo<CustomSlide[]>(
     () =>
@@ -78,36 +73,36 @@ const PhotoGallery = ({
     <Lightbox
       open={isOpen}
       close={onClose}
-      slides={slides}
       index={currentIndex}
+      slides={slides}
       plugins={[Counter, Zoom]}
-      counter={{ container: { style: { top: 'unset', bottom: 0 } } }}
       zoom={{
         ref: zoomRef,
         maxZoomPixelRatio: 3,
         zoomInMultiplier: 2,
+        doubleTapDelay: 300,
+        doubleClickDelay: 300,
+        doubleClickMaxStops: 2,
+        keyboardMoveDistance: 50,
+        wheelZoomDistanceFactor: 100,
+        pinchZoomDistanceFactor: 100,
         scrollToZoom: true,
       }}
+      carousel={{
+        finite: false,
+        preload: 2,
+        padding: '16px',
+        spacing: '16px',
+        imageFit: 'contain',
+      }}
+      controller={{
+        closeOnBackdropClick: true,
+      }}
       render={{
-        buttonZoom: ({ zoom, maxZoom }) => (
-          <div className="absolute left-[-100px] top-3 z-[10001] flex gap-2">
-            <button
-              onClick={() => zoomRef.current?.zoomIn()}
-              className="p-2 bg-black/60 rounded-full hover:bg-black/80 transition-colors"
-              disabled={zoom >= maxZoom}
-            >
-              <ZoomIn className="w-6 h-6 text-white" />
-            </button>
-            <button
-              onClick={() => zoomRef.current?.zoomOut()}
-              className="p-2 bg-black/60 rounded-full hover:bg-black/80 transition-colors"
-              disabled={zoom <= 1}
-            >
-              <ZoomOut className="w-6 h-6 text-white" />
-            </button>
-          </div>
-        ),
-        // добавим overlay к встроенному слайду
+        buttonPrev: slides.length <= 1 ? () => null : undefined,
+        buttonNext: slides.length <= 1 ? () => null : undefined,
+        iconZoomIn: () => <ZoomIn className="w-6 h-6" />,
+        iconZoomOut: () => <ZoomOut className="w-6 h-6" />,
         slideFooter: ({ slide }) => (
           <div className="absolute bottom-0 left-0 right-0 z-[10001]">
             {(slide as CustomSlide).customOverlay}

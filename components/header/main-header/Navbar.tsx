@@ -6,10 +6,12 @@ import { NavProp } from './type';
 import { motion } from 'framer-motion';
 import type { FC } from 'react';
 import { useLocale } from 'next-intl';
+import { Link as I18nLink } from '@/i18n/routing';
+import { useParams } from 'next/navigation';
 
 const Navbar: FC<NavProp> = ({ show, navlinks, closeMobileMenu }) => {
   const pathname = usePathname();
-  const locale = useLocale();
+  const locale = useParams().locale as string;
 
   // Анимации для разных направлений
   const getVariants = (index: number) => {
@@ -52,7 +54,7 @@ const Navbar: FC<NavProp> = ({ show, navlinks, closeMobileMenu }) => {
                 : 'border-b border-grey py-[17px] px-5 mr-4 md:mr-[100px]'
             }`}
           >
-            <Link
+            <I18nLink
               className={`inline-block hover:text-orange ${
                 pathname === `/${locale}${link.linkNav}`
                   ? 'border-b border-orange text-orange'
@@ -62,7 +64,7 @@ const Navbar: FC<NavProp> = ({ show, navlinks, closeMobileMenu }) => {
               onClick={show !== 'nav-desktop' ? closeMobileMenu : undefined}
             >
               {link.titleNav}
-            </Link>
+            </I18nLink>
           </motion.li>
         ))}
       </ul>

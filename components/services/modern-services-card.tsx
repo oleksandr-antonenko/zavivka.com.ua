@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { ServiceListProps } from './types';
 import type { FC } from 'react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { motion } from 'framer-motion';
 
 const getMobileGridClasses = (index: number) => {

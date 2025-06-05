@@ -1,11 +1,14 @@
 import React from 'react';
 import type { FC } from 'react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { usePathname } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { TopHeaderLinksProps } from './types';
 
 const TopHeaderLinks: FC<TopHeaderLinksProps> = ({ show, navlinksTop }) => {
   const pathname = usePathname();
+  const locale = useParams().locale as string;
+
   return (
     <ul
       className={`flex gap-10 ${show === 'nav-desktop' ? 'flex-row' : 'topHeaderLinksBox'}`}
@@ -17,7 +20,7 @@ const TopHeaderLinks: FC<TopHeaderLinksProps> = ({ show, navlinksTop }) => {
         >
           <Link
             href={link.linkNav}
-            className={`inline-block hover:text-orange ${pathname === link.linkNav ? 'border-b font-bold border-orange' : ''}`}
+            className={`inline-block hover:text-orange ${pathname === `/${locale}${link.linkNav}` ? 'border-b font-bold border-orange' : ''}`}
           >
             {link.titleNav}
           </Link>

@@ -1,5 +1,5 @@
 'use client';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import type { FC } from 'react';
 import Image from 'next/image';
 import { MemberProps } from '@/components/team';
