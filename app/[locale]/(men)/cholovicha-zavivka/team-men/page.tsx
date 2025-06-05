@@ -6,7 +6,7 @@ import { getLocale } from 'next-intl/server';
 export async function generateMetadata() {
   const locale = await getLocale();
   const baseUrl = 'https://zavivka.vercel.app';
-  const canonical = `${baseUrl}/${locale}/team-men`;
+  const canonical = `${baseUrl}/${locale}/cholovicha-zavivka/team-men`;
 
   return {
     title: 'Майстри чоловічої завивки волосся у Києві',

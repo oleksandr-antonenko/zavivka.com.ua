@@ -8,19 +8,8 @@ import ModernServices from '@/components/services/modern-services';
 import SkilsContainer from '@/components/skills/skils-container';
 import ProfessionalFamilyContainer from '@/components/professional-family/professional-family-container';
 import ModernTrustContainer from '@/components/trust/modern-trust/modern-trust-container';
-import dynamic from 'next/dynamic';
-const BannerForAllPages = dynamic(
-  () => import('@/components/banner/banner-for-all-pages'),
-  {
-    ssr: false,
-  },
-);
-const ConsultationContainer = dynamic(
-  () => import('@/components/consultation/consultation-container'),
-  {
-    ssr: false,
-  },
-);
+import BannerForAllPages from '@/components/banner/banner-for-all-pages';
+import ConsultationContainer from '@/components/consultation/consultation-container';
 
 export async function generateMetadata() {
   const baseUrl = 'https://zavivka.vercel.app/'; //заменить на актувльный домен
@@ -57,7 +46,6 @@ export async function generateMetadata() {
 export default function Home() {
   return (
     <>
-      <h1 className="sr-only">Головна Сторінка</h1>
       <BannerForAllPages
         title="Завивка волосся в Києві"
         description="Спеціалізований салон краси. Ми зберігаємо здоров`я волосся та полегшуємо повсякденний догляд."

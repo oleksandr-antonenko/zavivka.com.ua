@@ -1,11 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter, Ubuntu, Mali } from 'next/font/google';
 import './globals.css';
-import React from 'react';
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { NextIntlClientProvider } from 'next-intl';
 import { StoreProvider } from '@/store/StoreProvider';
-import { Footer } from '@/components/footer';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing, Locale } from '@/i18n/routing';
@@ -35,7 +32,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://zavivka.vercel.app/'), //изменить на реальный домен
   title: {
     default: 'Студія завивок – Завивка волосся у Києві на Хрещатику',
-    template: `%s | Z/S`,
+    template: `%s`,
   },
   description:
     'Zavivka Studio — салон краси у центрі Києва на Хрещатику. Спеціалізуємось на жіночій та чоловічій завивці, карвінгу, корекції та лікуванні кучерявого волосся. Індивідуальний підхід, все включено: консультація, стрижка, укладка, підбір засобів.',
@@ -110,13 +107,10 @@ export default async function RootLayout({
     <html lang={locale || 'uk'} suppressHydrationWarning={true}>
       <body className={`${inter.variable} ${ubuntu.variable} ${mali.variable}`}>
         <StoreProvider>
-          <AppRouterCacheProvider>
-            <NextIntlClientProvider messages={messages}>
-              <main className="relative overflow-x-hidden">{children}</main>
-              <Footer />
-              <IntervalPopUp />
-            </NextIntlClientProvider>
-          </AppRouterCacheProvider>
+          <NextIntlClientProvider messages={messages}>
+            <main className="relative overflow-x-hidden">{children}</main>
+            <IntervalPopUp />
+          </NextIntlClientProvider>
         </StoreProvider>
       </body>
     </html>

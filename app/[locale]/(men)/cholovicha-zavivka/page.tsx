@@ -4,13 +4,7 @@ import { Prices } from '@/components/prices';
 import ReasonsContainer from '@/components/FOR-MEN/reasons/reasons-container';
 import { MenHairFilter } from '@/components/FOR-MEN/filter/MenHairFilter';
 import { getLocale } from 'next-intl/server';
-import dynamic from 'next/dynamic';
-const BannerForAllPages = dynamic(
-  () => import('@/components/banner/banner-for-all-pages'),
-  {
-    ssr: false,
-  },
-);
+import BannerForAllPages from '@/components/banner/banner-for-all-pages';
 
 export async function generateMetadata() {
   const locale = await getLocale();
@@ -45,7 +39,6 @@ export async function generateMetadata() {
 const ZavivkaPage = () => {
   return (
     <div>
-      <h1 className="sr-only">Сторінка Чоловічої завивки в Києві</h1>
       <BannerForAllPages
         title="Чоловіча завивка волосся в Києві"
         buttonText="Запис на консультацію"

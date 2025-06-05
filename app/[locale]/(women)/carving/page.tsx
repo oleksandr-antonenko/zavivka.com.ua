@@ -5,13 +5,7 @@ import { Contacts } from '@/components/contacts';
 import { Prices } from '@/components/prices';
 import ModernTrustContainer from '@/components/trust/modern-trust/modern-trust-container';
 import { getLocale } from 'next-intl/server';
-import dynamic from 'next/dynamic';
-const BannerForAllPages = dynamic(
-  () => import('@/components/banner/banner-for-all-pages'),
-  {
-    ssr: false,
-  },
-);
+import BannerForAllPages from '@/components/banner/banner-for-all-pages';
 
 export async function generateMetadata() {
   const locale = await getLocale();
@@ -46,9 +40,6 @@ export async function generateMetadata() {
 const CarvingPage = () => {
   return (
     <>
-      <h1 className="sr-only">
-        Карвінг волосся у Києві – професійна довготривала укладка
-      </h1>
       <BannerForAllPages
         title="Карвінг волосся в Києві"
         description="Карвінг точно стане вашою улюбленою укладкою, якщо ви обожнюєте об'ємні, хаотичні локони"

@@ -5,7 +5,7 @@ export const menNav = [
   { linkNav: '/korektsiya-zavivki', titleNav: 'Корекція завивки' },
   { linkNav: '/likuvannya-kucheriv', titleNav: 'Лікування кучерів' },
   { linkNav: '/plyazhna-khvylia', titleNav: 'Пляжна хвиля' },
-  { linkNav: '/team-men', titleNav: 'Майстри' },
+  { linkNav: '/cholovicha-zavivka/team-men', titleNav: 'Майстри' },
 ];
 
 export const womenNav = [

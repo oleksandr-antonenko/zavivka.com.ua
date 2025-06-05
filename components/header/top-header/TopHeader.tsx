@@ -14,7 +14,7 @@ export default function TopHeader({
 }) {
   return (
     <div
-      className={`text-xs p-2  border-b-white border-b justify-between flex items-center w-full max-w-[1720px] mx-auto ${show === 'nav-desktop' ? 'flex-row' : 'topHeaderMob'}`}
+      className={`text-xs p-2 border-b-white border-b justify-between flex items-center w-full max-w-[1720px] mx-auto ${show === 'nav-desktop' ? 'flex-row' : 'topHeaderMob'}`}
     >
       <div className="">
         <SocialIcons />

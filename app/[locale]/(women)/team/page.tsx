@@ -2,13 +2,7 @@ import { Contacts } from '@/components/contacts';
 import { FAQ } from '@/components/faq';
 import { TeamInfo } from '@/components/team';
 import { getLocale } from 'next-intl/server';
-import dynamic from 'next/dynamic';
-const ConsultationContainer = dynamic(
-  () => import('@/components/consultation/consultation-container'),
-  {
-    ssr: false,
-  },
-);
+import ConsultationContainer from '@/components/consultation/consultation-container';
 
 export async function generateMetadata() {
   const locale = await getLocale();

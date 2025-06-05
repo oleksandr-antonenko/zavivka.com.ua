@@ -5,13 +5,7 @@ import PlyazhnaKhvyliaListContainer from '@/components/PLYAZHNA-KHVYLIA/plyazhna
 import { Prices } from '@/components/prices';
 import ModernTrustContainer from '@/components/trust/modern-trust/modern-trust-container';
 import { getLocale } from 'next-intl/server';
-import dynamic from 'next/dynamic';
-const BannerForAllPages = dynamic(
-  () => import('@/components/banner/banner-for-all-pages'),
-  {
-    ssr: false,
-  },
-);
+import BannerForAllPages from '@/components/banner/banner-for-all-pages';
 
 export async function generateMetadata() {
   const locale = await getLocale();
@@ -46,10 +40,9 @@ export async function generateMetadata() {
 const PlyazhnaKhvyliaPage = () => {
   return (
     <>
-      <h1 className="sr-only">Сторінка Пляжна хвиля у Києві</h1>
       <BannerForAllPages
         title="Пляжна хвиля в Києві"
-        description="Пляжна хвиля|Пляжні локони|Beach Waves — найпопулярніша та універсальна завивка, яка личить усім та і гарно виглядатиме на будь-якій довжині волосся."
+        description="Пляжна хвиля | Пляжні локони | Beach Waves — найпопулярніша та універсальна завивка, яка личить усім та і гарно виглядатиме на будь-якій довжині волосся."
         buttonText="Запис на консультацію"
         buttonLink="https://beautyprosoftware.com/b/877643"
         videoSrc="/videos/banner.mp4"

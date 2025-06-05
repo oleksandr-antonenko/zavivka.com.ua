@@ -1,14 +1,8 @@
-import dynamic from 'next/dynamic';
 import { FAQ } from '@/components/faq';
 import DynamicTeamContainer from '@/components/team/dynamic-team-page/dynamic-team-container';
 import { Contacts } from '@/components/contacts';
 import { getLocale } from 'next-intl/server';
-const ConsultationContainer = dynamic(
-  () => import('@/components/consultation/consultation-container'),
-  {
-    ssr: false,
-  },
-);
+import ConsultationContainer from '@/components/consultation/consultation-container';
 import { Metadata } from 'next';
 import { masters } from '@/lib/masters';
 
@@ -60,7 +54,7 @@ const DynamicTeamPage = ({ params }: { params: { slug: string } }) => {
       <p className="sr-only">
         {`${master?.name || 'Інформація про цього майстра відсутня.'} — професійний ${master?.category} з досвідом роботи ${master?.experience}. Майстер працює з індивідуальним підходом, забезпечуючи якість і комфорт для кожного клієнта.`}
       </p>
-      <section className="pt-[60px] xl:pt-[150px]">
+      <section className="pt-[30px] xl:pt-[150px]">
         <DynamicTeamContainer slug={slug} />
       </section>
       <section className="py-[60px] md:py-[150px]">

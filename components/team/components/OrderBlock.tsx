@@ -6,7 +6,7 @@ const OrderBlock = () => {
   const [isPopUpOpen, setIsPopUpOpen] = useState(false);
 
   return (
-    <div className="relative z-10 flex flex-col md:flex-row gap-5">
+    <div className="relative flex flex-col md:flex-row gap-5">
       <a
         href="https://beautyprosoftware.com/b/877643"
         target="_blank"

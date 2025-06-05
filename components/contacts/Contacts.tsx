@@ -5,9 +5,9 @@ import {
   Marker,
   useJsApiLoader,
 } from '@react-google-maps/api';
-import React, { useState } from 'react';
-import DirectionsIcon from '@mui/icons-material/Directions';
+import { useCallback, useState } from 'react';
 import { SocialIcons } from '@/shared/social';
+import { Route as DirectionsIcon } from 'lucide-react';
 
 interface LatLng {
   lat: number;
@@ -35,14 +35,14 @@ const Contacts = () => {
   const [selectedPlace, setSelectedPlace] = useState<LatLng | undefined>(
     undefined,
   );
-  const onLoad = React.useCallback(function callback(map: google.maps.Map) {
+  const onLoad = useCallback(function callback(map: google.maps.Map) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
     const bounds = new window.google.maps.LatLngBounds(center);
     map.fitBounds(bounds);
     setMap(map);
   }, []);
 
-  const onUnmount = React.useCallback(function callback(map: google.maps.Map) {
+  const onUnmount = useCallback(function callback(map: google.maps.Map) {
     setMap(null);
   }, []);
   const handleToggleOpen = () => {

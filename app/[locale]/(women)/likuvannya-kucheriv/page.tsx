@@ -4,13 +4,7 @@ import { Prices } from '@/components/prices';
 import SignalListContainer from '@/components/THERAPY/therapy-signa-list/signal-list-container';
 import TherapySliderWrapper from '@/components/THERAPY/therapy-slider/therapy-slider-container';
 import { getLocale } from 'next-intl/server';
-import dynamic from 'next/dynamic';
-const BannerForAllPages = dynamic(
-  () => import('@/components/banner/banner-for-all-pages'),
-  {
-    ssr: false,
-  },
-);
+import BannerForAllPages from '@/components/banner/banner-for-all-pages';
 
 export async function generateMetadata() {
   const locale = await getLocale();
@@ -45,7 +39,6 @@ export async function generateMetadata() {
 const TherapyPage = () => {
   return (
     <div>
-      <h1 className="sr-only">Сторінка Лікування кучерів у Києві</h1>
       <BannerForAllPages
         title="Лікування кучерів в Києві"
         description="Процедура відновлення, яка пухнасті і некеровані локони знову зробить м'яким, пружними та слухняними.Результат побачите одразу, ефект до 3-х місяців."

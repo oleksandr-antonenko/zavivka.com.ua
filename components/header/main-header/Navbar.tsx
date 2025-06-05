@@ -49,7 +49,7 @@ const Navbar: FC<NavProp> = ({ show, navlinks, closeMobileMenu }) => {
             className={`${
               show === 'nav-desktop'
                 ? ''
-                : 'border-b-[0.5px] border-grey rounded-md py-[17px] px-5 mr-4 md:mr-[100px]'
+                : 'border-b border-grey py-[17px] px-5 mr-4 md:mr-[100px]'
             }`}
           >
             <Link

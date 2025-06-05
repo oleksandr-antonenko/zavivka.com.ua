@@ -4,13 +4,7 @@ import CurlFaq from '@/components/CURL-CORRECTION/curl-faq/curl-faq';
 import CurlSliderWrapper from '@/components/CURL-CORRECTION/curl-slider/curl-slider-wrapper';
 import { Prices } from '@/components/prices';
 import { getLocale } from 'next-intl/server';
-import dynamic from 'next/dynamic';
-const BannerForAllPages = dynamic(
-  () => import('@/components/banner/banner-for-all-pages'),
-  {
-    ssr: false,
-  },
-);
+import BannerForAllPages from '@/components/banner/banner-for-all-pages';
 
 export async function generateMetadata() {
   const locale = await getLocale();
@@ -45,7 +39,6 @@ export async function generateMetadata() {
 const CurlCorrectionPage = () => {
   return (
     <>
-      <h1 className="sr-only">Сторінка Коррекциї завивки у Києві</h1>
       <BannerForAllPages
         title="Корекція завивки в Києві"
         buttonText="Онлайн запис"

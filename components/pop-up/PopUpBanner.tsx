@@ -62,7 +62,7 @@ const PopUpBanner: React.FC<PopUpProps> = ({
         <motion.div
           id="containerBookingModal"
           onClick={handleClose}
-          className="fixed inset-0 px-2 bg-common-background bg-opacity-50 overflow-y-auto z-[20000] backdrop-blur-sm flex justify-center items-center"
+          className="fixed inset-0 px-2 bg-common-background bg-opacity-50 overflow-y-auto z-[10000] backdrop-blur-sm flex justify-center items-center"
           variants={backdropVariants}
           initial="hidden"
           animate="visible"

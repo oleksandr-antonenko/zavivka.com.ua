@@ -13,7 +13,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const locale = await getLocale();
   const baseUrl = 'https://zavivka.vercel.app';
-  const canonical = `${baseUrl}/${locale}/team-men/${params.slug}`;
+  const canonical = `${baseUrl}/${locale}/cholovicha-zavivka/team-men/${params.slug}`;
   const master = masters.find((m) => m.slug === params.slug);
 
   if (!master) {
@@ -54,7 +54,7 @@ const DynamicTeamForMenPage = ({ params }: { params: { slug: string } }) => {
       <p className="sr-only">
         {`${master?.name || 'Інформація про цього майстра відсутня.'} — професійний ${master?.category} з досвідом роботи ${master?.experience}. Майстер працює з індивідуальним підходом, забезпечуючи якість і комфорт для кожного клієнта.`}
       </p>
-      <section className="pt-[60px] xl:pt-[150px]">
+      <section className="pt-[30px] xl:pt-[150px]">
         <DynamicTeamForMenContainer slug={slug} />
       </section>
       <section className="py-[60px] md:py-[150px]">

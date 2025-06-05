@@ -24,7 +24,7 @@ const MemberForMen: FC<MemberProps> = ({ teamMembers }) => {
         >
           <Link
             className="flex flex-col h-full p-2"
-            href={`/team-men/${teamMember.slug.toLowerCase()}`}
+            href={`/cholovicha-zavivka/team-men/${teamMember.slug.toLowerCase()}`}
           >
             <motion.div
               variants={{

@@ -4,13 +4,7 @@ import { Prices } from '@/components/prices';
 import StrizhkaSliderContiner from '@/components/STRIZHKA-KUCHERIV/strizhka-kucheriv-slider/strizhka-slider-continer';
 import StrizhkaKucherivContainer from '@/components/STRIZHKA-KUCHERIV/strizhka-kucheriv-wrapper/strizhka-kucheriv-container';
 import { getLocale } from 'next-intl/server';
-import dynamic from 'next/dynamic';
-const BannerForAllPages = dynamic(
-  () => import('@/components/banner/banner-for-all-pages'),
-  {
-    ssr: false,
-  },
-);
+import BannerForAllPages from '@/components/banner/banner-for-all-pages';
 
 export async function generateMetadata() {
   const locale = await getLocale();
@@ -45,7 +39,6 @@ export async function generateMetadata() {
 const StrizhkaKucherivPage = () => {
   return (
     <>
-      <h1 className="sr-only">Професійна стрижка кучерявого волосся у Києві</h1>
       <BannerForAllPages
         title="Стрижка кучерявого волосся в Києві"
         description="Створимо ідеальну форму стрижки під ваш тип завитків та форму обличчя, яка забезпечить легку укладку та бездоганний вигляд кучерів протягом декількох місяців"
