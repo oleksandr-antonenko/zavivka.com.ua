@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { FC, useState, useEffect } from 'react';
 import { ReviewProps } from './type';
 import { motion } from 'framer-motion';
+import ReactPlayer from 'react-player';
 
 type CardProps = ReviewProps['reviews'][number];
 
@@ -17,6 +18,7 @@ export const Card: FC<CardProps> = ({
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -34,14 +36,43 @@ export const Card: FC<CardProps> = ({
   const MediaContent = () => {
     if (isVideo) {
       return (
-        <video
-          src={image}
-          className="w-full h-full object-cover rounded-[20px]"
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
+        <div className="relative w-full h-full">
+          {isPlaying ? (
+            <ReactPlayer
+              url={image}
+              width="100%"
+              height="100%"
+              playing={isPlaying}
+              controls={true}
+              className="rounded-[20px]"
+            />
+          ) : (
+            <div
+              className="w-full h-full relative cursor-pointer"
+              onClick={() => setIsPlaying(true)}
+            >
+              <video
+                src={image}
+                className="w-full h-full object-cover rounded-[20px]"
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 rounded-[20px]">
+                <div className="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                  <svg
+                    className="w-8 h-8 text-orange"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
       );
     }
     return (
@@ -59,8 +90,8 @@ export const Card: FC<CardProps> = ({
   return (
     <div
       className="group relative border border-orange rounded-[20px] overflow-hidden mx-auto w-full max-w-[250px] sm:min-w-[284px] md:min-w-0 md:max-w-none p-[20px] h-full cursor-pointer"
-      onMouseEnter={() => isDesktop && setIsHovered(true)}
-      onMouseLeave={() => isDesktop && setIsHovered(false)}
+      onMouseEnter={() => isDesktop && !isVideo && setIsHovered(true)}
+      onMouseLeave={() => isDesktop && !isVideo && setIsHovered(false)}
     >
       {/* Только для десктопа */}
       {isDesktop && (

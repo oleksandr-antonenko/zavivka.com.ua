@@ -1,14 +1,14 @@
 export const linksFooterZav = [
-  { title: 'Завивка в Киеве', link: '/' },
-  { title: 'Чолівича завивка', link: '/cholovicha-zavivka' },
+  { title: 'Завивка у Києві', link: '/' },
+  { title: 'Чоловіча завивка', link: '/cholovicha-zavivka' },
   { title: 'Карвінг волосся', link: '/carving' },
-  { title: 'Пляжна хвиля', link: '/plyazhna-khvylia' },
+  { title: 'Завивка "Пляжна хвиля"', link: '/plyazhna-khvylia' },
 ];
 
 export const linksFooterServ = [
   { title: 'Стрижка кучерявого волосся', link: '/strizhka-kucheriv' },
   { title: 'Корекція завивки', link: '/korektsiya-zavivki' },
-  { title: 'Лікуваня волосся', link: '/likuvannya-kucheriv' },
+  { title: 'Лікування волосся', link: '/likuvannya-kucheriv' },
   { title: 'Інтернет-магазин' /*link: '/shop'*/ },
 ];
 
