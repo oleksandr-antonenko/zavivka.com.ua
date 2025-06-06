@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     siteName: 'Zavivka Studio',
   },
   verification: {
-    google: 'UA-XXXXX-Y', // якщо є Google verification code
+    google: 'AOjUnX-0ZVriCXmOY7_0Qkj2Me_F9HO3-IoLSjmde44', // якщо є Google verification code
   },
   icons: {
     apple: '/apple-touch-icon.png',

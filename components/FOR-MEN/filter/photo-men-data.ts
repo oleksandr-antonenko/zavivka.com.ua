@@ -8,6 +8,7 @@ export type Photo = {
   colored: boolean;
   slug: string;
   id: string;
+  recommendationLevel: 'top' | 'medium' | 'base' | 'not';
 };
 
 export const photosForMen: Photo[] = [
@@ -20,6 +21,7 @@ export const photosForMen: Photo[] = [
     master: 'Анастасія Кузьменко',
     colored: false,
     slug: 'anastasia-kuzmenko',
+    recommendationLevel: 'base',
   },
   {
     id: '2',
@@ -29,6 +31,7 @@ export const photosForMen: Photo[] = [
     master: 'Анастасія Кузьменко',
     colored: false,
     slug: 'anastasia-kuzmenko',
+    recommendationLevel: 'base',
   },
   {
     id: '3',
@@ -38,6 +41,7 @@ export const photosForMen: Photo[] = [
     master: 'Анастасія Кузьменко',
     colored: false,
     slug: 'anastasia-kuzmenko',
+    recommendationLevel: 'base',
   },
   // Анастасия Кузьменко конец
 
@@ -50,6 +54,7 @@ export const photosForMen: Photo[] = [
     master: 'Ольга Колле',
     colored: false,
     slug: 'olga-kolle',
+    recommendationLevel: 'base',
   },
   {
     id: '5',
@@ -59,6 +64,7 @@ export const photosForMen: Photo[] = [
     master: 'Ольга Колле',
     colored: true,
     slug: 'olga-kolle',
+    recommendationLevel: 'base',
   },
   {
     id: '6',
@@ -68,6 +74,7 @@ export const photosForMen: Photo[] = [
     master: 'Ольга Колле',
     colored: false,
     slug: 'olga-kolle',
+    recommendationLevel: 'base',
   },
   {
     id: '7',
@@ -77,6 +84,7 @@ export const photosForMen: Photo[] = [
     master: 'Ольга Колле',
     colored: true,
     slug: 'olga-kolle',
+    recommendationLevel: 'base',
   },
   {
     id: '8',
@@ -86,6 +94,7 @@ export const photosForMen: Photo[] = [
     master: 'Ольга Колле',
     colored: false,
     slug: 'olga-kolle',
+    recommendationLevel: 'base',
   },
   {
     id: '9',
@@ -95,6 +104,7 @@ export const photosForMen: Photo[] = [
     master: 'Ольга Колле',
     colored: false,
     slug: 'olga-kolle',
+    recommendationLevel: 'base',
   },
   // Ольга Колле конец
 
@@ -107,6 +117,7 @@ export const photosForMen: Photo[] = [
     master: 'Ярослава Гурбік',
     colored: false,
     slug: 'yaroslava-gurbik',
+    recommendationLevel: 'base',
   },
   {
     id: '11',
@@ -116,6 +127,7 @@ export const photosForMen: Photo[] = [
     master: 'Ярослава Гурбік',
     colored: true,
     slug: 'yaroslava-gurbik',
+    recommendationLevel: 'base',
   },
   {
     id: '12',
@@ -125,6 +137,7 @@ export const photosForMen: Photo[] = [
     master: 'Ярослава Гурбік',
     colored: true,
     slug: 'yaroslava-gurbik',
+    recommendationLevel: 'base',
   },
   // Ярослава Гурбік конец
 
@@ -137,6 +150,7 @@ export const photosForMen: Photo[] = [
     master: 'Валерія Мельниченко',
     colored: true,
     slug: 'valeria-melnichenko',
+    recommendationLevel: 'base',
   },
   {
     id: '14',
@@ -146,6 +160,7 @@ export const photosForMen: Photo[] = [
     master: 'Валерія Мельниченко',
     colored: false,
     slug: 'valeria-melnichenko',
+    recommendationLevel: 'base',
   },
   {
     id: '15',
@@ -155,6 +170,7 @@ export const photosForMen: Photo[] = [
     master: 'Валерія Мельниченко',
     colored: false,
     slug: 'valeria-melnichenko',
+    recommendationLevel: 'base',
   },
   {
     id: '16',
@@ -164,6 +180,7 @@ export const photosForMen: Photo[] = [
     master: 'Валерія Мельниченко',
     colored: true,
     slug: 'valeria-melnichenko',
+    recommendationLevel: 'base',
   },
   {
     id: '17',
@@ -173,6 +190,7 @@ export const photosForMen: Photo[] = [
     master: 'Валерія Мельниченко',
     colored: false,
     slug: 'valeria-melnichenko',
+    recommendationLevel: 'base',
   },
   // Валерія Мельниченко конец
 
@@ -185,6 +203,7 @@ export const photosForMen: Photo[] = [
     master: 'Анастасія Мальчик',
     colored: false,
     slug: 'anastasiya-malchik',
+    recommendationLevel: 'base',
   },
   // Настя Мальчик конец
 
@@ -197,6 +216,7 @@ export const photosForMen: Photo[] = [
     master: 'Діана Лєканцева',
     colored: false,
     slug: 'diana-lekanceva',
+    recommendationLevel: 'base',
   },
   // Діана Лєканцева конец
 
@@ -209,6 +229,7 @@ export const photosForMen: Photo[] = [
     master: 'Вікторія Салій',
     colored: true,
     slug: 'viktoriya-salyi',
+    recommendationLevel: 'base',
   },
   {
     id: '21',
@@ -218,6 +239,7 @@ export const photosForMen: Photo[] = [
     master: 'Вікторія Салій',
     colored: true,
     slug: 'viktoriya-salyi',
+    recommendationLevel: 'base',
   },
   {
     id: '22',
@@ -227,6 +249,7 @@ export const photosForMen: Photo[] = [
     master: 'Вікторія Салій',
     colored: false,
     slug: 'viktoriya-salyi',
+    recommendationLevel: 'base',
   },
   {
     id: '23',
@@ -236,6 +259,7 @@ export const photosForMen: Photo[] = [
     master: 'Вікторія Салій',
     colored: true,
     slug: 'viktoriya-salyi',
+    recommendationLevel: 'base',
   },
   // Вікторія Салій конец
 ];

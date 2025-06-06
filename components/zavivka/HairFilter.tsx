@@ -11,24 +11,42 @@ export const HairFilter = () => {
   const [selectedCurl, setSelectedCurl] = useState<CurlSize>('Всі');
   const [isColored, setIsColored] = useState<Colored>('Всі');
 
-  const filteredPhotos = photos.filter((photo) => {
-    const lengthCondition =
-      selectedLength === 'Всі' || photo.hairLength === selectedLength;
+  const filteredPhotos = photos
+    .filter((photo) => {
+      const lengthCondition =
+        selectedLength === 'Всі' || photo.hairLength === selectedLength;
 
-    const curlCondition =
-      selectedCurl === 'Всі' || photo.curlSize === selectedCurl;
-    let colorCondition;
-    if (isColored === 'Всі') {
-      colorCondition = true; // Accept all colored statuses
-    } else if (isColored === 'Фарбоване') {
-      colorCondition = photo.colored === true;
-    } else {
-      colorCondition = photo.colored === false;
-    }
+      const curlCondition =
+        selectedCurl === 'Всі' || photo.curlSize === selectedCurl;
+      let colorCondition;
+      if (isColored === 'Всі') {
+        colorCondition = true; // Accept all colored statuses
+      } else if (isColored === 'Фарбоване') {
+        colorCondition = photo.colored === true;
+      } else {
+        colorCondition = photo.colored === false;
+      }
 
-    // Return true only if all conditions are met
-    return lengthCondition && curlCondition && colorCondition;
-  });
+      // Return true only if all conditions are met and recommendationLevel is not 'not'
+      return (
+        lengthCondition &&
+        curlCondition &&
+        colorCondition &&
+        photo.recommendationLevel !== 'not'
+      );
+    })
+    .sort((a, b) => {
+      if (a.recommendationLevel === 'top' && b.recommendationLevel !== 'top')
+        return -1;
+      if (
+        a.recommendationLevel === 'medium' &&
+        b.recommendationLevel === 'base'
+      )
+        return -1;
+      if (a.recommendationLevel === 'base' && b.recommendationLevel !== 'base')
+        return 1;
+      return 0;
+    });
 
   const lengthOptions = [
     'Короткі',

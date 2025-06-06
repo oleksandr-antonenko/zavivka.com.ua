@@ -14,7 +14,8 @@ export interface DataForSubmit {
   name: string;
   phone: string;
   agreeToPrivacy: boolean;
-  [key: string]: boolean | string;
+  services?: string[];
+  [key: string]: boolean | string | string[] | undefined;
 }
 
 export interface BookingProps {

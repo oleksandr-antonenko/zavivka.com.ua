@@ -9,6 +9,7 @@ import { PopUpProps } from './type';
 import { Input } from '@/shared/input';
 import { useForm } from 'react-hook-form';
 import { DataForSubmit } from '../booking';
+import { sendForm } from '@/app/action/sendEmailAction';
 
 const backdropVariants = {
   hidden: { opacity: 0, transition: { duration: 0.5 } },
@@ -27,7 +28,9 @@ const PopUpBanner: React.FC<PopUpProps> = ({
   forMen = false,
 }) => {
   const handleClose = (e: MouseEvent<HTMLDivElement>) => {
-    if ((e.target as HTMLDivElement).id === 'containerBookingModal') close();
+    if ((e.target as HTMLDivElement).id === 'containerBookingModal') {
+      close();
+    }
   };
 
   useEffect(() => {
@@ -46,14 +49,26 @@ const PopUpBanner: React.FC<PopUpProps> = ({
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     reset,
+    setError,
   } = useForm<DataForSubmit>({ mode: 'onBlur' });
 
-  const onSubmit = (data: DataForSubmit) => {
-    console.log(JSON.stringify(data));
-    reset();
-    close();
+  const onSubmit = async (data: DataForSubmit) => {
+    try {
+      const result = await sendForm(data);
+
+      if (result.success) {
+        reset();
+        close();
+      } else {
+        setError('root', { message: result.message });
+      }
+    } catch (err) {
+      setError('root', {
+        message: 'Помилка при відправці заявки. Спробуйте пізніше.',
+      });
+    }
   };
 
   return (
@@ -66,7 +81,7 @@ const PopUpBanner: React.FC<PopUpProps> = ({
           variants={backdropVariants}
           initial="hidden"
           animate="visible"
-          exit="hidden" // <-- exit с длительностью из variants
+          exit="hidden"
           style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
         >
           <motion.div
@@ -98,6 +113,7 @@ const PopUpBanner: React.FC<PopUpProps> = ({
               отримайте безкоштовну консультацію
             </h2>
             <p className="text-[16px]">Залиште свої контактні дані</p>
+
             <form
               onSubmit={handleSubmit(onSubmit)}
               autoComplete="true"
@@ -127,10 +143,16 @@ const PopUpBanner: React.FC<PopUpProps> = ({
               </div>
               <button
                 type="submit"
-                className="w-full max-w-[250px] px-2 rounded-[40px] h-[50px] flex justify-center items-center text-[#212121] text-[20px] mx-auto md:mx-0 transition duration-300 bg-[#D7A908] hover:bg-[#f8cf38]"
+                disabled={isSubmitting}
+                className="w-full max-w-[250px] px-2 rounded-[40px] h-[50px] flex justify-center items-center text-[#212121] text-[20px] mx-auto md:mx-0 transition duration-300 bg-[#D7A908] hover:bg-[#f8cf38] disabled:opacity-50"
               >
-                Запис на консультацію
+                {isSubmitting ? 'Відправка...' : 'Запис на консультацію'}
               </button>
+              {errors.root?.message && (
+                <div className="text-center text-[14px] mt-4 w-full max-w-[400px] mx-auto p-2 bg-red-100 border border-red-400 text-red-700 rounded">
+                  {errors.root.message}
+                </div>
+              )}
             </form>
           </motion.div>
         </motion.div>

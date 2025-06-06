@@ -46,7 +46,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-col gap-[6px] md:flex-row md:justify-between items-center text-[16px] font-medium mt-5">
           <div>
-            <p>©Zavivka 2009-2024</p>
+            <p>©Zavivka 2009-{new Date().getFullYear()}</p>
           </div>
           <div className="flex gap-6 items-center">
             <p>VISA</p>

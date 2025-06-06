@@ -12,6 +12,7 @@ import { BookingProps, DataForSubmit } from './types';
 import BookingService from './BookingService';
 import { Input } from '@/shared/input';
 import AfterBooking from './AfterBooking';
+import { sendForm } from '@/app/action/sendEmailAction';
 
 const Booking: FC<BookingProps> = ({
   forMen = false,
@@ -24,6 +25,7 @@ const Booking: FC<BookingProps> = ({
       : servicesForCheckboxWomen,
 }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
+
   const handleClose = () => {
     setOpenModal(false);
   };
@@ -31,16 +33,38 @@ const Booking: FC<BookingProps> = ({
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors, isValid, isSubmitting },
     reset,
+    setError,
   } = useForm<DataForSubmit>({
     mode: 'onChange',
   });
 
-  const onSubmit = (data: DataForSubmit) => {
-    console.log(JSON.stringify(data));
-    setOpenModal(true);
-    reset();
+  const onSubmit = async (data: DataForSubmit) => {
+    try {
+      // Собираем выбранные сервисы
+      const selectedServices = servicesForCheckbox
+        .filter((service) => data[service.name])
+        .map((service) => service.title);
+
+      const formData = {
+        ...data,
+        services: selectedServices,
+      };
+
+      const result = await sendForm(formData);
+
+      if (result.success) {
+        setOpenModal(true);
+        reset();
+      } else {
+        setError('root', { message: result.message });
+      }
+    } catch (err) {
+      setError('root', {
+        message: 'Помилка при відправці заявки. Спробуйте пізніше.',
+      });
+    }
   };
 
   return (
@@ -54,6 +78,7 @@ const Booking: FC<BookingProps> = ({
         <p className="text-center mb-10 md:mb-[60px] text-[16px] md:text-[24px] max-w-[302px] md:max-w-[531px]">
           Ми підберемо для Вас оптимальний час і допоможемо вибрати майстра.
         </p>
+
         <form
           onSubmit={handleSubmit(onSubmit)}
           autoComplete="true"
@@ -114,11 +139,17 @@ const Booking: FC<BookingProps> = ({
                 </p>
               )}
             </div>
+            {errors.root?.message && (
+              <div className="text-center text-[18px] w-full max-w-[400px] mx-auto mb-6 p-2 bg-red-100 border border-red-400 text-red-700 rounded">
+                {errors.root.message}
+              </div>
+            )}
             <Button
-              className="w-full max-w-[400px] h-[64px] transition duration-300 bg-[#D7A908] hover:bg-[#f8cf38]"
+              className="w-full max-w-[400px] h-[64px] transition duration-300 bg-[#D7A908] hover:bg-[#f8cf38] disabled:opacity-50"
               type="submit"
+              disabled={isSubmitting}
             >
-              Записатися зараз
+              {isSubmitting ? 'Відправка...' : 'Записатися зараз'}
             </Button>
           </div>
         </form>
