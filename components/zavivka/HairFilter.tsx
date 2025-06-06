@@ -49,7 +49,7 @@ export const HairFilter = () => {
     });
 
   const lengthOptions = [
-    'Короткі',
+    'Коротке',
     'По плечі',
     'По лопатки',
     'За лопатки',

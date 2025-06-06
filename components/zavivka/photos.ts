@@ -56,7 +56,7 @@ export const photos: Photo[] = [
   {
     id: '5',
     src: '/images/valentina/valentina-5.jpg',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Інтенсивний',
     master: 'Валентина Антоненко',
     colored: true,
@@ -179,7 +179,7 @@ export const photos: Photo[] = [
   {
     id: '17',
     src: '/images/artem/artem-2.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Великий',
     master: 'Артем Сабо',
     colored: false,
@@ -229,7 +229,7 @@ export const photos: Photo[] = [
   {
     id: '22',
     src: '/images/artem/artem-7.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Великий',
     master: 'Артем Сабо',
     colored: false,
@@ -688,7 +688,7 @@ export const photos: Photo[] = [
   {
     id: '67',
     src: '/images/viktoriya-salyi/viktoriya-salyi-15.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Великий',
     master: 'Вікторія Салій',
     colored: true,
@@ -718,7 +718,7 @@ export const photos: Photo[] = [
   {
     id: '70',
     src: '/images/viktoriya-salyi/viktoriya-salyi-18.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Великий',
     master: 'Вікторія Салій',
     colored: true,
@@ -728,7 +728,7 @@ export const photos: Photo[] = [
   {
     id: '71',
     src: '/images/viktoriya-salyi/viktoriya-salyi-19.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Середній',
     master: 'Вікторія Салій',
     colored: false,
@@ -1686,7 +1686,7 @@ export const photos: Photo[] = [
   {
     id: '165',
     src: '/images/yaroslava-gurbik/yaroslava-gurbik-23.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Середній',
     master: 'Ярослава Гурбік',
     colored: true,

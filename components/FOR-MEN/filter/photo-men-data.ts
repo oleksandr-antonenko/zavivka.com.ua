@@ -16,7 +16,7 @@ export const photosForMen: Photo[] = [
   {
     id: '1',
     src: '/images/foto-men/cholovicha-nastya-k-1.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Інтенсивний',
     master: 'Анастасія Кузьменко',
     colored: false,
@@ -26,7 +26,7 @@ export const photosForMen: Photo[] = [
   {
     id: '2',
     src: '/images/foto-men/cholovicha-nastya-k-2.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Середній',
     master: 'Анастасія Кузьменко',
     colored: false,
@@ -36,7 +36,7 @@ export const photosForMen: Photo[] = [
   {
     id: '3',
     src: '/images/foto-men/cholovicha-nastya-k-3.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Великий',
     master: 'Анастасія Кузьменко',
     colored: false,
@@ -49,7 +49,7 @@ export const photosForMen: Photo[] = [
   {
     id: '4',
     src: '/images/foto-men/cholovicha-olga-k-1.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Середній',
     master: 'Ольга Колле',
     colored: false,
@@ -59,7 +59,7 @@ export const photosForMen: Photo[] = [
   {
     id: '5',
     src: '/images/foto-men/cholovicha-olga-k-2.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Інтенсивний',
     master: 'Ольга Колле',
     colored: true,
@@ -69,7 +69,7 @@ export const photosForMen: Photo[] = [
   {
     id: '6',
     src: '/images/foto-men/cholovicha-olga-k-3.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Великий',
     master: 'Ольга Колле',
     colored: false,
@@ -79,7 +79,7 @@ export const photosForMen: Photo[] = [
   {
     id: '7',
     src: '/images/foto-men/cholovicha-olga-k-4.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Інтенсивний',
     master: 'Ольга Колле',
     colored: true,
@@ -99,7 +99,7 @@ export const photosForMen: Photo[] = [
   {
     id: '9',
     src: '/images/foto-men/cholovicha-olga-k-6.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Середній',
     master: 'Ольга Колле',
     colored: false,
@@ -112,7 +112,7 @@ export const photosForMen: Photo[] = [
   {
     id: '10',
     src: '/images/foto-men/cholovicha-yaroslava-1.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Великий',
     master: 'Ярослава Гурбік',
     colored: false,
@@ -122,7 +122,7 @@ export const photosForMen: Photo[] = [
   {
     id: '11',
     src: '/images/foto-men/cholovicha-yaroslava-2.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Інтенсивний',
     master: 'Ярослава Гурбік',
     colored: true,
@@ -145,7 +145,7 @@ export const photosForMen: Photo[] = [
   {
     id: '13',
     src: '/images/foto-men/cholovicha-valeria-1.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Середній',
     master: 'Валерія Мельниченко',
     colored: true,
@@ -155,7 +155,7 @@ export const photosForMen: Photo[] = [
   {
     id: '14',
     src: '/images/foto-men/cholovicha-valeria-2.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Середній',
     master: 'Валерія Мельниченко',
     colored: false,
@@ -165,7 +165,7 @@ export const photosForMen: Photo[] = [
   {
     id: '15',
     src: '/images/foto-men/cholovicha-valeria-3.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Великий',
     master: 'Валерія Мельниченко',
     colored: false,
@@ -175,7 +175,7 @@ export const photosForMen: Photo[] = [
   {
     id: '16',
     src: '/images/foto-men/cholovicha-valeria-4.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Середній',
     master: 'Валерія Мельниченко',
     colored: true,
@@ -185,7 +185,7 @@ export const photosForMen: Photo[] = [
   {
     id: '17',
     src: '/images/foto-men/cholovicha-valeria-5.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Середній',
     master: 'Валерія Мельниченко',
     colored: false,
@@ -198,7 +198,7 @@ export const photosForMen: Photo[] = [
   {
     id: '18',
     src: '/images/foto-men/cholovicha-nastya-m-1.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Інтенсивний',
     master: 'Анастасія Мальчик',
     colored: false,
@@ -211,7 +211,7 @@ export const photosForMen: Photo[] = [
   {
     id: '19',
     src: '/images/foto-men/cholovicha-diana-1.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Середній',
     master: 'Діана Лєканцева',
     colored: false,
@@ -244,7 +244,7 @@ export const photosForMen: Photo[] = [
   {
     id: '22',
     src: '/images/foto-men/cholovicha-vika-s-3.webp',
-    hairLength: 'Короткі',
+    hairLength: 'Коротке',
     curlSize: 'Великий',
     master: 'Вікторія Салій',
     colored: false,

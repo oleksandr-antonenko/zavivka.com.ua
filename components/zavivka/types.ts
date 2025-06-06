@@ -10,7 +10,7 @@ export interface ZavivkaChoice {
 }
 
 export type HairLength =
-  | 'Короткі'
+  | 'Коротке'
   | 'По плечі'
   | 'По лопатки'
   | 'За лопатки'
