@@ -15,7 +15,24 @@ const Reviews = () => {
           Відгуки <br /> наших клієнтів
         </DecoratedTitle>
         <p className="mb-[40px] md:mb-[60px] text-center text-[16px] sm:text-nowrap md:text-start">
-          Чесне слово, писали не самі
+          А ще більше вражень в{' '}
+          <a
+            href="https://www.instagram.com/zavivka.com.ua?igsh=MXQwbGFub3lqcjJhZg=="
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#D7A908] hover:underline"
+          >
+            Instagram
+          </a>{' '}
+          та{' '}
+          <a
+            href="https://g.co/kgs/HM6P1Wj"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#D7A908] hover:underline"
+          >
+            Google
+          </a>
         </p>
         <Review reviews={reviews} />
       </div>
