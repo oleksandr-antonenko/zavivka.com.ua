@@ -3,6 +3,8 @@ import { FAQ } from '@/components/faq';
 import { TeamInfo } from '@/components/team';
 import { getLocale } from 'next-intl/server';
 import ConsultationContainer from '@/components/consultation/consultation-container';
+import Script from 'next/script';
+import { masters } from '@/lib/masters';
 
 export async function generateMetadata() {
   const locale = await getLocale();
@@ -34,9 +36,35 @@ export async function generateMetadata() {
   };
 }
 
-export default function Team() {
+export default function TeamPage() {
   return (
     <>
+      <Script
+        id="team-structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            itemListElement: masters.map((master, index) => ({
+              '@type': 'ListItem',
+              position: index + 1,
+              item: {
+                '@type': 'Person',
+                name: master.name,
+                jobTitle: master.category,
+                worksFor: {
+                  '@type': 'Organization',
+                  name: 'Zavivka Studio',
+                },
+                description: `${master.name} — ${master.category} з досвідом ${master.experience}`,
+                image: master.photo,
+                url: `https://zavivka.vercel.app/uk/team/${master.slug}`,
+              },
+            })),
+          }),
+        }}
+      />
       <h1 className="sr-only">Наші майстри завивки волосся у Києві</h1>
       <TeamInfo />
       <section className="sm:pb-[60px] xl:pb-[150px]">

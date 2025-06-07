@@ -10,20 +10,19 @@ import ProfessionalFamilyContainer from '@/components/professional-family/profes
 import ModernTrustContainer from '@/components/trust/modern-trust/modern-trust-container';
 import BannerForAllPages from '@/components/banner/banner-for-all-pages';
 import ConsultationContainer from '@/components/consultation/consultation-container';
+import { getLocale } from 'next-intl/server';
 
 export async function generateMetadata() {
-  const baseUrl = 'https://zavivka.vercel.app/'; //заменить на актувльный домен
+  const locale = await getLocale();
+  const baseUrl = 'https://zavivka.vercel.app';
+  const canonical = `${baseUrl}/${locale}`;
 
   return {
     title: 'Професійна завивка волосся у Києві',
     description:
       'Жіноча та чоловіча завивка, карвінг, лікування кучерів, стрижка кучерявого волосся. Досвід, дбайливий підхід, консультація, укладання та підбір засобів догляду.',
     alternates: {
-      canonical: baseUrl,
-      languages: {
-        uk: `${baseUrl}uk/`,
-        en: `${baseUrl}en/`,
-      },
+      canonical,
     },
     openGraph: {
       title: 'Завивка волосся у Києві – Жіноча та чоловіча завивка',

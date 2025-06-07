@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
 import createNextIntlPlugin from 'next-intl/plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 const withNextIntl = createNextIntlPlugin();
+const isAnalyze = process.env.ANALYZE === 'true';
+
 const nextConfig = {
+  poweredByHeader: false,
   images: {
     remotePatterns: [
       {
@@ -10,6 +14,18 @@ const nextConfig = {
       },
     ],
     minimumCacheTTL: 86400, // 24 часа в секундах
+  },
+  webpack(config, { isServer }) {
+    if (!isServer && isAnalyze) {
+      config.plugins.push(
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'server',
+          analyzerPort: 8888,
+          openAnalyzer: true,
+        }),
+      );
+    }
+    return config;
   },
   async headers() {
     return [
@@ -37,9 +53,15 @@ const nextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
           },
+          // Скрываем информацию о сервере
+          {
+            key: 'Server',
+            value: '',
+          },
         ],
       },
       {
+        // Для статических изображений только Cache-Control
         source: '/:all*(svg|jpg|jpeg|png|webp)',
         headers: [
           {
@@ -49,6 +71,7 @@ const nextConfig = {
         ],
       },
       {
+        // Для оптимизированных изображений Next.js только Cache-Control
         source: '/_next/image/:path*',
         headers: [
           {

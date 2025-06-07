@@ -20,7 +20,7 @@ export const MenHairFilter = () => {
     return lengthCondition && curlCondition;
   });
 
-  const lengthOptions = ['Короткі', 'По плечі', 'Всі'];
+  const lengthOptions = ['Коротке', 'По плечі', 'Всі'];
 
   const curlOptions = ['Інтенсивний', 'Середній', 'Великий', 'Всі'];
 

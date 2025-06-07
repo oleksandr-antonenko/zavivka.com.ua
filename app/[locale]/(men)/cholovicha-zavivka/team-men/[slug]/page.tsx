@@ -5,6 +5,7 @@ import DynamicTeamForMenContainer from '@/components/FOR-MEN/dynamicPageTeamForM
 import { masters } from '@/lib/masters';
 import { Metadata } from 'next';
 import { getLocale } from 'next-intl/server';
+import Script from 'next/script';
 
 export async function generateMetadata({
   params,
@@ -23,15 +24,18 @@ export async function generateMetadata({
     };
   }
 
+  // Создаем уникальное описание для каждого мастера
+  const uniqueDescription = `${master.name} — професійний ${master.category} з досвідом ${master.experience}. Спеціалізується на чоловічій завивці. Працює з індивідуальним підходом до кожного клієнта, гарантуючи якість та комфорт. Запишіться на консультацію та отримайте професійну пораду.`;
+
   return {
-    title: `${master.name} – ${master.category}`,
-    description: `${master.name} — професійний ${master.category} з досвідом ${master.experience}. Працює з індивідуальним підходом до кожного клієнта, гарантуючи якість та комфорт. Дізнайтесь більше про майстра та його послуги.`,
+    title: `${master.name} – ${master.category} | Zavivka Studio`,
+    description: uniqueDescription,
     alternates: {
       canonical,
     },
     openGraph: {
-      title: `${master.name} – ${master.category}`,
-      description: `${master.name} — ${master.category} з досвідом ${master.experience}.`,
+      title: `${master.name} – ${master.category} | Zavivka Studio`,
+      description: uniqueDescription,
       images: [
         {
           url: master.photo,
@@ -48,11 +52,15 @@ export async function generateMetadata({
 const DynamicTeamForMenPage = ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
   const master = masters.find((m) => m.slug === params.slug);
+
+  if (!master) {
+    return null;
+  }
   return (
     <>
-      <h1 className="sr-only">{`Сторінка майстра ${master?.name || 'Інформація про цього майстра відсутня.'}`}</h1>
+      <h1 className="sr-only">{`${master.name} – ${master.category} | Zavivka Studio`}</h1>
       <p className="sr-only">
-        {`${master?.name || 'Інформація про цього майстра відсутня.'} — професійний ${master?.category} з досвідом роботи ${master?.experience}. Майстер працює з індивідуальним підходом, забезпечуючи якість і комфорт для кожного клієнта.`}
+        {`${master.name} — професійний ${master.category} з досвідом ${master.experience}. Майстер працює з індивідуальним підходом, забезпечуючи якість і комфорт для кожного клієнта.`}
       </p>
       <section className="pt-[30px] xl:pt-[150px]">
         <DynamicTeamForMenContainer slug={slug} />
