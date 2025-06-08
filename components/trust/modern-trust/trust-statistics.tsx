@@ -2,6 +2,8 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import DecoratedTitle from '@/components/ui/decorated-title/decorated-title';
+import { useState } from 'react';
+import { PopUpBanner } from '@/components/pop-up';
 
 const containerVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -25,6 +27,12 @@ const itemVariants = {
 };
 
 const TrustStatistics = () => {
+  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
+
+  const handleButtonClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsPopUpOpen(true);
+  };
   return (
     <motion.div
       className="relative px-2 md:px-0 pb-[60px] md:pb-[150px] pt-[40px] md:pt-[150px]"
@@ -71,10 +79,18 @@ const TrustStatistics = () => {
       </motion.ul>
 
       <motion.div variants={itemVariants}>
-        <Button className="md:hidden flex justify-center items-center bg-[#D7A908] hover:bg-[#f8cf38] transition duration-300 rounded-[40px] w-full max-w-[361px] h-[50px] text-[#212121] text-[20px] mx-auto mt-[40px]">
+        <Button
+          onClick={handleButtonClick}
+          className="md:hidden flex justify-center items-center bg-[#D7A908] hover:bg-[#f8cf38] transition duration-300 rounded-[40px] w-full max-w-[361px] h-[50px] text-[#212121] text-[20px] mx-auto mt-[40px]"
+        >
           Запис на консультацію
         </Button>
       </motion.div>
+      <PopUpBanner
+        visible={isPopUpOpen}
+        close={() => setIsPopUpOpen(false)}
+        forMen={false}
+      />
     </motion.div>
   );
 };

@@ -1,4 +1,5 @@
 export type NavProps = {
+  id?: string;
   linkNav: string;
   titleNav: string;
 };

@@ -19,6 +19,7 @@ const config: Config = {
     screens: {
       extraSm: '200px',
       sm: '375px',
+      smMax: '480px',
       md: '768px',
       lg: '1024px',
       xlOne: '1281px',

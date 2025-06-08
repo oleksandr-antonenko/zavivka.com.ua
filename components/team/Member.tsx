@@ -14,7 +14,7 @@ const Member: FC<MemberProps> = ({ teamMembers }) => {
           initial="rest"
           whileHover="hover"
           animate="rest"
-          className="w-full max-w-[386px] md:h-full flex flex-col rounded-[15px] overflow-hidden"
+          className="w-full max-w-[386px] h-[330px] smMax:h-full flex flex-col rounded-[15px] overflow-hidden"
           variants={{
             rest: { borderColor: 'transparent', padding: '0px' },
             hover: { borderColor: '#FFD700', padding: '20px' }, // жёлтый бордер

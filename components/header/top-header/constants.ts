@@ -6,7 +6,7 @@ export const country = [
 export const latvia = ['укр', 'eng', 'lv', 'рус'];
 
 export const topLinks = [
-  { linkNav: '#contacts', titleNav: 'Навчання' },
-  { linkNav: '#contacts', titleNav: 'Інтернет-магазин' },
-  { linkNav: '#contacts', titleNav: 'Контакти' },
+  { id: '1', linkNav: '#contacts', titleNav: 'Навчання' },
+  { id: '2', linkNav: '#contacts', titleNav: 'Інтернет-магазин' },
+  { id: '3', linkNav: '#contacts', titleNav: 'Контакти' },
 ];

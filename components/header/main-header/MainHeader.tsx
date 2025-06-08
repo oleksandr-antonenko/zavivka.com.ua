@@ -3,7 +3,7 @@
 import { Button } from '@/shared/buttons';
 import { Logo } from '@/shared/svg';
 import { Squash as Hamburger } from 'hamburger-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { TopHeader } from '../top-header';
 import Navbar from './Navbar';
 import { NavProps } from './type';
@@ -19,6 +19,14 @@ const MainHeader = ({
 }) => {
   const [show, setShow] = useState<'nav-desktop' | 'nav-mobile'>('nav-desktop');
   const [isOpen, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+  }, [isOpen]);
 
   const toggleMenu = () => {
     const newShow = show === 'nav-desktop' ? 'nav-mobile' : 'nav-desktop';

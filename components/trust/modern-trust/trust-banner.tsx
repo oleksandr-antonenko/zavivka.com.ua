@@ -4,6 +4,8 @@ import DecoratedTitle from '@/components/ui/decorated-title/decorated-title';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { PopUpBanner } from '@/components/pop-up';
 
 const containerVariants = {
   hidden: {},
@@ -27,6 +29,12 @@ const itemVariants = {
 };
 
 const TrustBanner = () => {
+  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
+
+  const handleButtonClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsPopUpOpen(true);
+  };
   return (
     <div className="hidden md:block relative w-full pt-[339px] pb-[439px]">
       <motion.div
@@ -52,6 +60,7 @@ const TrustBanner = () => {
           transition={{ type: 'spring', stiffness: 300 }}
           href="https://beautyprosoftware.com/b/877643"
           target="_blank"
+          onClick={handleButtonClick}
         >
           <Button className="bg-[#D7A908] hover:bg-[#f8cf38] transition duration-300 rounded-[40px] w-full max-w-[400px] h-[64px] text-[#212121] text-[24px]">
             Запис на консультацію
@@ -65,6 +74,11 @@ const TrustBanner = () => {
         fill
         priority
         className="object-cover object-center w-full h-full"
+      />
+      <PopUpBanner
+        visible={isPopUpOpen}
+        close={() => setIsPopUpOpen(false)}
+        forMen={false}
       />
     </div>
   );

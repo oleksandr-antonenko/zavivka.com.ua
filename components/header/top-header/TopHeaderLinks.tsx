@@ -16,7 +16,7 @@ const TopHeaderLinks: FC<TopHeaderLinksProps> = ({ show, navlinksTop }) => {
       {navlinksTop.map((link) => (
         <li
           className={`${show === 'nav-desktop' ? '' : 'topHeader-links'}`}
-          key={link.linkNav}
+          key={link.id}
         >
           <Link
             href={link.linkNav}
