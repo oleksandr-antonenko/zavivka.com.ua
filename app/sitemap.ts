@@ -1,6 +1,9 @@
+import { masters } from '@/lib/masters';
+import { routing } from '@/i18n/routing';
+
 export default function sitemap() {
-  const baseUrl = 'https://zavivka.vercel.app/'; //заменить на валидный домен
-  const locales = ['uk', 'en'];
+  const baseUrl = 'https://zavivka.com.ua/'; //заменить на валидный домен
+  const locales = routing.locales;
   const currentDate = new Date();
 
   // Основные страницы
@@ -27,23 +30,9 @@ export default function sitemap() {
   );
 
   // Добавляем страницы мастеров
-  const masters = [
-    'valentina-antonenko',
-    'sabo-artem',
-    'anastasia-kuzmenko',
-    'viktoriya-omelchenko',
-    'viktoriya-salyi',
-    'yulia-brovarkchuk',
-    'valeria-melnichenko',
-    'anastasiya-malchik',
-    'diana-lekanceva',
-    'olga-kolle',
-    'yaroslava-gurbik',
-  ];
-
   const masterUrls = locales.flatMap((locale) =>
     masters.map((master) => ({
-      url: `${baseUrl}${locale}/team/${master}`,
+      url: `${baseUrl}${locale}/team/${master.slug}`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.6,
@@ -53,7 +42,7 @@ export default function sitemap() {
   // Добавляем страницы мастеров мужской завивки
   const menMastersUrls = locales.flatMap((locale) =>
     masters.map((master) => ({
-      url: `${baseUrl}${locale}/cholovicha-zavivka/team-men/${master}`,
+      url: `${baseUrl}${locale}/cholovicha-zavivka/team-men/${master.slug}`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.6,

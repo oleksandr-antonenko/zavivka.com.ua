@@ -29,7 +29,7 @@ const mali = Mali({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://zavivka.vercel.app/'), //изменить на реальный домен
+  metadataBase: new URL('https://zavivka.com.ua/'), //изменить на реальный домен
   title: {
     default: 'Студія завивок – Завивка волосся у Києві на Хрещатику',
     template: `%s`,
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: 'Zavivka Studio',
-      url: 'https://zavivka.vercel.app/', //заменить на актуальный домен
+      url: 'https://zavivka.com.ua/', //заменить на актуальный домен
     },
   ],
   creator: 'Zavivka Studio',

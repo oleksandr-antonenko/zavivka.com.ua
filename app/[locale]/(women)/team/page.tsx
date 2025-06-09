@@ -6,7 +6,7 @@ import ConsultationContainer from '@/components/consultation/consultation-contai
 
 export async function generateMetadata() {
   const locale = await getLocale();
-  const baseUrl = 'https://zavivka.vercel.app';
+  const baseUrl = 'https://zavivka.com.ua';
   const canonical = `${baseUrl}/${locale}/team`;
 
   return {
