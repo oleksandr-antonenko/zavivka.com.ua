@@ -32,7 +32,7 @@ export default function sitemap() {
 
   const masterUrls = locales.flatMap((locale) =>
     masters.map((master) => ({
-      url: `${baseUrl}/${locale}/team/${master}`,
+      url: `${baseUrl}/${locale}/team/${master.slug}`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.6,
@@ -42,7 +42,7 @@ export default function sitemap() {
   // Добавляем страницы мастеров мужской завивки
   const menMastersUrls = locales.flatMap((locale) =>
     masters.map((master) => ({
-      url: `${baseUrl}/${locale}/cholovicha-zavivka/team-men/${master}`,
+      url: `${baseUrl}/${locale}/cholovicha-zavivka/team-men/${master.slug}`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.6,
