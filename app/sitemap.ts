@@ -2,7 +2,7 @@ import { masters } from '@/lib/masters';
 import { routing } from '@/i18n/routing';
 
 export default function sitemap() {
-  const baseUrl = 'https://zavivka.vercel.app/'; //заменить на валидный домен
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL; //заменить на валидный домен
   const locales = routing.locales;
   const currentDate = new Date();
 

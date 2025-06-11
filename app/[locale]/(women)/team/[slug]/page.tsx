@@ -12,7 +12,7 @@ export async function generateMetadata({
   params: { slug: string };
 }): Promise<Metadata> {
   const locale = await getLocale();
-  const baseUrl = 'https://zavivka.com.ua';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const canonical = `${baseUrl}/${locale}/team/${params.slug}`;
   const master = masters.find((m) => m.slug === params.slug);
 

@@ -14,7 +14,7 @@ import { getLocale } from 'next-intl/server';
 
 export async function generateMetadata() {
   const locale = await getLocale();
-  const baseUrl = 'https://zavivka.vercel.app';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const canonical = `${baseUrl}/${locale}`;
 
   return {
@@ -31,7 +31,7 @@ export async function generateMetadata() {
       url: baseUrl,
       images: [
         {
-          url: `https://zavivka.vercel.app/openGraph.webp`, // замени на путь к своему изображению
+          url: `${baseUrl}/openGraph.webp`, // замени на путь к своему изображению
           width: 1200,
           height: 630,
           alt: 'Завивка волосся у Києві – салон на Хрещатику',

@@ -5,7 +5,7 @@ import TeamForMenInfo from '@/components/FOR-MEN/team-for-men/team-fom-men-info'
 import { getLocale } from 'next-intl/server';
 export async function generateMetadata() {
   const locale = await getLocale();
-  const baseUrl = 'https://zavivka.com.ua';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const canonical = `${baseUrl}/${locale}/cholovicha-zavivka/team-men`;
 
   return {

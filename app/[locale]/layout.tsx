@@ -27,9 +27,8 @@ const mali = Mali({
   weight: ['700'],
   display: 'swap',
 });
-
 export const metadata: Metadata = {
-  metadataBase: new URL('https://zavivka.com.ua/'), //изменить на реальный домен
+  metadataBase: process.env.NEXT_PUBLIC_BASE_URL ? new URL(process.env.NEXT_PUBLIC_BASE_URL) : undefined, //изменить на реальный домен
   title: {
     default: 'Студія завивок – Завивка волосся у Києві на Хрещатику',
     template: `%s`,
@@ -57,7 +56,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: 'Zavivka Studio',
-      url: 'https://zavivka.com.ua/', //заменить на актуальный домен
+      url: process.env.NEXT_PUBLIC_BASE_URL, //заменить на актуальный домен
     },
   ],
   creator: 'Zavivka Studio',
@@ -82,7 +81,7 @@ export const metadata: Metadata = {
     siteName: 'Zavivka Studio',
   },
   verification: {
-    google: 'AOjUnX-0ZVriCXmOY7_0Qkj2Me_F9HO3-IoLSjmde44', // якщо є Google verification code
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION, // якщо є Google verification code
   },
   icons: {
     apple: '/apple-touch-icon.png',

@@ -8,7 +8,7 @@ import { getLocale } from 'next-intl/server';
 
 export async function generateMetadata() {
   const locale = await getLocale();
-  const baseUrl = 'https://zavivka.vercel.app';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const canonical = `${baseUrl}/${locale}/gallery`;
 
   return {

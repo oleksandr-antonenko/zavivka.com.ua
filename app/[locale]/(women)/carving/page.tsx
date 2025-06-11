@@ -9,7 +9,7 @@ import BannerForAllPages from '@/components/banner/banner-for-all-pages';
 
 export async function generateMetadata() {
   const locale = await getLocale();
-  const baseUrl = 'https://zavivka.com.ua';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const canonical = `${baseUrl}/${locale}/carving`;
 
   return {
