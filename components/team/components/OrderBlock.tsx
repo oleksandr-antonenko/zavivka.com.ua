@@ -1,3 +1,4 @@
+'use client';
 import { Button } from '@/shared/buttons';
 import { useState } from 'react';
 import PopUpBanner from '@/components/pop-up/PopUpBanner';
@@ -6,7 +7,7 @@ const OrderBlock = () => {
   const [isPopUpOpen, setIsPopUpOpen] = useState(false);
 
   return (
-    <div className="relative flex flex-col md:flex-row gap-5">
+    <div className="relative flex flex-col justify-center md:flex-row gap-5">
       <a
         href="https://beautyprosoftware.com/b/877643"
         target="_blank"

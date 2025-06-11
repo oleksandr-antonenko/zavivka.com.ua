@@ -3,7 +3,7 @@ import { Link } from '@/i18n/routing';
 
 const Logo = ({
   color = '#FBFBFB',
-  width = '200',
+  width = '150',
   height = '65',
 }: {
   color?: string;

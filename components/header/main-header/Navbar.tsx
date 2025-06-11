@@ -37,7 +37,7 @@ const Navbar: FC<NavProp> = ({ show, navlinks, closeMobileMenu }) => {
       <ul
         className={`flex justify-center text-base ${
           show === 'nav-desktop'
-            ? 'flex-row gap-8 uppercase'
+            ? 'flex-row gap-6 uppercase'
             : 'flex-col gap-0 capitalize'
         }`}
       >

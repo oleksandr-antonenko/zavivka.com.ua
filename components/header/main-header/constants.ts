@@ -16,4 +16,5 @@ export const womenNav = [
   { linkNav: '/likuvannya-kucheriv', titleNav: 'Лікування кучерів' },
   { linkNav: '/plyazhna-khvylia', titleNav: 'Пляжна хвиля' },
   { linkNav: '/team', titleNav: 'Майстри' },
+  { linkNav: '/gallery', titleNav: 'галерея' },
 ];

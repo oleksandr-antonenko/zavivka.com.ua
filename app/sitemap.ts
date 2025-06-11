@@ -2,7 +2,7 @@ import { masters } from '@/lib/masters';
 import { routing } from '@/i18n/routing';
 
 export default function sitemap() {
-  const baseUrl = 'https://zavivka.com.ua/'; //заменить на валидный домен
+  const baseUrl = 'https://zavivka.vercel.app/'; //заменить на валидный домен
   const locales = routing.locales;
   const currentDate = new Date();
 
@@ -15,6 +15,7 @@ export default function sitemap() {
     'korektsiya-zavivki',
     'likuvannya-kucheriv',
     'plyazhna-khvylia',
+    'gallery',
     'team',
     'cholovicha-zavivka/team-men',
   ];
@@ -29,10 +30,9 @@ export default function sitemap() {
     })),
   );
 
-  // Добавляем страницы мастеров
   const masterUrls = locales.flatMap((locale) =>
     masters.map((master) => ({
-      url: `${baseUrl}${locale}/team/${master.slug}`,
+      url: `${baseUrl}${locale}/team/${master}`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.6,
@@ -42,7 +42,7 @@ export default function sitemap() {
   // Добавляем страницы мастеров мужской завивки
   const menMastersUrls = locales.flatMap((locale) =>
     masters.map((master) => ({
-      url: `${baseUrl}${locale}/cholovicha-zavivka/team-men/${master.slug}`,
+      url: `${baseUrl}${locale}/cholovicha-zavivka/team-men/${master}`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.6,
