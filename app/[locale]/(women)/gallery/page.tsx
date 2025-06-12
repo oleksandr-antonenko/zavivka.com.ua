@@ -3,6 +3,7 @@ import { Contacts } from '@/components/contacts';
 import BeforeAfterGallery from '@/components/GALLERY/BeforeAfter/BeforeAfterGallery';
 import SocialMasters from '@/components/GALLERY/social-masters/SocialMasters';
 import TrustGalleryContainer from '@/components/GALLERY/trust-gallery/trust-gallery-container';
+import { ReasonsContainer } from '@/components/reasons/ReasonsContainer';
 import OrderBlock from '@/components/team/components/OrderBlock';
 import { getLocale } from 'next-intl/server';
 
@@ -51,6 +52,9 @@ const GalleryPage = () => {
       </section>
       <section className="pb-[60px] xl:pb-[150px] relative w-full max-w-[1200px] mx-auto px-2">
         <OrderBlock />
+      </section>
+      <section className="pb-[60px] xl:pb-[150px]">
+        <ReasonsContainer />
       </section>
       <section className="pb-[60px] xl:pb-[150px]">
         <Booking />

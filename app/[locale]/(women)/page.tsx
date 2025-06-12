@@ -10,6 +10,7 @@ import ProfessionalFamilyContainer from '@/components/professional-family/profes
 import ModernTrustContainer from '@/components/trust/modern-trust/modern-trust-container';
 import BannerForAllPages from '@/components/banner/banner-for-all-pages';
 import ConsultationContainer from '@/components/consultation/consultation-container';
+import { ReasonsContainer } from '@/components/reasons/ReasonsContainer';
 import { getLocale } from 'next-intl/server';
 
 export async function generateMetadata() {
@@ -60,10 +61,10 @@ export default function Home() {
         <SkilsContainer />
       </section>
       <section className="pb-[60px] xl:pb-[150px]">
-        <Zavivka />
+        <ProfessionalFamilyContainer />
       </section>
       <section className="pb-[60px] xl:pb-[150px]">
-        <ProfessionalFamilyContainer />
+        <ReasonsContainer />
       </section>
       <section className="sm:pb-[60px] xl:pb-[150px]">
         <ConsultationContainer />

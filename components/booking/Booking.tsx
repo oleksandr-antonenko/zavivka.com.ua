@@ -72,7 +72,7 @@ const Booking: FC<BookingProps> = ({
       className={`bg-cover bg-no-repeat py-[30px] px-2 flex items-center justify-center bg-backgroundForm`}
     >
       <div className="flex flex-col items-center justify-center py-[24px] md:py-10 px-[39px] md:px-[70px] border border-orange rounded-[20px] w-full max-w-[750px] bg-[#0000001a] backdrop-blur-xl">
-        <h2 className="font-semibold font-mali sm:text-nowrap text-center text-[24px] md:text-[30px] xl:text-[40px] uppercase mb-[30px] md:mb-[36px]">
+        <h2 className="font-semibold font-mali sm:text-nowrap text-center text-[23px] md:text-[30px] xl:text-[40px] uppercase mb-[30px] md:mb-[36px]">
           Запишіться на послугу
         </h2>
         <p className="text-center mb-10 md:mb-[60px] text-[16px] md:text-[24px] max-w-[302px] md:max-w-[531px]">

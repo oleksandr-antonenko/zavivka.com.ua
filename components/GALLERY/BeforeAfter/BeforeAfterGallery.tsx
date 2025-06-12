@@ -33,7 +33,7 @@ export default function BeforeAfterGallery() {
           className="text-center mb-14"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
         >
           <DecoratedTitle className="max-w-[271px] mx-auto md:mx-0 mb-[30px] md:mb-[54px]">
             До та після: еволюція образу
