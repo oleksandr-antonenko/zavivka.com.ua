@@ -61,6 +61,9 @@ export default function Home() {
         <SkilsContainer />
       </section>
       <section className="pb-[60px] xl:pb-[150px]">
+        <Zavivka />
+      </section>
+      <section className="pb-[60px] xl:pb-[150px]">
         <ProfessionalFamilyContainer />
       </section>
       <section className="pb-[60px] xl:pb-[150px]">
