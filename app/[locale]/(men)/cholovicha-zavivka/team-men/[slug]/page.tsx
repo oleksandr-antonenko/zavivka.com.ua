@@ -5,7 +5,6 @@ import DynamicTeamForMenContainer from '@/components/FOR-MEN/dynamicPageTeamForM
 import { masters } from '@/lib/masters';
 import { Metadata } from 'next';
 import { getLocale } from 'next-intl/server';
-import Script from 'next/script';
 
 export async function generateMetadata({
   params,
