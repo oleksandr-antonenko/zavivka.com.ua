@@ -14,7 +14,7 @@ const Input: FC<InputProps> = ({
   errorText = '',
 }) => {
   return (
-    <div className='w-full relative'>
+    <div className="w-full relative">
       <input
         type={type}
         id={id}
@@ -24,7 +24,7 @@ const Input: FC<InputProps> = ({
           minLength: lengthMin,
           maxLength: lengthMax,
         })}
-        className={`${errors[name] ? 'border-red-500' : 'w-full max-w-[268px] border-grey-light'} rounded py-3 px-[30px] border bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange text-[16px] text-white w-full placeholder:text-white placeholder:text-[12px] placeholder:font-banner`}
+        className={`${errors[name] ? 'border-red-500' : 'w-full max-w-[268px] border-grey-light'} rounded py-3 px-[30px] border bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange text-[16px] text-white w-full placeholder:text-white/30 placeholder:text-[12px] placeholder:font-banner`}
       />
       <div className="absolute bottom-[-20px] text-[12px] text-center text-red-500 pl-5">
         {errors[name] && <p>{errorText}</p>}
