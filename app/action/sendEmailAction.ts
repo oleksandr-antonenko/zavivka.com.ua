@@ -1,6 +1,6 @@
-'use server';
-import { mailer } from '@/lib/email';
-import { sendNotification } from '@/lib/telegram/config';
+"use server";
+// import { mailer } from "@/lib/email";
+import { sendNotification } from "@/lib/telegram/config";
 
 type BaseFormData = {
   name?: string;
@@ -14,13 +14,13 @@ type BaseFormData = {
 export const sendForm = async (data: BaseFormData) => {
   try {
     // Определяем тип формы и формируем данные
-    const isBookingForm = 'name' in data;
+    const isBookingForm = "name" in data;
     const name = isBookingForm ? data.name : data.namePopUp;
     const phone = isBookingForm ? data.phone : data.phonePopUp;
     const services = data.services;
     const subject = isBookingForm
-      ? 'Нова заявка на запис'
-      : 'Нова заявка на консультацію';
+      ? "Нова заявка на запис"
+      : "Нова заявка на консультацію";
 
     const mailOptions = {
       from: process.env.NEXT_PUBLIC_UKR_NET_EMAIL_USER,
@@ -34,15 +34,15 @@ export const sendForm = async (data: BaseFormData) => {
           services
             ? `<p><strong>Обрані послуги:</strong></p>
         <ul>
-          ${services.map((service) => `<li>${service}</li>`).join('')}
+          ${services.map((service) => `<li>${service}</li>`).join("")}
         </ul>`
-            : ''
+            : ""
         }
       `,
     };
 
     // Відправляємо email
-    await mailer.sendMail(mailOptions);
+    //await mailer.sendMail(mailOptions);
 
     // Відправляємо повідомлення в Telegram
     const telegramMessage = isBookingForm
@@ -51,7 +51,7 @@ export const sendForm = async (data: BaseFormData) => {
 
 👤 Ім'я: ${name}
 📱 Телефон: ${phone}
-${services ? `\n💇‍♀️ Обрані послуги:\n${services.map((service) => `- ${service}`).join('\n')}` : ''}
+${services ? `\n💇‍♀️ Обрані послуги:\n${services.map((service) => `- ${service}`).join("\n")}` : ""}
     `
       : `
 📞 Нова заявка на консультацію
@@ -65,14 +65,14 @@ ${services ? `\n💇‍♀️ Обрані послуги:\n${services.map((serv
     return {
       success: true,
       message: isBookingForm
-        ? 'Заявку успішно відправлено!'
-        : 'Заявку на консультацію успішно відправлено!',
+        ? "Заявку успішно відправлено!"
+        : "Заявку на консультацію успішно відправлено!",
     };
   } catch (error) {
-    console.error('Помилка при відправці заявки:', error);
+    console.error("Помилка при відправці заявки:", error);
     return {
       success: false,
-      message: 'Помилка при відправці заявки. Спробуйте пізніше.',
+      message: "Помилка при відправці заявки. Спробуйте пізніше.",
     };
   }
 };
