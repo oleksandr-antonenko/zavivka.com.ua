@@ -132,7 +132,7 @@ const PopUpBanner: React.FC<PopUpProps> = ({
                 <Input
                   type="tel"
                   id="phonePopUp"
-                  placeholder="+380674413565"
+                  placeholder="+380(___)___-__-__"
                   name="phonePopUp"
                   register={register}
                   errors={errors}
