@@ -1,17 +1,17 @@
-import { Reviews } from '@/components/reviews';
-import { FAQ } from '@/components/faq';
-import { Contacts } from '@/components/contacts';
-import { Booking } from '@/components/booking';
-import { Prices } from '@/components/prices';
-import { Zavivka } from '@/components/zavivka';
-import ModernServices from '@/components/services/modern-services';
-import SkilsContainer from '@/components/skills/skils-container';
-import ProfessionalFamilyContainer from '@/components/professional-family/professional-family-container';
-import ModernTrustContainer from '@/components/trust/modern-trust/modern-trust-container';
-import BannerForAllPages from '@/components/banner/banner-for-all-pages';
-import ConsultationContainer from '@/components/consultation/consultation-container';
-import { ReasonsContainer } from '@/components/reasons/ReasonsContainer';
-import { getLocale } from 'next-intl/server';
+import { Reviews } from "@/components/reviews";
+import { FAQ } from "@/components/faq";
+import { Contacts } from "@/components/contacts";
+import { Booking } from "@/components/booking";
+import { Prices } from "@/components/prices";
+import { Zavivka } from "@/components/zavivka";
+import ModernServices from "@/components/services/modern-services";
+import SkilsContainer from "@/components/skills/skils-container";
+import ProfessionalFamilyContainer from "@/components/professional-family/professional-family-container";
+import ModernTrustContainer from "@/components/trust/modern-trust/modern-trust-container";
+import BannerForAllPages from "@/components/banner/banner-for-all-pages";
+import ConsultationContainer from "@/components/consultation/consultation-container";
+import { ReasonsContainer } from "@/components/reasons/ReasonsContainer";
+import { getLocale } from "next-intl/server";
 
 export async function generateMetadata() {
   const locale = await getLocale();
@@ -19,26 +19,26 @@ export async function generateMetadata() {
   const canonical = `${baseUrl}/${locale}`;
 
   return {
-    title: 'Професійна завивка волосся у Києві',
+    title: "Професійна завивка волосся у Києві",
     description:
-      'Жіноча та чоловіча завивка, карвінг, лікування кучерів, стрижка кучерявого волосся. Досвід, дбайливий підхід, консультація, укладання та підбір засобів догляду.',
+      "Жіноча та чоловіча завивка, карвінг, лікування кучерів, стрижка кучерявого волосся. Досвід, дбайливий підхід, консультація, укладання та підбір засобів догляду.",
     alternates: {
       canonical,
     },
     openGraph: {
-      title: 'Завивка волосся у Києві – Жіноча та чоловіча завивка',
+      title: "Завивка волосся у Києві – Жіноча та чоловіча завивка",
       description:
-        'Салон на Хрещатику: завивка, карвінг, стрижка та лікування кучерявого волосся. Індивідуальний підхід, дбайливість і досвід.',
+        "Салон на Хрещатику: завивка, карвінг, стрижка та лікування кучерявого волосся. Індивідуальний підхід, дбайливість і досвід.",
       url: baseUrl,
       images: [
         {
           url: `${baseUrl}/openGraph.webp`, // замени на путь к своему изображению
           width: 1200,
           height: 630,
-          alt: 'Завивка волосся у Києві – салон на Хрещатику',
+          alt: "Завивка волосся у Києві – салон на Хрещатику",
         },
       ],
-      type: 'website',
+      type: "website",
     },
   };
 }
@@ -63,9 +63,9 @@ export default function Home() {
       <section className="pb-[60px] xl:pb-[150px]">
         <Zavivka />
       </section>
-      <section className="pb-[60px] xl:pb-[150px]">
-        <ProfessionalFamilyContainer />
-      </section>
+      {/*<section className="pb-[60px] xl:pb-[150px]">*/}
+      {/*  <ProfessionalFamilyContainer />*/}
+      {/*</section>*/}
       <section className="pb-[60px] xl:pb-[150px]">
         <ReasonsContainer />
       </section>
