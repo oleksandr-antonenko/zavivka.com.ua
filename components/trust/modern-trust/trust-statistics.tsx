@@ -1,9 +1,9 @@
-'use client';
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import DecoratedTitle from '@/components/ui/decorated-title/decorated-title';
-import { useState } from 'react';
-import { PopUpBanner } from '@/components/pop-up';
+"use client";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import DecoratedTitle from "@/components/ui/decorated-title/decorated-title";
+import { useState } from "react";
+import { PopUpBanner } from "@/components/pop-up";
 
 const containerVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -12,7 +12,7 @@ const containerVariants = {
     y: 0,
     transition: {
       staggerChildren: 0.25,
-      ease: 'easeOut',
+      ease: "easeOut",
     },
   },
 };
@@ -22,7 +22,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.6, ease: 'easeOut' },
+    transition: { duration: 0.6, ease: "easeOut" },
   },
 };
 
@@ -57,16 +57,16 @@ const TrustStatistics = () => {
         variants={containerVariants}
       >
         {[
-          { count: '6', label: 'філіалів в Європі' },
-          { count: '+500', label: 'задоволенних клієнтів' },
-          { count: '5', label: 'років досвіду' },
+          // { count: '6', label: 'філіалів в Європі' },
+          { count: "5000+", label: "задоволених клієнтів" },
+          { count: "25", label: "років досвіду" },
         ].map(({ count, label }) => (
           <motion.li
             key={label}
             className="flex flex-col justify-center items-center"
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
-            transition={{ type: 'spring', stiffness: 300 }}
+            transition={{ type: "spring", stiffness: 300 }}
           >
             <h3 className="font-bold text-[48px] md:text-[80px] text-[#fbfbfb] font-bannerBold">
               {count}
