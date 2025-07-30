@@ -104,9 +104,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 4650,
-      priceArtDir: 5150,
-      priceTop: 5600,
+      priceExpert: 4950,
+      priceArtDir: 5450,
+      priceTop: 5900,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -127,9 +127,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/men-zavivka-korotkoe.jpeg",
-      priceExpert: 4650,
-      priceArtDir: 5150,
-      priceTop: 5600,
+      priceExpert: 4950,
+      priceArtDir: 5450,
+      priceTop: 5900,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -150,9 +150,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/men-zavivka-plechi.webp",
-      priceExpert: 4950,
-      priceArtDir: 5450,
-      priceTop: 5900,
+      priceExpert: 5550,
+      priceArtDir: 7250,
+      priceTop: 6400,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -174,7 +174,7 @@ const initialState: ServiceState = {
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/other-men.webp",
       priceExpert: 1500,
-      priceArtDir: 2500,
+      priceArtDir: 2000,
       priceTop: 3000,
       video: "videos/services/zavivka.mp4",
     },
@@ -196,9 +196,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 4650,
-      priceArtDir: 5150,
-      priceTop: 5600,
+      priceExpert: 4950,
+      priceArtDir: 5450,
+      priceTop: 5900,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -219,9 +219,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 1300,
+      priceExpert: 1500,
       priceArtDir: 2000,
-      priceTop: 2500,
+      priceTop: 3000,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -242,9 +242,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 1700,
-      priceArtDir: 1850,
-      priceTop: 1950,
+      priceExpert: 1800,
+      priceArtDir: 1950,
+      priceTop: 2050,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -264,9 +264,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 600,
-      priceArtDir: 700,
-      priceTop: 800,
+      priceExpert: 700,
+      priceArtDir: 800,
+      priceTop: 900,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -287,9 +287,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 4650,
-      priceArtDir: 5150,
-      priceTop: 5600,
+      priceExpert: 4950,
+      priceArtDir: 5450,
+      priceTop: 5900,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -309,9 +309,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 2000,
-      priceArtDir: 2800,
-      priceTop: 2800,
+      priceExpert: 2200,
+      priceArtDir: 3000,
+      priceTop: 3000,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -331,12 +331,12 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 2500,
-      priceArtDir: 3400,
-      priceTop: 3400,
-      priceExpertCut: 1300,
+      priceExpert: 2700,
+      priceArtDir: 3600,
+      priceTop: 3600,
+      priceExpertCut: 1500,
       priceArtDirCut: 2000,
-      priceTopCut: 2500,
+      priceTopCut: 3000,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -357,12 +357,12 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 600,
-      priceArtDir: 800,
+      priceExpert: 800,
+      priceArtDir: 1000,
       priceTop: 1000,
-      priceExpertCut: 1300,
+      priceExpertCut: 1500,
       priceArtDirCut: 2000,
-      priceTopCut: 2500,
+      priceTopCut: 3000,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -383,9 +383,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 4650,
-      priceArtDir: 5150,
-      priceTop: 5600,
+      priceExpert: 4950,
+      priceArtDir: 5450,
+      priceTop: 5900,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -406,9 +406,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 5250,
-      priceArtDir: 5950,
-      priceTop: 6400,
+      priceExpert: 5550,
+      priceArtDir: 6550,
+      priceTop: 7000,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -429,9 +429,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 5800,
-      priceArtDir: 6550,
-      priceTop: 7000,
+      priceExpert: 6150,
+      priceArtDir: 6950,
+      priceTop: 7500,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -452,9 +452,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 1300,
+      priceExpert: 1500,
       priceArtDir: 2000,
-      priceTop: 2500,
+      priceTop: 3000,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -475,9 +475,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 1700,
-      priceArtDir: 1850,
-      priceTop: 1950,
+      priceExpert: 1800,
+      priceArtDir: 1950,
+      priceTop: 2050,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -498,9 +498,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 1900,
-      priceArtDir: 2000,
-      priceTop: 2100,
+      priceExpert: 2000,
+      priceArtDir: 2100,
+      priceTop: 2200,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -521,9 +521,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 2100,
-      priceArtDir: 2200,
-      priceTop: 2300,
+      priceExpert: 2200,
+      priceArtDir: 2300,
+      priceTop: 2400,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -545,8 +545,8 @@ const initialState: ServiceState = {
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
       priceExpert: 2300,
-      priceArtDir: 2400,
-      priceTop: 2500,
+      priceArtDir: 2500,
+      priceTop: 2800,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -567,9 +567,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 4650,
-      priceArtDir: 5150,
-      priceTop: 5600,
+      priceExpert: 4950,
+      priceArtDir: 5450,
+      priceTop: 5900,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -613,9 +613,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 5250,
-      priceArtDir: 5950,
-      priceTop: 6400,
+      priceExpert: 5550,
+      priceArtDir: 6550,
+      priceTop: 7000,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -636,9 +636,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 5850,
-      priceArtDir: 6550,
-      priceTop: 7000,
+      priceExpert: 6150,
+      priceArtDir: 6950,
+      priceTop: 7500,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -659,37 +659,14 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 6250,
-      priceArtDir: 6950,
-      priceTop: 7500,
+      priceExpert: 6550,
+      priceArtDir: 7250,
+      priceTop: 7800,
       video: "videos/services/zavivka.mp4",
     },
     {
       id: "26",
       serviceTitle: "Коротке волосся",
-      images: [],
-      descriptionForPrice: (
-        <>
-          <p>Все включено:</p>
-          <ul>
-            <li>консультація,</li>
-            <li>стрижка,</li>
-            <li>укладання,</li>
-            <li>рекомендації щодо догляду,</li>
-            <li>підбір засобів догляду</li>
-          </ul>
-        </>
-      ),
-      imageForPriceWomen: "/images/services/zavivka.jpg",
-      imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 4650,
-      priceArtDir: 5150,
-      priceTop: 5600,
-      video: "videos/services/zavivka.mp4",
-    },
-    {
-      id: "27",
-      serviceTitle: "Волосся по плечі",
       images: [],
       descriptionForPrice: (
         <>
@@ -711,8 +688,8 @@ const initialState: ServiceState = {
       video: "videos/services/zavivka.mp4",
     },
     {
-      id: "28",
-      serviceTitle: "Волосся по лопатки",
+      id: "27",
+      serviceTitle: "Волосся по плечі",
       images: [],
       descriptionForPrice: (
         <>
@@ -734,6 +711,29 @@ const initialState: ServiceState = {
       video: "videos/services/zavivka.mp4",
     },
     {
+      id: "28",
+      serviceTitle: "Волосся по лопатки",
+      images: [],
+      descriptionForPrice: (
+        <>
+          <p>Все включено:</p>
+          <ul>
+            <li>консультація,</li>
+            <li>стрижка,</li>
+            <li>укладання,</li>
+            <li>рекомендації щодо догляду,</li>
+            <li>підбір засобів догляду</li>
+          </ul>
+        </>
+      ),
+      imageForPriceWomen: "/images/services/zavivka.jpg",
+      imageForPriceMen: "/images/menmiddle.jpg",
+      priceExpert: 5550,
+      priceArtDir: 6550,
+      priceTop: 7000,
+      video: "videos/services/zavivka.mp4",
+    },
+    {
       id: "29",
       serviceTitle: "Волосся за лопатки",
       images: [],
@@ -751,9 +751,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 5850,
-      priceArtDir: 6550,
-      priceTop: 7000,
+      priceExpert: 6150,
+      priceArtDir: 6950,
+      priceTop: 7500,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -774,9 +774,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 6250,
-      priceArtDir: 6950,
-      priceTop: 7500,
+      priceExpert: 6550,
+      priceArtDir: 7250,
+      priceTop: 7800,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -797,9 +797,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 1300,
+      priceExpert: 1500,
       priceArtDir: 2000,
-      priceTop: 2500,
+      priceTop: 3000,
       video: "videos/services/zavivka.mp4",
     },
     {
@@ -820,9 +820,9 @@ const initialState: ServiceState = {
       ),
       imageForPriceWomen: "/images/services/zavivka.jpg",
       imageForPriceMen: "/images/menmiddle.jpg",
-      priceExpert: 1700,
-      priceArtDir: 1850,
-      priceTop: 1950,
+      priceExpert: 1800,
+      priceArtDir: 1950,
+      priceTop: 2150,
       video: "videos/services/zavivka.mp4",
     },
   ],

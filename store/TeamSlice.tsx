@@ -176,7 +176,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5600,
+          price: 5900,
         },
         {
           id: "02",
@@ -193,7 +193,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5600,
+          price: 5900,
         },
         {
           id: "03",
@@ -210,7 +210,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5600,
+          price: 5900,
         },
         {
           id: "04",
@@ -227,7 +227,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 1950,
+          price: 2050,
         },
         {
           id: "05",
@@ -261,7 +261,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5600,
+          price: 5900,
         },
       ],
       imagesOfWorksForMen: [
@@ -313,7 +313,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 4650,
+          price: 4950,
         },
         {
           id: "02",
@@ -330,7 +330,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 4650,
+          price: 4950,
         },
         {
           id: "03",
@@ -347,7 +347,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 4650,
+          price: 4950,
         },
         {
           id: "04",
@@ -364,7 +364,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 1700,
+          price: 1800,
         },
         {
           id: "05",
@@ -398,7 +398,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 4650,
+          price: 4950,
         },
         {
           id: "07",
@@ -415,7 +415,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 4650,
+          price: 4950,
         },
       ],
       imagesOfWorksForMen: [
@@ -467,7 +467,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5600,
+          price: 5900,
         },
         {
           id: "02",
@@ -484,7 +484,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5600,
+          price: 5900,
         },
         {
           id: "03",
@@ -501,7 +501,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5600,
+          price: 5900,
         },
         {
           id: "04",
@@ -552,7 +552,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5600,
+          price: 5900,
         },
       ],
       imagesOfWorksForMen: [
@@ -580,175 +580,6 @@ const initialState: TeamState = {
         "/images/yulia-brovarkchuk/yulia-brovarkchuk-16.webp",
       ],
       photo: "/images/yulia-brovarkchuk.jpg",
-    },
-    {
-      id: "5",
-      name: "Ольга Колле",
-      slug: "olga-kolle",
-      category: "Топ майстер",
-      experience: getMasterExperience("Ольга Колле"),
-      isMen: true,
-      specialization: [
-        "Завивка волосся",
-        "Стрижка кучерів",
-        "Лікування волосся",
-        "Фарбування волосся",
-        "Укладка кучерів",
-      ],
-      listOfService: [
-        {
-          id: "01",
-          serviceTitle: "Біозавивка волосся",
-          descriptionForPrice: (
-            <>
-              <p>Все включено:</p>
-              <ul>
-                <li>консультація,</li>
-                <li>стрижка,</li>
-                <li>укладання,</li>
-                <li>рекомендації щодо догляду,</li>
-                <li>підбір засобів догляду</li>
-              </ul>
-            </>
-          ),
-          price: 5600,
-        },
-        {
-          id: "02",
-          serviceTitle: 'Біозавивка "Пляжна хвиля"',
-          descriptionForPrice: (
-            <>
-              <p>Все включено:</p>
-              <ul>
-                <li>консультація,</li>
-                <li>стрижка,</li>
-                <li>укладання,</li>
-                <li>рекомендації щодо догляду,</li>
-                <li>підбір засобів догляду</li>
-              </ul>
-            </>
-          ),
-          price: 5600,
-        },
-        {
-          id: "03",
-          serviceTitle: "Карвінг волосся",
-          descriptionForPrice: (
-            <>
-              <p>Все включено:</p>
-              <ul>
-                <li>консультація,</li>
-                <li>стрижка,</li>
-                <li>укладання,</li>
-                <li>рекомендації щодо догляду,</li>
-                <li>підбір засобів догляду</li>
-              </ul>
-            </>
-          ),
-          price: 5600,
-        },
-        {
-          id: "04",
-          serviceTitle: "Японське лікування волосся",
-          descriptionForPrice: (
-            <>
-              <p>Все включено:</p>
-              <ul>
-                <li>консультація,</li>
-                <li>стрижка,</li>
-                <li>укладання,</li>
-                <li>рекомендації щодо догляду,</li>
-                <li>підбір засобів догляду</li>
-              </ul>
-            </>
-          ),
-          price: 1950,
-        },
-        {
-          id: "05",
-          serviceTitle: "Стрижка кучерявого волосся",
-          descriptionForPrice: (
-            <>
-              <p>Все включено:</p>
-              <ul>
-                <li>консультація,</li>
-                <li>стрижка,</li>
-                <li>укладання,</li>
-                <li>рекомендації щодо догляду,</li>
-                <li>підбір засобів догляду</li>
-              </ul>
-            </>
-          ),
-          price: 2500,
-        },
-        {
-          id: "06",
-          serviceTitle: "Корекція завивки",
-          descriptionForPrice: (
-            <>
-              <p>Все включено:</p>
-              <ul>
-                <li>консультація,</li>
-                <li>стрижка,</li>
-                <li>укладання,</li>
-                <li>рекомендації щодо догляду,</li>
-                <li>підбір засобів догляду</li>
-              </ul>
-            </>
-          ),
-          price: 5600,
-        },
-        {
-          id: "07",
-          serviceTitle: "Чоловіча завивка",
-          descriptionForPrice: (
-            <>
-              <p>Все включено:</p>
-              <ul>
-                <li>консультація,</li>
-                <li>стрижка,</li>
-                <li>укладання,</li>
-                <li>рекомендації щодо догляду,</li>
-                <li>підбір засобів догляду</li>
-              </ul>
-            </>
-          ),
-          price: 5600,
-        },
-      ],
-      imagesOfWorksForMen: [
-        "/images/foto-men/cholovicha-olga-k-1.webp",
-        "/images/foto-men/cholovicha-olga-k-2.webp",
-        "/images/foto-men/cholovicha-olga-k-3.webp",
-        "/images/foto-men/cholovicha-olga-k-4.webp",
-        "/images/foto-men/cholovicha-olga-k-5.webp",
-        "/images/foto-men/cholovicha-olga-k-6.webp",
-      ],
-      imagesOfWorksForWomen: [
-        "/images/olga-kolle/olga-kolle-1.webp",
-        "/images/olga-kolle/olga-kolle-2.webp",
-        "/images/olga-kolle/olga-kolle-3.webp",
-        "/images/olga-kolle/olga-kolle-4.webp",
-        "/images/olga-kolle/olga-kolle-5.webp",
-        "/images/olga-kolle/olga-kolle-6.webp",
-        "/images/olga-kolle/olga-kolle-7.webp",
-        "/images/olga-kolle/olga-kolle-8.webp",
-        "/images/olga-kolle/olga-kolle-9.webp",
-        "/images/olga-kolle/olga-kolle-10.webp",
-        "/images/olga-kolle/olga-kolle-11.webp",
-        "/images/olga-kolle/olga-kolle-12.webp",
-        "/images/olga-kolle/olga-kolle-13.webp",
-        "/images/olga-kolle/olga-kolle-14.webp",
-        "/images/olga-kolle/olga-kolle-15.webp",
-        "/images/olga-kolle/olga-kolle-16.webp",
-        "/images/olga-kolle/olga-kolle-17.webp",
-        "/images/olga-kolle/olga-kolle-18.webp",
-        "/images/olga-kolle/olga-kolle-19.webp",
-        "/images/olga-kolle/olga-kolle-20.webp",
-        "/images/olga-kolle/olga-kolle-21.webp",
-        "/images/olga-kolle/olga-kolle-22.webp",
-      ],
-      photo: "/images/olga-kolle.jpg",
     },
     {
       id: "6",
@@ -780,7 +611,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 4650,
+          price: 4950,
         },
         {
           id: "02",
@@ -797,7 +628,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 4650,
+          price: 4950,
         },
         {
           id: "03",
@@ -814,7 +645,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 4650,
+          price: 4950,
         },
         {
           id: "04",
@@ -831,7 +662,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 1700,
+          price: 1800,
         },
         {
           id: "05",
@@ -865,7 +696,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 4650,
+          price: 4950,
         },
         {
           id: "07",
@@ -882,7 +713,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 4650,
+          price: 4950,
         },
       ],
       imagesOfWorksForMen: ["/images/foto-men/cholovicha-nastya-m-1.webp"],
@@ -931,7 +762,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5150,
+          price: 5450,
         },
         {
           id: "02",
@@ -948,7 +779,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5150,
+          price: 5450,
         },
         {
           id: "03",
@@ -965,7 +796,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5150,
+          price: 5450,
         },
         {
           id: "04",
@@ -982,7 +813,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 1850,
+          price: 1950,
         },
         {
           id: "05",
@@ -999,7 +830,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 1500,
+          price: 2000,
         },
         {
           id: "06",
@@ -1016,7 +847,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5150,
+          price: 5450,
         },
       ],
       imagesOfWorksForMen: [
@@ -1075,7 +906,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5150,
+          price: 5450,
         },
         {
           id: "02",
@@ -1092,7 +923,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5150,
+          price: 5450,
         },
         {
           id: "03",
@@ -1109,7 +940,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5150,
+          price: 5450,
         },
         {
           id: "04",
@@ -1126,7 +957,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 1850,
+          price: 1950,
         },
         {
           id: "05",
@@ -1143,7 +974,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 1500,
+          price: 2000,
         },
         {
           id: "06",
@@ -1160,7 +991,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5150,
+          price: 5450,
         },
         {
           id: "07",
@@ -1177,7 +1008,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5150,
+          price: 5450,
         },
       ],
       imagesOfWorksForMen: [
@@ -1243,7 +1074,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 4650,
+          price: 4950,
         },
         {
           id: "02",
@@ -1260,7 +1091,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 4650,
+          price: 4950,
         },
         {
           id: "03",
@@ -1277,7 +1108,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 4650,
+          price: 4950,
         },
         {
           id: "04",
@@ -1294,7 +1125,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 1700,
+          price: 1800,
         },
         {
           id: "05",
@@ -1328,7 +1159,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 4650,
+          price: 4950,
         },
         {
           id: "07",
@@ -1345,7 +1176,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 4650,
+          price: 4950,
         },
       ],
       imagesOfWorksForMen: ["/images/foto-men/cholovicha-diana-1.webp"],
@@ -1391,7 +1222,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5150,
+          price: 5450,
         },
         {
           id: "02",
@@ -1408,7 +1239,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5150,
+          price: 5450,
         },
         {
           id: "03",
@@ -1425,7 +1256,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5150,
+          price: 5450,
         },
         {
           id: "04",
@@ -1442,7 +1273,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 1850,
+          price: 1950,
         },
         {
           id: "05",
@@ -1459,7 +1290,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 1500,
+          price: 2000,
         },
         {
           id: "06",
@@ -1476,7 +1307,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5150,
+          price: 5450,
         },
         {
           id: "07",
@@ -1493,7 +1324,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5150,
+          price: 5450,
         },
       ],
       imagesOfWorksForMen: [
@@ -1562,7 +1393,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5150,
+          price: 5450,
         },
         {
           id: "02",
@@ -1579,7 +1410,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5150,
+          price: 5450,
         },
         {
           id: "03",
@@ -1596,7 +1427,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5150,
+          price: 5450,
         },
         {
           id: "04",
@@ -1613,7 +1444,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 1850,
+          price: 1950,
         },
         {
           id: "05",
@@ -1630,7 +1461,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 2500,
+          price: 3000,
         },
         {
           id: "06",
@@ -1647,7 +1478,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5150,
+          price: 5450,
         },
         {
           id: "07",
@@ -1664,7 +1495,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 5150,
+          price: 5450,
         },
       ],
       imagesOfWorksForMen: [

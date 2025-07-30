@@ -1,15 +1,15 @@
-'use client';
-import React, { useEffect, MouseEvent } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
-import closeIcone from '@/shared/img/close.png';
-import man from './img/man.jpg';
-import woman from './img/banner.jpg';
-import { PopUpProps } from './type';
-import { Input } from '@/shared/input';
-import { useForm } from 'react-hook-form';
-import { DataForSubmit } from '../booking';
-import { sendForm } from '@/app/action/sendEmailAction';
+"use client";
+import React, { useEffect, MouseEvent } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import closeIcone from "@/shared/img/close.png";
+import man from "./img/man.jpg";
+import woman from "./img/banner.jpg";
+import { PopUpProps } from "./type";
+import { Input } from "@/shared/input";
+import { useForm } from "react-hook-form";
+import { DataForSubmit } from "../booking";
+import { sendForm } from "@/app/action/sendEmailAction";
 
 const backdropVariants = {
   hidden: { opacity: 0, transition: { duration: 0.5 } },
@@ -28,19 +28,19 @@ const PopUpBanner: React.FC<PopUpProps> = ({
   forMen = false,
 }) => {
   const handleClose = (e: MouseEvent<HTMLDivElement>) => {
-    if ((e.target as HTMLDivElement).id === 'containerBookingModal') {
+    if ((e.target as HTMLDivElement).id === "containerBookingModal") {
       close();
     }
   };
 
   useEffect(() => {
     if (visible) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [visible]);
 
@@ -52,7 +52,7 @@ const PopUpBanner: React.FC<PopUpProps> = ({
     formState: { errors, isSubmitting },
     reset,
     setError,
-  } = useForm<DataForSubmit>({ mode: 'onBlur' });
+  } = useForm<DataForSubmit>({ mode: "onBlur" });
 
   const onSubmit = async (data: DataForSubmit) => {
     try {
@@ -62,11 +62,11 @@ const PopUpBanner: React.FC<PopUpProps> = ({
         reset();
         close();
       } else {
-        setError('root', { message: result.message });
+        setError("root", { message: result.message });
       }
     } catch (err) {
-      setError('root', {
-        message: 'Помилка при відправці заявки. Спробуйте пізніше.',
+      setError("root", {
+        message: "Помилка при відправці заявки. Спробуйте пізніше.",
       });
     }
   };
@@ -82,7 +82,7 @@ const PopUpBanner: React.FC<PopUpProps> = ({
           initial="hidden"
           animate="visible"
           exit="hidden"
-          style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
+          style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
         >
           <motion.div
             className="rounded-[14px] overflow-hidden my-6 pb-[39px] max-w-[430px] border border-orange bg-common-background flex flex-col items-center gap-[24px] relative"
@@ -103,7 +103,7 @@ const PopUpBanner: React.FC<PopUpProps> = ({
             </button>
             <Image
               src={image}
-              alt={forMen ? 'man' : 'woman'}
+              alt={forMen ? "man" : "woman"}
               sizes="100vw"
               width={430}
               height={320}
@@ -132,7 +132,7 @@ const PopUpBanner: React.FC<PopUpProps> = ({
                 <Input
                   type="tel"
                   id="phonePopUp"
-                  placeholder="+380674413565"
+                  placeholder="+38(___)___-__-__"
                   name="phonePopUp"
                   register={register}
                   errors={errors}
@@ -146,7 +146,7 @@ const PopUpBanner: React.FC<PopUpProps> = ({
                 disabled={isSubmitting}
                 className="w-full max-w-[250px] px-2 rounded-[40px] h-[50px] flex justify-center items-center text-[#212121] text-[20px] mx-auto md:mx-0 transition duration-300 bg-[#D7A908] hover:bg-[#f8cf38] disabled:opacity-50"
               >
-                {isSubmitting ? 'Відправка...' : 'Запис на консультацію'}
+                {isSubmitting ? "Відправка..." : "Запис на консультацію"}
               </button>
               {errors.root?.message && (
                 <div className="text-center text-[14px] mt-4 w-full max-w-[400px] mx-auto p-2 bg-red-100 border border-red-400 text-red-700 rounded">
