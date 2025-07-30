@@ -1,8 +1,8 @@
-import { Contacts } from '@/components/contacts';
-import { FAQ } from '@/components/faq';
-import { TeamInfo } from '@/components/team';
-import { getLocale } from 'next-intl/server';
-import ConsultationContainer from '@/components/consultation/consultation-container';
+import { Contacts } from "@/components/contacts";
+import { FAQ } from "@/components/faq";
+import { TeamInfo } from "@/components/team";
+import { getLocale } from "next-intl/server";
+import ConsultationContainer from "@/components/consultation/consultation-container";
 
 export async function generateMetadata() {
   const locale = await getLocale();
@@ -10,26 +10,26 @@ export async function generateMetadata() {
   const canonical = `${baseUrl}/${locale}/team`;
 
   return {
-    title: 'Наші майстри завивки волосся',
+    title: "Наші майстри завивки волосся",
     description:
-      'Познайомтесь з командою експертів: професійні майстри жіночої та чоловічої завивки, карвінгу, лікування та догляду за кучерявим волоссям у Києві.',
+      "Познайомтесь з командою експертів: професійні майстри жіночої та чоловічої завивки, карвінгу, лікування та догляду за кучерявим волоссям у Києві.",
     alternates: {
       canonical,
     },
     openGraph: {
-      title: 'Команда майстрів з завивки волосся | Київ, Хрещатик',
+      title: "Команда майстрів з завивки волосся | Київ, Хрещатик",
       description:
-        'Досвідчені спеціалісти з жіночої та чоловічої завивки, карвінгу, лікування кучерів та стрижки. Професіоналізм, індивідуальний підхід і турбота.',
+        "Досвідчені спеціалісти з жіночої та чоловічої завивки, карвінгу, лікування кучерів та стрижки. Професіоналізм, індивідуальний підхід і турбота.",
       url: canonical,
       images: [
         {
           url: `${baseUrl}/masterOpenGraph.webp`, // добавь своё изображение для OG этой страницы
           width: 800,
           height: 600,
-          alt: 'Команда майстрів з завивки волосся у Києві',
+          alt: "Команда майстрів з завивки волосся у Києві",
         },
       ],
-      type: 'website',
+      type: "website",
     },
   };
 }
@@ -45,7 +45,9 @@ export default function TeamPage() {
       <section className="pb-[60px] md:pb-[150px]">
         <FAQ />
       </section>
-      <Contacts />
+      <section className="py-[60px] md:py-[150px]">
+        <Contacts />
+      </section>
     </>
   );
 }

@@ -1,10 +1,10 @@
-import { FAQ } from '@/components/faq';
-import DynamicTeamContainer from '@/components/team/dynamic-team-page/dynamic-team-container';
-import { Contacts } from '@/components/contacts';
-import { getLocale } from 'next-intl/server';
-import ConsultationContainer from '@/components/consultation/consultation-container';
-import { Metadata } from 'next';
-import { masters } from '@/lib/masters';
+import { FAQ } from "@/components/faq";
+import DynamicTeamContainer from "@/components/team/dynamic-team-page/dynamic-team-container";
+import { Contacts } from "@/components/contacts";
+import { getLocale } from "next-intl/server";
+import ConsultationContainer from "@/components/consultation/consultation-container";
+import { Metadata } from "next";
+import { masters } from "@/lib/masters";
 
 export async function generateMetadata({
   params,
@@ -18,8 +18,8 @@ export async function generateMetadata({
 
   if (!master) {
     return {
-      title: 'Майстер не знайдений',
-      description: 'Інформація про цього майстра відсутня.',
+      title: "Майстер не знайдений",
+      description: "Інформація про цього майстра відсутня.",
     };
   }
 
@@ -40,7 +40,7 @@ export async function generateMetadata({
           alt: `${master.name} – ${master.category}`,
         },
       ],
-      type: 'profile',
+      type: "profile",
     },
   };
 }
@@ -50,9 +50,9 @@ const DynamicTeamPage = ({ params }: { params: { slug: string } }) => {
   const master = masters.find((m) => m.slug === params.slug);
   return (
     <>
-      <h1 className="sr-only">{`Сторінка майстра ${master?.name || 'Інформація про цього майстра відсутня.'}`}</h1>
+      <h1 className="sr-only">{`Сторінка майстра ${master?.name || "Інформація про цього майстра відсутня."}`}</h1>
       <p className="sr-only">
-        {`${master?.name || 'Інформація про цього майстра відсутня.'} — професійний ${master?.category} з досвідом роботи ${master?.experience}. Майстер працює з індивідуальним підходом, забезпечуючи якість і комфорт для кожного клієнта.`}
+        {`${master?.name || "Інформація про цього майстра відсутня."} — професійний ${master?.category} з досвідом роботи ${master?.experience}. Майстер працює з індивідуальним підходом, забезпечуючи якість і комфорт для кожного клієнта.`}
       </p>
       <section className="pt-[30px] xl:pt-[150px]">
         <DynamicTeamContainer slug={slug} />
@@ -63,7 +63,7 @@ const DynamicTeamPage = ({ params }: { params: { slug: string } }) => {
       <section className="pb-[60px] md:pb-[150px]">
         <FAQ />
       </section>
-      <section>
+      <section className="py-[60px] md:py-[150px]">
         <Contacts />
       </section>
     </>

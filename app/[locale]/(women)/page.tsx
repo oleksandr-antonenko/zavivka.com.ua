@@ -80,10 +80,12 @@ export default function Home() {
         <Reviews />
       </section>
       <Booking />
-      <section className="py-[60px] md:py-[150px]">
+      <section className="pb-[60px] md:pb-[150px]">
         <FAQ />
       </section>
-      <Contacts />
+      <section className="pb-[60px] md:pb-[150px]">
+        <Contacts />
+      </section>
     </>
   );
 }

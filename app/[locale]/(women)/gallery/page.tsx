@@ -1,11 +1,11 @@
-import { Booking } from '@/components/booking';
-import { Contacts } from '@/components/contacts';
-import BeforeAfterGallery from '@/components/GALLERY/BeforeAfter/BeforeAfterGallery';
-import SocialMasters from '@/components/GALLERY/social-masters/SocialMasters';
-import TrustGalleryContainer from '@/components/GALLERY/trust-gallery/trust-gallery-container';
-import { ReasonsContainer } from '@/components/reasons/ReasonsContainer';
-import OrderBlock from '@/components/team/components/OrderBlock';
-import { getLocale } from 'next-intl/server';
+import { Booking } from "@/components/booking";
+import { Contacts } from "@/components/contacts";
+import BeforeAfterGallery from "@/components/GALLERY/BeforeAfter/BeforeAfterGallery";
+import SocialMasters from "@/components/GALLERY/social-masters/SocialMasters";
+import TrustGalleryContainer from "@/components/GALLERY/trust-gallery/trust-gallery-container";
+import { ReasonsContainer } from "@/components/reasons/ReasonsContainer";
+import OrderBlock from "@/components/team/components/OrderBlock";
+import { getLocale } from "next-intl/server";
 
 export async function generateMetadata() {
   const locale = await getLocale();
@@ -13,14 +13,14 @@ export async function generateMetadata() {
   const canonical = `${baseUrl}/${locale}/gallery`;
 
   return {
-    title: 'Галерея робіт салону Zavivka – результати наших майстрів',
+    title: "Галерея робіт салону Zavivka – результати наших майстрів",
     description:
       'Подивіться на результати роботи наших майстрів. Галерея "до та після" показує реальні трансформації наших клієнтів. Стильні стрижки, фарбування та укладки.',
     alternates: {
       canonical,
     },
     openGraph: {
-      title: 'Галерея робіт салону Zavivka | Результати наших майстрів',
+      title: "Галерея робіт салону Zavivka | Результати наших майстрів",
       description:
         'Реальні результати роботи наших майстрів. Галерея "до та після" показує трансформації наших клієнтів. Стильні стрижки, фарбування та укладки.',
       url: canonical,
@@ -29,10 +29,10 @@ export async function generateMetadata() {
           url: `${baseUrl}/galleryOpenGraph.webp`,
           width: 1200,
           height: 630,
-          alt: 'Галерея робіт салону Zavivka – результати наших майстрів',
+          alt: "Галерея робіт салону Zavivka – результати наших майстрів",
         },
       ],
-      type: 'website',
+      type: "website",
     },
   };
 }
@@ -59,7 +59,9 @@ const GalleryPage = () => {
       <section className="pb-[60px] xl:pb-[150px]">
         <Booking />
       </section>
-      <Contacts />
+      <section className="py-[60px] md:py-[150px]">
+        <Contacts />
+      </section>
     </>
   );
 };

@@ -1,5 +1,5 @@
-import { masters } from '@/lib/masters';
-import { routing } from '@/i18n/routing';
+import { masters } from "@/lib/masters";
+import { routing } from "@/i18n/routing";
 
 export default function sitemap() {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL; //заменить на валидный домен
@@ -8,16 +8,16 @@ export default function sitemap() {
 
   // Основные страницы
   const mainPages = [
-    '',
-    'carving',
-    'strizhka-kucheriv',
-    'cholovicha-zavivka',
-    'korektsiya-zavivki',
-    'likuvannya-kucheriv',
-    'plyazhna-khvylia',
-    'gallery',
-    'team',
-    'cholovicha-zavivka/team-men',
+    "",
+    "carving",
+    "strizhka-kucheriv",
+    "cholovicha-zavivka",
+    "korektsiya-zavivki",
+    "likuvannya-kucheriv",
+    "plyazhna-khvylia",
+    "gallery",
+    "team",
+    "cholovicha-zavivka/team-men",
   ];
 
   // Генерируем URL для всех локалей и страниц
@@ -25,8 +25,8 @@ export default function sitemap() {
     mainPages.map((page) => ({
       url: `${baseUrl}/${locale}/${page}`,
       lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: page === '' ? 1 : 0.8,
+      changeFrequency: "weekly",
+      priority: page === "" ? 1 : 0.8,
     })),
   );
 
@@ -34,7 +34,7 @@ export default function sitemap() {
     masters.map((master) => ({
       url: `${baseUrl}/${locale}/team/${master.slug}`,
       lastModified: currentDate,
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.6,
     })),
   );
@@ -44,7 +44,7 @@ export default function sitemap() {
     masters.map((master) => ({
       url: `${baseUrl}/${locale}/cholovicha-zavivka/team-men/${master.slug}`,
       lastModified: currentDate,
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.6,
     })),
   );

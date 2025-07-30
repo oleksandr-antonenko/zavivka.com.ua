@@ -1,10 +1,10 @@
-import ConsultationContainer from '@/components/consultation/consultation-container';
-import { Contacts } from '@/components/contacts';
-import { FAQ } from '@/components/faq';
-import DynamicTeamForMenContainer from '@/components/FOR-MEN/dynamicPageTeamForMen/dynamic-team-for-men-container';
-import { masters } from '@/lib/masters';
-import { Metadata } from 'next';
-import { getLocale } from 'next-intl/server';
+import ConsultationContainer from "@/components/consultation/consultation-container";
+import { Contacts } from "@/components/contacts";
+import { FAQ } from "@/components/faq";
+import DynamicTeamForMenContainer from "@/components/FOR-MEN/dynamicPageTeamForMen/dynamic-team-for-men-container";
+import { masters } from "@/lib/masters";
+import { Metadata } from "next";
+import { getLocale } from "next-intl/server";
 
 export async function generateMetadata({
   params,
@@ -18,8 +18,8 @@ export async function generateMetadata({
 
   if (!master) {
     return {
-      title: 'Майстер не знайдений',
-      description: 'Інформація про цього майстра відсутня.',
+      title: "Майстер не знайдений",
+      description: "Інформація про цього майстра відсутня.",
     };
   }
 
@@ -43,7 +43,7 @@ export async function generateMetadata({
           alt: `${master.name} – ${master.category}`,
         },
       ],
-      type: 'profile',
+      type: "profile",
     },
   };
 }
@@ -70,7 +70,7 @@ const DynamicTeamForMenPage = ({ params }: { params: { slug: string } }) => {
       <section className="pb-[60px] md:pb-[150px]">
         <FAQ />
       </section>
-      <section>
+      <section className="py-[60px] md:py-[150px]">
         <Contacts />
       </section>
     </>

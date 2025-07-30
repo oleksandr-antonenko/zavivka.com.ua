@@ -1,6 +1,6 @@
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
-import { menNav } from '@/components/header/main-header';
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { menNav } from "@/components/header/main-header";
 
 export default function MenLayout({
   children,

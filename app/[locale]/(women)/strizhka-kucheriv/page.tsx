@@ -1,10 +1,10 @@
-import { Booking } from '@/components/booking';
-import { Contacts } from '@/components/contacts';
-import { Prices } from '@/components/prices';
-import StrizhkaSliderContiner from '@/components/STRIZHKA-KUCHERIV/strizhka-kucheriv-slider/strizhka-slider-continer';
-import StrizhkaKucherivContainer from '@/components/STRIZHKA-KUCHERIV/strizhka-kucheriv-wrapper/strizhka-kucheriv-container';
-import { getLocale } from 'next-intl/server';
-import BannerForAllPages from '@/components/banner/banner-for-all-pages';
+import { Booking } from "@/components/booking";
+import { Contacts } from "@/components/contacts";
+import { Prices } from "@/components/prices";
+import StrizhkaSliderContiner from "@/components/STRIZHKA-KUCHERIV/strizhka-kucheriv-slider/strizhka-slider-continer";
+import StrizhkaKucherivContainer from "@/components/STRIZHKA-KUCHERIV/strizhka-kucheriv-wrapper/strizhka-kucheriv-container";
+import { getLocale } from "next-intl/server";
+import BannerForAllPages from "@/components/banner/banner-for-all-pages";
 
 export async function generateMetadata() {
   const locale = await getLocale();
@@ -12,26 +12,26 @@ export async function generateMetadata() {
   const canonical = `${baseUrl}/${locale}/strizhka-kucheriv`;
 
   return {
-    title: 'Стрижка кучерявого волосся у Києві',
+    title: "Стрижка кучерявого волосся у Києві",
     description:
-      'Професійна стрижка кучерявого волосся в центрі Києва. Індивідуальний підхід до кожного типу завитків, ідеальна форма та легка укладка без щоденних зусиль.',
+      "Професійна стрижка кучерявого волосся в центрі Києва. Індивідуальний підхід до кожного типу завитків, ідеальна форма та легка укладка без щоденних зусиль.",
     alternates: {
       canonical,
     },
     openGraph: {
-      title: 'Стрижка кучерявого волосся у Києві | Салон на Хрещатику',
+      title: "Стрижка кучерявого волосся у Києві | Салон на Хрещатику",
       description:
-        'Майстри, які спеціалізуються саме на кучерях. Підбір форми, збереження текстури, комфортна атмосфера та довготривалий результат без шкоди волоссю.',
+        "Майстри, які спеціалізуються саме на кучерях. Підбір форми, збереження текстури, комфортна атмосфера та довготривалий результат без шкоди волоссю.",
       url: canonical,
       images: [
         {
           url: `${baseUrl}/strizhkaOpenGraph.webp`, // замените на изображение, связанное с кучерявими стрижками
           width: 1200,
           height: 630,
-          alt: 'Стрижка кучерявого волосся у Києві',
+          alt: "Стрижка кучерявого волосся у Києві",
         },
       ],
-      type: 'article',
+      type: "article",
     },
   };
 }
@@ -59,7 +59,9 @@ const StrizhkaKucherivPage = () => {
       <section className="pb-[60px] xl:pb-[150px]">
         <Booking isСurlСutting={true} />
       </section>
-      <Contacts />
+      <section className="py-[60px] md:py-[150px]">
+        <Contacts />
+      </section>
     </>
   );
 };

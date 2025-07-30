@@ -1,11 +1,11 @@
-import { Booking } from '@/components/booking';
-import { Contacts } from '@/components/contacts';
-import PlyazhnaKhvyliaSliderSliderContainer from '@/components/PLYAZHNA-KHVYLIA/plyazhna-khvylia-slider/plyazhna-khvilya-slider-container';
-import PlyazhnaKhvyliaListContainer from '@/components/PLYAZHNA-KHVYLIA/plyazhna-khvylia-wrapper/plyazhna-khvylia-container';
-import { Prices } from '@/components/prices';
-import ModernTrustContainer from '@/components/trust/modern-trust/modern-trust-container';
-import { getLocale } from 'next-intl/server';
-import BannerForAllPages from '@/components/banner/banner-for-all-pages';
+import { Booking } from "@/components/booking";
+import { Contacts } from "@/components/contacts";
+import PlyazhnaKhvyliaSliderSliderContainer from "@/components/PLYAZHNA-KHVYLIA/plyazhna-khvylia-slider/plyazhna-khvilya-slider-container";
+import PlyazhnaKhvyliaListContainer from "@/components/PLYAZHNA-KHVYLIA/plyazhna-khvylia-wrapper/plyazhna-khvylia-container";
+import { Prices } from "@/components/prices";
+import ModernTrustContainer from "@/components/trust/modern-trust/modern-trust-container";
+import { getLocale } from "next-intl/server";
+import BannerForAllPages from "@/components/banner/banner-for-all-pages";
 
 export async function generateMetadata() {
   const locale = await getLocale();
@@ -13,26 +13,26 @@ export async function generateMetadata() {
   const canonical = `${baseUrl}/${locale}/plyazhna-khvylia`;
 
   return {
-    title: 'Пляжна хвиля у Києві – природні локони без зусиль',
+    title: "Пляжна хвиля у Києві – природні локони без зусиль",
     description:
-      'Пляжна хвиля (Beach Waves) – легка завивка, яка створює ефект недбалої текстури. Ідеальний варіант для тих, хто мріє про обʼєм і рух волосся без щоденного стайлінгу.',
+      "Пляжна хвиля (Beach Waves) – легка завивка, яка створює ефект недбалої текстури. Ідеальний варіант для тих, хто мріє про обʼєм і рух волосся без щоденного стайлінгу.",
     alternates: {
       canonical,
     },
     openGraph: {
-      title: 'Пляжна хвиля у Києві | Локони, як після відпустки',
+      title: "Пляжна хвиля у Києві | Локони, як після відпустки",
       description:
-        'Салон на Хрещатику пропонує послугу “Пляжна хвиля” – мʼяка завивка, яка виглядає максимально природно. Універсальний образ для будь-якої довжини волосся.',
+        "Салон на Хрещатику пропонує послугу “Пляжна хвиля” – мʼяка завивка, яка виглядає максимально природно. Універсальний образ для будь-якої довжини волосся.",
       url: canonical,
       images: [
         {
           url: `${baseUrl}/plyazhnaOpenGraph.webp`,
           width: 1200,
           height: 630,
-          alt: 'Пляжна хвиля у Києві – салон на Хрещатику',
+          alt: "Пляжна хвиля у Києві – салон на Хрещатику",
         },
       ],
-      type: 'article',
+      type: "article",
     },
   };
 }
@@ -63,7 +63,9 @@ const PlyazhnaKhvyliaPage = () => {
       <section className="pb-[60px] xl:pb-[150px]">
         <Booking />
       </section>
-      <Contacts />
+      <section className="py-[60px] md:py-[150px]">
+        <Contacts />
+      </section>
     </>
   );
 };
