@@ -7,6 +7,7 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing, Locale } from "@/i18n/routing";
 import { IntervalPopUp } from "@/components/pop-up";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({
   subsets: ["cyrillic"],
@@ -113,6 +114,7 @@ export default async function RootLayout({
             <IntervalPopUp />
           </NextIntlClientProvider>
         </StoreProvider>
+        <GoogleAnalytics gaId="G-CWNCSHDK35" />
       </body>
     </html>
   );
