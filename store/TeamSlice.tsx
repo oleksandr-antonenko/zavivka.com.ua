@@ -35,7 +35,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 12000,
+          price: 8500,
         },
         {
           id: "02",
@@ -52,7 +52,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 12000,
+          price: 8500,
         },
         {
           id: "03",
@@ -69,7 +69,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 12000,
+          price: 8500,
         },
         {
           id: "04",
@@ -120,7 +120,7 @@ const initialState: TeamState = {
               </ul>
             </>
           ),
-          price: 12000,
+          price: 8500,
         },
       ],
       imagesOfWorksForMen: [
